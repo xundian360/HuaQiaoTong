@@ -2971,6 +2971,7 @@ containing a value of this type.
         public static final int weixin1_icon_1=0x7f0201a6;
         public static final int weixin2_icon_0=0x7f0201a7;
         public static final int weixin2_icon_1=0x7f0201a8;
+        public static final int xlistview_arrow=0x7f0201a9;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f050053;
@@ -3012,7 +3013,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050046;
         public static final int abs__title=0x7f05004e;
         public static final int abs__up=0x7f05003e;
-        public static final int action_settings=0x7f050247;
+        public static final int action_settings=0x7f050250;
         public static final int afterDescendants=0x7f050029;
         public static final int all=0x7f050027;
         public static final int always=0x7f050011;
@@ -3556,6 +3557,15 @@ containing a value of this type.
         public static final int viewStart=0x7f050021;
         public static final int visible=0x7f050004;
         public static final int wrap_content=0x7f050034;
+        public static final int xlistview_footer_content=0x7f050247;
+        public static final int xlistview_footer_hint_textview=0x7f050249;
+        public static final int xlistview_footer_progressbar=0x7f050248;
+        public static final int xlistview_header_arrow=0x7f05024e;
+        public static final int xlistview_header_content=0x7f05024a;
+        public static final int xlistview_header_hint_textview=0x7f05024c;
+        public static final int xlistview_header_progressbar=0x7f05024f;
+        public static final int xlistview_header_text=0x7f05024b;
+        public static final int xlistview_header_time=0x7f05024d;
         public static final int yes=0x7f050023;
     }
     public static final class integer {
@@ -3672,6 +3682,8 @@ containing a value of this type.
         public static final int sherlock_spinner_dropdown_item=0x7f03006a;
         public static final int sherlock_spinner_item=0x7f03006b;
         public static final int slidingmenumain=0x7f03006c;
+        public static final int xlistview_footer=0x7f03006d;
+        public static final int xlistview_header=0x7f03006e;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -3716,7 +3728,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f07000c;
-        public static final int action_settings=0x7f070116;
+        public static final int action_settings=0x7f07011c;
         public static final int anim_scale=0x7f0700f9;
         public static final int app_name=0x7f070000;
         public static final int b00v00_input_line_hint=0x7f07004c;
@@ -3926,10 +3938,10 @@ containing a value of this type.
         public static final int comm_get_route_bus_info=0x7f0700e7;
         public static final int common_btn_cancel=0x7f0700fa;
         public static final int common_btn_enter=0x7f0700fb;
-        public static final int common_call_phone_formart_error=0x7f07010e;
+        public static final int common_call_phone_formart_error=0x7f070114;
         public static final int common_city=0x7f0700f5;
-        public static final int common_data_other_is_pressing=0x7f07010f;
-        public static final int common_data_pressing=0x7f07010d;
+        public static final int common_data_other_is_pressing=0x7f070115;
+        public static final int common_data_pressing=0x7f070113;
         public static final int common_p_city=0x7f0700f6;
         public static final int common_shear_pengyou=0x7f0700f3;
         public static final int common_shear_weibo=0x7f0700f4;
@@ -3946,7 +3958,7 @@ containing a value of this type.
         public static final int foursquare=0x7f07002d;
         public static final int google_plus_client_inavailable=0x7f070016;
         public static final int googleplus=0x7f07002c;
-        public static final int hello_world=0x7f070117;
+        public static final int hello_world=0x7f07011d;
         public static final int instagram=0x7f070034;
         public static final int instagram_client_inavailable=0x7f070019;
         public static final int kaixin=0x7f070022;
@@ -3956,24 +3968,24 @@ containing a value of this type.
         public static final int mail_my_life_text=0x7f070036;
         public static final int mail_tittle_text=0x7f070035;
         public static final int mail_use_car_text=0x7f070039;
-        public static final int message_cancel_download=0x7f07010b;
-        public static final int message_download_complete=0x7f07010c;
-        public static final int message_error_download=0x7f070109;
-        public static final int message_error_get_weather=0x7f070101;
-        public static final int message_error_google_map_unuse=0x7f070108;
-        public static final int message_error_network=0x7f070106;
-        public static final int message_error_network_num1=0x7f070107;
-        public static final int message_error_no_point=0x7f070105;
-        public static final int message_error_unzip=0x7f07010a;
-        public static final int message_gps=0x7f070102;
-        public static final int message_location_error=0x7f070104;
-        public static final int message_network=0x7f070103;
-        public static final int msg_is_first_page=0x7f070115;
-        public static final int msg_is_last_page=0x7f070114;
-        public static final int msg_no_shoucang_cancel=0x7f070111;
-        public static final int msg_no_shoucang_xianlu=0x7f070113;
-        public static final int msg_no_shoucang_zhandian=0x7f070112;
-        public static final int msg_shoucang_success=0x7f070110;
+        public static final int message_cancel_download=0x7f070111;
+        public static final int message_download_complete=0x7f070112;
+        public static final int message_error_download=0x7f07010f;
+        public static final int message_error_get_weather=0x7f070107;
+        public static final int message_error_google_map_unuse=0x7f07010e;
+        public static final int message_error_network=0x7f07010c;
+        public static final int message_error_network_num1=0x7f07010d;
+        public static final int message_error_no_point=0x7f07010b;
+        public static final int message_error_unzip=0x7f070110;
+        public static final int message_gps=0x7f070108;
+        public static final int message_location_error=0x7f07010a;
+        public static final int message_network=0x7f070109;
+        public static final int msg_is_first_page=0x7f07011b;
+        public static final int msg_is_last_page=0x7f07011a;
+        public static final int msg_no_shoucang_cancel=0x7f070117;
+        public static final int msg_no_shoucang_xianlu=0x7f070119;
+        public static final int msg_no_shoucang_zhandian=0x7f070118;
+        public static final int msg_shoucang_success=0x7f070116;
         public static final int neteasemicroblog=0x7f070027;
         public static final int pinterest=0x7f07002f;
         public static final int pinterest_client_inavailable=0x7f070018;
@@ -4017,6 +4029,12 @@ containing a value of this type.
         /**  新浪 Secret 
          */
         public static final int weixin_key=0x7f070100;
+        public static final int xlistview_footer_hint_normal=0x7f070105;
+        public static final int xlistview_footer_hint_ready=0x7f070106;
+        public static final int xlistview_header_hint_loading=0x7f070103;
+        public static final int xlistview_header_hint_normal=0x7f070101;
+        public static final int xlistview_header_hint_ready=0x7f070102;
+        public static final int xlistview_header_last_time=0x7f070104;
         public static final int youdao=0x7f070029;
     }
     public static final class style {
