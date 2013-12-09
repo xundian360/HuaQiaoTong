@@ -1,0 +1,173 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:id="@+id/b01v01DetailCallLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@color/b01_v01_cyan_blue"
+        android:padding="10dp" >
+        
+        <LinearLayout 
+            android:id="@+id/b01v01CallCup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"  />
+        
+        <ImageButton 
+            android:id="@+id/b01v01DetailCallBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@color/com_transparent"
+            android:src="@drawable/b01v01_call_phone_logo" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp" >
+
+            <ImageView
+                android:id="@+id/b01v01DetailTimeLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b01v01_time_logo" />
+
+            <TextView
+                android:id="@+id/b01v01DetailTimeTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="@string/b01v01_detail_time_tittle"
+                android:textColor="@color/dark" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/b01v01DetailTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:padding="3dp"
+            android:text="12:00-06:00"
+            android:textColor="@color/text_color_2" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/comm_line_1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp" >
+
+            <ImageView
+                android:id="@+id/b01v01DetailImpLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b01v01_time_logo" />
+
+            <TextView
+                android:id="@+id/b01v01DetailImpTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="@string/b01v01_detail_imp_tittle"
+                android:textColor="@color/dark" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="8dp" >
+
+            <TextView
+                android:id="@+id/b01v01DetailImp1"
+                style="@style/B01v01ImpTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/b01_v01_red_pink"
+                android:text="@string/b01v01_detail_imp_1"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/b01v01DetailImp0"
+                style="@style/B01v01ImpTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@+id/b01v01DetailImp1"
+                android:background="@android:color/darker_gray"
+                android:text="@string/b01v01_detail_imp_0"
+                android:textColor="@color/dark" />
+
+            <TextView
+                android:id="@+id/b01v01DetailImp2"
+                style="@style/B01v01ImpTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@+id/b01v01DetailImp1"
+                android:background="@color/b01_v01_light_brown"
+                android:text="@string/b01v01_detail_imp_2"
+                android:textColor="@color/dark" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/comm_line_1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/b01v01DetailCommentLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b01v01_time_logo" />
+
+        <TextView
+            android:id="@+id/b01v01DetailCommentTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="@string/b01v01_button_comment"
+            android:textColor="@color/dark" />
+    </LinearLayout>
+
+</LinearLayout>

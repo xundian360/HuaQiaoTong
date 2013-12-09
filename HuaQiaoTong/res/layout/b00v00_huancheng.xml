@@ -1,0 +1,179 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/com_transparent"
+    android:padding="10dp" >
+
+    <!-- 底部操作按钮 -->
+
+    <LinearLayout
+        android:id="@+id/b00v00HuanchengSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/b00_v00_panal_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:weightSum="2" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/b00v00_search_bg_0"
+                    android:gravity="center_vertical"
+                    android:padding="5dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_btn_search" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/b00v00FromText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/com_transparent"
+                        android:completionThreshold="1"
+                        android:dropDownWidth="match_parent"
+                        android:gravity="center_vertical"
+                        android:hint="@string/b00v00_input_line_hint"
+                        android:singleLine="true" />
+
+                    <ImageView
+                        android:id="@+id/b00v00FromDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:src="@drawable/b00v00_input_delete_img" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/b00v00_search_bg_0"
+                    android:gravity="center_vertical"
+                    android:padding="5dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_btn_search" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/b00v00ToText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/com_transparent"
+                        android:completionThreshold="1"
+                        android:dropDownWidth="match_parent"
+                        android:gravity="center_vertical"
+                        android:hint="@string/b00v00_input_line_hint"
+                        android:singleLine="true" />
+
+                    <ImageView
+                        android:id="@+id/b00v00ToDelete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:src="@drawable/b00v00_input_delete_img" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/b00v00Switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/b00v00_switch_btn_bg_0"
+                android:src="@drawable/b00_v00_switch_big" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/b00v00HuanchengSearch"
+            style="@style/B04v01LoginBtnTheme1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b00v00_search_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/B00v00ButtonPanalStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b00v00HuanchengSearchLayout" >
+
+        <TextView
+            style="@style/B00v00ItemInfoStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:text="@string/b00v00_station_input_info" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b00v00_line_1" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_switch_input_1" />
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_switch_input_2" />
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_switch_input_3" />
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_switch_input_4" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

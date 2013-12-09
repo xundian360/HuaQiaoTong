@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+    
+    <!-- Tittle -->
+    <include 
+        android:id="@+id/b01v02TittleLayout"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+        layout="@layout/comm_huancheng_select"/>
+    
+    <!-- 检索明细 -->
+	<LinearLayout 
+	    android:id="@+id/b01v02DetailLayout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal"
+	    android:layout_below="@+id/b01v02TittleLayout" />
+
+</RelativeLayout>

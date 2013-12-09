@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="b01v00_price_text">人均</string>
+    
+    <string name="b01v01_tittle_hint">关键字  %s名</string>
+    
+    <string name="b01v01_1_tittle_text">饭店</string>
+    <string name="b01v01_1_tittle_key">10001</string>
+    <string name="b01v01_2_tittle_text">KTV</string>
+    <string name="b01v01_2_tittle_key">10002</string>
+    <string name="b01v01_3_tittle_text">宾馆</string>
+    <string name="b01v01_3_tittle_key">10003</string>
+
+    <string-array name="b01v01_1_nav">
+        <item>菜系</item>
+        <item>人均</item>
+        <item>人气</item>
+    </string-array>
+    <string-array name="b01v01_2_nav">
+        <item>人均</item>
+        <item>人气</item>
+    </string-array>
+    <string-array name="b01v01_3_nav">
+        <item>价格列表</item>
+        <item>人气</item>
+    </string-array>
+    
+    <string-array name="b01v01_1_nav_1_text">
+        <item>家常菜</item>
+        <item>湘菜</item>
+        <item>东北菜</item>
+        <item>川菜</item>
+        <item>火锅</item>
+        <item>海鲜</item>
+        <item>大闸蟹</item>
+        <item>面包/糕点</item>
+        <item>小吃</item>
+    </string-array>
+    <string-array name="b01v01_1_nav_1_key">
+        <item>10001001001</item>
+        <item>10001001002</item>
+        <item>10001001003</item>
+        <item>10001001004</item>
+        <item>10001001005</item>
+        <item>10001001006</item>
+        <item>10001001007</item>
+        <item>10001001008</item>
+        <item>10001001009</item>
+    </string-array>
+    <string-array name="b01v01_1_nav_2_text">
+        <item>10&#8211;20</item>
+        <item>20&#8211;50</item>
+        <item>50&#8211;100</item>
+        <item>100&#8211;200</item>
+        <item>200以上</item>
+    </string-array>
+    <string-array name="b01v01_1_nav_2_key">
+        <item>10001002001</item>
+        <item>10001002002</item>
+        <item>10001002003</item>
+        <item>10001002004</item>
+        <item>10001002005</item>
+    </string-array>
+    <string-array name="b01v01_1_nav_3_text">
+        <item>5人以下</item>
+        <item>5&#8211;10人</item>
+        <item>10&#8211;30人</item>
+        <item>30&#8211;100人</item>
+        <item>100人以上</item>
+    </string-array>
+    <string-array name="b01v01_1_nav_3_key">
+        <item>10001003001</item>
+        <item>10001003002</item>
+        <item>10001003003</item>
+        <item>10001003004</item>
+        <item>10001003005</item>
+    </string-array>
+    <string-array name="b01v01_2_nav_1_text">
+        <item>10&#8211;20</item>
+        <item>20&#8211;50</item>
+        <item>50&#8211;100</item>
+        <item>100&#8211;200</item>
+        <item>200以上</item>
+    </string-array>
+    <string-array name="b01v01_2_nav_1_key">
+        <item>10002001001</item>
+        <item>10002001002</item>
+        <item>10002001003</item>
+        <item>10002001004</item>
+        <item>10002001005</item>
+    </string-array>
+    <string-array name="b01v01_2_nav_2_text">
+        <item>5人以下</item>
+        <item>5&#8211;10人</item>
+        <item>10&#8211;30人</item>
+        <item>30&#8211;100人</item>
+        <item>100人以上</item>
+    </string-array>
+    <string-array name="b01v01_2_nav_2_key">
+        <item>10002002001</item>
+        <item>10002002002</item>
+        <item>10002002003</item>
+        <item>10002002004</item>
+        <item>10002002005</item>
+    </string-array>
+    <string-array name="b01v01_3_nav_1_text">
+        <item>100元以下</item>
+        <item>100&#8211;199元</item>
+        <item>199&#8211;199元</item>
+        <item>300&#8211;500元</item>
+        <item>500元以上</item>
+    </string-array>
+    <string-array name="b01v01_3_nav_1_key">
+        <item>10003001001</item>
+        <item>10003001002</item>
+        <item>10003001003</item>
+        <item>10003001004</item>
+        <item>10003001005</item>
+    </string-array>
+    <string-array name="b01v01_3_nav_2_text">
+        <item>5人以下</item>
+        <item>5&#8211;10人</item>
+        <item>10&#8211;30人</item>
+        <item>30&#8211;100人</item>
+        <item>100人以上</item>
+    </string-array>
+    <string-array name="b01v01_3_nav_2_key">
+        <item>10003002001</item>
+        <item>10003002002</item>
+        <item>10003002003</item>
+        <item>10003002004</item>
+        <item>10003002005</item>
+    </string-array>
+
+    <string name="b01v01_button_comment">评论</string>
+    <string name="b01v01_button_shear">分享</string>
+    <string name="b01v01_button_currection">纠错</string>
+    <string name="b01v01_text_tittle_ktv">KTV</string>
+    <string name="b01v01_text_show_more">点击展开</string>
+    <string name="b01v01_button_from">从这里去</string>
+    <string name="b01v01_button_to">从这出发</string>
+    <string name="b01v01_button_search">在附近找</string>
+    <string name="b01v01_button_save">&#160;&#160;&#160;&#160;订阅&#160;&#160;&#160;&#160;</string>
+    <string name="b01v01_detail_time_tittle">营业时间</string>
+    <string name="b01v01_detail_imp_tittle">大家印象</string>
+    <string name="b01v01_detail_imp_0">不好</string>
+    <string name="b01v01_detail_imp_0_1">不满意</string>
+    <string name="b01v01_detail_imp_1">好印象</string>
+    <string name="b01v01_detail_imp_1_1">满意</string>
+    <string name="b01v01_detail_imp_2">一般</string>
+    <string name="b01v03_tittle_text">我去过%s</string>
+    
+    <string name="b01v04_detail_text">详情</string>
+    <string name="b01v04_detail_call_text">电话</string>
+    <string name="b01v04_detail_line_text">到这去</string>
+
+</resources>

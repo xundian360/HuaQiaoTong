@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/CommonPanddingTheme2"
+    android:background="@android:color/white" >
+	
+    <TextView 
+        android:id="@+id/boov00HCPioTittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="国际华城" />
+    
+    <TextView 
+        android:id="@+id/boov00HCPioAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/text_color_2"
+        android:singleLine="true"
+        android:text="昆山市绿地大道111号" />
+</LinearLayout>

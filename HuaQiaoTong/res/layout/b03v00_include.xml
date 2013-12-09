@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@drawable/b03_v00_tittle_1"
+    android:orientation="horizontal"
+    android:weightSum="3" >
+
+    <LinearLayout
+        android:id="@+id/b03v00GroupL"
+        style="@style/B03v00GroupItemTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/b03v00LText"
+            style="@style/B03v00GroupItemTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b03v00_text_group_l" />
+
+        <ImageView
+            android:id="@+id/b03v00LImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b03v00_group_line_0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/b03v00GroupM"
+        style="@style/B03v00GroupItemTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/b03v00MText"
+            style="@style/B03v00GroupItemTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b03v00_text_group_m"
+            android:textColor="@color/b03_v01_group_tittle_color_1" />
+
+        <ImageView
+            android:id="@+id/b03v00MImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b03v00_group_line_1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/b03v00GroupR"
+        style="@style/B03v00GroupItemTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/b03v00RText"
+            style="@style/B03v00GroupItemTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b03v00_text_group_r" />
+
+        <ImageView
+            android:id="@+id/b03v00RImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b03v00_group_line_0" />
+    </LinearLayout>
+ </LinearLayout>

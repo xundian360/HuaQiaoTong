@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/b00v00XianluItemLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b00v01_gongjian_logo"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/b00v00XianluItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="易买得*麦当劳"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/b00v00XianluItemDir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="易买得*麦当劳"
+            android:textColor="@color/text_color_2"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/b00v00XianluItemDir2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="方向"
+            android:textColor="@color/text_color_2"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/b00v00XianluSaveFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b00v02_no_shuocang_btn" />
+
+</LinearLayout>

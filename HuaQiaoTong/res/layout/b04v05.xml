@@ -1,0 +1,179 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/b04v03_bg_color" >
+
+    <RelativeLayout
+        android:id="@+id/b04v05TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/commonforum_bg"
+        android:gravity="center_vertical"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/b04v05CancelBtn"
+            style="@style/CommonTittleSubTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b04v04_tittle_return_text"
+            android:textColor="@color/b04v05_return_text_color" />
+
+        <TextView
+            android:id="@+id/b04v05Tittle"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/b04v05_tittle_text"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/b04v05BtnsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b04v05TittleLayout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/b04v05ItemKtvBtn"
+            style="@style/B04v05ItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b04v05_layout_top_bg" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b04v05_item_ktv_color_bg"
+                android:src="@drawable/b04v05_item_ktv_img" />
+
+            <TextView
+                style="@style/B04v05ItemTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b04v05_item_text_ktv" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b04v04_to_right_arrow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/b04v05ItemMovieBtn"
+            style="@style/B04v05ItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b04v05_layout_top_bg" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b04v05_item_movie_color_bg"
+                android:src="@drawable/b04v05_item_movie_img" />
+
+            <TextView
+                style="@style/B04v05ItemTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b04v05_item_text_movie" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b04v04_to_right_arrow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/b04v05ItemMeishiBtn"
+            style="@style/B04v05ItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b04v05_layout_top_bg" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b04v05_item_meishi_color_bg"
+                android:src="@drawable/b04v05_item_meishi_img" />
+
+            <TextView
+                style="@style/B04v05ItemTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b04v05_item_text_meishi" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b04v04_to_right_arrow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/b04v05ItemSupperBtn"
+            style="@style/B04v05ItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b04v05_layout_top_bg" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b04v05_item_supper_color_bg"
+                android:src="@drawable/b04v05_item_supper_img" />
+
+            <TextView
+                style="@style/B04v05ItemTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b04v05_item_text_supper" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b04v04_to_right_arrow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/b04v05ItemUseCarBtn"
+            style="@style/B04v05ItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b04v05_layout_bottom_bg" >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b04v05_item_use_car_color_bg"
+                android:src="@drawable/b04v05_item_use_car" />
+
+            <TextView
+                style="@style/B04v05ItemTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b04v05_item_text_use_car" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b04v04_to_right_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

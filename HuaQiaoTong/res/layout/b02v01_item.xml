@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/b02v01ItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="王师傅"
+        android:layout_centerVertical="true"
+        android:textColor="@color/text_color_2"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/b02v01ItemName" >
+        
+        <ImageView 
+            android:id="@+id/b02v01ItemFavorateImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_favorate_img_0" />
+        
+        <TextView
+	        android:id="@+id/b02v01ItemFavorateNum"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="+115"
+	        android:textColor="@color/text_color_2"
+	        android:textSize="10sp" />
+        
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/b02v01ItemPlate"
+        style="@style/CommonPanddingTheme2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@drawable/b02v01_item_plate_bg"
+        android:text="苏E01265"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/b02v01ItemPhone"
+        style="@style/CommonPanddingTheme1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:background="@drawable/b02v01_item_phone_bg"
+        android:text="@string/b02v01_call_text"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+</RelativeLayout>

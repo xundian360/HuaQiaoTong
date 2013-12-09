@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- 百度Place检索URL -->
+	<string name="baidu_place_v2_search_url">http://api.map.baidu.com/place/v2/search</string>
+	
+	<!-- 百度黑车集散点信息 -->
+	<string name="baidu_place_cars_point">http://api.map.baidu.com/geodata/v2/poi/list?geotable_id=40464&amp;ak=9f0f9cb0cfbbe9443c3881338628b754&amp;page_size=50</string>
+	
+	<!-- 百度永久自行车信息信息 -->
+	<string name="baidu_place_yongjiu_bick_point">http://api.map.baidu.com/geodata/v2/poi/list?geotable_id=40502&amp;ak=9f0f9cb0cfbbe9443c3881338628b754&amp;page_size=200</string>
+	
+	<!-- LBP云数据 -->	
+	<integer-array name="baudu_lbs_tables">
+	    <item>40464</item>    <!-- 花桥黑车集散地  -->
+	    <item>40502</item>    <!-- 花桥公共自行车  -->
+	</integer-array>
+	
+	<!-- 消息 -->
+	<string name="baidu_msgs_earch_faild">搜索信息失败！</string>
+	
+</resources>

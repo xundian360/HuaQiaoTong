@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b02v03_bg" >
+
+    <!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b02v03TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/b00_v00_tittle_color"
+        android:padding="5dp" >
+
+        <ImageButton
+            android:id="@+id/b02v03RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/com_transparent"
+            android:padding="5dp"
+            android:src="@drawable/b00v00_return_0" />
+
+        <TextView
+            android:id="@+id/b02v03Tittle"
+            style="@style/CommonTittleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b02v03_tittle_text" />
+
+        <TextView
+            android:id="@+id/b02v03ToMap"
+            style="@style/CommonTittleRightTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/common_text_map" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/b02v03BickList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/b00_v00_panal_bg"
+        android:divider="@drawable/b00v02_item_line_img"
+        android:layout_below="@+id/b02v03TittleLayout" />
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:wiperswitch="http://schemas.android.com/apk/res/com.xundian360.huaqiaotong"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <TextView 
+        android:id="@+id/b02v00ItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="易买得" />
+    
+    <com.xundian360.huaqiaotong.view.com.WiperSwitch
+        android:id="@+id/b02v00ItemSwitch"
+        android:layout_width="wrap_content"
+      	android:layout_height="wrap_content"
+      	android:layout_marginLeft="5dp"
+        wiperswitch:bg_on="@drawable/b02v00_switch_off"
+        wiperswitch:bg_off="@drawable/b02v00_switch_on"
+        wiperswitch:slipper_btn="@drawable/b02v00_switch_off_slipper" />
+
+
+</LinearLayout>

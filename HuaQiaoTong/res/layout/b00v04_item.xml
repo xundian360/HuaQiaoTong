@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical" >
+    
+            <TextView 
+                android:id="@+id/b00v04ItemStationName"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="国际华城"
+		        android:textSize="25sp"
+		        android:textColor="@color/dark" />
+            
+             <TextView 
+                android:id="@+id/b00v04ItemStationAddressTittle"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/b00v04_text_bus_tops"
+		        android:textSize="20sp"
+		        android:visibility="gone"
+		        android:layout_marginTop="5dp"
+		        android:textColor="@color/text_color_2" />
+            
+             <TextView 
+                android:id="@+id/b00v04ItemStationAddress"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="地址：绿地大道，100号"
+		        android:textSize="20sp"
+		        android:layout_marginTop="2dp"
+		        android:textColor="@color/text_color_2" />
+             
+</LinearLayout>

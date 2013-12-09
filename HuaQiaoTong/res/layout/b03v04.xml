@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:pla="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b03_v00_main_bg" >
+    
+   <!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b03v04TittleLayout"
+        style="@style/CommonPanddingTheme1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/b03v04RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/b03v01_arrow" />
+
+        <TextView
+            style="@style/CommonTittleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b03v04_tittle_text" />
+    </RelativeLayout>
+
+    <com.huewu.pla.lib.MultiColumnListView
+        android:id="@+id/b03v04TieList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        pla:plaColumnNumber="2"
+        android:layout_below="@+id/b03v04TittleLayout"
+        pla:plaLandscapeColumnNumber="3" />
+
+</RelativeLayout>

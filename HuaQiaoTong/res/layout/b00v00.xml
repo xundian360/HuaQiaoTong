@@ -1,0 +1,77 @@
+<com.xundian360.huaqiaotong.view.com.ResizeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/b00v00RootLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/b00_v00_main_bg" >
+
+    <!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b00v00Tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@color/b00_v00_tittle_color" >
+
+        <ImageButton
+            android:id="@+id/b00v00RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/com_transparent"
+            android:padding="5dp"
+            android:src="@drawable/b00v00_return_0" />
+
+        <TextView
+            android:id="@+id/b00v00TittleText"
+            style="@style/CommonTittleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b00v00_station_search" />
+
+    </RelativeLayout>
+
+    <!-- 主题 -->
+    <RelativeLayout
+        android:id="@+id/b00v00MainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/b00v00Bottom"
+        android:layout_below="@+id/b00v00Tittle" />
+    
+    <!-- 底部按钮 -->
+    <LinearLayout
+        android:id="@+id/b00v00Bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/b00v00ZhanDianBtn"
+            style="@style/CommonButtonItemBlueTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/b00v00_station_search" />
+
+        <Button
+            android:id="@+id/b00v00XianluBtn"
+            style="@style/CommonButtonItemBlueTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/comm_buttom_blue_1"
+            android:text="@string/b00v00_line_search" />
+
+        <Button
+            android:id="@+id/b00v00HuanChengBtn"
+            style="@style/CommonButtonItemBlueTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/b00v00_switch_search" />
+    </LinearLayout>
+
+</com.xundian360.huaqiaotong.view.com.ResizeLayout>

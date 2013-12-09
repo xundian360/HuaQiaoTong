@@ -1,0 +1,164 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/b04v01TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/commonforum_bg_1"
+        android:gravity="center_vertical"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/b04v01CancelBtn"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/b04v01_tittle_cancle"
+            android:textColor="@color/b01_v01_light_brown"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/b04v01Tittle"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/b03v02_tittle_text"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/b04v01SubmitBtn"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:text="@string/b03v02_submit_text"
+            android:textColor="@color/b04_v02_light_blue"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/b03v02OperationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#A0E1E1E1"
+        android:orientation="horizontal" >
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:id="@+id/b03v02Thumbnails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp" >
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <CheckBox
+                android:id="@+id/b03v02AnonymousCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/b03v02_checkbox_selector"
+                android:text="@string/b03v02_anonymous_text"
+                android:textColor="@color/text_color_2" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/b03v02CallCamara"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:src="@drawable/b03v02_camara_btn" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/b03v02CallCamara"
+                    android:layout_toRightOf="@+id/b03v02CallCamara"
+                    android:src="@drawable/b03v02_extend_img" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/b03v02CallPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:src="@drawable/b03v02_phone_btn" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/b03v02CallPhoto"
+                    android:layout_toRightOf="@+id/b03v02CallPhoto"
+                    android:src="@drawable/b03v02_extend_img" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/b03v02GroupSelectBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b03v02_group_bg"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/b03v02GroupTittle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="花桥新闻" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/b03v02_group_select_arrow" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/b03v02PostsTittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b04v01TittleLayout"
+        android:background="@drawable/b03v02_tittle_bg"
+        android:hint="@string/b03v02_posts_tittle_hint"
+        android:singleLine="true"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/b03v02PostsMsg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/b03v02OperationLayout"
+        android:layout_below="@+id/b03v02PostsTittle"
+        android:background="@android:color/white"
+        android:gravity="top|left"
+        android:hint="@string/b03v02_posts_msg_hint"
+        android:padding="5dp" />
+
+</RelativeLayout>

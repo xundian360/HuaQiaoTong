@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/b03v00Frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/b03v00TittleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/commonforum_bg"
+            android:gravity="center_vertical"
+            android:padding="15dp" >
+
+            <ImageButton
+                android:id="@+id/b03v00SetttingBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b03v00_set_btn" />
+
+            <TextView
+                android:id="@+id/b03v00Tittle"
+                style="@style/CommonTittleTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="论坛•大头条"
+                android:textColor="@color/b01_v01_light_brown" />
+
+            <ImageButton
+                android:id="@+id/b03v00EditeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/b03v00SwitchBtn"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b03v00_edite_btn" />
+
+            <ImageButton
+                android:id="@+id/b03v00SwitchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/com_transparent"
+                android:src="@drawable/b03v00_switch_btn" />
+        </RelativeLayout>
+        
+        <RelativeLayout 
+            android:id="@+id/b03v00ViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b03v00TittleLayout">
+            
+            <ViewFlipper
+                android:id="@+id/b03v00TopViews"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"/>
+            
+            <LinearLayout 
+                android:id="@+id/b03v00TopViewsProcess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/b03v00TopViews"
+            	android:background="@color/b03_v01_group_color"   />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/b03v00TalkList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/b03v00ViewPager" />
+    </RelativeLayout>
+
+</FrameLayout>

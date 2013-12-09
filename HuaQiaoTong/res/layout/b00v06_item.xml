@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@color/com_transparent" >
+
+        <ImageView
+            android:id="@+id/b00v06ItemImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b00v01_qidian_logo" />
+
+        <TextView
+            android:id="@+id/b00v06ItemText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:singleLine="true"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:text="@string/b00v06_tittle_text" />
+ 
+</LinearLayout>

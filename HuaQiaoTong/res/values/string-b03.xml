@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="b03v00_error_msg">取得论坛数据失败</string>
+    
+    <string name="b03v00_msg_user_name">迅点信息</string>
+    <string name="b03v00_msg_user_disc">一句话简介</string>
+    
+    <string name="b03v00_text_group_l">住房、工作</string>
+    <string name="b03v00_text_group_m">火热</string>
+    <string name="b03v00_text_group_r">买卖</string>
+    
+    
+    <string name="b03v00_btn_login">登陆/注册</string>
+    <string name="b03v00_btn_self_center">个人中心</string>
+    
+    <string name="b03v00_btn_item_0">更多新闻</string>
+    <string name="b03v00_btn_item_1">更多朋友认识</string>
+    <string name="b03v00_btn_item_2">租售房源</string>
+    <string name="b03v00_btn_item_3">房屋装修</string>
+    <string name="b03v00_btn_item_4">招聘求职</string>
+    <string name="b03v00_btn_item_5">兼职信息</string>
+    
+    <string name="b03v00_btn_item_6">家电数码</string>
+    <string name="b03v00_btn_item_7">出行工具</string>
+    <string name="b03v00_btn_item_8">家具居家</string>
+    <string name="b03v00_btn_item_9">物品交换</string>
+    <string name="b03v00_btn_item_10">虚拟物品</string>
+    <string name="b03v00_btn_item_11">其他类别</string>
+    
+    <string name="b03v01_comment_text_hide">添加一条评论吧...</string>
+    <string name="b03v01_comment_submit_text">发送</string>
+    
+    <string name="b03v02_submit_text">提交</string>
+    <string name="b03v02_tittle_text">发表新帖</string>
+    
+    <string name="b03v02_anonymous_text">匿名发表</string>
+    
+    <string name="b03v02_posts_msg_hint">我是...</string>
+    <string name="b03v02_posts_tittle_hint">给帖子起个名字吧</string>
+    <string name="b03v02_group_select_tittle">请选择栏目</string>
+    
+    <string name="b03v04_tittle_text">头条新闻</string>
+    
+</resources>

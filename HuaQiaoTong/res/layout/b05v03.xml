@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/b04v03_bg_color" >
+
+    <RelativeLayout
+        android:id="@+id/b05v03TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/commonforum_bg"
+        android:gravity="center_vertical"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/b05v03CancelBtn"
+            style="@style/CommonTittleSubTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b04v04_tittle_return_text"
+            android:textColor="@color/b04v05_return_text_color" />
+
+        <TextView
+            android:id="@+id/b05v03Tittle"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/b05v03_contacts_tittle"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/b05v03FriendList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b05v03TittleLayout" />
+
+</RelativeLayout>

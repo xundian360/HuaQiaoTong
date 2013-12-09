@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <com.pagesuite.flowtext.FlowTextView
+        android:id="@+id/b03v00ItemFlowText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"  >
+
+        <ImageView
+            android:id="@+id/b03v00ItemImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/test_b03v00_img" />
+
+        <TextView
+            android:id="@+id/b03v00ItemTittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/b03v00ItemImg"
+            style="@style/B01v03ImpTextTheme" />
+    </com.pagesuite.flowtext.FlowTextView>
+
+    <!--
+<RelativeLayout 
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+            <ImageView
+            android:id="@+id/b03v00ItemImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/test_b03v00_img" />
+
+        <TextView
+            android:id="@+id/b03v00ItemTittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/b03v00ItemImg"
+            android:text="11111111111"
+            android:textColor="@android:color/black"
+            style="@style/B01v03ImpTextTheme"
+            android:padding="5dp" />
+    
+</RelativeLayout>
+-->
+    <LinearLayout
+        style="@style/CommonPanddingTheme2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/b03v00ItemFlowText"
+        android:gravity="right|center_vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/com_transparent"
+            android:paddingRight="5dp"
+            android:src="@drawable/b03v00_item_ren_logo" />
+
+        <TextView
+            android:id="@+id/b03v00ItemAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="匿名用户36831" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/com_transparent"
+            android:paddingLeft="15dp"
+            android:paddingRight="5dp"
+            android:src="@drawable/b03v00_item_comment_logo" />
+
+        <TextView
+            android:id="@+id/b03v00ItemCommentNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9366" />
+    </LinearLayout>
+
+</RelativeLayout>

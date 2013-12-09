@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/commonOverlayTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="华庭量贩KTV"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/commonOverlayDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="绿地大道10弄15楼1203"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/commonOverlayToHere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="规划线路" />
+
+        <Button
+            android:id="@+id/commonOverlayCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="电话" />
+    </LinearLayout>
+
+</LinearLayout>

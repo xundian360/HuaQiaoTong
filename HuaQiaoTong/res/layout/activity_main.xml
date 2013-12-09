@@ -1,0 +1,74 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:context=".MainActivity" >
+
+        <Button
+            android:id="@+id/mainToBusBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bus" />
+
+        <Button
+            android:id="@+id/mainToKtvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KTV" />
+
+        <Button
+            android:id="@+id/mainToResBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="饭馆" />
+
+        <Button
+            android:id="@+id/mainToHotBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="宾馆" />
+
+        <Button
+            android:id="@+id/mainTaxiBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="叫车" />
+
+        <Button
+            android:id="@+id/mainBickBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自行车" />
+
+        <Button
+            android:id="@+id/mainForumBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="论坛" />
+
+        <Button
+            android:id="@+id/mainLoginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登陆" />
+
+        <Button
+            android:id="@+id/mainLocationBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="附近" />
+
+        <Button
+            android:id="@+id/mainBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="首页" />
+    </LinearLayout>
+
+</ScrollView>

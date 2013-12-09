@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="com_transparent">#00000000</color>
+    <color name="dark">#FF000000</color>
+    
+    <color name="main_nav_1">#FF42B46A</color>
+    <color name="main_nav_2">#FFFF2C56</color>
+    <color name="main_nav_3">#FF75C8EB</color>
+    <color name="main_nav_4">#FFFF9400</color>
+    
+    <color name="main_nav_bg_m">#10000000</color>
+    <color name="main_nav_bg_s">#20000000</color>
+    <!--
+    <color name="text_color_2">#FF979797</color>
+    -->
+    <color name="text_color_2">#FF565656</color>
+    <!-- B00 -->
+    <color name="b00_v00_tittle_color">#BFFF5B42</color>
+    <color name="b00_v00_dialog_tittle_color">#FF90C52D</color>
+    <color name="text_color_history_item_num">#FFBDBDBD</color>
+	<color name="b00_v02_select_color">#FF30B8A6</color>
+	<color name="b00_v03_bus_nun_color">#FFDAAD4C</color>
+	<color name="b00_v03_bus_time_color">#FFEE345C</color>
+	<color name="b00_v00_panal_bg">#53000000</color>
+	<color name="b00_v00_switch_bg_color">#AF007AFF</color>
+	
+	<color name="b00_v02_item_color">#FFDF8109</color>
+	
+	<color name="b00_v02_forecast_item_color_0">#FFFF255E</color>
+	<color name="b00_v02_forecast_item_color_1">#FF83C5DE</color>
+	
+	<!-- 换乘 切换起始位置 -->
+	<color name="b00_v00_switch_bg_color_0">#FFFFC225</color>
+	<!-- 换乘 定位 -->
+	<color name="b00_v00_location_bg_color_0">#FF90C52D</color>
+	<!-- 换乘 搜索按钮颜色 -->
+	<color name="b00_v00_search_bg_color_0">#FF42C4F1</color>
+	
+	<color name="b01_v00_nav_blue">#FF3DB56E</color>
+	<color name="b01_v00_item_price_color">#FFFF941C</color>
+	
+	<!-- KTV电话 青色 -->
+	<color name="b01_v01_cyan_blue">#FF5DC592</color>
+	<!-- 印象背景2 浅棕色 -->
+	<color name="b01_v01_light_brown">#FFF3AB59</color>
+	<!-- 印象背景2 红粉色 -->
+	<color name="b01_v01_red_pink">#FFD96C93</color>
+	
+	<!-- 选择车辆1 酒红 -->
+	<color name="b02_v00_burgundy">#FFAC1849</color>
+	
+	<color name="b02_v00_daozhan_color">#FF2FB8A6</color>
+	
+	<!-- 底部颜色1  蓝色 -->
+	<color name="comm_buttom_blue_0">#9F42C4F1</color>
+	<color name="comm_buttom_blue_1">#9F0095C8</color>
+	
+	<!-- 同意条款 绿色 -->
+	<color name="b04_v01_green">#FF529E52</color>
+	
+	<!-- 提交 浅蓝色 -->
+	<color name="b04_v02_light_blue">#FF3792FF</color>
+	<!-- 组 淡红色 -->
+	<color name="b03_v01_group_color">#FFFF4D2F</color>
+	<color name="b03_v01_group_color_1">#FFFE2D55</color>
+	
+	<color name="b03_v01_group_tittle_color_0">#A0FFFFFF</color>
+	<color name="b03_v01_group_tittle_color_1">#FFFFFFFF</color>
+	
+	<color name="b03_v01_item_color_1">#FFFF951C</color>
+	<color name="b03_v01_item_color_2">#FFFF2954</color>
+	<color name="b03_v01_item_color_2_1">#8FFF2954</color>
+	<color name="b03_v01_item_color_3">#FFFF5B41</color>
+	<color name="b03_v01_item_color_5">#FF75C7EA</color>
+	<color name="b03_v01_item_color_5_1">#AF75C7EA</color>
+	<color name="b03_v01_item_color_6">#FF3EB56F</color>
+	<color name="b03_v01_item_color_6_1">#CF3EB56F</color>
+	
+	<!-- 按钮 蓝色 -->
+	<color name="b04_v02_button_color">#FF007AFF</color>
+	<color name="b04_v02_button_color_1">#FF0600FF</color>
+	
+	<color name="b01_v01_button_1_bg_0">#FFE67265</color>
+	<color name="b01_v01_button_2_bg_0">#FF7C4982</color>
+	<color name="b01_v01_button_3_bg_0">#FFD96C93</color>
+	<color name="b01_v01_button_4_bg_0">#FFF1CC59</color>
+	
+	<!-- 黑色半透明 -->
+	<color name="b03_v00_item_bg">#33000000</color>
+	<color name="b03_v00_left_item_bg">#FFE9E9E9</color>
+	<color name="b03_v00_left_item_self_center_bg">#FFFF5B40</color>
+	<color name="b03_v01_bottom_bg">#B0E1E1E1</color>
+	<color name="b03_v01_bottom_bg_color">#60FF951C</color>
+	<color name="b04v03_bg_color">#FFE6E6E6</color>
+	<color name="b04v03_text_color">#FF2585F4</color>
+	
+	<color name="b04v05_item_bg_color">#FFF2F2F2</color>
+	<color name="b04v05_item_border_color">#FFC8C8C8</color>
+	<color name="b04v05_return_text_color">#FFFC5D3F</color>
+	
+	<color name="b04v05_item_text_color">#FF5B5B5B</color>
+	<color name="b04v05_item_ktv_color">#FFFF2C55</color>
+	<color name="b04v05_item_movie_color">#FFFF5319</color>
+	<color name="b04v05_item_meishi_color">#FFFF9400</color>
+	<color name="b04v05_item_supper_color">#FF41B469</color>
+	<color name="b04v05_item_use_car_color">#FF75C7EC</color>
+	
+	<color name="b05v00_item_add_color">#FF4AD95D</color>
+	<color name="b05v00_item_search_color">#FFFF9400</color>
+	<color name="b05v00_item_hot_color">#FFFF2A56</color>
+	
+	<color name="b05v02_item_contacts_color">#FF3FC5F1</color>
+	<color name="b05v02_item_location_color">#FFFDAE5B</color>
+	
+</resources>

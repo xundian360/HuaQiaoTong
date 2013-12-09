@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="mail_tittle_text">生活如此简单</string>
+    <string name="mail_my_life_text">我的生活</string>
+    <string name="mail_hq_text">花桥论坛</string>
+    <string name="mail_chi_text">吃喝玩乐</string>
+    <string name="mail_use_car_text">我要用车</string>
+    
+    <string name="b00v00_station_search">站点查询</string>
+    <string name="b00v00_line_search">线路查询</string>
+    <string name="b00v00_switch_search">换乘查询</string>
+    
+    <string name="b00v00_search_text">搜索</string>
+    
+    <string name="b00v00_station_input_info">输入说明</string>
+    <string name="b00v00_line_input_1">1.请在输入框里输入线路名称,如:101</string>
+    <string name="b00v00_line_input_2">2.支持模糊查询,如输入"1",则跟"1"相关的线路会自动列出来供选择</string>
+    <string name="b00v00_line_input_3">3.系统将会列出所有符合的线路供你选择</string>
+    <string name="b00v00_line_input_4">4.点击您需要的路线，进入详情页面</string>
+    
+    <string name="b00v00_station_input_1">1.请在输入框里输入站点名称,如:麦当劳</string>
+    <string name="b00v00_station_input_2">2.支持模糊查询,如输入"mdl",则跟"麦当劳"相关的站点会自动列出来供选择</string>
+    <string name="b00v00_station_input_3">3.系统将会列出所有符合的站点供你选择</string>
+    <string name="b00v00_station_input_4">4.点击您需要的站点，进入详情页面</string>
+    
+    <string name="b00v00_switch_input_1">1.请输入起点和终点名称</string>
+    <string name="b00v00_switch_input_2">2.点击切换按钮，可对调起点和终点</string>
+    <string name="b00v00_switch_input_3">3.搜索后系统会自动显示最佳换乘方案</string>
+    <string name="b00v00_switch_input_4">4.结果中还有其它方案可供选择</string>
+    
+    <string name="b00v00_input_station_hint">输入站点</string>
+    <string name="b00v00_input_line_hint">输入线路</string>
+    
+    <string name="b00v00_tittle_text">公交</string>
+    <string name="b00v01_tittle_text">收藏夹</string>
+    <string name="b00v02_tittle_text">线路详情</string>
+    <string name="b00v02_forecast_text_0">预计%s分钟后到站</string>
+    <string name="b00v02_forecast_text_1">即将到站</string>
+    <string name="b00v02_switch_drection">反向</string>
+    <string name="b00v03_tittle_text">站点详情</string>
+    <string name="b00v03_detail_text">详细信息</string>
+    
+    <string name="b00v03_stopcount_0_text">未发车</string>
+    <string name="b00v03_stopcount_1_text">今日运营结束</string>
+    <string name="b00v03_stopcount_2_text">查询中</string>
+    
+    <string name="b00v03_item_bus_1_text">预计</string>
+    <string name="b00v03_item_bus_2_text">后到达</string>
+    
+    <string name="b00v04_tittle_text_0">请选择起点</string>
+    <string name="b00v04_tittle_text_1">请选择终点</string>
+    <string name="b00v05_tittle_text">共用%s种方案</string>
+    <string name="b00v06_tittle_text">详细线路图</string>
+    <string name="b00v05_fangan_text">方案%s：</string>
+    <string name="b00v05_other_fangan_text">其它方案</string>
+     <string name="b00v05_no_other_fangan_text">没有其它方案</string>
+     <string name="b00v05_no_select_fangan_text">当前显示方案即为选择方案</string>
+    
+	<string name="b00v03_get_net_bus_error">取得车辆信息失败</string>
+	<string name="b00v03_get_net_bus_empty">当前没有快到站的车辆信息</string>
+	
+	<string name="b00v04_text_bus_tops">停靠公交</string>
+	
+	<string name="b00v05_msg_huancheng_empty">未取得换乘信息</string>
+	
+	<string name="b00v05_template_huancheng_start"  formatted="false" >从%s出发，乘坐%s,经过%s站，在%s站下</string>
+	<string name="b00v05_template_huancheng_body" formatted="false" >，在%s站乘坐%s，经过%s站，在%s站下</string>
+</resources>

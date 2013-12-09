@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:xrigau="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/b03_v00_main_bg"
+    android:orientation="vertical" >
+
+    <com.xrigau.syncscrolling.view.EnhancedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <com.xrigau.syncscrolling.view.SynchronizedRelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#fff"
+                android:orientation="vertical"
+                xrigau:placeholderView="@+id/base_view"
+                xrigau:synchronizedView="@+id/synchronized_view" >
+
+                <LinearLayout
+                    android:id="@+id/top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/b03_v00_tittle_0"
+                    android:orientation="horizontal"
+                    android:padding="5dp" >
+
+                    <ImageView
+                        android:id="@+id/b03v00RetBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/b03_v00_return_btn" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical" >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right|center_vertical"
+                            android:orientation="vertical"
+                            android:padding="5dp" >
+
+                            <TextView
+                                android:id="@+id/b03v00UserName"
+                                style="@style/B03v00UserInfoTextTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/b03v00_msg_user_name"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/b03v00UserDis"
+                                style="@style/B03v00UserInfoTextTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/b03v00_msg_user_disc"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/b03v00UserLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/b03v00_user_logo_bg"
+                            android:padding="1dp"
+                            android:src="@drawable/b03v00_left_user_logo" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/base_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/b03_v00_tittle_1"
+                    android:layout_below="@+id/top" />
+
+				  <LinearLayout
+                    android:id="@+id/b03v00MainLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/base_view" />
+                <include
+                    android:id="@+id/synchronized_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/b03v00_include" />
+            </com.xrigau.syncscrolling.view.SynchronizedRelativeLayout>
+        </LinearLayout>
+    </com.xrigau.syncscrolling.view.EnhancedScrollView>
+
+</LinearLayout>

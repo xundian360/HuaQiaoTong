@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <!-- Tittle -->
+    <LinearLayout
+        android:id="@+id/b01v03TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b01v00_tittle_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageButton
+            android:id="@+id/b01v03Cance1Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/com_transparent"
+            android:padding="5dp"
+            android:src="@drawable/b01v03_cance1_0" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/b01v03_tittle_line" />
+
+        <TextView
+            android:id="@+id/b01v03OkTittleText"
+            style="@style/CommonTittleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/b01v03_tittle_text" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/b01v03_tittle_line" />
+
+        <ImageButton
+            android:id="@+id/b01v03OkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/com_transparent"
+            android:padding="5dp"
+            android:src="@drawable/b01v03_ok_0" />
+    </LinearLayout>
+
+    <!-- 明细 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b01v03TittleLayout"
+        android:paddingTop="10dp" >
+
+        <RelativeLayout
+            android:id="@+id/b01v01ImpLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical" >
+            <LinearLayout
+                android:id="@+id/b01v01ImpOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                style="@style/B01v03ImpContainerTheme"
+                android:background="@android:color/darker_gray" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/com_transparent"
+                    android:src="@drawable/b01v03_imp_img_0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/B01v03ImpTextTheme"
+                    android:text="@string/b01v01_detail_imp_2"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/b01v01ImpGood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/b01v01ImpOk"
+                android:layout_marginRight="10dp"
+                style="@style/B01v03ImpContainerTheme"
+                android:background="@color/b01_v01_red_pink" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/com_transparent"
+                    android:src="@drawable/b01v03_imp_img_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/B01v03ImpTextTheme"
+                    android:text="@string/b01v01_detail_imp_1_1"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+            
+           <LinearLayout
+                android:id="@+id/b01v01ImpNg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/b01v01ImpOk"
+                android:layout_marginLeft="10dp"
+                style="@style/B01v03ImpContainerTheme"
+                android:background="@android:color/darker_gray" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/com_transparent"
+                    android:src="@drawable/b01v03_imp_img_0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/B01v03ImpTextTheme"
+                    android:text="@string/b01v01_detail_imp_0_1"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+        
+        <EditText 
+            android:id="@+id/b01v01DetailImpMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b01v01ImpLayout"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:gravity="top|left"
+            android:background="@drawable/b01v03_edittext_bg_selector"
+            android:lines="8" />
+    </RelativeLayout>
+
+</RelativeLayout>

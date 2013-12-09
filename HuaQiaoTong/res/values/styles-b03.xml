@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <style name="B03v00UserInfoTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    <style name="B03v00GroupItemTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textColor">@color/b03_v01_group_tittle_color_0</item>
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:layout_centerHorizontal">true</item>
+    	<item name="android:layout_marginBottom">5dp</item>
+    </style>
+    
+   <style name="B03v00GroupItemTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:orientation">vertical</item>
+    	<item name="android:gravity">bottom|center_horizontal</item> 
+    	<item name="android:layout_weight">1</item> 
+    </style>
+    
+    <style name="B03v00ItemGroupTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:gravity">bottom</item> 
+    	<item name="android:padding">10dp</item> 
+    </style>
+    
+    <style name="B03v00ItemBtnTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:layout_weight">1</item> 
+    	<item name="android:orientation">vertical</item> 
+    	<item name="android:gravity">center</item> 
+    	<item name="android:paddingTop">10dp</item> 
+    	<item name="android:paddingBottom">10dp</item> 
+    </style>
+    
+    <style name="B03v00ItemBtnTextTheme" parent="@style/B03v00UserInfoTextTheme">
+    	<item name="android:textSize">25sp</item> 
+    	<item name="android:textStyle">bold</item> 
+    	<item name="android:paddingLeft">5dp</item> 
+    </style>
+    
+    <style name="B03v01SmallTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textSize">10sp</item>
+    	<item name="android:textColor">@color/text_color_2</item>
+    </style>
+    
+   <style name="B03v01CommonEditeTheme" parent="@style/B03v00UserInfoTextTheme">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+    </style>
+    
+      <style name="B03v01CommonEditeSubTheme" parent="@style/B03v00UserInfoTextTheme">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+    
+</resources>

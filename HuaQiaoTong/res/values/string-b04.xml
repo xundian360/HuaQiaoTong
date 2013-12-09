@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="b04v00_hint_user_name">邮箱/手机号</string>
+    <string name="b04v00_hint_user_pass">密码</string>
+    
+    <string name="b04v01_login_text">登陆</string>
+    <string name="b04v01_tittle_text">注册</string>
+	<string name="b04v01_tittle_cancle">取消</string>
+	<string name="b04v01_tittle_complete">完成</string>
+	
+	<string name="b04v01_msg_login_name_null">登录名不能为空</string>
+	<string name="b04v01_msg_login_pass_null">密码不能为空</string>
+	<string name="b04v01_msg_sign_success">注册成功</string>
+	<string name="b04v01_msg_login_error">登录失败</string>
+	
+	 <string name="b04v01_text_allow">已阅读并同意</string>
+	 <string name="b04v01_text_read_protocol">已阅读并同意</string>
+	 <string name="b04v01_text_private_protocol">隐私条款</string>
+	 
+	 <string name="b04v02_tittle_text">找回密码</string>
+	 <string name="b04v02_user_name">请输入邮箱/手机号</string>
+	 <string name="b04v02_btn_define">确定</string>
+	 
+	 <string name="b04v03_btn_friend_list">朋友列表</string>
+	<string name="b04v03_btn_edite_posts">发表新帖</string>
+	
+	<string name="b04v03_text_user_disc_tittle">简介：</string>
+	<string name="b04v03_text_user_disc_default">暂无简介</string>
+	
+	<string name="b04v03_text_user_xiangxi">详细资料</string>
+	<string name="b04v03_text_user_attention">关注</string>
+	<string name="b04v03_text_user_fan">粉丝</string>
+	
+	<string name="b04v03_text_commont_num">我发表的贴（%s）</string>
+	
+	<string name="b04v04_tittle_return_text">返回</string>
+	<string name="b04v04_tittle_text">详细信息</string>
+	<string name="b04v04_tittle_editet_text">修改</string>
+	<string name="b04v04_tittle_complete_text">完成</string>
+	
+	<string name="b04v04_text_base_info_tittle">基本信息</string>
+	<string name="b04v04_text_base_info_login_name">登录名</string>
+	<string name="b04v04_text_base_info_name">昵称&#160;&#160;&#160;</string>
+	<string name="b04v04_text_base_info_sex">性别&#160;&#160;&#160;</string>
+	<string name="b04v04_text_base_info_location">所在地</string>
+	<string name="b04v04_text_base_info_thu">简介&#160;&#160;&#160;</string>
+	<string name="b04v04_text_base_info_qq">QQ&#160;&#160;&#160;&#160;&#160;</string>
+	<string name="b04v04_text_base_info_work">工作信息</string>
+	<string name="b04v04_text_base_info_company">公司&#160;&#160;&#160;</string>
+	<string name="b04v04_text_change_user_logo">修改图像</string>
+	
+	<string name="b04v05_tittle_text">周边信息</string>
+	
+	<string name="b04v05_item_text_ktv">KTV</string>
+	<string name="b04v05_item_text_movie">电影院</string>
+	<string name="b04v05_item_text_meishi">美食</string>
+	<string name="b04v05_item_text_supper">大型超市</string>
+	<string name="b04v05_item_text_use_car">用车</string>
+	
+</resources>

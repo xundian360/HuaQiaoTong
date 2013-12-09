@@ -1,0 +1,49 @@
+<!-- Tittle -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/commHcTittleLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@drawable/b01v00_tittle_bg"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <ImageButton
+        android:id="@+id/commHcRetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:background="@color/com_transparent"
+        android:src="@drawable/b00v00_return_0" />
+    
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+        
+        <ImageButton 
+            android:id="@+id/commHcBusBtn"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:background="@color/com_transparent"
+            android:src="@drawable/comm_hc_bus" />
+        
+         <ImageButton 
+            android:id="@+id/commHcCarBtn"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:background="@drawable/comm_hc_select_bg"
+            android:src="@drawable/comm_hc_car" />
+                
+          <ImageButton 
+            android:id="@+id/commHcBickBtn"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:background="@color/com_transparent"
+            android:src="@drawable/comm_hc_bick" />
+        
+    </LinearLayout>
+</RelativeLayout>

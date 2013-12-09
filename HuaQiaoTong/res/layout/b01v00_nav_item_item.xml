@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CommonPanddingTheme1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|top"
+    android:padding="5dp" >
+
+    <LinearLayout
+        android:id="@+id/b01v00NavItemView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center" >
+        <TextView
+            android:id="@+id/b01v00NavItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_2"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:singleLine="true"
+            android:text="导航" />
+    </LinearLayout>
+
+</LinearLayout>

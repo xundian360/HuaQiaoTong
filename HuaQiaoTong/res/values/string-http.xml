@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 线路查询  -->
+    <!-- http://192.168.0.210:8899/GetRouteBusInfo?routeId=214 -->
+	<string name="comm_get_route_bus_info">http://221.6.86.251:8899/GetRouteBusInfo</string>
+	
+	<!-- 站点查询 -->
+	 <!-- http://192.168.0.210:8899/GetBusStation?busStation=214 -->
+	<string name="comm_get_bus_station">http://221.6.86.251:8899/GetBusStation</string>
+	
+	<!-- 换乘查询 -->
+    <!-- http://192.168.0.210:8899/GetChangeBusInfo?busStopId0=214& busStopId1=12  -->
+	<string name="comm_get_change_bus_info">http://221.6.86.251:8899/GetChangeBusInfo</string>
+	
+</resources>

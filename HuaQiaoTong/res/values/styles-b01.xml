@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+   <style name="B01v00ItemTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:textColor">@color/b01_v00_nav_blue</item>
+    </style>
+    
+    <style name="B01v01ImpTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:textStyle">bold</item>
+    	<item name="android:paddingTop">5dp</item>
+    	<item name="android:paddingBottom">5dp</item>
+    	<item name="android:paddingLeft">10dp</item>
+    	<item name="android:paddingRight">10dp</item>
+    </style>
+    
+   <style name="B01v01ModdleTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textSize">12sp</item>
+    	<item name="android:textColor">@android:color/white</item>
+    	<item name="android:background">@color/com_transparent</item>
+    </style>
+    
+      <style name="B01v01ModdleLayoutTheme" >
+    	<item name="android:layout_weight">1</item> 
+    	<item name="android:gravity">center</item>
+    	<item name="android:orientation">vertical</item>
+    	<item name="android:padding">5dp</item>
+    </style>
+    
+    <style name="B01v03ImpTextTheme" parent="@android:style/TextAppearance.Medium">
+    	<item name="android:singleLine">true</item> 
+    	<item name="android:textSize">20sp</item>
+    	<item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="B01v03ImpContainerTheme" >
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    	<item name="android:padding">5dp</item>
+    </style>
+    
+</resources>

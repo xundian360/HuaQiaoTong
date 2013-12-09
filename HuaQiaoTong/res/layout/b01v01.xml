@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+ 	<!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b01v01TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b01v00_tittle_bg_img"
+        android:gravity="center_vertical"
+        android:padding="5dp" >
+
+        <RelativeLayout
+            android:id="@+id/b01v01TittleLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/b01v01RetBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@color/com_transparent"
+                android:padding="5dp"
+                android:src="@drawable/b00v00_return_0" />
+
+            <TextView
+                android:id="@+id/b01v01Tittle"
+                style="@style/CommonTittleTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/b01v01_text_tittle_ktv" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="详情页面"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+</RelativeLayout>

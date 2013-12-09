@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+    
+    <!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b02v00TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b00v00_tittle_bg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageButton
+            android:id="@+id/b02v00RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:background="@color/com_transparent"
+            android:src="@drawable/b00v00_return_0" />
+
+        <TextView
+            android:id="@+id/b02v00Tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CommonTittleTheme"
+            android:text="@string/b02v00_tittle_text" />
+        
+        <TextView
+            android:id="@+id/b02v02ShowList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            style="@style/CommonTittleRightTheme"
+            android:text="@string/common_text_list" />
+    </RelativeLayout>
+    
+ 	<com.baidu.mapapi.map.MapView
+        android:id="@+id/b02v00PointMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/b02v00TittleLayout"
+        android:clickable="true" />
+
+</RelativeLayout>

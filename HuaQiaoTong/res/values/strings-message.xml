@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="message_error_get_weather">获得天气失败。</string>
+	<string name="message_gps">您目前是通过GPS获得的精确位置信息。</string>
+	<string name="message_network">您目前是通过无线网络获得的粗略位置信息。</string>
+	<string name="message_location_error">无法获得位置信息。</string>
+	<string name="message_error_no_point">没有有效的经纬度信息。</string>
+	<string name="message_error_network">没有检测到可用的网络服务。</string>
+	<string name="message_error_network_num1">加载失败，请检查网络</string>
+	<string name="message_error_google_map_unuse">您的手机不支持Google地图</string>
+	<string name="message_error_download">下载失败，请重新尝试。</string>
+	<string name="message_error_unzip">解压缩失败，请重新尝试。</string>
+	<string name="message_cancel_download">下载已取消</string>
+	<string name="message_download_complete">下载已完成,取消失败</string>
+	<string name="common_data_pressing">处理中</string>
+	<string name="common_call_phone_formart_error">电话格式不正确</string>
+	<string name="common_data_other_is_pressing">其他任务正在下载中，请稍候。</string>
+	
+	<string name="msg_shoucang_success">收藏成功</string>
+    <string name="msg_no_shoucang_cancel">取消收藏成功</string>
+	
+    <string name="msg_no_shoucang_zhandian">没有收藏站点信息</string>
+    <string name="msg_no_shoucang_xianlu">没有收藏线路信息</string>
+    
+    <string name="msg_is_last_page">已是最后一张</string>
+    <string name="msg_is_first_page">已是第一张</string>
+    
+</resources>

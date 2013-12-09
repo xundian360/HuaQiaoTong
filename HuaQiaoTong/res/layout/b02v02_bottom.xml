@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/com_transparent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/b02v02MainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/b02v02_round_bg_0"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:padding="20dp" >
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b02v02_item_tittle_img"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/b02v02BottomBickAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b01v01_detail_imp_tittle"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/b02v02BottomPlanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b02v02_poi_btn_bg_0"
+            android:text="@string/b02v02_btn_navigation"
+            android:textColor="@color/main_nav_3" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/b02v02_distance_bick_text"
+                android:textColor="@color/text_color_2" />
+
+            
+            <TextView
+                android:id="@+id/b02v02BottomBickDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textColor="@color/b00_v03_bus_time_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/unit_k_meter"
+                android:textColor="@color/text_color_2" />
+        </LinearLayout>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b02v02_round_bg_0"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_alignBottom="@+id/b02v02MainLayout"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b02v02_all_bick_text"
+                android:textColor="@color/text_color_2" />
+
+            <TextView
+                android:id="@+id/b02v02BottomBickAllNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:textColor="@color/b00_v03_bus_time_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b02v02_round_bg_0"
+            android:layout_alignRight="@+id/b02v02MainLayout"
+            android:gravity="center"
+            android:layout_alignBottom="@+id/b02v02MainLayout"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b02v02_last_bick_text"
+                android:textColor="@color/text_color_2" />
+
+            <TextView
+                android:id="@+id/b02v02BottomBickLastNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="@color/b00_v03_bus_time_color" />
+        </LinearLayout>
+
+</RelativeLayout>

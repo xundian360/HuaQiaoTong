@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/com_transparent"
+    android:padding="10dp" >
+
+    <!-- 底部操作按钮 -->
+
+    <LinearLayout
+        android:id="@+id/b00v00ZhandianSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/b00_v00_panal_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b00v00_search_bg_0"
+            android:gravity="center_vertical"
+            android:padding="5dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_btn_search" />
+
+            <AutoCompleteTextView
+                android:id="@+id/b00v00ZhanDianText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/com_transparent"
+                android:completionThreshold="1"
+                android:layout_weight="1"
+                android:dropDownWidth="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/b00v00_input_station_hint"
+                android:singleLine="true" />
+            
+            <ImageView
+                android:id="@+id/b00v00ZhandianDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/b00v00_input_delete_img" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/b00v00ZhanDianSearchBtn"
+            style="@style/B04v01LoginBtnTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b00v00_search_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/B00v00ButtonPanalStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b00v00ZhandianSearchLayout" >
+
+        <TextView
+            style="@style/B00v00ItemInfoStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:text="@string/b00v00_station_input_info" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/b00v00_line_1" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_station_input_1" />
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_station_input_2" />
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_station_input_3" />
+
+                <TextView
+                    style="@style/B00v00ItemInfoStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="@string/b00v00_station_input_4" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

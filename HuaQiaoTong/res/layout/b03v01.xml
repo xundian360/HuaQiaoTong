@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b03_v00_main_bg" >
+
+    <!-- Tittle -->
+    <LinearLayout
+        android:id="@+id/b03v01TittleLayout"
+        style="@style/CommonPanddingTheme1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/b03v01RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b03v01_arrow" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/b03v01UserLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/test_user_logo" />
+
+            <TextView
+                android:id="@+id/b03v01UserName"
+                style="@style/B03v00UserInfoTextTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b03_v01_item_color_5"
+                android:text="@string/b03v00_msg_user_name"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/b03v01UserAdd"
+            style="@style/B03v00UserInfoTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="@string/b03v00_msg_user_name"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/b03v01TittleLayout"
+        android:scrollbars="@null"
+        android:overScrollMode="never"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical" >
+            
+            <TextView
+                android:id="@+id/b03v01DetailTittle"
+                style="@style/B03v00UserInfoTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/b03_v01_item_color_5_1"
+                android:text="@string/b03v00_msg_user_name"
+                android:textSize="20sp" />
+        
+            <LinearLayout
+	            android:id="@+id/b03v01DetailContainer"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:orientation="vertical"
+	            android:padding="10dp"
+	            android:paddingBottom="50dp" />
+            
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/b03v01BottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/b03_v01_bottom_bg_color"
+        android:padding="10dp" >
+        
+        <EditText
+            android:id="@+id/b03v01CommentIn"
+            style="@style/B03v01CommonEditeTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:hint="@string/b03v01_comment_text_hide"
+            android:background="@drawable/b03v01_comment_bg_0"
+            android:textSize="18sp" />
+        
+        <TextView
+            android:id="@+id/b03v01CommentSub"
+            style="@style/B03v01CommonEditeSubTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/b03v01_comment_submit_text"
+            android:background="@drawable/b03v01_comment_sub_bg_0"
+            android:textSize="18sp" />
+        
+    </LinearLayout>
+
+</RelativeLayout>

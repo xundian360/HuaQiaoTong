@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:pla="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b01v00TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b01v00_tittle_bg_img"
+        android:gravity="center_vertical"
+        android:padding="5dp" >
+
+        <RelativeLayout
+            android:id="@+id/b01v00TittleLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/b01v00RetBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@color/com_transparent"
+                android:padding="5dp"
+                android:src="@drawable/b00v00_return_0" />
+
+            <TextView
+                android:id="@+id/b01v00Tittle"
+                style="@style/CommonTittleTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/b01v01_text_tittle_ktv" />
+
+            <ImageButton
+                android:id="@+id/b01v00SearchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/com_transparent"
+                android:padding="5dp"
+                android:src="@drawable/b01v00_search_img" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/b01v00TittleLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:padding="5dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/b05v00_search_bg_0"
+                android:gravity="center_vertical"
+                android:padding="5dp" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_btn_search" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/b01v00SearchText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:background="@color/com_transparent"
+                    android:hint="@string/b05v00_search_hint"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/b01v00CancelBtn"
+                style="@style/CommonTittleSubTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b04v01_tittle_cancle"
+                android:textColor="@color/b04v05_return_text_color" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/b01v00SpiltLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+         android:layout_below="@+id/b01v00TittleLayout"
+        android:layout_marginTop="45dp"
+        android:background="@color/b01_v00_nav_blue" />
+
+    <!-- 列表 -->
+
+    <ListView
+        android:id="@+id/b01v00Items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/b01v00SpiltLine"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingTop="5dp" />
+
+    <ImageView
+        android:id="@+id/b01v00ToMapBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/b01v00_to_map_img_0" />
+    
+    <LinearLayout
+        android:id="@+id/b01v00SelectCondition"
+        style="@style/CommonPanddingTheme2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b01v00TittleLayout"
+        android:background="@color/com_transparent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+    
+
+</RelativeLayout>

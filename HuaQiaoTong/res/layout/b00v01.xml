@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+    
+    <!-- Tittle -->
+    <RelativeLayout
+        android:id="@+id/b00v01Tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b00v00_tittle_bg"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageButton
+            android:id="@+id/b00v01RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:background="@color/com_transparent"
+            android:src="@drawable/b00v00_return_0" />
+
+        <TextView
+            android:id="@+id/b00v01Tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CommonTittleTheme"
+            android:text="@string/b00v01_tittle_text" />
+    </RelativeLayout>
+    
+    <ImageButton 
+        android:id="@+id/b00v01ShouCangSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/b00v01Tittle"
+        android:layout_margin="10dp"
+        android:background="@drawable/b00v01_zhangdian_select" />
+    
+    <ListView 
+        android:id="@+id/b00v01ShouCangZhandian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b00v01ShouCangSwitch" />
+        
+    <ListView 
+        android:id="@+id/b00v01ShouCangXianlu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@+id/b00v01ShouCangSwitch" />
+
+</RelativeLayout>

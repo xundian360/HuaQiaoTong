@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<string-array name="v03v00_nav_level_0">
+	    <item>花桥新闻•大头调</item>
+	    <item>晒照交友</item>
+	    <item>房屋相关</item>
+	    <item>招聘求职</item>
+	    <item>二手交易</item>
+	</string-array>
+	
+	<string-array name="v03v00_nav_level_1_0"/>
+	<string-array name="v03v00_nav_level_1_1"/>
+	<string-array name="v03v00_nav_level_1_2">
+	    <item>出租</item>
+	    <item>出售</item>
+	    <item>装饰</item>
+	</string-array>
+	
+	<string-array name="v03v00_nav_level_1_3">
+	    <item>发布职位</item>
+	    <item>找工作</item>
+	    <item>兼职信息</item>
+	</string-array>
+	
+	<string-array name="v03v00_nav_level_1_4">
+	    <item>高温地带</item>
+	    <item>数码产品</item>
+	    <item>交通工具</item>
+	    <item>家具</item>
+	    <item>物品交易</item>
+	    <item>其他二手</item>
+	</string-array>	
+	
+</resources>

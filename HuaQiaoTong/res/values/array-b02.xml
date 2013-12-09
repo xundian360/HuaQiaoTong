@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    	
+	<string-array name="b02v00_group_0_items">
+	    <item>易买得</item>
+	    <item>鑫融广场</item>
+	    <item>华侨菜市场</item>
+	    <item>安亭站（地铁11号线）</item>
+	</string-array>
+	
+	<string-array name="b02v00_group_0_items_code">
+	    <item>1000</item>
+	    <item>1001</item>
+	    <item>1002</item>
+	    <item>1003</item>
+	</string-array>
+	
+	<string-array name="b02v00_group_1_items">
+	    <item>小轿车（5座以下）</item>
+	    <item>面包车（5座及以上）</item>
+	    <item>小货车</item>
+	</string-array>
+	
+	<string-array name="b02v00_group_1_items_code">
+	    <item>2000</item>
+	    <item>2001</item>
+	    <item>2002</item>
+	</string-array>
+</resources>

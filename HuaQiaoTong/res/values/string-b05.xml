@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="b05v00_search_hint">搜索</string>
+    
+    <string name="b05v00_item_add_f">添加好友</string>
+    <string name="b05v00_item_search_l">查找周边信息</string>
+    <string name="b05v00_item_hot">活跃人士推荐</string>
+    
+    <string name="b05v02_tittle">添加朋友</string>
+    <string name="b05v02_item_search_text">搜索</string>
+    <string name="b05v02_item_contacts_text">通过通讯录查找</string>
+    <string name="b05v02_item_location_text">周边的人</string>
+    <string name="b05v02_item_hot_text">活跃人士</string>
+    
+    <string name="b05v03_contacts_tittle">通讯录</string>
+    
+    <string name="b05v04_search_hint">输入好友帐号进行搜索</string>
+    
+</resources>

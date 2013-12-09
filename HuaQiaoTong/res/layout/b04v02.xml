@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b04_bg" >
+
+    <RelativeLayout
+        android:id="@+id/b04v02TittleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/commonforum_bg"
+        android:gravity="center_vertical"
+        android:padding="15dp" >
+
+        <TextView
+            android:id="@+id/b04v02CancelBtn"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:text="@string/b04v01_tittle_cancle"
+            android:textColor="@color/b01_v01_light_brown" />
+
+        <TextView
+            android:id="@+id/b04v02Tittle"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/b04v02_tittle_text"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/b04v02CenterLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/com_transparent" />
+
+   <LinearLayout
+        android:id="@+id/b04v02UserInfoLayput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b04v02CenterLine"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/b04v02UserName"
+            style="@style/B04v01UserTextTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="@string/b04v02_user_name" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/b04v02DefineBtn"
+        style="@style/B04v01LoginBtnTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b04v02UserInfoLayput"
+        android:text="@string/b04v02_btn_define" />
+
+</RelativeLayout>
