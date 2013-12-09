@@ -8,15 +8,11 @@ import java.util.Map;
 
 import android.content.Context;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 
 import com.xundian360.huaqiaotong.R;
-import com.xundian360.huaqiaotong.activity.b01.B01V01Activity;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
-import com.xundian360.huaqiaotong.util.CommonUtil;
 
 /**
  * KTV列表显示Adpter
@@ -26,13 +22,11 @@ import com.xundian360.huaqiaotong.util.CommonUtil;
  */
 public class B01v00KtvAdapter extends SimpleAdapter {
 	
-	public static final String[] from = {"v01v00ItemImg1", "v01v00ItemTittle1",
-		"v01v00ItemPrice1", "b01v00ItemRecommend1", "v01v00ItemImg2", 
-		"v01v00ItemTittle2","v01v00ItemPrice2", "b01v00ItemRecommend2"};
+	public static final String[] from = {"v01v00ItemImg", "v01v00ItemTittle",
+		"b01v00ItemRecommendTittle", "b01v00ItemRecommend", "v01v00ItemPrice"};
 	
-	public static final int[] to = {R.id.v01v00ItemImg1, R.id.v01v00ItemTittle1, 
-		R.id.v01v00ItemPrice1, R.id.b01v00ItemRecommend1, R.id.v01v00ItemImg2, 
-		R.id.v01v00ItemTittle2, R.id.v01v00ItemPrice2, R.id.b01v00ItemRecommend2};
+	public static final int[] to = {R.id.v01v00ItemImg, R.id.v01v00ItemTittle, 
+		R.id.b01v00ItemRecommendTittle, R.id.b01v00ItemRecommend, R.id.v01v00ItemPrice};
 	
 	Context context;
 	
@@ -58,26 +52,6 @@ public class B01v00KtvAdapter extends SimpleAdapter {
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		View view = super.getView(position, convertView, parent);
-		
-		LinearLayout leftView = (LinearLayout) view.findViewById(R.id.v01v00ItemLeft);
-		leftView.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// 详情页面迁移
-				CommonUtil.startActivityForResult(context, B01V01Activity.class, B01V01Activity.KTV_KEY, items.get(position * 2), 1000);
-			}
-		});
-		
-		LinearLayout rightView = (LinearLayout) view.findViewById(R.id.v01v00ItemRight);
-		rightView.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// 详情页面迁移
-				CommonUtil.startActivityForResult(context, B01V01Activity.class, B01V01Activity.KTV_KEY, items.get(position * 2 + 1), 1000);
-			}
-		});
 		
 		return view;
 	}

@@ -3,7 +3,7 @@
     xmlns:pla="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white" >
+    android:background="@color/b01_v00_main_bg" >
 
     <!-- Tittle -->
     <RelativeLayout
@@ -89,24 +89,17 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/b01v00SpiltLine"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-         android:layout_below="@+id/b01v00TittleLayout"
-        android:layout_marginTop="45dp"
-        android:background="@color/b01_v00_nav_blue" />
-
     <!-- 列表 -->
 
     <ListView
         android:id="@+id/b01v00Items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/b01v00SpiltLine"
+        android:layout_below="@+id/b01v00TittleLayout"
+        android:layout_marginTop="55dp"
         android:divider="@null"
-        android:dividerHeight="0dp"
-        android:paddingTop="5dp" />
+        android:dividerHeight="10dp"
+        android:padding="5dp" />
 
     <ImageView
         android:id="@+id/b01v00ToMapBtn"
@@ -118,14 +111,20 @@
         android:src="@drawable/b01v00_to_map_img_0" />
     
     <LinearLayout
+        style="@style/CommonPanddingTheme2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b01v00TittleLayout"
+        android:background="@drawable/b01v00_item_tittle_bg" />
+    
+    <LinearLayout
         android:id="@+id/b01v00SelectCondition"
         style="@style/CommonPanddingTheme2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/b01v00TittleLayout"
         android:background="@color/com_transparent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-    
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
 </RelativeLayout>

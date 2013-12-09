@@ -26,7 +26,6 @@ import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.ViewUtils;
 import com.xundian360.huaqiaotong.util.b00.HuanchengUtil;
-import com.xundian360.huaqiaotong.view.b00.B00SelectXianluHistoryDialog.OnXianluHistorySelect;
 
 /**
  * 线路视图
@@ -52,9 +51,6 @@ public class B00v00XianluView {
 	SearchAdapter<String> xianluAdapter;
 	// 数据源
 	List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
-	
-	// 历史线路选择Dialog
-	B00SelectXianluHistoryDialog xianluSelectDialog;
 	
 	// 所有线路信息
 	List<Bus> buses = new ArrayList<Bus>();
@@ -199,25 +195,6 @@ public class B00v00XianluView {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			searchBus = showBuses.get(arg2);
-		}
-	};
-	
-	/**
-	 * 历史线路选择回调
-	 */
-	OnXianluHistorySelect call = new OnXianluHistorySelect() {
-		
-		@Override
-		public void onXianluSelect(Bus bus) {
-			
-			// 取消Dialog显示
-			xianluSelectDialog.dismiss();
-			
-			// 设置检索线路对象
-			searchBus = bus;
-			
-			// 设置检索地点Text
-			xianluText.setText(bus.getRouteName());
 		}
 	};
 	

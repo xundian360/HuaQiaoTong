@@ -37,8 +37,12 @@
 	<!-- 换乘 搜索按钮颜色 -->
 	<color name="b00_v00_search_bg_color_0">#FF42C4F1</color>
 	
+	<color name="b01_v00_com_text_color">#FFFF951C</color>
+	
+	<color name="b01_v00_main_bg">#FFF5F5F5</color>
+	
 	<color name="b01_v00_nav_blue">#FF3DB56E</color>
-	<color name="b01_v00_item_price_color">#FFFF941C</color>
+	<color name="b01_v00_item_price_color">#FFFF2B54</color>
 	
 	<!-- KTV电话 青色 -->
 	<color name="b01_v01_cyan_blue">#FF5DC592</color>

@@ -2,117 +2,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/b01v00_item_bg"
     android:orientation="horizontal"
-    android:background="@android:color/white"
-    android:weightSum="2" >
+    android:padding="5dp"
+    android:weightSum="57" >
 
-    <LinearLayout
-        android:id="@+id/v01v00ItemLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/white"
-        android:orientation="vertical"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:padding="5dp" >
-
-        <ImageView
-            android:id="@+id/v01v00ItemImg1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/test_b01v00_item_img" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="fill_vertical" >
-
-            <TextView
-                android:id="@+id/v01v00ItemTittle1"
-                style="@style/B01v00ItemTextTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="22sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/b01v00_item_r_bg_0"
-                android:padding="1dp"
-                android:text="@string/b01v00_price_text"
-                android:textColor="@android:color/white"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/v01v00ItemPrice1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="￥50"
-                android:textColor="@color/b01_v00_item_price_color"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/b01v00ItemRecommend1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:singleLine="true"
-            android:text="推荐菜：善攻击系列，三文鱼，川菜"
-            android:textColor="@color/text_color_2" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/v01v00ItemImg"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/b01v00_item_sub_r" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/b01v00_item_sub_line" />
-    </LinearLayout>
+        android:layout_weight="32"
+        android:scaleType="centerInside"
+        android:src="@drawable/test_b01v00_item_img" />
 
     <LinearLayout
-        android:id="@+id/v01v00ItemRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="25"
+        android:gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:padding="5dp" >
+        android:paddingLeft="5dp" >
 
-        <ImageView
-            android:id="@+id/v01v00ItemImg2"
+        <TextView
+            android:id="@+id/v01v00ItemTittle"
+            style="@style/B01v00ItemTextTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/test_b01v00_item_img" />
+            android:singleLine="true"
+            android:text="大铁罐土菜馆"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="fill_vertical" >
+            android:paddingTop="5dp" >
 
             <TextView
-                android:id="@+id/v01v00ItemTittle2"
-                style="@style/B01v00ItemTextTheme"
+                android:id="@+id/b01v00ItemRecommendTittle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="推荐菜："
+                android:textColor="@color/b01_v00_com_text_color" />
+
+            <TextView
+                android:id="@+id/b01v00ItemRecommend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="22sp" />
+                android:singleLine="true"
+                android:text="善攻击系列，三文鱼，川菜"
+                android:textColor="@color/text_color_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="5dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -120,26 +69,70 @@
                 android:background="@drawable/b01v00_item_r_bg_0"
                 android:padding="1dp"
                 android:text="@string/b01v00_price_text"
-                android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textColor="@android:color/white" />
 
             <TextView
-                android:id="@+id/v01v00ItemPrice2"
+                android:id="@+id/v01v00ItemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="￥50"
-                android:textColor="@color/b01_v00_item_price_color"
-                android:textSize="18sp" />
+                android:textColor="@color/b01_v00_item_price_color" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/b01v00ItemRecommend2"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_margin="5dp"
+            android:background="@color/text_color_2" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:singleLine="true"
-            android:text="推荐菜：善攻击系列，三文鱼，川菜"
-            android:textColor="@color/text_color_2" />
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <RatingBar
+                    android:id="@+id/v01v00ItemRating"
+                    style="@style/B01v00RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:numStars="5"
+                    android:rating="4" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/text_color_2" />
+
+            <LinearLayout
+                android:id="@+id/b01v00PoiCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/b01v04_call_img" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b01v04_detail_call_text"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

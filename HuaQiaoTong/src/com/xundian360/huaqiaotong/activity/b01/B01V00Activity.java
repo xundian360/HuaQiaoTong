@@ -304,7 +304,8 @@ public class B01V00Activity extends ComNoTittleActivity {
 			
 			baiduItem.setName("湘聚缘" + i);
 			baiduItem.setPrice("￥" + 10 * i + "");
-			baiduItem.setDisc("推荐菜：双椒鱼头,上海红烧肉,海鲜炒饭,佛跳墙");
+			baiduItem.setDisc_tittle("推荐菜：");
+			baiduItem.setDisc("双椒鱼头,上海红烧肉,海鲜炒饭,佛跳墙");
 			
 			itemsData.add(baiduItem);
 		}
@@ -319,23 +320,18 @@ public class B01V00Activity extends ComNoTittleActivity {
 		data.clear();
 		
 		// 遍历，设置ListView项目
-		for (int i = 1; i < itemsData.size(); i+=2) {
+		for (int i = 0; i < itemsData.size(); i++) {
 			
-			Baidu itemFirst = itemsData.get(i - 1);
-			Baidu itemSecond = itemsData.get(i);
+			Baidu itemFirst = itemsData.get(i);
 			
 			// 数据项目
 			Map<String, Object> dataItem = new HashMap<String, Object>();
 			
 			dataItem.put(B01v00KtvAdapter.from[0], R.drawable.test_b01v00_item_img);
 			dataItem.put(B01v00KtvAdapter.from[1], itemFirst.getName());
-			dataItem.put(B01v00KtvAdapter.from[2], itemFirst.getPrice());
+			dataItem.put(B01v00KtvAdapter.from[2], itemFirst.getDisc_tittle());
 			dataItem.put(B01v00KtvAdapter.from[3], itemFirst.getDisc());
-			
-			dataItem.put(B01v00KtvAdapter.from[4], R.drawable.test_b01v00_item_img);
-			dataItem.put(B01v00KtvAdapter.from[5], itemSecond.getName());
-			dataItem.put(B01v00KtvAdapter.from[6], itemSecond.getPrice());
-			dataItem.put(B01v00KtvAdapter.from[7], itemSecond.getDisc());
+			dataItem.put(B01v00KtvAdapter.from[4], itemFirst.getPrice());
 			
 			// 添加到数据源
 			data.add(dataItem);

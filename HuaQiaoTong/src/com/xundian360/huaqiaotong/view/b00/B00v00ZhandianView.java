@@ -24,7 +24,6 @@ import com.xundian360.huaqiaotong.modle.b00.Station;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.ViewUtils;
-import com.xundian360.huaqiaotong.view.b00.B00SelectZhandianHistoryDialog.OnZhandianHistorySelect;
 
 /**
  * 站点视图
@@ -50,9 +49,6 @@ public class B00v00ZhandianView {
 	SearchAdapter<String> zhandianAdapter;
 	// 数据源
 	List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
-	
-	// 历史站点选择Dialog
-	B00SelectZhandianHistoryDialog zhandianSelectDialog;
 	
 	// 所有站点信息
 	List<Station> stations = new ArrayList<Station>();
@@ -212,25 +208,6 @@ public class B00v00ZhandianView {
 			
 			// 设置检索站点对象
 			searchStation = showStations.get(arg2);
-		}
-	};
-	
-	/**
-	 * 历史站点选择回调
-	 */
-	OnZhandianHistorySelect call = new OnZhandianHistorySelect() {
-		
-		@Override
-		public void onZhandianSelect(Station station) {
-			
-			// 取消Dialog显示
-			zhandianSelectDialog.dismiss();
-			
-			// 设置检索站点对象
-			searchStation = station;
-			
-			// 设置检索地点Text
-			zhanDianText.setText(station.getName());
 		}
 	};
 	

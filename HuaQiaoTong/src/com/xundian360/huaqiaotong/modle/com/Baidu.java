@@ -81,6 +81,9 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	// 描述
 	private String disc;
 	
+	// 描述Tittle
+	private String disc_tittle;
+	
 	public Baidu() {
 		super();
 	}
@@ -185,7 +188,13 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	public void setDisc(String disc) {
 		this.disc = disc;
 	}
-	
+	public String getDisc_tittle() {
+		return disc_tittle;
+	}
+	public void setDisc_tittle(String disc_tittle) {
+		this.disc_tittle = disc_tittle;
+	}
+
 	public void setRelaDistance(double lan, double lon) {
 		// 计算经纬度的距离
 		this.relaDistance = CommonUtil.distanceOfTwoPoints(location_lng, location_lat, lon, lan, GaussSphere.Beijing54);
