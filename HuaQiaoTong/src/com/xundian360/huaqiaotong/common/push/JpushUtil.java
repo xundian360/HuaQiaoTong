@@ -3,6 +3,7 @@
  */
 package com.xundian360.huaqiaotong.common.push;
 
+import java.util.HashMap;
 import java.util.Set;
 
 import android.app.Application;
@@ -10,7 +11,9 @@ import android.util.Log;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
 
+import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.modle.com.SettingModle;
+import com.xundian360.huaqiaotong.util.BaseHttpClient;
 import com.xundian360.huaqiaotong.util.StringUtils;
 
 /**
@@ -29,6 +32,7 @@ public class JpushUtil {
 	 * @param app
 	 */
 	public static void jPushInterfaceInit(Application app) {
+		
 		JPushInterface.setDebugMode(true);
 		JPushInterface.init(app);
 		
@@ -39,7 +43,7 @@ public class JpushUtil {
 	/**
 	 * 设置别名
 	 */
-	private static void setAlias(Application app) {
+	private static void setAlias(final Application app) {
 		
 		settingModle = new SettingModle(app);
 		
@@ -48,12 +52,34 @@ public class JpushUtil {
 		// 没有设置推送别名
 		if(StringUtils.isBlank(settingModle.getPushAlias())) {
 			
+			// 激活设备URL
+			String url = app.getString(R.string.device_cctivation);
+			
 			String pushAlias = StringUtils.getUniqueString(30, false);
 			settingModle.setPushAlias(pushAlias);
 			
 			// 设置别名
 			JPushInterface.setAlias(app, pushAlias, callback);
+			
+			// 激活设备推送
+			deviceCctivation(url, pushAlias);
 		}
+	}
+	
+	/**
+	 * 激活设备线程
+	 */
+	private static void deviceCctivation(final String url, final String pushAlias) {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				
+				HashMap<String, String> params = new HashMap<String, String>();
+				params.put("push_id", pushAlias);
+				
+				BaseHttpClient.doGetRequest(url, params);
+			}
+		}).start();
 	}
 	
 	/**

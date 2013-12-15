@@ -3,46 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white" >
-    
+
     <!-- Tittle -->
     <RelativeLayout
         android:id="@+id/b02v00TittleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/b00v00_tittle_bg"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" >
+        android:background="@drawable/b02v00_tittle_bg"
+        android:padding="5dp" >
 
         <ImageButton
             android:id="@+id/b02v00RetBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:padding="5dp"
             android:background="@color/com_transparent"
+            android:padding="5dp"
             android:src="@drawable/b00v00_return_0" />
 
         <TextView
             android:id="@+id/b02v00Tittle"
+            style="@style/CommonTittleTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/CommonTittleTheme"
             android:text="@string/b02v00_tittle_text" />
-        
+
         <TextView
             android:id="@+id/b02v02ShowList"
+            style="@style/CommonTittleRightTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            style="@style/CommonTittleRightTheme"
-            android:text="@string/common_text_list" />
+            android:text="@string/b02v00_tittle_right_text" />
     </RelativeLayout>
-    
- 	<com.baidu.mapapi.map.MapView
+
+    <com.baidu.mapapi.map.MapView
         android:id="@+id/b02v00PointMap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/b02v00TittleLayout"
         android:clickable="true" />
-
+    
+      <ListView
+        android:id="@+id/b02v00ZoonList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        android:layout_below="@+id/b02v00TittleLayout" />
+      
+      <LinearLayout 
+          android:id="@+id/b02v00CarListLayout"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_centerInParent="true"
+          android:layout_below="@+id/b02v00TittleLayout"
+          android:layout_margin="20dp" />
 </RelativeLayout>

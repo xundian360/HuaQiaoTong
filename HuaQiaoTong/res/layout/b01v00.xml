@@ -91,13 +91,14 @@
 
     <!-- 列表 -->
 
-    <ListView
+    <com.xundian360.huaqiaotong.view.com.XListView
         android:id="@+id/b01v00Items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/b01v00TittleLayout"
         android:layout_marginTop="55dp"
         android:divider="@null"
+        android:background="@color/com_transparent"
         android:dividerHeight="10dp"
         android:padding="5dp" />
 

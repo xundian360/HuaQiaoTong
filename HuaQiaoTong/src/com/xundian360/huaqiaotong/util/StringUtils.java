@@ -307,6 +307,22 @@ public class StringUtils {
 		return valueDouble;
 	}
 	
+	/**
+	 * 重写Double.parseFloat方法
+	 * @param value         转换值
+	 * @param defaultValue  转换失败，默认值
+	 */
+	public static float paseFloat(String value, int defaultValue) {
+		
+		float valueDouble = defaultValue;
+		
+		if (StringUtils.isNotBlank(value)) {
+			valueDouble = Float.parseFloat(value);
+		}
+		
+		return valueDouble;
+	}
+	
 	/** 
      * 生成唯一字符串  
      * @param length 需要长度 

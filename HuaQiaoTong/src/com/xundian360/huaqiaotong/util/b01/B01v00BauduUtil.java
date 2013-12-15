@@ -161,7 +161,7 @@ public class B01v00BauduUtil extends BaiduUtil{
 		// 取得检索的总数量
 		String totalNum = ktvJson.getString("total");
 		// 检索数量添加到返回值
-		ktvs.put(KTV_TOTAL_KEY, totalNum);
+		ktvs.put(TOTAL_KEY, totalNum);
 
 		JSONArray ktvResults = ktvJson.getJSONArray("results"); 
 		
@@ -206,7 +206,7 @@ public class B01v00BauduUtil extends BaiduUtil{
 			}
 			
 			// KTV对象添加到返回值
-			ktvs.put(KTV_RESULTS_KEY, ktvList);
+			ktvs.put(RESULTS_KEY, ktvList);
 		}
 		
 		return ktvs;

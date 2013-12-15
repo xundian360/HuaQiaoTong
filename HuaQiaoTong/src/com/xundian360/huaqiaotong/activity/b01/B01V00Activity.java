@@ -19,7 +19,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -29,7 +28,13 @@ import com.xundian360.huaqiaotong.adapter.b01.B01v00KtvAdapter;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.util.ShowMessageUtils;
+import com.xundian360.huaqiaotong.util.StringUtils;
+import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
 import com.xundian360.huaqiaotong.view.b01.B01v00NavItemView;
+import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
+import com.xundian360.huaqiaotong.view.com.XListView;
+import com.xundian360.huaqiaotong.view.com.XListView.IXListViewListener;
 
 /**
  * KTV,饭店，宾馆列表
@@ -63,7 +68,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 	// 导航容器
 	LinearLayout selectConditionCon;
 	// 项目 List
-	ListView itemListView;
+	XListView itemListView;
 	// 去地图
 	ImageView toMapBtn;
 	
@@ -81,6 +86,8 @@ public class B01V00Activity extends ComNoTittleActivity {
 	
 	Handler _handler = new Handler();
 	
+	CommonProgressDialog processDialog;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -92,6 +99,8 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		// 初始化组件
 		initModule();
+		
+		processDialog.show();
 	}
 	
 	/**
@@ -101,9 +110,10 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		itemObject = (ItemObject) getIntent().getSerializableExtra(ITEM_OBJECT_KEY);
 		
+		processDialog = new CommonProgressDialog(this);
+		
 		// 设置数据
 		setData();
-		setAdapterData();
 		
 		// 设置Adapter对象
 		adapter = new B01v00KtvAdapter(this, data, 
@@ -136,8 +146,10 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		selectConditionCon = (LinearLayout) findViewById(R.id.b01v00SelectCondition);
 		
-		itemListView = (ListView) findViewById(R.id.b01v00Items);
+		itemListView = (XListView) findViewById(R.id.b01v00Items);
+		itemListView.setPullLoadEnable(canLoad);
 		itemListView.setAdapter(adapter);
+		itemListView.setXListViewListener(itemListPush);
 		
 		toMapBtn = (ImageView) findViewById(R.id.b01v00ToMapBtn);
 		toMapBtn.setOnClickListener(toMapBtnClick);
@@ -168,6 +180,76 @@ public class B01V00Activity extends ComNoTittleActivity {
 			switchTittle();
 		}
 	};
+	
+	IXListViewListener itemListPush = new IXListViewListener() {
+		
+		@Override
+		public void onRefresh() {
+			_handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					
+					// 加载数据
+					loadData();
+				}
+			}, 2000);
+			
+		}
+		
+		@Override
+		public void onLoadMore() {
+			_handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					
+					// 加载数据
+					loadData();
+				}
+			}, 2000);
+			
+		}
+	};
+	
+	/**
+	 * 加载完成
+	 */
+	private void onLoad() {
+		itemListView.stopRefresh();
+		itemListView.stopLoadMore();
+		canLoad = true;
+	}
+	
+	/**
+	 * 加载数据
+	 */
+	private void loadData() {
+		
+		// 判断是不是最后一页
+		if(itemsData.size() == 0 || itemsData.size() < totalNum) {
+			// 判断是否正在加载
+			if(canLoad) {
+				
+				canLoad = false;
+				
+				// 页面++
+				pageNum++;
+				
+				// 访问网络
+				setData();
+				
+				// 加载完成
+				onLoad();
+			} else {
+				ShowMessageUtils.show(this, "数据正在加载...");
+			}
+		} else {
+			canLoad = false;
+			itemListView.setPullLoadEnable(canLoad);
+			ShowMessageUtils.show(this, "已经是最后一页...");
+			// 加载完成
+			onLoad();
+		}
+	}
 	
 	/**
 	 * 切换头部显示
@@ -290,6 +372,70 @@ public class B01V00Activity extends ComNoTittleActivity {
 			
 			// 更新ListView
 			adapter.notifyDataSetChanged();
+			
+			processDialog.dismiss();
+		}
+	};
+	
+	/**
+	 * 取得信息失败
+	 */
+	Runnable getMsgError = new Runnable() {
+		
+		@Override
+		public void run() {
+			
+			ShowMessageUtils.show(B01V00Activity.this, "取得数据失败");
+			
+			processDialog.dismiss();
+		}
+	};
+	
+	// 商店数量
+	int totalNum = 0;
+	// 第几页
+	int pageNum = 0;
+	
+	int pageSize = 10;
+	
+	boolean canLoad = true;
+	
+	/**
+	 * 取得商店数据
+	 */
+	Runnable getShopData = new Runnable() {
+		
+		@Override
+		public void run() {
+			
+			Map<String, Object> shopItems = B01v00ShopUtils.getShopList(B01V00Activity.this, 
+					getString(itemObject.getKeyId()), 
+					pageSize,
+					pageNum);
+			
+			if(shopItems == null || shopItems.size() <= 0) {
+				// 更新UI
+				_handler.post(getMsgError);
+				
+				return;
+			}
+			
+			totalNum = StringUtils.paseInt((String) shopItems.get(B01v00ShopUtils.TOTAL_KEY), 0);
+			itemsData.addAll((List<Baidu>) shopItems.get(B01v00ShopUtils.RESULTS_KEY));
+			
+			// 更新UI
+			_handler.post(updateList);
+			
+			// 判断是不是最后一页
+			if(itemsData.size() >= totalNum) {
+				_handler.post(new Runnable() {
+					@Override
+					public void run() {
+						canLoad = false;
+						itemListView.setPullLoadEnable(canLoad);
+					}
+				});
+			}
 		}
 	};
 	
@@ -298,17 +444,8 @@ public class B01V00Activity extends ComNoTittleActivity {
 	 */
 	private void setData() {
 		
-		for (int i = 0; i < 12; i++) {
-			
-			Baidu baiduItem = new Baidu();
-			
-			baiduItem.setName("湘聚缘" + i);
-			baiduItem.setPrice("￥" + 10 * i + "");
-			baiduItem.setDisc_tittle("推荐菜：");
-			baiduItem.setDisc("双椒鱼头,上海红烧肉,海鲜炒饭,佛跳墙");
-			
-			itemsData.add(baiduItem);
-		}
+		// 取得商店数据
+		new Thread(getShopData).start();
 	}
 	
 	/**
@@ -327,7 +464,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			// 数据项目
 			Map<String, Object> dataItem = new HashMap<String, Object>();
 			
-			dataItem.put(B01v00KtvAdapter.from[0], R.drawable.test_b01v00_item_img);
+//			dataItem.put(B01v00KtvAdapter.from[0], R.drawable.test_b01v00_item_img);
 			dataItem.put(B01v00KtvAdapter.from[1], itemFirst.getName());
 			dataItem.put(B01v00KtvAdapter.from[2], itemFirst.getDisc_tittle());
 			dataItem.put(B01v00KtvAdapter.from[3], itemFirst.getDisc());

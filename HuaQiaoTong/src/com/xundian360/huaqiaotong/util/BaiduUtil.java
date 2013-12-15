@@ -16,8 +16,8 @@ import com.xundian360.huaqiaotong.R;
  */
 public class BaiduUtil {
 	
-	public static final String KTV_TOTAL_KEY = "ktv_total_key";
-	public static final String KTV_RESULTS_KEY = "ktv_results_key";
+	public static final String TOTAL_KEY = "total_key";
+	public static final String RESULTS_KEY = "results_key";
 	
 	// API访问状态，成功0
 	public static final String KTV_STATUS_OK_KEY = "0";

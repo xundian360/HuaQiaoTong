@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/b02v00ItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="王师傅"
+        android:textColor="@color/text_color_2"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="center" >
+        
+        <ImageView 
+            android:id="@+id/b02v00ItemFavorateImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_favorate_img_1" />
+        
+        <TextView
+	        android:id="@+id/b02v00ItemFavorateNum"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="+115"
+	        android:textColor="@color/b02_v00_item_a_color"
+	        android:textSize="10sp" />
+        
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/b02v00ItemTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:text="时间：24小时"
+		android:paddingLeft="5dp"
+		android:singleLine="true"
+		android:gravity="bottom"
+		android:textColor="@color/b02_v00_item_t_color"
+        android:layout_weight="1" />
+    
+    <ImageView 
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/b02_v00_item_l_color" />
+
+    <TextView
+        android:id="@+id/b02v00ItemPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/com_transparent"
+        android:text="@string/b02v01_call_text"
+        android:textColor="@color/b02_v00_item_call_color"
+        android:textSize="18sp" />
+
+</LinearLayout>

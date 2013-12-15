@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <string name="b02v00_tittle_text">按条件选择车辆</string>
+    <string name="b02v00_tittle_right_text">区域选择</string>
+    
+    <string name="b02v00_tittle_text">叫车</string>
     <string name="b02v01_tittle_text">符合您条件的车辆</string>
     <string name="b02v02_tittle_text">公共自行车</string>
     <string name="b02v03_tittle_text">公共自行车</string>

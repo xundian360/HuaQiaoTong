@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 
 import com.baidu.mapapi.map.ItemizedOverlay;
 import com.baidu.mapapi.map.MapView;
+import com.xundian360.huaqiaotong.activity.b02.B02V00Activity;
 import com.xundian360.huaqiaotong.activity.b02.B02V01Activity;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.SerializableList;
@@ -45,12 +46,8 @@ public class CarsPointItemOverlay extends ItemizedOverlay {
 		
 		Baidu carPointItem = (Baidu) carPiontList.get(index);
 		
-		// 跳转车辆列表页面
-		CommonUtil.startActivityForResult(context, 
-				B02V01Activity.class, 
-				B02V01Activity.B02V01ACTIVITY_CARPOINT, 
-				carPointItem, 
-				100);
+		// 取得出租车信息
+		((B02V00Activity)context).getCarListView(index);
 		
 		return true;
 	}

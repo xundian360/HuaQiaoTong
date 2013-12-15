@@ -12,6 +12,8 @@ public class Texi implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	// ID
+	private String id;
 	// 名车
 	private String name;
 	// 公司
@@ -22,6 +24,14 @@ public class Texi implements Serializable {
 	private String phone;
 	// 好评数
 	private String favorateNum;
+	// 地址
+	private String add;
+	// 车类型
+	private String carType;
+	// 营业时间
+	private String time;
+	// 其他
+	private String com;
 	
 	public Texi() {
 		super();
@@ -66,6 +76,36 @@ public class Texi implements Serializable {
 	}
 	public void setFavorateNum(String favorateNum) {
 		this.favorateNum = favorateNum;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getAdd() {
+		return add;
+	}
+	public void setAdd(String add) {
+		this.add = add;
+	}
+	public String getCarType() {
+		return carType;
+	}
+	public void setCarType(String carType) {
+		this.carType = carType;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getCom() {
+		return com;
+	}
+	public void setCom(String com) {
+		this.com = com;
 	}
 
 }

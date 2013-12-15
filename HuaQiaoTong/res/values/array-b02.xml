@@ -4,16 +4,24 @@
     	
 	<string-array name="b02v00_group_0_items">
 	    <item>易买得</item>
-	    <item>鑫融广场</item>
-	    <item>华侨菜市场</item>
-	    <item>安亭站（地铁11号线）</item>
+		<item>硅湖门前</item>
+		<item>花桥</item>
+		<item>花桥镇上</item>
+		<item>赛格电子</item>
+		<item>赛格周围</item>
+		<item>外青松与312国道附近</item>
+		<item>徐公桥附近轿车</item>
 	</string-array>
 	
 	<string-array name="b02v00_group_0_items_code">
-	    <item>1000</item>
-	    <item>1001</item>
-	    <item>1002</item>
-	    <item>1003</item>
+		<item>1001</item>
+		<item>1002</item>
+		<item>1003</item>
+		<item>1004</item>
+		<item>1005</item>
+		<item>1006</item>
+		<item>1007</item>
+		<item>1008</item>
 	</string-array>
 	
 	<string-array name="b02v00_group_1_items">

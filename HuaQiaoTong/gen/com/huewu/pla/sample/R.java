@@ -21,7 +21,7 @@ public final class R {
 		public static final int outsideOverlay = 0x7f05000c;
 		public static final int none = 0x7f050007;
 		public static final int right = 0x7f050002;
-		public static final int text = 0x7f050249;
+		public static final int text = 0x7f050254;
 		public static final int rtl = 0x7f050018;
 		public static final int animation = 0x7f050025;
 		public static final int ifContentScrolls = 0x7f050012;
@@ -29,15 +29,15 @@ public final class R {
 		public static final int gone = 0x7f050006;
 		public static final int inherit = 0x7f050019;
 		public static final int always = 0x7f050011;
-		public static final int thumbnail = 0x7f050248;
-		public static final int ptr_id_spinner = 0x7f05024f;
+		public static final int thumbnail = 0x7f050253;
+		public static final int ptr_id_spinner = 0x7f05025a;
 		public static final int scrolling = 0x7f050026;
 		public static final int horizontal = 0x7f050008;
 		public static final int multipleChoiceModal = 0x7f050030;
 		public static final int auto = 0x7f05000e;
-		public static final int ptr_id_textwrapper = 0x7f050250;
+		public static final int ptr_id_textwrapper = 0x7f05025b;
 		public static final int low = 0x7f05000f;
-		public static final int ptr_id_last_updated = 0x7f050252;
+		public static final int ptr_id_last_updated = 0x7f05025d;
 		public static final int beforeDescendants = 0x7f050028;
 		public static final int gravity = 0x7f05001d;
 		public static final int multipleChoice = 0x7f05002f;
@@ -47,9 +47,9 @@ public final class R {
 		public static final int defaultPosition = 0x7f050014;
 		public static final int locale = 0x7f05001a;
 		public static final int scrapped_view = 0x7f050003;
-		public static final int ptr_id_image = 0x7f05024e;
+		public static final int ptr_id_image = 0x7f050259;
 		public static final int viewEnd = 0x7f050022;
-		public static final int ptr_id_text = 0x7f050251;
+		public static final int ptr_id_text = 0x7f05025c;
 		public static final int left = 0x7f050000;
 		public static final int all = 0x7f050027;
 		public static final int textEnd = 0x7f05001f;
@@ -61,8 +61,8 @@ public final class R {
 		public static final int textStart = 0x7f05001e;
 		public static final int singleChoice = 0x7f05002e;
 		public static final int blocksDescendants = 0x7f05002a;
-		public static final int ptr_id_header = 0x7f05024d;
-		public static final int card_list = 0x7f050247;
+		public static final int ptr_id_header = 0x7f050258;
+		public static final int card_list = 0x7f050252;
 		public static final int high = 0x7f050010;
 		public static final int disabled = 0x7f05002b;
 		public static final int afterDescendants = 0x7f050029;
@@ -86,8 +86,8 @@ public final class R {
 	}
 	public static final class layout {
 		public static final int act_pull_to_refresh_sample = 0x7f030015;
-		public static final int ptr_header = 0x7f030069;
-		public static final int item_sample = 0x7f030066;
+		public static final int ptr_header = 0x7f03006c;
+		public static final int item_sample = 0x7f030069;
 		public static final int act_sample = 0x7f030016;
 	}
 	public static final class styleable {
@@ -195,8 +195,8 @@ public final class R {
 		public static final int View_scrollbarDefaultDelayBeforeFade = 20;
 	}
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f020173;
-		public static final int default_ptr_flip_bottom = 0x7f020171;
+		public static final int ic_launcher = 0x7f020176;
+		public static final int default_ptr_flip_bottom = 0x7f020174;
 	}
 	public static final class attr {
 		public static final int onClick = 0x7f010039;

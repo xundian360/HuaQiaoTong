@@ -3,6 +3,7 @@
     style="@style/CommonPanddingTheme1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/b01v01_nav_item_bg_selector"
     android:gravity="center|top"
     android:padding="5dp" >
 
@@ -10,7 +11,6 @@
         android:id="@+id/b01v00NavItemView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         android:gravity="center" >
         <TextView
             android:id="@+id/b01v00NavItemName"

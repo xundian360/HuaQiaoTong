@@ -1,5 +1,9 @@
 package com.xundian360.huaqiaotong.util.b02;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +13,7 @@ import android.util.Log;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.modle.b02.Bick;
+import com.xundian360.huaqiaotong.modle.b02.Texi;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.SerializableList;
 import com.xundian360.huaqiaotong.util.BaiduUtil;
@@ -44,6 +49,38 @@ public class B02BaiduUtil extends BaiduUtil{
 		} finally {
 			
 			return carsPint;
+		}
+	}
+	
+	/**
+	 * 取得车集散点信息
+	 * @param context
+	 * @return
+	 */
+	@SuppressWarnings("finally")
+	public static List<Texi> getCarsList(Context context, String zoonId) {
+		
+		List<Texi> taxis = null;
+		
+		// 访问URL
+		String url = context.getString(R.string.get_taxi_list);
+		
+		try{
+			
+			HashMap<String, String> params = new HashMap<String, String>();
+			params.put("taxiAddId", zoonId);
+			
+			// 取得黑车点数据
+			String carsJson = BaseHttpClient.doGetRequest(url, params);
+			Log.d("debug", carsJson);
+			
+			// 设置Json数据到对象
+			taxis = getCarsFromJson(carsJson);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			return taxis;
 		}
 	}
 	
@@ -189,4 +226,51 @@ public class B02BaiduUtil extends BaiduUtil{
 		
 		return carsPint;
 	}
+	
+	/**
+	 * 取得车辆信息
+	 * @param json
+	 * @return
+	 * @throws JSONException
+	 */
+	private static List<Texi> getCarsFromJson(String json) throws JSONException {
+		
+		List<Texi> taxis = new ArrayList<Texi>();
+		
+		// 解析JSON数据
+		JSONObject carsJson = new JSONObject(json);
+		
+		// 查询状态
+		String status = carsJson.getString("status");
+		
+		// 结果集
+		JSONArray carsResults = carsJson.getJSONArray("results");
+		
+		// 当查询成功，并且结果集部为空的时候
+		if(KTV_STATUS_OK_KEY.equals(status) 
+				&& carsResults != null
+				&& carsResults.length() > 0) {
+			
+			// 遍历，设置JSON数据到对象
+			for (int i = 0; i < carsResults.length(); i++) {
+				
+				JSONObject carItem = carsResults.getJSONObject(i);
+				
+				// 设置出租车信息
+				Texi taxi = new Texi();
+				taxi.setId(carItem.getString("id"));
+				taxi.setName(carItem.getString("taxi_name"));
+				taxi.setAdd(carItem.getString("taxi_add"));
+				taxi.setPhone(carItem.getString("taxi_tel"));
+				taxi.setCarType(carItem.getString("taxi_car"));
+				taxi.setTime(carItem.getString("taxi_time"));
+				taxi.setCom(carItem.getString("taxi_com"));
+				
+				taxis.add(taxi);
+			}
+		}
+		
+		return taxis;
+	}
+	
 }

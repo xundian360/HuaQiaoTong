@@ -81,6 +81,9 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	// 描述
 	private String disc;
 	
+	// 缩略图
+	public String shop_pic_soulue;
+	
 	// 描述Tittle
 	private String disc_tittle;
 	
@@ -90,7 +93,7 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	
 	public Baidu(String name, double location_lat, double location_lng,
 			String address, String telephone, String uid, String distance,
-			String detail_url, String price, String overall_rating,
+			String detail_url, String price, String overall_rating, String shop_pic_soulue,
 			String image_num, String comment_num) {
 		super();
 		this.name = name;
@@ -105,6 +108,7 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 		this.overall_rating = overall_rating;
 		this.image_num = image_num;
 		this.comment_num = comment_num;
+		this.shop_pic_soulue = shop_pic_soulue;
 	}
 	
 	public String getName() {
@@ -194,6 +198,12 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	public void setDisc_tittle(String disc_tittle) {
 		this.disc_tittle = disc_tittle;
 	}
+	public String getShop_pic_soulue() {
+		return shop_pic_soulue;
+	}
+	public void setShop_pic_soulue(String shop_pic_soulue) {
+		this.shop_pic_soulue = shop_pic_soulue;
+	}
 
 	public void setRelaDistance(double lan, double lon) {
 		// 计算经纬度的距离
@@ -213,6 +223,7 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 				this.price, 
 				this.overall_rating, 
 				this.image_num, 
+				this.shop_pic_soulue,
 				this.comment_num);
 	}
 	

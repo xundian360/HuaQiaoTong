@@ -56,6 +56,14 @@
 	
 	<color name="b02_v00_daozhan_color">#FF2FB8A6</color>
 	
+	<color name="b02_v00_item_call_color">#FFFE961C</color>
+	
+	<color name="b02_v00_item_a_color">#FFFF2953</color>
+	
+	<color name="b02_v00_item_t_color">#FF76C8EA</color>
+	
+	<color name="b02_v00_item_l_color">#FFB1B1B1</color>
+	
 	<!-- 底部颜色1  蓝色 -->
 	<color name="comm_buttom_blue_0">#9F42C4F1</color>
 	<color name="comm_buttom_blue_1">#9F0095C8</color>

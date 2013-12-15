@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_weight="32"
         android:scaleType="centerInside"
-        android:src="@drawable/test_b01v00_item_img" />
+        android:src="@drawable/b01v00_item_dafilt_img" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,6 +103,7 @@
                     style="@style/B01v00RatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:isIndicator="true"
                     android:numStars="5"
                     android:rating="4" />
             </LinearLayout>
