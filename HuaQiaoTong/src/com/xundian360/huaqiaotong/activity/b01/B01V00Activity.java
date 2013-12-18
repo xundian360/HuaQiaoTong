@@ -404,7 +404,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 	 * 取得商店数据
 	 */
 	Runnable getShopData = new Runnable() {
-		
+		@SuppressWarnings("unchecked")
 		@Override
 		public void run() {
 			
@@ -464,7 +464,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			// 数据项目
 			Map<String, Object> dataItem = new HashMap<String, Object>();
 			
-//			dataItem.put(B01v00KtvAdapter.from[0], R.drawable.test_b01v00_item_img);
+			dataItem.put(B01v00KtvAdapter.from[0], R.drawable.b01v00_item_dafilt_img);
 			dataItem.put(B01v00KtvAdapter.from[1], itemFirst.getName());
 			dataItem.put(B01v00KtvAdapter.from[2], itemFirst.getDisc_tittle());
 			dataItem.put(B01v00KtvAdapter.from[3], itemFirst.getDisc());
