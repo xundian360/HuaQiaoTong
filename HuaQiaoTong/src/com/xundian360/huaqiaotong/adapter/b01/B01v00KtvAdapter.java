@@ -15,7 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.SimpleAdapter;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b01.B01V01Activity;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
@@ -40,6 +42,15 @@ public class B01v00KtvAdapter extends SimpleAdapter {
 	
 	// 当前ListView显示的items信息
 	List<Baidu> items;
+	
+	// 图片缓存
+	DisplayImageOptions options = new DisplayImageOptions.Builder()
+			.showStubImage(R.drawable.b01v00_item_dafilt_img)
+			.showImageForEmptyUri(R.drawable.b01v00_item_dafilt_img)
+			.showImageOnFail(R.drawable.b01v00_item_dafilt_img)
+			.cacheOnDisc(true)
+			.displayer(new RoundedBitmapDisplayer(20))
+			.build();
 	
 	public B01v00KtvAdapter(Context context,
 			List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
@@ -69,7 +80,7 @@ public class B01v00KtvAdapter extends SimpleAdapter {
 			
 			// 设置图片
 			ImageView imgView = (ImageView) view.findViewById(R.id.v01v00ItemImg);
-			ImageLoader.getInstance().displayImage(item.getShop_pic_soulue(), imgView);
+			ImageLoader.getInstance().displayImage(item.getShop_pic_soulue(), imgView, options);
 			
 			// 设置评分
 			RatingBar rating = (RatingBar) view.findViewById(R.id.v01v00ItemRating);

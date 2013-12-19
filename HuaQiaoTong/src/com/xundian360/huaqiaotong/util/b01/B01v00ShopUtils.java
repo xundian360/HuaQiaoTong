@@ -30,6 +30,11 @@ import com.xundian360.huaqiaotong.util.StringUtils;
  */
 public class B01v00ShopUtils extends BaiduUtil{
 	
+	// 描述分隔符
+	private static final String DISC_DELIMITER = "|||";
+	// 换行符
+	private static final String NEWLINE = "\n";
+	
 	/**
 	 * 取得商店信息列表
 	 * @param context
@@ -223,7 +228,12 @@ public class B01v00ShopUtils extends BaiduUtil{
 				ktv.setPrice(JsonUtil.getString(ktvJ, "shop_money"));
 				ktv.setOverall_rating(JsonUtil.getString(ktvJ, "attention"));
 				ktv.setShop_pic_soulue(JsonUtil.getString(ktvJ, "shop_pic_soulue"));
-				ktv.setDisc_tittle(JsonUtil.getString(ktvJ, "shop_des"));
+				
+				String shop_des = JsonUtil.getString(ktvJ, "shop_des");
+				shop_des.replace(DISC_DELIMITER, NEWLINE);
+				
+				ktv.setDisc_tittle(shop_des);
+				ktv.setDisc(shop_des);
 				
 				// 添加到数组
 				ktvList.add(ktv);

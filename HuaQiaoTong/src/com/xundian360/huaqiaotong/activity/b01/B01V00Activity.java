@@ -11,8 +11,11 @@ import java.util.Map;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.widget.AutoCompleteTextView;
@@ -88,6 +91,15 @@ public class B01V00Activity extends ComNoTittleActivity {
 	
 	CommonProgressDialog processDialog;
 	
+	// 商店数量
+	int totalNum = 0;
+	// 第几页
+	int pageNum = 0;
+	
+	int pageSize = 10;
+	
+	boolean canLoad = true;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -140,6 +152,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		searchText = (AutoCompleteTextView) findViewById(R.id.b01v00SearchText);
 		searchText.setHint(getString(R.string.b01v01_tittle_hint, getString(itemObject.getTittleId())));
+		searchText.setOnFocusChangeListener(searchTextFocus);
 		
 		cancelBtnText = (TextView) findViewById(R.id.b01v00CancelBtn);
 		cancelBtnText.setOnClickListener(cancelBtClick);
@@ -157,6 +170,26 @@ public class B01V00Activity extends ComNoTittleActivity {
 		// 动态设置筛选条件
 		autoSetSelection();
 	}
+	
+	/**
+	 * 键盘事件
+	 */
+	OnFocusChangeListener searchTextFocus = new OnFocusChangeListener() {
+		@Override
+		public void onFocusChange(View v, boolean hasFocus) {
+			
+			// 失去焦点
+			if(hasFocus == false) {
+				
+				// 取得搜索的店铺信息
+				getSearchDate();
+				
+			} else {
+				// 获得焦点，清空数据
+				searchText.setText("");
+			}
+		}
+	};
 	
 	/**
 	 * 返回按钮事件
@@ -234,8 +267,16 @@ public class B01V00Activity extends ComNoTittleActivity {
 				// 页面++
 				pageNum++;
 				
-				// 访问网络
-				setData();
+				// 搜索的时候
+				if(isSearch) {
+					
+					// 取得所有数据
+					setSearchDate();
+					
+				} else {
+					// 取得所有数据
+					setData();
+				}
 				
 				// 加载完成
 				onLoad();
@@ -377,6 +418,9 @@ public class B01V00Activity extends ComNoTittleActivity {
 		}
 	};
 	
+	// 检索
+	boolean isSearch = false;
+	
 	/**
 	 * 取得信息失败
 	 */
@@ -391,15 +435,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 		}
 	};
 	
-	// 商店数量
-	int totalNum = 0;
-	// 第几页
-	int pageNum = 0;
-	
-	int pageSize = 10;
-	
-	boolean canLoad = true;
-	
 	/**
 	 * 取得商店数据
 	 */
@@ -408,36 +443,99 @@ public class B01V00Activity extends ComNoTittleActivity {
 		@Override
 		public void run() {
 			
+			// 取得所有商店信息
 			Map<String, Object> shopItems = B01v00ShopUtils.getShopList(B01V00Activity.this, 
 					getString(itemObject.getKeyId()), 
 					pageSize,
 					pageNum);
 			
-			if(shopItems == null || shopItems.size() <= 0) {
-				// 更新UI
-				_handler.post(getMsgError);
-				
-				return;
-			}
-			
-			totalNum = StringUtils.paseInt((String) shopItems.get(B01v00ShopUtils.TOTAL_KEY), 0);
-			itemsData.addAll((List<Baidu>) shopItems.get(B01v00ShopUtils.RESULTS_KEY));
-			
-			// 更新UI
-			_handler.post(updateList);
-			
-			// 判断是不是最后一页
-			if(itemsData.size() >= totalNum) {
-				_handler.post(new Runnable() {
-					@Override
-					public void run() {
-						canLoad = false;
-						itemListView.setPullLoadEnable(canLoad);
-					}
-				});
-			}
+			// 设置数据
+			setShopItems(shopItems);
 		}
 	};
+	
+	/**
+	 * 设置数据
+	 * @param shopItems
+	 */
+	private void setShopItems(Map<String, Object> shopItems) {
+		if(shopItems == null || shopItems.size() <= 0) {
+			// 更新UI
+			_handler.post(getMsgError);
+			return;
+		}
+		
+		totalNum = StringUtils.paseInt((String) shopItems.get(B01v00ShopUtils.TOTAL_KEY), 0);
+		itemsData.addAll((List<Baidu>) shopItems.get(B01v00ShopUtils.RESULTS_KEY));
+		
+		// 更新UI
+		_handler.post(updateList);
+		
+		// 判断是不是最后一页
+		if(itemsData.size() >= totalNum) {
+			_handler.post(new Runnable() {
+				@Override
+				public void run() {
+					canLoad = false;
+					itemListView.setPullLoadEnable(canLoad);
+				}
+			});
+		}
+	}
+	
+	/**
+	 * 取得搜索的店铺信息
+	 */
+	private void setSearchDate() {
+		
+		String searchTextV = searchText.getText().toString();
+		
+		// 输入不为空
+		if(StringUtils.isNotBlank(searchTextV)) {
+			// 取得商店数据
+			new Thread(getShopSearchData).start();
+		}
+	}
+	
+	/**
+	 * 取得搜索的店铺信息
+	 */
+	Runnable getShopSearchData = new Runnable() {
+		
+		@Override
+		public void run() {
+			
+			// 搜索关键字
+			String searchTextV = searchText.getText().toString();
+			
+			// 取得所有商店信息
+			Map<String, Object> shopItems = B01v00ShopUtils.getShopListByTag(B01V00Activity.this, 
+					getString(itemObject.getKeyId()), 
+					searchTextV,
+					pageSize,
+					pageNum);
+			
+			// 取得了检索信息
+			if(shopItems == null || shopItems.size() <= 0){
+				
+				// 第一次搜索的时候
+				if(!isSearch) {
+					
+					isSearch = true;
+					
+					// 晴空原来的数据源
+					itemsData.clear();
+					
+					// 重制分页
+					pageNum = 0;
+				}
+			}
+						
+			// 设置数据
+			setShopItems(shopItems);
+		}
+	};
+
 	
 	/**
 	 *  设置数据

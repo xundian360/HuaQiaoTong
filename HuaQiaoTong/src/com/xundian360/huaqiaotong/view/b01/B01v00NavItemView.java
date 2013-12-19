@@ -13,6 +13,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -46,6 +48,7 @@ public class B01v00NavItemView {
 	// 导航展开标记
 	ImageView navStatusImg;
 	
+	// 导航项目
 	ListView navItems;
 	
 	// 当前项目显示的分类
@@ -86,6 +89,20 @@ public class B01v00NavItemView {
 		itemAdapter = new SimpleAdapter(context, data, R.layout.b01v00_nav_item_item, from, to);
 	}
 	
+	
+	/**
+	 *  项目点击事件
+	 */
+	OnItemClickListener navItemClick = new OnItemClickListener() {
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			
+			
+		}
+	};
+	
 	/**
 	 * 初始化视图
 	 */
@@ -102,6 +119,7 @@ public class B01v00NavItemView {
 		
 		navItems = (ListView) mainView.findViewById(R.id.b01v00NavItems);
 		navItems.setAdapter(itemAdapter);
+		navItems.setOnItemClickListener(navItemClick);
 		
 		navStatusImg = (ImageView) mainView.findViewById(R.id.b01v00NavImg);
 	}
