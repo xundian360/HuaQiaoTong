@@ -95,11 +95,11 @@ public class B04V00Activity extends ComNoTittleActivity implements PlatformActio
 		userPass = (EditText) findViewById(R.id.b04v00UserPas);
 		userPass.setOnEditorActionListener(passwordActionListener);
 		
-		signBtn = (ImageView) findViewById(R.id.b04v00SignBtn);
-		signBtn.setOnClickListener(signBtnClick);
-		
-		loginOtherBtn = (ImageView) findViewById(R.id.b04v00OtherLoginBtn);
-		loginOtherBtn.setOnClickListener(loginOtherBtnClick);
+//		signBtn = (ImageView) findViewById(R.id.b04v00SignBtn);
+//		signBtn.setOnClickListener(signBtnClick);
+//		
+//		loginOtherBtn = (ImageView) findViewById(R.id.b04v00OtherLoginBtn);
+//		loginOtherBtn.setOnClickListener(loginOtherBtnClick);
 	}
 	
 	/**

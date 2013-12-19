@@ -17,49 +17,52 @@
             android:background="@drawable/b01v00_item_pic_bg"
             android:padding="10dp" />
 
-        <TextView
-            android:id="@+id/b01v00KtvCommAuther"
-            style="@style/CommonButtonItemTheme"
+        <LinearLayout
+            android:id="@+id/b01v00KtvCommAutherLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:text="大众点评网友"
-            android:textColor="@android:color/black" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/b01v00KtvCommAuther"
+                style="@style/CommonButtonItemTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="大众点评网友"
+                android:textColor="@android:color/black" />
+
+            <RatingBar
+                android:id="@+id/b01v00KtvCommRating"
+                style="@style/B01v00RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4" />
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
         android:id="@+id/b01v00KtvCommDatail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/b01v00KtvCommAutherLayout"
-        android:maxLines="3"
-        android:maxLength="55"
         android:ellipsize="end"
-        android:text="NO.1不是第一次去了，很喜欢里面的装饰，蛮漂亮大方的，让我有种晕眩的赶脚~~她的服务也很到位很贴心。昨天因为几个同学临时过来玩，没来得及提前预定，还好很是幸运有空余的房间，接电话的美女帮我预留了房间，非常感谢！"
-        android:paddingTop="5dp" />
-    
-    <LinearLayout 
-        android:id="@+id/b01v00KtvCommMoreBtn"
+        android:maxLength="55"
+        android:maxLines="3"
+        android:paddingTop="5dp"
+        android:text="NO.1不是第一次去了，很喜欢里面的装饰，蛮漂亮大方的，让我有种晕眩的赶脚~~她的服务也很到位很贴心。昨天因为几个同学临时过来玩，没来得及提前预定，还好很是幸运有空余的房间，接电话的美女帮我预留了房间，非常感谢！" />
+
+    <TextView
+        android:id="@+id/b01v00KtvCommTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/b01v01_more_bg_0" >
-        
-        <TextView 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textSize="10sp"
-            android:text="@string/b01v01_text_show_more" />
-        
-    </LinearLayout>
-    
-    
+        android:layout_below="@+id/b01v00KtvCommDatail"
+        android:text="大众点评网友"
+        android:textColor="@color/text_color_2" />
 
 </RelativeLayout>

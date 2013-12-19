@@ -2,71 +2,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFE1E1E1" >
-    
-   	<ImageView 
-        android:id="@+id/b04v00CenterLine"
+    android:background="@drawable/b04v00_bg"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/b04v00TittleImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/com_transparent"
-        android:layout_centerInParent="true" />
-    
-    <LinearLayout 
+        android:src="@drawable/b04v00_tittle_img" />
+
+    <LinearLayout
         android:id="@+id/b04v00UserInfoLayput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_above="@+id/b04v00CenterLine" >
-        
-        <EditText 
-            android:id="@+id/b04v00UserName"
+        android:layout_below="@+id/b04v00TittleImg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            style="@style/B04v01UserItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b04v01_user_icon" />
+
+            <EditText
+                android:id="@+id/b04v00UserName"
+                style="@style/B04v01UserTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/b04v00_hint_user_name" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/B04v01UserItemTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/B04v01UserTextTheme"
-            android:background="@android:color/white"
-            android:hint="@string/b04v00_hint_user_name" />
-        
-        <EditText 
-            android:id="@+id/b04v00UserPas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/B04v01UserTextTheme"
-            android:inputType="textPassword"
-             android:imeOptions="actionUnspecified"
-            android:imeActionLabel="@string/b04v01_login_text"
-            android:background="@android:color/white"
-            android:hint="@string/b04v00_hint_user_pass" />
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b04v01_pw_icon" />
+
+            <EditText
+                android:id="@+id/b04v00UserPas"
+                style="@style/B04v01UserTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/b04v00_hint_user_pass"
+                android:imeActionLabel="@string/b04v01_login_text"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword" />
+        </LinearLayout>
     </LinearLayout>
-    
-    <ImageView 
-        android:id="@+id/b04v00HuaqiaoInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/com_transparent"
-        android:layout_above="@+id/b04v00UserInfoLayput"
-        android:src="@drawable/b04v00_huaqiao_img"
-        android:layout_margin="10dp" />
-    
-    <LinearLayout 
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
+        android:layout_below="@+id/b04v00UserInfoLayput"
+        android:layout_marginTop="20dp"
+        android:weightSum="2" >
+
+        <TextView
+            android:id="@+id/b04v01LoginBtn"
+            style="@style/B04v00LoginBtnTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/b04v01_login_text" />
+
+        <TextView
+            android:id="@+id/b04v01SignBtn"
+            style="@style/B04v00LoginBtnTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/b04v01_tittle_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="20dp" >
-        
-        <ImageView 
-            android:id="@+id/b04v00SignBtn"
-            android:layout_width="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/b04v00_sign_img" />
-        
-        <ImageView 
-            android:id="@+id/b04v00OtherLoginBtn"
-            android:layout_width="wrap_content"
+            android:text="@string/b04v00_other_way_login"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/b04v00_other_login_img" />
+            android:padding="10dp"
+            android:weightSum="2" >
+            
+            <ImageView 
+                android:id="@+id/b04v01QqLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/b04v00_qq_login_img" />
+            
+                        <ImageView 
+                android:id="@+id/b04v01WbLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/b04v00_weibo_login_img" />
+            
+            
+            
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

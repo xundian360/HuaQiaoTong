@@ -13,22 +13,22 @@
 	<string name="comm_get_change_bus_info">http://221.6.86.251:8899/GetChangeBusInfo</string>
 	
 	<!-- 激活设备URL -->
-	<string name="device_cctivation">http://115.29.41.45:8080/HqtService/deviceCctivation</string>
+	<string name="device_cctivation">http://115.29.43.200:8080/HqtService/deviceCctivation</string>
 	
 	<!-- 商店相关 -->
 	<!-- 取得商店信息列表 -->
-	<string name="comm_get_shop_list">http://115.29.41.45:8080/HqtService/getShopList</string>
+	<string name="comm_get_shop_list">http://115.29.43.200:8080/HqtService/getShopList</string>
 	
 	<!-- 取得信息列表（价格区间） -->
-	<string name="comm_get_shop_list_by_price">http://115.29.41.45:8080/HqtService/getSearchShopListByPrice</string>
+	<string name="comm_get_shop_list_by_price">http://115.29.43.200:8080/HqtService/getSearchShopListByPrice</string>
 	
 	<!-- 取得信息列表（关注数量） -->
-	<string name="comm_get_shop_list_by_attention">http://115.29.41.45:8080/HqtService/getSearchShopListByAttention</string>
+	<string name="comm_get_shop_list_by_attention">http://115.29.43.200:8080/HqtService/getSearchShopListByAttention</string>
 	
 	<!-- 取得商店信息列表（关键字检索） -->
-	<string name="get_search_shop_list">http://115.29.41.45:8080/HqtService/getSearchShopList</string>
+	<string name="get_search_shop_list">http://115.29.43.200:8080/HqtService/getSearchShopList</string>
 	
 	<!-- 黑车接口 -->
-	<string name="get_taxi_list">http://115.29.41.45:8080/HqtService/getTaxiTabList</string>
+	<string name="get_taxi_list">http://115.29.43.200:8080/HqtService/getTaxiTabList</string>
 		
 </resources>

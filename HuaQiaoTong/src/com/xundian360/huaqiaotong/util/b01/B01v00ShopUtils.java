@@ -220,6 +220,7 @@ public class B01v00ShopUtils extends BaiduUtil{
 				ktv.setAddress(JsonUtil.getString(ktvJ, "address"));
 				ktv.setTelephone(JsonUtil.getString(ktvJ, "tel"));
 				ktv.setUid(JsonUtil.getString(ktvJ, "id"));
+				ktv.setTime(JsonUtil.getString(ktvJ, "shop_time"));
 				
 				// 设置位置
 				ktv.setLocation_lat(StringUtils.paseDouble(JsonUtil.getString(ktvJ, "location_w"), 0));
@@ -230,7 +231,7 @@ public class B01v00ShopUtils extends BaiduUtil{
 				ktv.setShop_pic_soulue(JsonUtil.getString(ktvJ, "shop_pic_soulue"));
 				
 				String shop_des = JsonUtil.getString(ktvJ, "shop_des");
-				shop_des.replace(DISC_DELIMITER, NEWLINE);
+				shop_des = shop_des.replace(DISC_DELIMITER, NEWLINE);
 				
 				ktv.setDisc_tittle(shop_des);
 				ktv.setDisc(shop_des);

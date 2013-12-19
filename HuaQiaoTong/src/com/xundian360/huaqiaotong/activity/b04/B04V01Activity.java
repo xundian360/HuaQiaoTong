@@ -78,7 +78,7 @@ public class B04V01Activity extends ComNoTittleActivity {
 		signBtn = (Button) findViewById(R.id.b04v01SignBtn);
 		signBtn.setOnClickListener(signBtnClick);
 		
-		allowProtocol = (CheckBox) findViewById(R.id.b04v01AllowProtocol);
+//		allowProtocol = (CheckBox) findViewById(R.id.b04v01AllowProtocol);
 		
 	}
 	

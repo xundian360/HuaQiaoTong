@@ -11,8 +11,6 @@ import java.util.Map;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
@@ -182,7 +180,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			if(hasFocus == false) {
 				
 				// 取得搜索的店铺信息
-				getSearchDate();
+				setSearchDate();
 				
 			} else {
 				// 获得焦点，清空数据
@@ -439,7 +437,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 	 * 取得商店数据
 	 */
 	Runnable getShopData = new Runnable() {
-		@SuppressWarnings("unchecked")
 		@Override
 		public void run() {
 			
@@ -565,7 +562,8 @@ public class B01V00Activity extends ComNoTittleActivity {
 			dataItem.put(B01v00KtvAdapter.from[0], R.drawable.b01v00_item_dafilt_img);
 			dataItem.put(B01v00KtvAdapter.from[1], itemFirst.getName());
 			dataItem.put(B01v00KtvAdapter.from[2], itemFirst.getDisc_tittle());
-			dataItem.put(B01v00KtvAdapter.from[3], itemFirst.getDisc());
+//			dataItem.put(B01v00KtvAdapter.from[3], itemFirst.getDisc());
+			dataItem.put(B01v00KtvAdapter.from[3], "");
 			dataItem.put(B01v00KtvAdapter.from[4], itemFirst.getPrice());
 			
 			// 添加到数据源

@@ -49,7 +49,7 @@ public class B01v00KtvAdapter extends SimpleAdapter {
 			.showImageForEmptyUri(R.drawable.b01v00_item_dafilt_img)
 			.showImageOnFail(R.drawable.b01v00_item_dafilt_img)
 			.cacheOnDisc(true)
-			.displayer(new RoundedBitmapDisplayer(20))
+			// .displayer(new RoundedBitmapDisplayer(20))
 			.build();
 	
 	public B01v00KtvAdapter(Context context,
@@ -71,43 +71,38 @@ public class B01v00KtvAdapter extends SimpleAdapter {
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		
-		View view = convertView;
+		View view = super.getView(position, convertView, parent);
+			
+		final Baidu item = items.get(position);
 		
-		if(view == null) {
-			view = super.getView(position, convertView, parent);
-			
-			final Baidu item = items.get(position);
-			
-			// 设置图片
-			ImageView imgView = (ImageView) view.findViewById(R.id.v01v00ItemImg);
-			ImageLoader.getInstance().displayImage(item.getShop_pic_soulue(), imgView, options);
-			
-			// 设置评分
-			RatingBar rating = (RatingBar) view.findViewById(R.id.v01v00ItemRating);
-			rating.setRating(StringUtils.paseFloat(item.getOverall_rating(), 0));
-			rating.setClickable(false);
-			
-			// 设置电话
-			LinearLayout callBtn = (LinearLayout) view.findViewById(R.id.b01v00PoiCall);
-			callBtn.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					CommonUtil.callPhone(context, item.getTelephone());
-				}
-			});
-			
-			// View 点击事件
-			view.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					CommonUtil.startActivityForResult(context, B01V01Activity.class, B01V01Activity.KTV_KEY, item, 100);
-				}
-			});
-			
-		}
+		// 设置图片
+		ImageView imgView = (ImageView) view.findViewById(R.id.v01v00ItemImg);
+		ImageLoader.getInstance().displayImage(item.getShop_pic_soulue(), imgView, options);
 		
+		// 设置评分
+		RatingBar rating = (RatingBar) view.findViewById(R.id.v01v00ItemRating);
+		rating.setRating(StringUtils.paseFloat(item.getOverall_rating(), 0));
+		rating.setClickable(false);
+		
+		// 设置电话
+		LinearLayout callBtn = (LinearLayout) view.findViewById(R.id.b01v00PoiCall);
+		callBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				CommonUtil.callPhone(context, item.getTelephone());
+			}
+		});
+		
+		// View 点击事件
+		view.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				CommonUtil.startActivityForResult(context, B01V01Activity.class, B01V01Activity.KTV_KEY, item, 100);
+			}
+		});
+			
 		return view;
 	}
 }

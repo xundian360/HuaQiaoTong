@@ -80,12 +80,12 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	private double relaDistance = 0;
 	// 描述
 	private String disc;
-	
 	// 缩略图
 	public String shop_pic_soulue;
-	
 	// 描述Tittle
 	private String disc_tittle;
+	// 时间
+	private String time;
 	
 	public Baidu() {
 		super();
@@ -208,6 +208,12 @@ public class Baidu implements Serializable, Comparable<Baidu> {
 	public void setRelaDistance(double lan, double lon) {
 		// 计算经纬度的距离
 		this.relaDistance = CommonUtil.distanceOfTwoPoints(location_lng, location_lat, lon, lan, GaussSphere.Beijing54);
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	@Override
