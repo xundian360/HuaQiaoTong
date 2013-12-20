@@ -3787,8 +3787,8 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f07000c;
-        public static final int action_settings=0x7f07012b;
-        public static final int anim_scale=0x7f070108;
+        public static final int action_settings=0x7f07012c;
+        public static final int anim_scale=0x7f070109;
         public static final int app_name=0x7f070000;
         public static final int b00v00_input_line_hint=0x7f07004c;
         public static final int b00v00_input_station_hint=0x7f07004b;
@@ -3974,22 +3974,22 @@ containing a value of this type.
         public static final int b05v04_search_hint=0x7f0700ed;
         /**  百度Key 
          */
-        public static final int baidu_map_key=0x7f07010b;
+        public static final int baidu_map_key=0x7f07010c;
         /**  消息 
          */
-        public static final int baidu_msgs_earch_faild=0x7f0700fc;
+        public static final int baidu_msgs_earch_faild=0x7f0700fd;
         /**  百度黑车集散点信息 
          */
-        public static final int baidu_place_cars_point=0x7f0700fa;
+        public static final int baidu_place_cars_point=0x7f0700fb;
         /**  百度Place检索URL 
          */
-        public static final int baidu_place_v2_search_url=0x7f0700f9;
+        public static final int baidu_place_v2_search_url=0x7f0700fa;
         /**  百度永久自行车信息信息 
          */
-        public static final int baidu_place_yongjiu_bick_point=0x7f0700fb;
+        public static final int baidu_place_yongjiu_bick_point=0x7f0700fc;
         /**  百度 API Key 
          */
-        public static final int baidu_server_key=0x7f07010c;
+        public static final int baidu_server_key=0x7f07010d;
         /**  站点查询 
  http://192.168.0.210:8899/GetBusStation?busStation=214 
          */
@@ -4012,19 +4012,19 @@ containing a value of this type.
         /**  取得信息列表（价格区间） 
          */
         public static final int comm_get_shop_list_by_price=0x7f0700f3;
-        public static final int common_btn_cancel=0x7f070109;
-        public static final int common_btn_enter=0x7f07010a;
-        public static final int common_call_phone_formart_error=0x7f070123;
-        public static final int common_city=0x7f070104;
-        public static final int common_data_other_is_pressing=0x7f070124;
-        public static final int common_data_pressing=0x7f070122;
-        public static final int common_p_city=0x7f070105;
-        public static final int common_shear_pengyou=0x7f070102;
-        public static final int common_shear_weibo=0x7f070103;
-        public static final int common_shear_weixin=0x7f070101;
-        public static final int common_text_list=0x7f070107;
-        public static final int common_text_location=0x7f070100;
-        public static final int common_text_map=0x7f070106;
+        public static final int common_btn_cancel=0x7f07010a;
+        public static final int common_btn_enter=0x7f07010b;
+        public static final int common_call_phone_formart_error=0x7f070124;
+        public static final int common_city=0x7f070105;
+        public static final int common_data_other_is_pressing=0x7f070125;
+        public static final int common_data_pressing=0x7f070123;
+        public static final int common_p_city=0x7f070106;
+        public static final int common_shear_pengyou=0x7f070103;
+        public static final int common_shear_weibo=0x7f070104;
+        public static final int common_shear_weixin=0x7f070102;
+        public static final int common_text_list=0x7f070108;
+        public static final int common_text_location=0x7f070101;
+        public static final int common_text_map=0x7f070107;
         /**  激活设备URL 
          */
         public static final int device_cctivation=0x7f0700f1;
@@ -4049,34 +4049,37 @@ containing a value of this type.
         public static final int get_taxi_list=0x7f0700f8;
         public static final int google_plus_client_inavailable=0x7f070016;
         public static final int googleplus=0x7f07002c;
-        public static final int hello_world=0x7f07012c;
+        public static final int hello_world=0x7f07012d;
         public static final int instagram=0x7f070034;
         public static final int instagram_client_inavailable=0x7f070019;
         public static final int kaixin=0x7f070022;
         public static final int linkedin=0x7f07002b;
+        /**  登陆接口 
+         */
+        public static final int login_url=0x7f0700f9;
         public static final int mail_chi_text=0x7f070038;
         public static final int mail_hq_text=0x7f070037;
         public static final int mail_my_life_text=0x7f070036;
         public static final int mail_tittle_text=0x7f070035;
         public static final int mail_use_car_text=0x7f070039;
-        public static final int message_cancel_download=0x7f070120;
-        public static final int message_download_complete=0x7f070121;
-        public static final int message_error_download=0x7f07011e;
-        public static final int message_error_get_weather=0x7f070116;
-        public static final int message_error_google_map_unuse=0x7f07011d;
-        public static final int message_error_network=0x7f07011b;
-        public static final int message_error_network_num1=0x7f07011c;
-        public static final int message_error_no_point=0x7f07011a;
-        public static final int message_error_unzip=0x7f07011f;
-        public static final int message_gps=0x7f070117;
-        public static final int message_location_error=0x7f070119;
-        public static final int message_network=0x7f070118;
-        public static final int msg_is_first_page=0x7f07012a;
-        public static final int msg_is_last_page=0x7f070129;
-        public static final int msg_no_shoucang_cancel=0x7f070126;
-        public static final int msg_no_shoucang_xianlu=0x7f070128;
-        public static final int msg_no_shoucang_zhandian=0x7f070127;
-        public static final int msg_shoucang_success=0x7f070125;
+        public static final int message_cancel_download=0x7f070121;
+        public static final int message_download_complete=0x7f070122;
+        public static final int message_error_download=0x7f07011f;
+        public static final int message_error_get_weather=0x7f070117;
+        public static final int message_error_google_map_unuse=0x7f07011e;
+        public static final int message_error_network=0x7f07011c;
+        public static final int message_error_network_num1=0x7f07011d;
+        public static final int message_error_no_point=0x7f07011b;
+        public static final int message_error_unzip=0x7f070120;
+        public static final int message_gps=0x7f070118;
+        public static final int message_location_error=0x7f07011a;
+        public static final int message_network=0x7f070119;
+        public static final int msg_is_first_page=0x7f07012b;
+        public static final int msg_is_last_page=0x7f07012a;
+        public static final int msg_no_shoucang_cancel=0x7f070127;
+        public static final int msg_no_shoucang_xianlu=0x7f070129;
+        public static final int msg_no_shoucang_zhandian=0x7f070128;
+        public static final int msg_shoucang_success=0x7f070126;
         public static final int neteasemicroblog=0x7f070027;
         public static final int pinterest=0x7f07002f;
         public static final int pinterest_client_inavailable=0x7f070018;
@@ -4090,7 +4093,7 @@ containing a value of this type.
         public static final int renren=0x7f070021;
         /**  ShearSDK key 
          */
-        public static final int shear_sdk_key=0x7f07010d;
+        public static final int shear_sdk_key=0x7f07010e;
         public static final int shortmessage=0x7f070024;
         public static final int sinaweibo=0x7f07001a;
         public static final int sohumicroblog=0x7f070025;
@@ -4098,9 +4101,9 @@ containing a value of this type.
         public static final int tencentweibo=0x7f07001b;
         public static final int tumblr=0x7f070031;
         public static final int twitter=0x7f070020;
-        public static final int unit_fenzhong=0x7f0700fd;
-        public static final int unit_k_meter=0x7f0700ff;
-        public static final int unit_meter=0x7f0700fe;
+        public static final int unit_fenzhong=0x7f0700fe;
+        public static final int unit_k_meter=0x7f070100;
+        public static final int unit_meter=0x7f0700ff;
         public static final int vkontakte=0x7f070033;
         public static final int website=0x7f070013;
         public static final int wechat=0x7f07001d;
@@ -4116,16 +4119,16 @@ containing a value of this type.
 	
  微信 id 
          */
-        public static final int weixin_id=0x7f07010e;
+        public static final int weixin_id=0x7f07010f;
         /**  新浪 Secret 
          */
-        public static final int weixin_key=0x7f07010f;
-        public static final int xlistview_footer_hint_normal=0x7f070114;
-        public static final int xlistview_footer_hint_ready=0x7f070115;
-        public static final int xlistview_header_hint_loading=0x7f070112;
-        public static final int xlistview_header_hint_normal=0x7f070110;
-        public static final int xlistview_header_hint_ready=0x7f070111;
-        public static final int xlistview_header_last_time=0x7f070113;
+        public static final int weixin_key=0x7f070110;
+        public static final int xlistview_footer_hint_normal=0x7f070115;
+        public static final int xlistview_footer_hint_ready=0x7f070116;
+        public static final int xlistview_header_hint_loading=0x7f070113;
+        public static final int xlistview_header_hint_normal=0x7f070111;
+        public static final int xlistview_header_hint_ready=0x7f070112;
+        public static final int xlistview_header_last_time=0x7f070114;
         public static final int youdao=0x7f070029;
     }
     public static final class style {

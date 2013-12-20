@@ -16,7 +16,8 @@ import android.content.SharedPreferences.Editor;
 public class UserModle {
 	
 	private static final String PREFS_NAME = "com.xundian360.huaqiaotong.user";
-
+	
+	private static final String ITEM_USER_ID = "com.xundian360.huaqiaotong.user.id";
 	private static final String ITEM_USER_LOGINNAME = "com.xundian360.huaqiaotong.user.loginName";
 	private static final String ITEM_USER_NAME = "com.xundian360.huaqiaotong.user.name";
 	private static final String ITEM_USER_SEX = "com.xundian360.huaqiaotong.user.sex";
@@ -42,6 +43,7 @@ public class UserModle {
 	public void read() {
 		user = new User();
 		
+		user.setLoginName(settings.getString(ITEM_USER_ID, ""));
 		user.setLoginName(settings.getString(ITEM_USER_LOGINNAME, ""));
 		user.setName(settings.getString(ITEM_USER_NAME, ""));
 		user.setSex(settings.getInt(ITEM_USER_SEX, -1));
@@ -59,6 +61,7 @@ public class UserModle {
 		
 		Editor editor = this.settings.edit();
 		
+		editor.putString(ITEM_USER_ID, user.getUserId());
 		editor.putString(ITEM_USER_LOGINNAME, user.getLoginName());
 		editor.putString(ITEM_USER_NAME, user.getName());
 		editor.putInt(ITEM_USER_SEX, user.getSex());

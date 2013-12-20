@@ -136,7 +136,7 @@ public class B02BaiduUtil extends BaiduUtil{
 		try {
 
 			// 当查询成功，并且结果集部为空的时候
-			if (KTV_STATUS_OK_KEY.equals(status) && bickListResults != null
+			if (STATUS_OK_KEY.equals(status) && bickListResults != null
 					&& bickListResults.length() > 0) {
 
 				// 遍历，设置JSON数据到对象
@@ -194,7 +194,7 @@ public class B02BaiduUtil extends BaiduUtil{
 		JSONArray carsPointResults = carsPointJson.getJSONArray("pois");
 		
 		// 当查询成功，并且结果集部为空的时候
-		if(KTV_STATUS_OK_KEY.equals(status) 
+		if(STATUS_OK_KEY.equals(status) 
 				&& carsPointResults != null
 				&& carsPointResults.length() > 0) {
 			
@@ -247,7 +247,7 @@ public class B02BaiduUtil extends BaiduUtil{
 		JSONArray carsResults = carsJson.getJSONArray("results");
 		
 		// 当查询成功，并且结果集部为空的时候
-		if(KTV_STATUS_OK_KEY.equals(status) 
+		if(STATUS_OK_KEY.equals(status) 
 				&& carsResults != null
 				&& carsResults.length() > 0) {
 			

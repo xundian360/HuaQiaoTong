@@ -15,6 +15,8 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	// 用户ID
+	private String userId;
 	// 登录名
 	private String loginName;
 	// 昵称
@@ -71,6 +73,12 @@ public class User implements Serializable {
 	}
 	public void setCompany(String company) {
 		this.company = company;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

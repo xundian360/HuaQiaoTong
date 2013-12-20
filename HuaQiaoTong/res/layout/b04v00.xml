@@ -102,23 +102,20 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:weightSum="2" >
-            
-            <ImageView 
+
+            <ImageView
                 android:id="@+id/b04v01QqLogin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/b04v00_qq_login_img" />
-            
-                        <ImageView 
+
+            <ImageView
                 android:id="@+id/b04v01WbLogin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/b04v00_weibo_login_img" />
-            
-            
-            
         </LinearLayout>
     </LinearLayout>
 
