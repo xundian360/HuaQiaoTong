@@ -17,6 +17,7 @@ import android.util.Log;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
+import com.xundian360.huaqiaotong.modle.com.BaiduComment;
 import com.xundian360.huaqiaotong.util.BaiduUtil;
 import com.xundian360.huaqiaotong.util.BaseHttpClient;
 import com.xundian360.huaqiaotong.util.JsonUtil;
@@ -168,7 +169,7 @@ public class B01v00ShopUtils extends BaiduUtil{
 		
 		try {
 			// 请求百度服务器，返回JSON
-			String ktvJson = BaseHttpClient.doGetRequest(url, parameter);
+			String ktvJson = BaseHttpClient.doPostRequest(url, parameter);
 			Log.d("debug", ktvJson);
 		
 			// 处理JSON，返回组装对象
@@ -180,6 +181,138 @@ public class B01v00ShopUtils extends BaiduUtil{
 		} finally {
 			return ktvs;
 		}
+	}
+	
+	/**
+	 * 取得商店头图图片信息
+	 * @param context
+	 * @param shopId     检索关键字
+	 * @return
+	 */
+	public static List<String> getShopTittleImg(Context context, String shopId) {
+		
+		List<String> imgs = new ArrayList<String>();
+		
+		// 设置请求参数，取得请求数据
+		HashMap<String, String> parameter = new HashMap<String, String>();
+		parameter.put("shopId", shopId);
+		
+		try {
+		
+			String picsJsonS = BaseHttpClient.doPostRequest(context.getString(R.string.get_shop_tittle_img_list), 
+					parameter);
+		
+			// 解析JSON数据
+			JSONObject picsJson = new JSONObject(picsJsonS);
+			
+			JSONArray picResults = picsJson.getJSONArray("results");
+			
+			// 非空
+			if(picResults != null) {
+				
+				// 遍历，设置图片路径
+				for (int i = 0; i < picResults.length(); i++) {
+					
+					JSONObject picJ = picResults.getJSONObject(i);
+					
+					String picItem = JsonUtil.getString(picJ, "img");
+					
+					imgs.add(picItem);
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return imgs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return imgs;
+		}
+		
+		return imgs;
+	}
+	
+	/**
+	 * 取得商店评论列表
+	 * @param context
+	 * @param getShopPlByShop  取得商店评论
+	 * @param pageSize
+	 * @param pageNum
+	 * @return
+	 */
+	public static Map<String, Object> getShopPlList(Context context, String shopId) {
+		// 访问URL
+		String url = context.getString(R.string.get_shop_pl_list);
+		
+		// 设置参数
+		HashMap<String, String> parameter = new HashMap<String, String>();
+		parameter.put("shopId", shopId);
+		
+		// 访问百度，设置参数
+		Map<String, Object> shopPl = searchShopPl(url, parameter);
+		
+		return shopPl;
+	}
+	
+	/**
+	 *  商店评论检索
+	 * @param URL        访问URL
+	 * @param parameter  参数
+	 */
+	private static Map<String, Object> searchShopPl(String url, HashMap<String, String> parameter) {
+		
+		// 返回值
+		Map<String, Object> shopPl = new HashMap<String, Object>();
+		
+		try {
+			// 请求百度服务器，返回JSON
+			String plJson = BaseHttpClient.doPostRequest(url, parameter);
+			
+			// 解析JSON数据
+			// 解析JSON数据
+			JSONObject ktvJson = new JSONObject(plJson);
+			
+			// 取得检索的总数量
+			String totalNum = ktvJson.getString("total");
+			// 检索数量添加到返回值
+			shopPl.put(TOTAL_KEY, totalNum);
+			
+			// 评论列表
+			JSONArray plResults = ktvJson.getJSONArray("results"); 
+			
+			// 非空
+			if(plResults != null) {
+				
+				// 评论数组
+				List<BaiduComment> baiduComments = new ArrayList<BaiduComment>();
+				
+				// 遍历，设置评论
+				for (int i = 0; i < plResults.length(); i++) {
+					
+					JSONObject commentJ = plResults.getJSONObject(i);
+					
+					// 设置评论对象
+					BaiduComment commentItem = new BaiduComment();
+					commentItem.setId(JsonUtil.getString(commentJ, "id"));
+					commentItem.setShopId(JsonUtil.getString(commentJ, "shop_id"));
+					commentItem.setUserName(JsonUtil.getString(commentJ, "user_name"));
+					commentItem.setUserLogoPath(JsonUtil.getString(commentJ, "user_logo_path"));
+					commentItem.setScore(JsonUtil.getString(commentJ, "shop_score"));
+					commentItem.setDic(JsonUtil.getString(commentJ, "shop_comment"));
+					commentItem.setTime(JsonUtil.getString(commentJ, "time"));
+					
+					baiduComments.add(commentItem);
+				}
+				
+				// 添加评论列表到返回值
+				shopPl.put(RESULTS_KEY, baiduComments);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return shopPl;
+		} 
+		
+		return shopPl;
 	}
 	
 	/**

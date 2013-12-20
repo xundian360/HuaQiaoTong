@@ -28,6 +28,12 @@
 	<!-- 取得商店信息列表（关键字检索） -->
 	<string name="get_search_shop_list">http://115.29.43.200:8080/HqtService/getSearchShopList</string>
 	
+	<!-- 取得商店头部图片信息 -->
+	<string name="get_shop_tittle_img_list">http://115.29.43.200:8080/HqtService/getShopTittlePic</string>
+	
+	<!-- 取得商店评论信息 -->
+	<string name="get_shop_pl_list">http://localhost:8080/hqt/getShopPlByShop</string>
+	
 	<!-- 黑车接口 -->
 	<string name="get_taxi_list">http://115.29.43.200:8080/HqtService/getTaxiTabList</string>
 		

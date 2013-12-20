@@ -11,17 +11,20 @@ import java.util.Map;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
@@ -150,7 +153,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		searchText = (AutoCompleteTextView) findViewById(R.id.b01v00SearchText);
 		searchText.setHint(getString(R.string.b01v01_tittle_hint, getString(itemObject.getTittleId())));
-		searchText.setOnFocusChangeListener(searchTextFocus);
+		searchText.setOnEditorActionListener(searchTextAction);
 		
 		cancelBtnText = (TextView) findViewById(R.id.b01v00CancelBtn);
 		cancelBtnText.setOnClickListener(cancelBtClick);
@@ -168,24 +171,22 @@ public class B01V00Activity extends ComNoTittleActivity {
 		// 动态设置筛选条件
 		autoSetSelection();
 	}
-	
+
 	/**
 	 * 键盘事件
 	 */
-	OnFocusChangeListener searchTextFocus = new OnFocusChangeListener() {
+	OnEditorActionListener searchTextAction = new OnEditorActionListener() {
+		
 		@Override
-		public void onFocusChange(View v, boolean hasFocus) {
+		public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 			
-			// 失去焦点
-			if(hasFocus == false) {
+			// 点击键盘的Search按钮
+			if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 				
 				// 取得搜索的店铺信息
 				setSearchDate();
-				
-			} else {
-				// 获得焦点，清空数据
-				searchText.setText("");
 			}
+			return false;
 		}
 	};
 	

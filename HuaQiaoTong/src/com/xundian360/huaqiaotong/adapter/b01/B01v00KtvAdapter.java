@@ -17,7 +17,6 @@ import android.widget.SimpleAdapter;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b01.B01V01Activity;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
