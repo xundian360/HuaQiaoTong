@@ -15,7 +15,6 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -29,6 +28,7 @@ import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
+import com.xundian360.huaqiaotong.view.com.AllShowListView;
 import com.xundian360.huaqiaotong.view.com.GalleryFlow;
 
 /**
@@ -66,7 +66,12 @@ public class B01V01Activity extends ComNoTittleActivity {
 	// 评论数量
 	TextView commentNum;
 	// 评论列表
-	ListView commentList;
+	AllShowListView commentList;
+	
+	// 评论面板
+	LinearLayout commentLayout;
+	
+	LinearLayout btnLayout;
 	
 	// 更多按钮
 	ImageView moreBtn;
@@ -115,7 +120,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 		tittlePicAdapter = new B01v01ImgAdapter(this, tittleImgData, 
 				R.layout.b01v01_tittle_item, B01v01ImgAdapter.from, B01v01ImgAdapter.to);
 		
-		commAdapter = new B01v01KtvCommAdapter(this, tittleImgData, 
+		commAdapter = new B01v01KtvCommAdapter(this, commData, 
 				R.layout.b01v01_item, B01v01KtvCommAdapter.from, B01v01KtvCommAdapter.to);
 		
 		// 取得头部图片
@@ -163,8 +168,10 @@ public class B01V01Activity extends ComNoTittleActivity {
 		
 		commentNum = (TextView) findViewById(R.id.b01v00CommentNum);
 		
-		commentList = (ListView) findViewById(R.id.b01v00CommentList);
+		commentList = (AllShowListView) findViewById(R.id.b01v00CommentList);
 		commentList.setAdapter(commAdapter);
+		
+		commentLayout = (LinearLayout) findViewById(R.id.b01v00CommentLayout);
 		
 		moreBtn = (ImageView) findViewById(R.id.b01v01MoreBtn);
 		moreBtn.setOnClickListener(moreBtnClick);
@@ -174,6 +181,8 @@ public class B01V01Activity extends ComNoTittleActivity {
 		
 		goBtn2 = (ImageView) findViewById(R.id.b01v01GoBtn);
 		goBtn2.setOnClickListener(goBtnClick);
+		
+		btnLayout = (LinearLayout) findViewById(R.id.b01v01BtnLayout);
 	}
 	
 	/**
@@ -195,7 +204,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 					.getShopTittleImg(B01V01Activity.this, baiduItem.getUid());
 			
 			// 非空判断
-			if(tittlePics != null && tittlePics.size() > 0) {
+			if(tittlePicsNet != null && tittlePicsNet.size() > 0) {
 				
 				tittlePics = tittlePicsNet;
 				
@@ -217,6 +226,8 @@ public class B01V01Activity extends ComNoTittleActivity {
 				Map<String, String> item = new HashMap<String, String>();
 				
 				item.put(B01v01ImgAdapter.from[0], tittlePic);
+				
+				tittleImgData.add(item);
 			}
 			
 			// 设置图片路径
@@ -224,6 +235,11 @@ public class B01V01Activity extends ComNoTittleActivity {
 			
 			// 刷新视图
 			tittlePicAdapter.notifyDataSetChanged();
+			
+			// 设置选中编号
+			if(tittleImgData.size() > 1) {
+				tittlePicView.setSelection(1);
+			}
 		}
 	};
 	
@@ -260,8 +276,26 @@ public class B01V01Activity extends ComNoTittleActivity {
 					
 					// 更新UI
 					_handler.post(updateCommData);
+				} else {
+					// 隐藏评论面板
+					_handler.post(hiddenCommentLayout);
 				}
+			} else {
+				// 隐藏评论面板
+				_handler.post(hiddenCommentLayout);
 			}
+		}
+	};
+	
+	/**
+	 * 隐藏评论面板
+	 */
+	Runnable hiddenCommentLayout = new Runnable() {
+		
+		@Override
+		public void run() {
+			// 隐藏评论面板
+			commentLayout.setVisibility(View.GONE);
 		}
 	};
 	
@@ -273,6 +307,9 @@ public class B01V01Activity extends ComNoTittleActivity {
 		@Override
 		public void run() {
 			
+			// 设置评论数量
+			commentNum.setText(getString(R.string.b01v01_com_num, (shopComments.size() + "")));
+			
 			// 清空数据源
 			commData.clear();
 			
@@ -281,9 +318,9 @@ public class B01V01Activity extends ComNoTittleActivity {
 				
 				Map<String, String> commentItem = new HashMap<String, String>();
 				commentItem.put(B01v01KtvCommAdapter.from[1], comment.getUserName());
-				commentItem.put(B01v01KtvCommAdapter.from[2], comment.getScore());
-				commentItem.put(B01v01KtvCommAdapter.from[3], comment.getDic());
-				commentItem.put(B01v01KtvCommAdapter.from[4], comment.getTime());
+				// commentItem.put(B01v01KtvCommAdapter.from[2], comment.getScore());
+				commentItem.put(B01v01KtvCommAdapter.from[2], comment.getDic());
+				commentItem.put(B01v01KtvCommAdapter.from[3], comment.getTime());
 				
 				commData.add(commentItem);
 			}
@@ -302,7 +339,15 @@ public class B01V01Activity extends ComNoTittleActivity {
 	OnClickListener editeBtnClick = new OnClickListener() {
 		@Override
 		public void onClick(View arg0) {
-			ShowMessageUtils.show(B01V01Activity.this, "评论按钮事件");
+			
+			String userId = CommonUtil.isLogin(B01V01Activity.this);
+			
+			// 判断是否登录
+			if(StringUtils.isBlank(userId)) {
+				return;
+			}
+			
+			CommonUtil.startActivityForResult(B01V01Activity.this, B01V03Activity.class, B01V01Activity.KTV_KEY, baiduItem, 100);
 		}
 	};
 	
@@ -312,7 +357,11 @@ public class B01V01Activity extends ComNoTittleActivity {
 	OnClickListener moreBtnClick = new OnClickListener() {
 		@Override
 		public void onClick(View arg0) {
-			ShowMessageUtils.show(B01V01Activity.this, "更多按钮事件");
+			if(btnLayout.getVisibility() == View.GONE) {
+				btnLayout.setVisibility(View.VISIBLE);
+			} else {
+				btnLayout.setVisibility(View.GONE);
+			}
 		}
 	};
 	

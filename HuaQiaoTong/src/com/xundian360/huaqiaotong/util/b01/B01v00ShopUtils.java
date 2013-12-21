@@ -201,6 +201,12 @@ public class B01v00ShopUtils extends BaiduUtil{
 		
 			String picsJsonS = BaseHttpClient.doPostRequest(context.getString(R.string.get_shop_tittle_img_list), 
 					parameter);
+			
+			System.out.println("picsJsonS > " + picsJsonS);
+			
+			if(StringUtils.isBlank(picsJsonS)) {
+				return imgs;
+			}
 		
 			// 解析JSON数据
 			JSONObject picsJson = new JSONObject(picsJsonS);
@@ -267,6 +273,12 @@ public class B01v00ShopUtils extends BaiduUtil{
 			// 请求百度服务器，返回JSON
 			String plJson = BaseHttpClient.doPostRequest(url, parameter);
 			
+			System.out.println("plJson > " + plJson);
+			
+			if(StringUtils.isBlank(plJson)) {
+				return null;
+			}
+			
 			// 解析JSON数据
 			// 解析JSON数据
 			JSONObject ktvJson = new JSONObject(plJson);
@@ -314,6 +326,50 @@ public class B01v00ShopUtils extends BaiduUtil{
 		
 		return shopPl;
 	}
+	
+	/**
+	 * 添加商店评论
+	 * @param context
+	 * @param shopId      商店ID
+	 * @param userId      用户ID
+	 * @param shopScore   评分
+	 * @param shopComment 评论内容
+	 * @return
+	 */
+	@SuppressWarnings("finally")
+	public static boolean addShopPingLun(Context context, 
+			String shopId, String userId, String shopScore, String shopComment) {
+		
+		boolean addShopPingLun = false;
+		
+		try{
+			
+			// 访问URL
+			String url = context.getString(R.string.add_shop_pl);
+			
+			// 设置参数
+			HashMap<String, String> parameter = new HashMap<String, String>();
+			parameter.put("shopId", shopId);
+			parameter.put("userId", userId);
+			parameter.put("shopScore", shopScore);
+			parameter.put("shopComment", shopComment);
+			
+			// 访问百度，设置参数
+			String addPlReturn = BaseHttpClient.doPostRequest(url, parameter);
+			
+			// 评论成功
+			if(STATUS_OK_KEY.equals(addPlReturn)) {
+				addShopPingLun = true;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			addShopPingLun = false;
+		} finally{
+			return addShopPingLun;
+		}
+	}
+	
 	
 	/**
 	 * 从JSON中取得KTV对象和总数量

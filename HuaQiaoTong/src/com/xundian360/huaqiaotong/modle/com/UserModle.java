@@ -43,7 +43,7 @@ public class UserModle {
 	public void read() {
 		user = new User();
 		
-		user.setLoginName(settings.getString(ITEM_USER_ID, ""));
+		user.setUserId(settings.getString(ITEM_USER_ID, ""));
 		user.setLoginName(settings.getString(ITEM_USER_LOGINNAME, ""));
 		user.setName(settings.getString(ITEM_USER_NAME, ""));
 		user.setSex(settings.getInt(ITEM_USER_SEX, -1));

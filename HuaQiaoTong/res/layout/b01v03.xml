@@ -9,7 +9,7 @@
         android:id="@+id/b01v03TittleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/b01v00_tittle_bg"
+        android:background="@drawable/b01v00_tittle_bg_img"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:background="@color/com_transparent"
             android:padding="5dp"
-            android:src="@drawable/b01v03_cance1_0" />
+            android:src="@drawable/b00v00_return_0" />
 
         <ImageView
             android:layout_width="wrap_content"

@@ -6,6 +6,7 @@ package com.xundian360.huaqiaotong.adapter.b01;
 import java.util.List;
 import java.util.Map;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import android.widget.SimpleAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.view.com.GalleryFlow;
 
 /**
  * 商店详细（头部图片）
@@ -32,6 +35,9 @@ public class B01v01ImgAdapter extends SimpleAdapter {
 	
 	List<String> tittlePics;
 	
+	int xWidth = 0;
+	int yWidth = 0;
+	
 	// 图片缓存
 	DisplayImageOptions options = new DisplayImageOptions.Builder()
 			.showStubImage(R.drawable.b01v00_item_dafilt_img)
@@ -46,6 +52,9 @@ public class B01v01ImgAdapter extends SimpleAdapter {
 		super(context, data, resource, from, to);
 
 		this.context = context;
+		
+		xWidth = CommonUtil.getDisplayWidth(((Activity)context).getWindow()) / 2;
+		yWidth = CommonUtil.getDisplayHeight(((Activity)context).getWindow()) / 5;
 	}
 	
 	@Override
@@ -56,6 +65,8 @@ public class B01v01ImgAdapter extends SimpleAdapter {
 		ImageView imgView = (ImageView) view.findViewById(R.id.b01v01TittleItemImg);
 		// 加载图片
 		ImageLoader.getInstance().displayImage(tittlePics.get(position), imgView, options);
+		
+		view.setLayoutParams(new GalleryFlow.LayoutParams(xWidth, yWidth));
 			
 		return view;
 	}

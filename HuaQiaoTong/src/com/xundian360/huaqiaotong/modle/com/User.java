@@ -15,6 +15,11 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	// 男
+	public static final String SEX_NAN = "0";
+	// 女
+	public static final String SEX_NV = "1";
+	
 	// 用户ID
 	private String userId;
 	// 登录名

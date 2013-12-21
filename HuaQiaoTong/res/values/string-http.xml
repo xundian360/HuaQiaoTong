@@ -32,12 +32,18 @@
 	<string name="get_shop_tittle_img_list">http://115.29.43.200:8080/HqtService/getShopTittlePic</string>
 	
 	<!-- 取得商店评论信息 -->
-	<string name="get_shop_pl_list">http://localhost:8080/hqt/getShopPlByShop</string>
+	<string name="get_shop_pl_list">http://115.29.43.200:8080/HqtService/getShopPlByShop</string>
+	
+	<!-- 添加商店评论信息 -->
+	<string name="add_shop_pl">http://115.29.43.200:8080/HqtService/addShopPingLun</string>
 	
 	<!-- 黑车接口 -->
 	<string name="get_taxi_list">http://115.29.43.200:8080/HqtService/getTaxiTabList</string>
 	
 	<!-- 登陆接口 -->
 	<string name="login_url">http://115.29.43.200:8080/HqtService/login</string>
+	
+    <!-- 注册接口 -->
+	<string name="registration_url">http://115.29.43.200:8080/HqtService/registration</string>
 		
 </resources>

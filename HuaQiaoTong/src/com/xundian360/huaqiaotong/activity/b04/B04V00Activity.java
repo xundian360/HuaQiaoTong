@@ -234,6 +234,7 @@ public class B04V00Activity extends ComNoTittleActivity {
 							userModle.read();
 							userModle.user.setUserId(userId);
 							userModle.user.setName(userNameText);
+							userModle.save();
 							
 							// 个人中心
 				    		CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);

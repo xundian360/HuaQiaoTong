@@ -18,8 +18,12 @@
 	<string name="b04v01_tittle_cancle">取消</string>
 	<string name="b04v01_tittle_complete">完成</string>
 	
+	<string name="b04v00_login_msg">请先登录</string>
+	
 	<string name="b04v01_msg_login_name_null">登录名不能为空</string>
 	<string name="b04v01_msg_login_pass_null">密码不能为空</string>
+	<string name="b04v01_msg_login_mail_null">邮件不能为空</string>
+	<string name="b04v01_msg_login_qq_null">QQ不能为空</string>
 	<string name="b04v01_msg_sign_success">注册成功</string>
 	<string name="b04v01_msg_login_error">登录失败</string>
 	

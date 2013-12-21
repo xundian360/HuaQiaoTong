@@ -13,6 +13,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.xundian360.huaqiaotong.activity.b01.B01V01Activity;
+import com.xundian360.huaqiaotong.activity.b01.B01V03Activity;
+import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
+import com.xundian360.huaqiaotong.modle.com.UserModle;
+
 import android.R;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -459,5 +464,31 @@ public class CommonUtil {
 		width= d.getWidth();
 		
 		return width;
+	}
+	
+	/**
+	 * 判断是否登录
+	 * @param ctx
+	 * @return
+	 */
+	public static String isLogin(Context ctx) {
+		
+		String userId = null;
+		
+		UserModle userModle = new UserModle(ctx);
+		
+		if(userModle.user != null && StringUtils.isNotBlank(userModle.user.getUserId())) {
+			
+			userId = userModle.user.getUserId();
+			
+		} else {
+			
+			// 登录页面迁移
+			ShowMessageUtils.show(ctx, com.xundian360.huaqiaotong.R.string.b04v00_login_msg);
+			
+			CommonUtil.startActivityForResult(ctx, B04V00Activity.class, 100);
+		}
+		
+		return userId;
 	}
 }

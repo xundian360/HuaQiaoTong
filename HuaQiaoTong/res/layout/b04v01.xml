@@ -94,7 +94,7 @@
                 style="@style/B04v01UserTextTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/b04v00_hint_user_pass" />
+                android:hint="@string/b04v00_hint_user_sr" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,19 +128,31 @@
                 android:layout_height="wrap_content"
                 android:text="@string/b04v00_user_sex_text" />
 
-            <RadioButton
-                android:id="@+id/b04v01UserNan"
+            <RadioGroup
+                android:id="@+id/b04v01UserSex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:text="@string/b04v00_user_sex_0_text" />
+                android:orientation="horizontal" >
 
-            <RadioButton
-                android:id="@+id/b04v01UserNv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/b04v00_user_sex_1_text" />
+                <RadioButton
+                    android:id="@+id/b04v01UserNan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:textColor="@color/b03_v01_item_color_5"
+                    android:button="@drawable/b04v01_sex_0_button_selector"
+                    android:text="@string/b04v00_user_sex_0_text" />
+
+                <RadioButton
+                    android:id="@+id/b04v01UserNv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/b03_v01_item_color_2"
+                    android:button="@drawable/b04v01_sex_1_button_selector"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/b04v00_user_sex_1_text" />
+            </RadioGroup>
         </LinearLayout>
     </LinearLayout>
 

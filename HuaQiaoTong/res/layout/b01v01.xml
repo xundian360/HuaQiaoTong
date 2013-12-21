@@ -39,6 +39,7 @@
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/b01v01ListScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/b01v01TittleLayout" >
@@ -201,6 +202,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/b01v00CommentLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/b01v01DetailLayout"
@@ -238,11 +240,11 @@
                     android:layout_margin="5dp"
                     android:background="@color/text_color_2" />
 
-                <ListView
+                <com.xundian360.huaqiaotong.view.com.AllShowListView
                     android:id="@+id/b01v00CommentList"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                </ListView>
+                    android:layout_height="match_parent"
+                    android:paddingBottom="20dp" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
@@ -257,19 +259,26 @@
         android:paddingBottom="20dp"
         android:paddingRight="20dp" >
 
-        <ImageView
-            android:id="@+id/b01v01GoBtn"
+        <LinearLayout
+            android:id="@+id/b01v01BtnLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/b01v01_go_btn" />
+            android:visibility="gone"
+            android:layout_height="wrap_content" >
 
-        <ImageView
-            android:id="@+id/b01v01EditeBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/b01v01_edite_btn" />
+            <ImageView
+                android:id="@+id/b01v01GoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/b01v01_go_btn" />
+
+            <ImageView
+                android:id="@+id/b01v01EditeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/b01v01_edite_btn" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/b01v01MoreBtn"

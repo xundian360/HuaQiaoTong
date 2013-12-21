@@ -132,6 +132,8 @@
         <item>10003002004</item>
         <item>10003002005</item>
     </string-array>
+    
+    <string name="b01v01_com_num">（共%s条）</string>
 
     <string name="b01v01_button_comment">评论</string>
     <string name="b01v01_button_shear">分享</string>
@@ -150,6 +152,9 @@
     <string name="b01v01_detail_imp_1_1">满意</string>
     <string name="b01v01_detail_imp_2">一般</string>
     <string name="b01v03_tittle_text">我去过%s</string>
+    <string name="b01v03_msg_null_text">请输入您的评价</string>
+    <string name="b01v03_msg_c_error">评价失败</string>
+    <string name="b01v03_msg_c_success">评价成功</string>
     
     <string name="b01v04_detail_text">详情</string>
     <string name="b01v04_detail_call_text">电话</string>

@@ -23,7 +23,7 @@ public class BaiduUtil {
 	public static final String STATUS_OK_KEY = "0";
 	
 	// API访问状态，错误1
-	public static final String STATUS_ERROR_KEY = "0";
+	public static final String STATUS_ERROR_KEY = "1";
 	
 	// KTV检索关键字
 	public static final String QUERY_KEY = "ktv";
