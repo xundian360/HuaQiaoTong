@@ -8,6 +8,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -62,6 +63,8 @@ public class B00v00XianluView {
 	// 所有显示的线路信息
 	List<Bus> showBuses = new ArrayList<Bus>();
 	
+	Handler _handler = new Handler();
+	
 //	// 线路数据库操作类
 //	BusOperatingHelper dbHelper;
 //	
@@ -84,20 +87,45 @@ public class B00v00XianluView {
 	 * 初始化数据
 	 */
 	private void initData() {
-//				// 初始化数据
-//				dbHelper = new BusOperatingHelper(context);
-		// 查询所有线路信息
-		buses = HuanchengUtil.getAllBuses(context);
 		
-		Log.d("debug", "stations > " + buses);
-		
-		// 设置数据源
-		setAdapterData(null);
-		
-		// 设置Adapter
-		xianluAdapter = new SearchAdapter<String> (context,
-    			android.R.layout.simple_dropdown_item_1line, buseNames,SearchAdapter.ALL);//速度优先
+		// 加载数据
+		new Thread(laodData).start();
 	}
+	
+	/**
+	 * 加载数据
+	 */
+	Runnable laodData = new Runnable() {
+		
+		@Override
+		public void run() {
+//			// 初始化数据
+//			dbHelper = new BusOperatingHelper(context);
+			// 查询所有线路信息
+			buses = HuanchengUtil.getAllBuses(context);
+			
+			Log.d("debug", "stations > " + buses);
+			
+			// 设置数据源
+			setAdapterData(null);
+			
+			// 刷新UI
+			_handler.postDelayed(new Runnable() {
+				
+				@Override
+				public void run() {
+					
+					// 设置Adapter
+					xianluAdapter = new SearchAdapter<String> (context,
+			    			android.R.layout.simple_dropdown_item_1line, buseNames,SearchAdapter.ALL);//速度优先
+					
+					xianluText.setAdapter(xianluAdapter);
+					
+					// xianluAdapter.notifyDataSetChanged();
+				}
+			}, 1000);
+		}
+	};
 	
 	/**
 	 * 设置数据源值
@@ -142,7 +170,6 @@ public class B00v00XianluView {
 		
 		xianluText = (AutoCompleteTextView) mainView.findViewById(R.id.b00v00XianluText);
 		xianluText.setOnItemClickListener(xianluItemClick);
-		xianluText.setAdapter(xianluAdapter);
 		
 		inputDelete = (ImageView) mainView.findViewById(R.id.b00v00XianluDelete);
 		

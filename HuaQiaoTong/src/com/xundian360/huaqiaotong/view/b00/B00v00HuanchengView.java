@@ -442,7 +442,20 @@ public class B00v00HuanchengView {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * 设置结束位置
+	 * @param baiduItem
+	 */
+	public void setEndPlace(Baidu baiduItem) {
+		endStation.name = baiduItem.name;
+		endStation.address = baiduItem.address;
+		endStation.location_lat = baiduItem.location_lat;
+		endStation.location_lng = baiduItem.location_lng;
 		
+		// 设置站点位置
+		toText.setText(endStation.getName());
 	}
 	
 	/**

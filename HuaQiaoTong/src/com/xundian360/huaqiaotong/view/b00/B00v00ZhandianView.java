@@ -8,6 +8,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -63,6 +64,8 @@ public class B00v00ZhandianView {
 	// 当前检索的站点信息
 	Station searchStation = null;
 	
+	Handler _handler = new Handler();
+	
 	public B00v00ZhandianView(Context context) {
 		
 		this.context = context;
@@ -78,16 +81,37 @@ public class B00v00ZhandianView {
 	 * 初始化数据
 	 */
 	private void initData() {
-		
-		// 查询所有站点信息
-		stations = initStations();
-		
-		// 设置数据源
-		setAdapterData(null);
-		
-		zhandianAdapter = new SearchAdapter<String>(context,
-    			android.R.layout.simple_dropdown_item_1line, stationNames,SearchAdapter.ALL);//速度优先	
+		// 加载数据
+		new Thread(laodData).start();
 	}
+	
+	/**
+	 * 加载数据
+	 */
+	Runnable laodData = new Runnable() {
+		
+		@Override
+		public void run() {
+			// 查询所有站点信息
+			stations = initStations();
+			
+			// 设置数据源
+			setAdapterData(null);
+			
+			// 刷新UI
+			_handler.postDelayed(new Runnable() {
+				
+				@Override
+				public void run() {
+					
+					zhandianAdapter = new SearchAdapter<String>(context,
+			    			android.R.layout.simple_dropdown_item_1line, stationNames,SearchAdapter.ALL);//速度优先	
+					
+					zhanDianText.setAdapter(zhandianAdapter);
+				}
+			}, 1000);
+		}
+	};
 	
 	/**
 	 * 初始化站点数据
@@ -151,7 +175,6 @@ public class B00v00ZhandianView {
 		
 		// 其他组件
 		zhanDianText = (AutoCompleteTextView) mainView.findViewById(R.id.b00v00ZhanDianText);
-		zhanDianText.setAdapter(zhandianAdapter);
 		zhanDianText.setOnItemClickListener(zhandianItemClick);
 		
 		inputDelete = (ImageView) mainView.findViewById(R.id.b00v00ZhandianDelete);

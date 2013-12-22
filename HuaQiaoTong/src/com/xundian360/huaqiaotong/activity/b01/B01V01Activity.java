@@ -19,13 +19,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.adapter.b01.B01v01ImgAdapter;
 import com.xundian360.huaqiaotong.adapter.b01.B01v01KtvCommAdapter;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.BaiduComment;
 import com.xundian360.huaqiaotong.util.CommonUtil;
-import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
 import com.xundian360.huaqiaotong.view.com.AllShowListView;
@@ -40,6 +40,9 @@ import com.xundian360.huaqiaotong.view.com.GalleryFlow;
 public class B01V01Activity extends ComNoTittleActivity {
 	
 	public static final String KTV_KEY = "ktv_key";
+	
+	public static final String GO_HERE_KEY = "GO_HERE_KEY";
+	public static final int GO_HERE_CODE = 1009;
 	
 	// 返回按钮
 	ImageButton retBtn;
@@ -371,7 +374,9 @@ public class B01V01Activity extends ComNoTittleActivity {
 	OnClickListener goBtnClick = new OnClickListener() {
 		@Override
 		public void onClick(View arg0) {
-			ShowMessageUtils.show(B01V01Activity.this, "到这里按钮事件");
+			
+			// 公交页面迁移
+			CommonUtil.startActivityForResult(B01V01Activity.this, B00V00Activity.class, GO_HERE_KEY, baiduItem, GO_HERE_CODE);
 		}
 	};
 	

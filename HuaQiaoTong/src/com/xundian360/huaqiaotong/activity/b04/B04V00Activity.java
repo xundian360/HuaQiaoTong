@@ -236,8 +236,11 @@ public class B04V00Activity extends ComNoTittleActivity {
 							userModle.user.setName(userNameText);
 							userModle.save();
 							
+							// 取消页面显示
+							finish();
+							
 							// 个人中心
-				    		CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);
+				    		// CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);
 						}
 					});
 				}

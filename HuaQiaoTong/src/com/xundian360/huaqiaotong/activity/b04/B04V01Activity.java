@@ -23,7 +23,6 @@ import com.xundian360.huaqiaotong.modle.com.User;
 import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.BaiduUtil;
 import com.xundian360.huaqiaotong.util.BaseHttpClient;
-import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;

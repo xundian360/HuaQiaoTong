@@ -513,7 +513,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 					pageNum);
 			
 			// 取得了检索信息
-			if(shopItems == null || shopItems.size() <= 0){
+			if(shopItems == null || shopItems.size() > 0){
 				
 				// 第一次搜索的时候
 				if(!isSearch) {
@@ -522,6 +522,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 					
 					// 晴空原来的数据源
 					itemsData.clear();
+					data.clear();
 					
 					// 重制分页
 					pageNum = 0;

@@ -16,8 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.activity.b01.B01V01Activity;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleBMapManActivity;
 import com.xundian360.huaqiaotong.modle.b00.Station;
+import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.view.b00.B00v00HuanchengView;
 import com.xundian360.huaqiaotong.view.b00.B00v00XianluView;
@@ -70,6 +72,9 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 	// 换乘视图
 	B00v00HuanchengView huanchengView;
 	
+	// 公交到这里
+	Baidu goHereObj;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -82,6 +87,9 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		
 		// 初始化组建
 		initModule();
+		
+		// 设置其他数据
+		setOtherData();
 	}
 	
 	/**
@@ -92,6 +100,36 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		xianluView = new B00v00XianluView(this);
 		zhandianView = new B00v00ZhandianView(this);
 		huanchengView = new B00v00HuanchengView(this);
+		
+	}
+	
+	/**
+	 * 设置其他数据
+	 */
+	private void setOtherData() {
+		// 如果从其他页面迁移，处理逻辑请求
+		Intent in = getIntent();
+		
+		if(in != null) {
+			
+			goHereObj = (Baidu) in.getSerializableExtra(B01V01Activity.GO_HERE_KEY);
+			
+			if (goHereObj != null) {
+				
+				// 设置底部按钮选中状态
+				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
+				// 设置视图
+				mainLayout.addView(huanchengView.get(), 0);
+				((RelativeLayout.LayoutParams)mainLayout.getLayoutParams()).setMargins(0, 0, 0, 0);
+				
+				// 设置数据
+				huanchengView.setEndPlace(goHereObj);
+			} else {
+				mainLayout.addView(xianluView.get(), 0);
+				((RelativeLayout.LayoutParams)mainLayout.getLayoutParams()).setMargins(0, 0, 0, 0);
+			}
+		}
 	}
 	
 	/**
@@ -116,8 +154,6 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		huanChengBtn.setOnClickListener(huanChengBtnClick);
 		
 		mainLayout = (RelativeLayout) findViewById(R.id.b00v00MainLayout);
-		mainLayout.addView(xianluView.get(), 0);
-		((RelativeLayout.LayoutParams)mainLayout.getLayoutParams()).setMargins(0, 0, 0, 0);
 		
 		buttomLayout = (LinearLayout) findViewById(R.id.b00v00Bottom);
 	}
