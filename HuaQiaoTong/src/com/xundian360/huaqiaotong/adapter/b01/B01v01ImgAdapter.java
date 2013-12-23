@@ -57,6 +57,7 @@ public class B01v01ImgAdapter extends SimpleAdapter {
 		yWidth = CommonUtil.getDisplayHeight(((Activity)context).getWindow()) / 5;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		

@@ -109,9 +109,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
+        android:visibility="gone"
         android:src="@drawable/b01v00_to_map_img_0" />
     
     <LinearLayout
+        android:id="@+id/b01v00SelectConditionBg"
         style="@style/CommonPanddingTheme2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

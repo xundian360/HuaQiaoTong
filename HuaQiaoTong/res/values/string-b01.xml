@@ -11,6 +11,10 @@
     <string name="b01v01_2_tittle_key">10002</string>
     <string name="b01v01_3_tittle_text">宾馆</string>
     <string name="b01v01_3_tittle_key">10003</string>
+    <string name="b01v01_4_tittle_text">健身房</string>
+    <string name="b01v01_4_tittle_key">10005</string>
+    <string name="b01v01_5_tittle_text">电影院</string>
+    <string name="b01v01_5_tittle_key">10004</string>
 
     <string-array name="b01v01_1_nav">
         <item>菜系</item>

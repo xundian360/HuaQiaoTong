@@ -28,6 +28,7 @@ import android.widget.TextView.OnEditorActionListener;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.adapter.b01.B01v00KtvAdapter;
+import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.util.CommonUtil;
@@ -75,6 +76,8 @@ public class B01V00Activity extends ComNoTittleActivity {
 	// 去地图
 	ImageView toMapBtn;
 	
+	LinearLayout conditionBg;
+	
 	// 数据源
 	List<Baidu> itemsData = new ArrayList<Baidu>();
 	List<Map<String, ?>> data = new ArrayList<Map<String,?>>();
@@ -111,6 +114,9 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		// 初始化组件
 		initModule();
+		
+		// 动态设置筛选条件
+		autoSetSelection();
 		
 		processDialog.show();
 	}
@@ -167,8 +173,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 		toMapBtn = (ImageView) findViewById(R.id.b01v00ToMapBtn);
 		toMapBtn.setOnClickListener(toMapBtnClick);
 		
-		// 动态设置筛选条件
-		autoSetSelection();
+		conditionBg = (LinearLayout) findViewById(R.id.b01v00SelectConditionBg);
 	}
 
 	/**
@@ -358,22 +363,28 @@ public class B01V00Activity extends ComNoTittleActivity {
 	 */
 	private void autoSetSelection(){
 		
-		// 所有导航项目
-		String[] navTexts = getResources().getStringArray(itemObject.getNavId());
-		
-		// 设置容器比重
-		selectConditionCon.setWeightSum(navTexts.length);
-		
-		// 分别添加导航View
-		for (int i = 0; i < navTexts.length; i++) {
-			// 导航View
-			B01v00NavItemView navView = new B01v00NavItemView(this, itemObject, i);
+		// 存在筛选项目
+		if(itemObject.getNavId() != ItemConstants.ITEM_NAV_NULL) {
+			// 所有导航项目
+			String[] navTexts = getResources().getStringArray(itemObject.getNavId());
 			
-			// 添加到容器
-			selectConditionCon.addView(navView.get(), navViewPar);
+			// 设置容器比重
+			selectConditionCon.setWeightSum(navTexts.length);
 			
-			// 添加到导航列表
-			navItems.add(navView);
+			// 分别添加导航View
+			for (int i = 0; i < navTexts.length; i++) {
+				// 导航View
+				B01v00NavItemView navView = new B01v00NavItemView(this, itemObject, i);
+				
+				// 添加到容器
+				selectConditionCon.addView(navView.get(), navViewPar);
+				
+				// 添加到导航列表
+				navItems.add(navView);
+			}
+		} else {
+			conditionBg.setVisibility(View.GONE);
+			((RelativeLayout.LayoutParams)itemListView.getLayoutParams()).setMargins(0, 10, 0, 0);
 		}
 	}
 	

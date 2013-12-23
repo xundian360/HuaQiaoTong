@@ -169,6 +169,9 @@ public class B01V03Activity extends ComNoTittleActivity {
 							// 评论成功
 							if(plRe) {
 								ShowMessageUtils.show(B01V03Activity.this, R.string.b01v03_msg_c_success);
+								
+								// 跳出当前Activity
+								finish();
 							} else {
 								// 评论失败
 								ShowMessageUtils.show(B01V03Activity.this, R.string.b01v03_msg_c_error);

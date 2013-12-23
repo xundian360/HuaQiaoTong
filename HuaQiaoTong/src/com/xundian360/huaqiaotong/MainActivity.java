@@ -37,6 +37,10 @@ public class MainActivity extends Activity {
 	// 餐馆
 	Button resBtn;
 	// 宾馆
+	Button jianBtn;
+	// 健身
+	Button moveBtn;
+	// 电影院
 	Button hotBtn;
 	// 叫车
 	Button taxiBtn;
@@ -84,6 +88,12 @@ public class MainActivity extends Activity {
 		
 		hotBtn = (Button) findViewById(R.id.mainToHotBtn);
 		hotBtn.setOnClickListener(hotBtnClick);
+		
+		jianBtn = (Button) findViewById(R.id.mainToJianshenBtn);
+		jianBtn.setOnClickListener(jianBtnClick);
+		
+		moveBtn = (Button) findViewById(R.id.mainToMoveBtn);
+		moveBtn.setOnClickListener(moveBtnClick);
 		
 		taxiBtn = (Button) findViewById(R.id.mainTaxiBtn);
 		taxiBtn.setOnClickListener(taxiBtnClick);
@@ -195,6 +205,52 @@ public class MainActivity extends Activity {
 					ItemConstants.HOTEL_NAV_ID, 
 					ItemConstants.HOTEL_NAV_TEXT_IDS, 
 					ItemConstants.HOTEL_NAV_KEY_IDS);
+			
+			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
+			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
+			
+			CommonUtil.startSubActivity(MainActivity.this, intent);
+		}
+	};
+
+	/**
+	 * 健身点击事件
+	 */
+	OnClickListener jianBtnClick = new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			
+			// 设置宾馆项目
+			ItemObject hotelItem = new ItemObject(
+					ItemConstants.JIAN_TEXT_ID, 
+					ItemConstants.JIAN_KEY_ID, 
+					ItemConstants.ITEM_NAV_NULL, 
+					null, 
+					null);
+			
+			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
+			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
+			
+			CommonUtil.startSubActivity(MainActivity.this, intent);
+		}
+	};
+	
+	/**
+	 * 电影点击事件
+	 */
+	OnClickListener moveBtnClick = new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			
+			// 设置宾馆项目
+			ItemObject hotelItem = new ItemObject(
+					ItemConstants.MOVE_TEXT_ID, 
+					ItemConstants.MOVE_KEY_ID, 
+					ItemConstants.ITEM_NAV_NULL, 
+					null, 
+					null);
 			
 			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
 			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);

@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,8 +28,10 @@ import com.xundian360.huaqiaotong.adapter.b01.B01v01KtvCommAdapter;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.BaiduComment;
 import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
+import com.xundian360.huaqiaotong.view.b01.B00v00ImgDialog;
 import com.xundian360.huaqiaotong.view.com.AllShowListView;
 import com.xundian360.huaqiaotong.view.com.GalleryFlow;
 
@@ -82,6 +86,8 @@ public class B01V01Activity extends ComNoTittleActivity {
 	ImageView editeBtn;
 	// 到这里去
 	ImageView goBtn2;
+	// 分享按钮
+	ImageView shearBtn;
 	
 	// 头部图片数据源
 	B01v01ImgAdapter tittlePicAdapter;
@@ -111,6 +117,14 @@ public class B01V01Activity extends ComNoTittleActivity {
 		initModule();
 	}
 	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		// 取得评论信息
+		setCommData();
+	}
+	
 	/**
 	 *  初始化数据
 	 */
@@ -128,9 +142,6 @@ public class B01V01Activity extends ComNoTittleActivity {
 		
 		// 取得头部图片
 		setTittlePic();
-		
-		// 取得评论信息
-		setCommData();
 	}
 	
 	/**
@@ -146,6 +157,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 		
 		tittlePicView = (GalleryFlow) findViewById(R.id.b01v01Imgs);
 		tittlePicView.setAdapter(tittlePicAdapter);
+		tittlePicView.setOnItemClickListener(tittlePicViewItemClick);
 		
 		itemTittle = (TextView) findViewById(R.id.v01v01ItemTittle);
 		itemTittle.setText(baiduItem.getName());
@@ -185,8 +197,26 @@ public class B01V01Activity extends ComNoTittleActivity {
 		goBtn2 = (ImageView) findViewById(R.id.b01v01GoBtn);
 		goBtn2.setOnClickListener(goBtnClick);
 		
+		shearBtn = (ImageView) findViewById(R.id.b01v01ShearBtn);
+		shearBtn.setOnClickListener(shearBtnClick);
+		
 		btnLayout = (LinearLayout) findViewById(R.id.b01v01BtnLayout);
 	}
+	
+	/**
+	 * 图片点击事件
+	 */
+	OnItemClickListener tittlePicViewItemClick = new OnItemClickListener() {
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			
+			// 显示Dialog
+			B00v00ImgDialog imgDialog = new B00v00ImgDialog(B01V01Activity.this, tittlePics.get(arg2));
+			imgDialog.show();
+		}
+	};
 	
 	/**
 	 * 取得头部图片
@@ -275,7 +305,8 @@ public class B01V01Activity extends ComNoTittleActivity {
 					
 					// 设置评论数据
 					List<BaiduComment> shopCommentsNet = (List<BaiduComment>) shopPlsMap.get(B01v00ShopUtils.RESULTS_KEY);
-					shopComments.addAll(shopCommentsNet);
+					// shopComments.addAll(shopCommentsNet);
+					shopComments = shopCommentsNet;
 					
 					// 更新UI
 					_handler.post(updateCommData);
@@ -377,6 +408,18 @@ public class B01V01Activity extends ComNoTittleActivity {
 			
 			// 公交页面迁移
 			CommonUtil.startActivityForResult(B01V01Activity.this, B00V00Activity.class, GO_HERE_KEY, baiduItem, GO_HERE_CODE);
+		}
+	};
+	
+	/**
+	 * 分享
+	 */
+	OnClickListener shearBtnClick = new OnClickListener() {
+		@Override
+		public void onClick(View arg0) {
+			
+			// 公交页面迁移
+			ShowMessageUtils.show(B01V01Activity.this, "分享");
 		}
 	};
 	

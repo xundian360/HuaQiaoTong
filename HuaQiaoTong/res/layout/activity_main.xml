@@ -35,6 +35,24 @@
             android:text="宾馆" />
 
         <Button
+            android:id="@+id/mainToJianshenBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="健身房" />
+
+        <Button
+            android:id="@+id/mainToMoveBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="电影院" />
+
+        <Button
+            android:id="@+id/mainToHotBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="宾馆" />
+
+        <Button
             android:id="@+id/mainTaxiBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

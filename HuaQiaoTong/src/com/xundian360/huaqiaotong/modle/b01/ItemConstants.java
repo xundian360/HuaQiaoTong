@@ -15,6 +15,8 @@ import com.xundian360.huaqiaotong.R;
  */
 public class ItemConstants {
 	
+	public static final int ITEM_NAV_NULL = -1;
+	
 	/** 饭店标题ID **/
 	public static final int RESTAURANT_TEXT_ID = R.string.b01v01_1_tittle_text;
 	/** 饭店Key ID **/
@@ -35,6 +37,16 @@ public class ItemConstants {
 	public static final int HOTEL_KEY_ID = R.string.b01v01_3_tittle_key;
 	/** 宾馆筛选项目 **/
 	public static final int HOTEL_NAV_ID = R.array.b01v01_3_nav;
+	
+	/** 健身房标题ID **/
+	public static final int JIAN_TEXT_ID = R.string.b01v01_4_tittle_text;
+	/** 健身房Key ID **/
+	public static final int JIAN_KEY_ID = R.string.b01v01_4_tittle_key;
+	
+	/** 电影院标题ID **/
+	public static final int MOVE_TEXT_ID = R.string.b01v01_5_tittle_text;
+	/** 电影院Key ID **/
+	public static final int MOVE_KEY_ID = R.string.b01v01_5_tittle_key;
 	
 	/** 饭店筛选项目条件IDs **/
 	public static final int[] RESTAURANT_NAV_ITEM_TEXT_IDS = {

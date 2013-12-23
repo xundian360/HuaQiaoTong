@@ -9,10 +9,8 @@ import android.graphics.drawable.Drawable;
 import com.baidu.mapapi.map.ItemizedOverlay;
 import com.baidu.mapapi.map.MapView;
 import com.xundian360.huaqiaotong.activity.b02.B02V00Activity;
-import com.xundian360.huaqiaotong.activity.b02.B02V01Activity;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.SerializableList;
-import com.xundian360.huaqiaotong.util.CommonUtil;
 
 /**
  * 车集散点气泡

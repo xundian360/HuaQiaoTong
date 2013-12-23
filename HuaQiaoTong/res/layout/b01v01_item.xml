@@ -14,7 +14,6 @@
             android:id="@+id/b01v00KtvCommPic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/b01v00_item_pic_bg"
             android:padding="10dp" />
 
         <LinearLayout
