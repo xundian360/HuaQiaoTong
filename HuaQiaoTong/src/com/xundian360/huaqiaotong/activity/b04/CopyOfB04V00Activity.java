@@ -293,8 +293,6 @@ public class CopyOfB04V00Activity extends ComNoTittleActivity implements Platfor
 					//如果要删除授权信息，重新授权
 					//pf.getDb().removeAccount();
 					//调用后，用户就得重新授权，否则下一次就不用授权
-					
-					
 				}
 				break;
 				case 2: { // 失败
