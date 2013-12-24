@@ -8,10 +8,19 @@
 	<classpathentry kind="lib" path="libs/jpush-sdk-release1.5.2.jar"/>
 	<classpathentry kind="lib" path="libs/universal-image-loader-1.8.6.jar" sourcepath="/Users/tengteng/.m2/repository/com/nostra13/universalimageloader/universal-image-loader/1.8.6/universal-image-loader-1.8.6-sources.jar"/>
 	<classpathentry kind="lib" path="libs/xUtils-1.8.7.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-QQ-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-QZone-2.1.2.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="lib" path="libs/ShareSDK-QZone.jar"/>
 	<classpathentry kind="lib" path="libs/baidumapapi_v2_3_1.jar"/>
+	<classpathentry kind="lib" path="libs/FlowTextView.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-Core-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-SinaWeibo-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-Wechat-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-Wechat-Core-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/ShareSDK-Wechat-Moments-2.1.2.jar"/>
+	<classpathentry kind="lib" path="libs/slideView.jar"/>
+	<classpathentry kind="lib" path="libs/mframework.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

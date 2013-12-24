@@ -99,7 +99,10 @@ public class B01v00NavItemView {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			
+			// TODO 加载数据
 			
+			// TODO 设置子项目隐藏
+			navItems.setVisibility(View.GONE);
 		}
 	};
 	

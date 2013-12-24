@@ -10,6 +10,12 @@ import android.widget.DatePicker;
 
 import com.xundian360.huaqiaotong.util.StringUtils;
 
+/**
+ * 时间选择Dialog
+ * @author  tengteng
+ * @date      2013-12-24
+ * @version 1.0
+ */
 public class SimpleYyMmDdSelectDialog {
 	
 	DatePickerDialog dialog;

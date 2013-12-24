@@ -41,7 +41,7 @@ public class B01v01KtvCommAdapter extends SimpleAdapter {
 			.showImageForEmptyUri(R.drawable.b01v00_item_pic_bg)
 			.showImageOnFail(R.drawable.b01v00_item_pic_bg)
 			.cacheOnDisc(true)
-			.displayer(new RoundedBitmapDisplayer(20))
+			.displayer(new RoundedBitmapDisplayer(5))
 			.build();
 	
 	public B01v01KtvCommAdapter(Context context,
