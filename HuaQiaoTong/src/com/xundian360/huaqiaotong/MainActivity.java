@@ -156,7 +156,8 @@ public class MainActivity extends Activity {
 					ItemConstants.KTV_KEY_ID, 
 					ItemConstants.KTV_NAV_ID, 
 					ItemConstants.KTV_NAV_ITEM_TEXT_IDS, 
-					ItemConstants.KTV_NAV_ITEM_KEY_IDS);
+					ItemConstants.KTV_NAV_ITEM_KEY_IDS,
+					ItemConstants.KTV_NAV_ITEM_SEARCH_TYPE);
 			
 			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
 			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, ktvItem);
@@ -181,7 +182,8 @@ public class MainActivity extends Activity {
 					ItemConstants.RESTAURANT_KEY_ID, 
 					ItemConstants.RESTAURANT_NAV_ID, 
 					ItemConstants.RESTAURANT_NAV_ITEM_TEXT_IDS, 
-					ItemConstants.RESTAURANT_NAV_ITEM_KEY_IDS);
+					ItemConstants.RESTAURANT_NAV_ITEM_KEY_IDS,
+					ItemConstants.RESTAURANT_NAV_ITEM_SEARCH_TYPE);
 			
 			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
 			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, restaurantItem);
@@ -204,7 +206,8 @@ public class MainActivity extends Activity {
 					ItemConstants.HOTEL_KEY_ID, 
 					ItemConstants.HOTEL_NAV_ID, 
 					ItemConstants.HOTEL_NAV_TEXT_IDS, 
-					ItemConstants.HOTEL_NAV_KEY_IDS);
+					ItemConstants.HOTEL_NAV_KEY_IDS,
+					ItemConstants.HOTEL_NAV_ITEM_SEARCH_TYPE);
 			
 			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
 			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
@@ -227,6 +230,7 @@ public class MainActivity extends Activity {
 					ItemConstants.JIAN_KEY_ID, 
 					ItemConstants.ITEM_NAV_NULL, 
 					null, 
+					null,
 					null);
 			
 			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
@@ -250,6 +254,7 @@ public class MainActivity extends Activity {
 					ItemConstants.MOVE_KEY_ID, 
 					ItemConstants.ITEM_NAV_NULL, 
 					null, 
+					null,
 					null);
 			
 			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);

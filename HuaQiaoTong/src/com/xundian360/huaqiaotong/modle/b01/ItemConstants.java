@@ -17,6 +17,16 @@ public class ItemConstants {
 	
 	public static final int ITEM_NAV_NULL = -1;
 	
+	// 按照价格搜索区分
+	public static final int ITEM_SERACH_BY_PRICE = 1;
+	// 按照关注搜索区分
+	public static final int ITEM_SERACH_BY_ATTENTION = 2;
+	// 按照关键字搜索区分
+	public static final int ITEM_SERACH_BY_KEY = 3;
+	
+	// 默认每页显示个数
+	public static final int DEL_PAGE_SIZT = 10;
+	
 	/** 饭店标题ID **/
 	public static final int RESTAURANT_TEXT_ID = R.string.b01v01_1_tittle_text;
 	/** 饭店Key ID **/
@@ -59,6 +69,12 @@ public class ItemConstants {
 		R.array.b01v01_1_nav_2_key,
 		R.array.b01v01_1_nav_3_key
 	};
+	public static final int[] RESTAURANT_NAV_ITEM_SEARCH_TYPE = {
+		ITEM_SERACH_BY_KEY,
+		ITEM_SERACH_BY_PRICE,
+		ITEM_SERACH_BY_ATTENTION
+	};
+	
 	
 	/** KTV筛选项目条件IDs **/
 	public static final int[] KTV_NAV_ITEM_TEXT_IDS = {
@@ -70,6 +86,10 @@ public class ItemConstants {
 		R.array.b01v01_2_nav_1_key,
 		R.array.b01v01_2_nav_2_key
 	};
+	public static final int[] KTV_NAV_ITEM_SEARCH_TYPE = {
+		ITEM_SERACH_BY_PRICE,
+		ITEM_SERACH_BY_ATTENTION
+	};
 	
 	/** 宾馆筛选项目条件IDs **/
 	public static final int[] HOTEL_NAV_TEXT_IDS = {
@@ -80,5 +100,8 @@ public class ItemConstants {
 		R.array.b01v01_3_nav_1_key,
 		R.array.b01v01_3_nav_2_key
 	};
-
+	public static final int[] HOTEL_NAV_ITEM_SEARCH_TYPE = {
+		ITEM_SERACH_BY_PRICE,
+		ITEM_SERACH_BY_ATTENTION
+	};
 }

@@ -466,6 +466,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 	 * 设置数据
 	 * @param shopItems
 	 */
+	@SuppressWarnings("unchecked")
 	private void setShopItems(Map<String, Object> shopItems) {
 		if(shopItems == null || shopItems.size() <= 0) {
 			// 更新UI

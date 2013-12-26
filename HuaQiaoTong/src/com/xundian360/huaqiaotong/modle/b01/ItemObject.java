@@ -30,13 +30,17 @@ public class ItemObject implements Serializable {
 	// 筛选导航项目名称 Id
 	private int[] navItemKeyId;
 	
-	public ItemObject(int tittleId, int keyId, int navId, int[] navItemTextId, int[] navItemKeyId) {
+	// 筛选导航项目的检索条件
+	private int[] navItemSearchKey;
+	
+	public ItemObject(int tittleId, int keyId, int navId, int[] navItemTextId, int[] navItemKeyId, int[] navItemSearchKey) {
 		super();
 		this.tittleId = tittleId;
 		this.keyId = keyId;
 		this.navId = navId;
 		this.navItemTextId = navItemTextId;
 		this.navItemKeyId = navItemKeyId;
+		this.navItemSearchKey = navItemSearchKey;
 	}
 
 	public int getTittleId() {
@@ -57,6 +61,10 @@ public class ItemObject implements Serializable {
 
 	public int[] getNavItemKeyId() {
 		return navItemKeyId;
+	}
+
+	public int[] getNavItemSearchKey() {
+		return navItemSearchKey;
 	}
 
 }

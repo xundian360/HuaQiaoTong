@@ -31,6 +31,7 @@
     </string-array>
     
     <string-array name="b01v01_1_nav_1_text">
+        <item>全部</item>
         <item>家常菜</item>
         <item>湘菜</item>
         <item>东北菜</item>
@@ -42,6 +43,7 @@
         <item>小吃</item>
     </string-array>
     <string-array name="b01v01_1_nav_1_key">
+        <item>0</item>
         <item>10001001001</item>
         <item>10001001002</item>
         <item>10001001003</item>
@@ -53,6 +55,7 @@
         <item>10001001009</item>
     </string-array>
     <string-array name="b01v01_1_nav_2_text">
+        <item>全部</item>
         <item>10&#8211;20</item>
         <item>20&#8211;50</item>
         <item>50&#8211;100</item>
@@ -60,6 +63,7 @@
         <item>200以上</item>
     </string-array>
     <string-array name="b01v01_1_nav_2_key">
+        <item>0</item>
         <item>10001002001</item>
         <item>10001002002</item>
         <item>10001002003</item>
@@ -67,6 +71,7 @@
         <item>10001002005</item>
     </string-array>
     <string-array name="b01v01_1_nav_3_text">
+        <item>全部</item>
         <item>5人以下</item>
         <item>5&#8211;10人</item>
         <item>10&#8211;30人</item>
@@ -74,6 +79,7 @@
         <item>100人以上</item>
     </string-array>
     <string-array name="b01v01_1_nav_3_key">
+        <item>0</item>
         <item>10001003001</item>
         <item>10001003002</item>
         <item>10001003003</item>
@@ -81,6 +87,7 @@
         <item>10001003005</item>
     </string-array>
     <string-array name="b01v01_2_nav_1_text">
+        <item>全部</item>
         <item>10&#8211;20</item>
         <item>20&#8211;50</item>
         <item>50&#8211;100</item>
@@ -88,6 +95,7 @@
         <item>200以上</item>
     </string-array>
     <string-array name="b01v01_2_nav_1_key">
+        <item>0</item>
         <item>10002001001</item>
         <item>10002001002</item>
         <item>10002001003</item>
@@ -95,6 +103,7 @@
         <item>10002001005</item>
     </string-array>
     <string-array name="b01v01_2_nav_2_text">
+        <item>全部</item>
         <item>5人以下</item>
         <item>5&#8211;10人</item>
         <item>10&#8211;30人</item>
@@ -102,6 +111,7 @@
         <item>100人以上</item>
     </string-array>
     <string-array name="b01v01_2_nav_2_key">
+        <item>0</item>
         <item>10002002001</item>
         <item>10002002002</item>
         <item>10002002003</item>
@@ -109,6 +119,7 @@
         <item>10002002005</item>
     </string-array>
     <string-array name="b01v01_3_nav_1_text">
+        <item>全部</item>
         <item>100元以下</item>
         <item>100&#8211;199元</item>
         <item>199&#8211;199元</item>
@@ -116,6 +127,7 @@
         <item>500元以上</item>
     </string-array>
     <string-array name="b01v01_3_nav_1_key">
+        <item>0</item>
         <item>10003001001</item>
         <item>10003001002</item>
         <item>10003001003</item>
@@ -123,6 +135,7 @@
         <item>10003001005</item>
     </string-array>
     <string-array name="b01v01_3_nav_2_text">
+        <item>全部</item>
         <item>5人以下</item>
         <item>5&#8211;10人</item>
         <item>10&#8211;30人</item>
@@ -130,6 +143,7 @@
         <item>100人以上</item>
     </string-array>
     <string-array name="b01v01_3_nav_2_key">
+        <item>0</item>
         <item>10003002001</item>
         <item>10003002002</item>
         <item>10003002003</item>
