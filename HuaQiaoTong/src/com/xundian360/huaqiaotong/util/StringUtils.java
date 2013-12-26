@@ -3,7 +3,10 @@ package com.xundian360.huaqiaotong.util;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -358,4 +361,41 @@ public class StringUtils {
             "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4",  
             "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "(",  
             ")" }; 
+    
+    /**
+     * 取得字符组中
+     * @param allString
+     * @param index
+     * @return
+     */
+    public static String getNumInString(String allString, int index) {
+		
+		String regexS = ",";
+		StringBuffer reB = new StringBuffer();
+		String re = "";
+		
+		String regEx="[^0-9]";   
+		Pattern p = Pattern.compile(regEx);   
+		Matcher m = p.matcher(allString);
+		
+		reB.append(m.replaceAll(regexS).trim());
+		
+		List<String> nums = Arrays.asList(reB.toString().split(regexS));
+		
+		List<String> numsT = new ArrayList<String>();
+		
+		for (int i = 0; i < nums.size(); i++) {
+			String itemV = nums.get(i);
+			
+			if(itemV != null && itemV.length() > 0) {
+				numsT.add(itemV);
+			} 
+		}
+		
+		if(numsT.size() > index) {
+			re = numsT.get(index);
+		}
+		return re.toString();
+	}
+    
 }

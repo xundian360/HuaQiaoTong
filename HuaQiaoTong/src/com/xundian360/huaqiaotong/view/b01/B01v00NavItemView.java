@@ -25,6 +25,7 @@ import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b01.B01V00Activity;
 import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
+import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
 
 /**
@@ -155,8 +156,11 @@ public class B01v00NavItemView {
 				// 按价格搜索
 				else if(searchKey == ItemConstants.ITEM_SERACH_BY_PRICE) {
 					
-					String minPrice = "";
-					String maxPrice = "";
+					String minPrice = StringUtils.getNumInString(itemText, 0);
+					String maxPrice = StringUtils.getNumInString(itemText, 1);
+					if(StringUtils.isBlank(maxPrice)) {
+						maxPrice = Integer.MAX_VALUE + "";
+					}
 					
 					items = B01v00ShopUtils.getShopListByPrice(context, 
 							context.getString(itemObject.getKeyId()), 
@@ -170,8 +174,11 @@ public class B01v00NavItemView {
 				// 按关注搜索
 				else if(searchKey == ItemConstants.ITEM_SERACH_BY_ATTENTION) {
 					
-					String minL = "";
-					String maxL = "";
+					String minL = StringUtils.getNumInString(itemText, 0);
+					String maxL = StringUtils.getNumInString(itemText, 1);
+					if(StringUtils.isBlank(maxL)) {
+						maxL = Integer.MAX_VALUE + "";
+					}
 					
 					items = B01v00ShopUtils.getShopListByAttention(context, 
 							context.getString(itemObject.getKeyId()), 
@@ -195,7 +202,7 @@ public class B01v00NavItemView {
 				
 				// 取得了数据,更新UI
 				if(items != null && !items.isEmpty()) {
-					
+					((B01V00Activity)context).setShopItems(items);
 				}
 			}
 		}).start();
