@@ -4,131 +4,84 @@
     android:layout_height="match_parent"
     android:background="@color/b04v03_bg_color" >
 
-    <ImageView
-        android:id="@+id/b04v03TittleImg"
+    <RelativeLayout
+        android:id="@+id/b04v03TittleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/b04v03_tittle_img" />
+        android:background="@drawable/b01v00_tittle_bg_img"
+        android:padding="5dp" >
+
+        <ImageButton
+            android:id="@+id/b04v03RetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/com_transparent"
+            android:padding="5dp"
+            android:src="@drawable/b00v00_return_0" />
+
+        <TextView
+            android:id="@+id/b04v03Tittle"
+            style="@style/CommonTittleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/b04v03_tittle_text" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/b04v03TittleBtnLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/b04v03TittleImg"
+        android:layout_below="@+id/b04v03TittleLayout"
         android:background="@android:color/white"
-        android:gravity="right"
         android:orientation="horizontal"
-        android:padding="10dp" >
-
-        <LinearLayout
-            android:id="@+id/b03v02EditePostsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/b03v02_group_bg"
-            android:gravity="center"
-            android:visibility="gone"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/b04v03_edite_posts_logo" />
-
-            <TextView
-                android:id="@+id/b03v02EditePostsLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="@string/b04v03_btn_edite_posts"
-                android:textColor="@color/text_color_2"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/b03v02FriendListBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/b03v02_group_bg"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/b04v03_fren_img" />
-
-            <TextView
-                android:id="@+id/b03v02FriendLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="@string/b04v03_btn_friend_list"
-                android:textColor="@color/text_color_2"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/b03v02UserDiscLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/b04v03TittleBtnLayout"
-        android:background="@android:color/white"
+        android:gravity="center_vertical"
         android:padding="5dp" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/white"
-            android:text="@string/b04v03_text_user_disc_tittle"
-            android:textColor="@color/text_color_2" />
-
-        <TextView
-            android:id="@+id/b03v02UserDisc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/b04v03_text_user_disc_default"
-            android:textColor="@color/text_color_2" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/b04v03UserLogoImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/b03v02UserDiscLayout"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/b04v03_user_default_logo" />
-
-    <LinearLayout
-        android:id="@+id/b03v02OtherLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/b03v02UserDiscLayout"
-        android:orientation="vertical" >
-
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/comm_line_1" />
+            android:id="@+id/b04v03UserLogoImg"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/b04v03_user_default_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:gravity="center_vertical"
-            android:padding="5dp"
-            android:weightSum="3" >
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/b03v02UserDiscLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:padding="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:text="@string/b04v03_text_user_disc_tittle"
+                    android:textColor="@color/text_color_2" />
+
+                <TextView
+                    android:id="@+id/b03v02UserDisc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/b04v03_text_user_disc_default"
+                    android:textColor="@color/text_color_2" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/b04v03ShowMoreBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="right"
                 android:orientation="horizontal"
-                android:padding="5dp" >
+                android:padding="10dp" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,92 +97,47 @@
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/b04v03_default_arrow" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/b04v03GuanzhuNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="69"
-                    android:textColor="@color/b04v03_text_color"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/b04v03_text_user_attention"
-                    android:textColor="@color/text_color_2"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/b04v03FanNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="69"
-                    android:textColor="@color/b04v03_text_color"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/b04v03_text_user_fan"
-                    android:textColor="@color/text_color_2"
-                    android:textSize="18sp" />
-            </LinearLayout>
         </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@drawable/b04v03_shadow" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/b03v02OtherLayout"
+        android:layout_below="@+id/b04v03TittleBtnLayout"
         android:orientation="vertical"
         android:padding="5dp" >
-        
-        <TextView 
+
+        <TextView
             android:id="@+id/b04v03CommentNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:padding="10dp"
+            android:text="@string/b04v03_text_commont_num"
             android:textColor="@color/text_color_2"
-            android:text="@string/b04v03_text_commont_num" />
-        
-        <ListView 
+            android:textSize="20sp" />
+
+        <ListView
             android:id="@+id/b04v03CommentList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:footerDividersEnabled="false" 
+            android:footerDividersEnabled="false"
             android:padding="10dp" />
     </LinearLayout>
-    
-      <LinearLayout
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/b04v03TittleBtnLayout"
+        android:background="@drawable/b04v03_shadow" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/b03_v01_bottom_bg"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:weightSum="4" >
+        android:weightSum="3" >
 
         <ImageButton
             android:id="@+id/b04v03ReturnBtn"
@@ -245,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/com_transparent"
-            android:src="@drawable/b04v03_msg_btn_0" />
+            android:src="@drawable/b04v03_msg_selector" />
 
         <ImageButton
             android:id="@+id/b04v03LocationBtn"
@@ -253,15 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/com_transparent"
-            android:src="@drawable/b04v03_location_btn_0" />
-
-        <ImageButton
-            android:id="@+id/b04v03SettingBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/com_transparent"
-            android:src="@drawable/b04v03_setting_btn_0" />
+            android:src="@drawable/b04v03_loc_selector" />
     </LinearLayout>
 
 </RelativeLayout>

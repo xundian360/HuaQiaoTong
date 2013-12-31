@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -111,18 +111,18 @@
     </style>
 
     <style name="ButtomDialogTheme" parent="@android:style/Theme.Dialog">
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowBackground">@color/com_transparent</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/DataSheetAnimation</item>
-        <item name="android:background">@android:color/white</item>
+        <item name="android:background">@color/com_transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
-    
-        <style name="B02v02DialogTheme" parent="@android:style/Theme.Dialog">
+
+    <style name="B02v02DialogTheme" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/com_transparent</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>

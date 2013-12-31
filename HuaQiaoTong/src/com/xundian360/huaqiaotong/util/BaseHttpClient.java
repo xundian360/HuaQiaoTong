@@ -117,9 +117,12 @@ public class BaseHttpClient {
 		// 设置请求参数
 		RequestParams rParams = new RequestParams();
 		rParams.addBodyParameter(convertMapToNameValuePair(params));
-		// 添加上传文件
-		for (int i = 0; i < fileKeys.length; i++) {
-			rParams.addBodyParameter(fileKeys[i], new File(filePaths[i]));
+		
+		if(fileKeys != null && filePaths != null) {
+			// 添加上传文件
+			for (int i = 0; i < fileKeys.length; i++) {
+				rParams.addBodyParameter(fileKeys[i], new File(filePaths[i]));
+			}
 		}
 		
 		// 发送HTTP请求
@@ -140,11 +143,11 @@ public class BaseHttpClient {
 		HttpParams httpParameters = new BasicHttpParams();
 		// Set the timeout in milliseconds until a connection is established.
 		// The default value is zero, that means the timeout is not used. 
-		int timeoutConnection = 8000;
+		int timeoutConnection = 80000;
 		HttpConnectionParams.setConnectionTimeout(httpParameters, timeoutConnection);
 		// Set the default socket timeout (SO_TIMEOUT) 
 		// in milliseconds which is the timeout for waiting for data.
-		int timeoutSocket = 8000;
+		int timeoutSocket = 80000;
 		HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
 		
 		HttpClient httpClient = new DefaultHttpClient(httpParameters);

@@ -37,11 +37,30 @@
         android:layout_marginBottom="20dp"
         android:layout_marginTop="15dp"
         android:orientation="vertical" >
-
+        
         <LinearLayout
             style="@style/B04v01UserItemTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b04v01_user_icon" />
+
+            <EditText
+                android:id="@+id/b04v01UserNickName"
+                style="@style/B04v01UserTextTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/b04v00_hint_user_nike" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/B04v01UserItemTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -78,24 +97,6 @@
                 android:inputType="textPassword" />
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/B04v01UserItemTheme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" >
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/b04v01_mail_icon" />
-
-            <EditText
-                android:id="@+id/b04v01UserMail"
-                style="@style/B04v01UserTextTheme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/b04v00_hint_user_sr" />
-        </LinearLayout>
 
         <LinearLayout
             style="@style/B04v01UserItemTheme"
@@ -134,7 +135,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:orientation="horizontal" >
-
                 <RadioButton
                     android:id="@+id/b04v01UserNan"
                     android:layout_width="wrap_content"

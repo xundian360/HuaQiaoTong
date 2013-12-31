@@ -23,8 +23,10 @@ import com.xundian360.huaqiaotong.modle.com.User;
 import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.BaiduUtil;
 import com.xundian360.huaqiaotong.util.BaseHttpClient;
+import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
+import com.xundian360.huaqiaotong.util.UserUtils;
 import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
 
 /**
@@ -41,8 +43,8 @@ public class B04V01Activity extends ComNoTittleActivity {
 	EditText userName;
 	// 密码
 	EditText userPass;
-	// 邮件
-	EditText userMail;
+	// 昵称
+	EditText userNikeName;
 	// QQ
 	EditText userQq;
 	// 性别选择
@@ -54,7 +56,7 @@ public class B04V01Activity extends ComNoTittleActivity {
 	// 用户存储类
 	UserModle userModle;
 	
-	String sexV = User.SEX_NAN;
+	int sexV = User.SEX_NAN;
 	
 	// 进度条
 	CommonProgressDialog processDialog;
@@ -94,7 +96,7 @@ public class B04V01Activity extends ComNoTittleActivity {
 		
 		userPass = (EditText) findViewById(R.id.b04v01UserPas);
 		
-		userMail = (EditText) findViewById(R.id.b04v01UserMail);
+		userNikeName = (EditText) findViewById(R.id.b04v01UserNickName);
 		
 		userQq = (EditText) findViewById(R.id.b04v01UserQQ);
 		
@@ -118,7 +120,6 @@ public class B04V01Activity extends ComNoTittleActivity {
 			} else {
 				sexV = User.SEX_NV;
 			}
-			
 		}
 	}; 
 	
@@ -152,7 +153,7 @@ public class B04V01Activity extends ComNoTittleActivity {
     	
 		String userNameText = userName.getText().toString();
 		String userPassText = userPass.getText().toString();
-		String userMailText = userMail.getText().toString();
+		String userNikeText = userNikeName.getText().toString();
 		String userQqText = userQq.getText().toString();
 		
 		// 用户名检验
@@ -167,8 +168,8 @@ public class B04V01Activity extends ComNoTittleActivity {
     		return;
     	}
     	
-    	else if(StringUtils.isBlank(userMailText)) {
-    		ShowMessageUtils.show(this, R.string.b04v01_msg_login_mail_null);
+    	else if(StringUtils.isBlank(userNikeText)) {
+    		ShowMessageUtils.show(this, R.string.b04v01_msg_login_nike_null);
     		return;
     	}
     	
@@ -197,7 +198,7 @@ public class B04V01Activity extends ComNoTittleActivity {
 			try{
 				String userNameText = userName.getText().toString();
 				String userPassText = userPass.getText().toString();
-				String userMailText = userMail.getText().toString();
+				String userNikeText = userNikeName.getText().toString();
 				String userQqText = userQq.getText().toString();
 				
 				// 推送ID
@@ -211,20 +212,46 @@ public class B04V01Activity extends ComNoTittleActivity {
 				
 				// 登陆参数
 				Map<String, String> params = new HashMap<String, String>();
+				params.put("user_name", userNikeText);
 				params.put("user_login", userNameText);
 				params.put("user_m", userPassText);
-				params.put("user_mail", userMailText);
+				params.put("user_mail", userNikeText);
 				params.put("user_qq", userQqText);
-				params.put("user_sex", sexV);
+				params.put("user_sex", sexV + "");
 				params.put("push_id", push_id);
 				
 				// 设置蚕食
-				final String userId = BaseHttpClient.doPostRequest(loginUrl, params);
+				final String userJson = BaseHttpClient.doPostRequest(loginUrl, params);
 				
-				if(StringUtils.isBlank(userId) || BaiduUtil.STATUS_ERROR_KEY.equals(userId)) {
+				if(StringUtils.isBlank(userJson) || BaiduUtil.STATUS_ERROR_KEY.equals(userJson)) {
 					// 登陆失败
 					errorMsg = getString(R.string.b04v01_msg_login_error);
-				} 
+				} else {
+					// 注册成功
+					_handler.post(new Runnable() {
+
+						@Override
+						public void run() {
+							// 设置参数
+							userModle.read();
+							
+							// 设置数据
+							User user = UserUtils.setUser(userJson);
+							
+							if(user != null) {
+								userModle.user = user;
+								userModle.save();
+								// 取消页面显示
+								finish();
+								
+								// 个人中心页面迁移
+								CommonUtil.startActivityForResult(B04V01Activity.this, B04V03Activity.class, 100);
+							} else {
+								errorMsg = getString(R.string.b04v01_msg_login_error);
+							}
+						}
+					});
+				}
 				
 			} catch(Exception e) {
 				e.printStackTrace();

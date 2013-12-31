@@ -16,9 +16,13 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	// 男
-	public static final String SEX_NAN = "0";
+	public static final int SEX_NAN = 0;
 	// 女
-	public static final String SEX_NV = "1";
+	public static final int SEX_NV = 1;
+	// 男
+	public static final String SEX_NAN_TEXT = "男";
+	// 女
+	public static final String SEX_NV_TEXT = "女";
 	
 	// 用户ID
 	private String userId;
@@ -36,6 +40,8 @@ public class User implements Serializable {
 	private String qq;
 	// 公司
 	private String company;
+	// 公司
+	private String logoPath;
 	
 	public String getLoginName() {
 		return loginName;
@@ -84,6 +90,12 @@ public class User implements Serializable {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public String getLogoPath() {
+		return logoPath;
+	}
+	public void setLogoPath(String logoPath) {
+		this.logoPath = logoPath;
 	}
 
 }

@@ -25,6 +25,7 @@ public class UserModle {
 	private static final String ITEM_USER_DISC = "com.xundian360.huaqiaotong.user.disc";
 	private static final String ITEM_USER_QQ = "com.xundian360.huaqiaotong.user.qq";
 	private static final String ITEM_USER_COMPANY = "com.xundian360.huaqiaotong.user.company";
+	private static final String ITEM_USER_LOGO = "com.xundian360.huaqiaotong.user.logo";
 	
 	// 存储分享信息
 	SharedPreferences settings = null;
@@ -51,6 +52,7 @@ public class UserModle {
 		user.setDisc(settings.getString(ITEM_USER_DISC, ""));
 		user.setQq(settings.getString(ITEM_USER_QQ, ""));
 		user.setCompany(settings.getString(ITEM_USER_COMPANY, ""));
+		user.setLogoPath(settings.getString(ITEM_USER_LOGO, ""));
 	}
 	
 	public User get() {
@@ -69,6 +71,7 @@ public class UserModle {
 		editor.putString(ITEM_USER_DISC, user.getDisc());
 		editor.putString(ITEM_USER_QQ, user.getQq());
 		editor.putString(ITEM_USER_COMPANY, user.getCompany());
+		editor.putString(ITEM_USER_LOGO, user.getLogoPath());
 		
 		editor.commit();
 	}

@@ -48,5 +48,7 @@
 	
     <!-- 注册接口 -->
 	<string name="registration_url">http://115.29.43.200:8080/HqtService/registration</string>
-		
+	<!-- 修改用户信息接口 -->
+	<string name="update_user_url">http://115.29.43.200:8080/HqtService/updateUser</string>
+
 </resources>

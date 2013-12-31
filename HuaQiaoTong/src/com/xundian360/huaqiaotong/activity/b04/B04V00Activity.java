@@ -30,12 +30,14 @@ import cn.sharesdk.tencent.qzone.QZone;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.modle.com.SettingModle;
+import com.xundian360.huaqiaotong.modle.com.User;
 import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.BaiduUtil;
 import com.xundian360.huaqiaotong.util.BaseHttpClient;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
+import com.xundian360.huaqiaotong.util.UserUtils;
 import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
 
 /**
@@ -232,15 +234,13 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 	 */
 	private void login(String loginUrl, Map<String, String> params) {
 		
-		final String userNameText = userName.getText().toString();
-		
 		try {	
 			// 设置蚕食
-			final String userId = BaseHttpClient.doPostRequest(loginUrl,
+			final String userJson = BaseHttpClient.doPostRequest(loginUrl,
 					params);
 			
-			if (StringUtils.isBlank(userId)
-					|| BaiduUtil.STATUS_ERROR_KEY.equals(userId)) {
+			if (StringUtils.isBlank(userJson)
+					|| BaiduUtil.STATUS_ERROR_KEY.equals(userJson)) {
 				// 登陆失败
 				errorMsg = getString(R.string.b04v01_msg_login_error);
 			} else {
@@ -251,20 +251,25 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 					public void run() {
 						// 设置参数
 						userModle.read();
-						userModle.user.setUserId(userId);
-						userModle.user.setName(userNameText);
-						userModle.save();
-
-						// 取消页面显示
-						finish();
-
-						// 个人中心
-						// CommonUtil.startActivityForResult(B04V00Activity.this,
-						// B04V03Activity.class, 100);
+						
+						// 设置数据
+						User user = UserUtils.setUser(userJson);
+						
+						if(user != null) {
+							userModle.user = user;
+							userModle.save();
+							// 取消页面显示
+							// finish();
+							
+							// 个人中心页面迁移
+							CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);
+							
+						} else {
+							errorMsg = getString(R.string.b04v01_msg_login_error);
+						}
 					}
 				});
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			errorMsg = getString(R.string.b04v01_msg_login_error);
@@ -314,7 +319,7 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 	 * @param userName
 	 * @param iconPath
 	 */
-	private void threeLogin(final String userId, final String userName, final String iconPath) {
+	private void threeLogin(final String userId, final String userName, final String iconPath, final String userSex) {
 		
 		// 显示Dialog
 		processDialog.show();
@@ -335,10 +340,11 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 				// 登陆参数
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("user_id", userId);
-				params.put("user_login", userName);
+				params.put("user_name", userName);
+				params.put("user_login", userId);
 				params.put("user_m", DEFALT_PASS);
-				params.put("icon_path", iconPath);
-				params.put("icon_path", iconPath);
+				params.put("user_pic", iconPath);
+				params.put("user_sex", userSex);
 				params.put("push_id", push_id);
 				
 				// 登陆
@@ -395,9 +401,7 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 			 * 8E%A5%E5%8F%A3/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%96%9
 			 * 9
 			 */
-			
 			Log.e("onComplete res > ", res.toString());
-			
 			
 			Message msg = new Message();
 			msg.what = MSG_ACTION_CCALLBACK;
@@ -453,7 +457,8 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 					// 第三方登陆
 					threeLogin(pf.getDb().getUserId(), 
 							pf.getDb().getUserName(), 
-							pf.getDb().getUserIcon());
+							pf.getDb().getUserIcon(),
+							pf.getDb().get("gender"));
 				}
 			}
 				break;

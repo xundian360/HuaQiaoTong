@@ -16,11 +16,15 @@ import com.xundian360.huaqiaotong.activity.b02.B02V00Activity;
 import com.xundian360.huaqiaotong.activity.b02.B02V02Activity;
 import com.xundian360.huaqiaotong.activity.b03.B03V00Activity;
 import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
+import com.xundian360.huaqiaotong.activity.b04.B04V03Activity;
 import com.xundian360.huaqiaotong.activity.b05.B05V00Activity;
 import com.xundian360.huaqiaotong.activity.com.HQTApplication;
 import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
+import com.xundian360.huaqiaotong.modle.com.User;
+import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.util.UserUtils;
 import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
 
 /**
@@ -54,6 +58,8 @@ public class MainActivity extends Activity {
 	Button locationBtn;
 	// 首页
 	Button mainBtn;
+	// 登出
+	Button logotBtn;
 	
 	CommonProgressDialog lodingDialog;
 	
@@ -113,7 +119,26 @@ public class MainActivity extends Activity {
 		mainBtn = (Button) findViewById(R.id.mainBtn);
 		mainBtn.setOnClickListener(mainBtnClick);
 		
+		logotBtn= (Button) findViewById(R.id.logotBtn);
+		logotBtn.setOnClickListener(logotBtnClick);
 	}
+	
+	/**
+	 * 登出
+	 */
+	OnClickListener logotBtnClick = new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			
+			UserModle userModle = new UserModle(MainActivity.this);
+			
+			User user = new User();
+			userModle.user = user;
+			
+			userModle.save();
+		}
+	};
 	
 	/**
 	 * 公交点击事件
@@ -307,8 +332,15 @@ public class MainActivity extends Activity {
 		
 		@Override
 		public void onClick(View arg0) {
-			// 登陆
-			CommonUtil.startSubActivity(MainActivity.this, B04V00Activity.class);
+			
+			// 判断用户是否登录
+			if(UserUtils.isLogin(MainActivity.this)) {
+				// 登陆
+				CommonUtil.startSubActivity(MainActivity.this, B04V03Activity.class);
+			} else {
+				// 登陆
+				CommonUtil.startSubActivity(MainActivity.this, B04V00Activity.class);
+			} 
 		}
 	};
 	

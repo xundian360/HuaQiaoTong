@@ -111,7 +111,7 @@ public class B01v00ShopUtils extends BaiduUtil{
 			String maxL, int pageSize, int pageNum) {
 		
 		// 访问URL
-		String url = context.getString(R.string.comm_get_shop_list_by_price);
+		String url = context.getString(R.string.comm_get_shop_list_by_attention);
 		
 		// 设置参数
 		HashMap<String, String> parameter = new HashMap<String, String>();

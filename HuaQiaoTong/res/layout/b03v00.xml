@@ -28,8 +28,8 @@
                     android:id="@+id/top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:background="@drawable/b03_v00_tittle_0"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="5dp" >
 
@@ -86,14 +86,16 @@
                     android:id="@+id/base_view"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/b03_v00_tittle_1"
-                    android:layout_below="@+id/top" />
+                    android:layout_below="@+id/top"
+                    android:background="@drawable/b03_v00_tittle_1" />
 
-				  <LinearLayout
+                <LinearLayout
                     android:id="@+id/b03v00MainLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/base_view" />
+                    android:layout_below="@+id/base_view"
+                    android:orientation="horizontal" />
+
                 <include
                     android:id="@+id/synchronized_view"
                     android:layout_width="match_parent"

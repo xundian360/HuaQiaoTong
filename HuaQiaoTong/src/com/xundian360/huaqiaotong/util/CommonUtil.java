@@ -176,8 +176,6 @@ public class CommonUtil {
 		return s;
 	}
 
-
-
 	public static void stopTask(AsyncTask<?, ?, ?> task) {
 		if (null == task)
 			return;
@@ -446,7 +444,10 @@ public class CommonUtil {
 	public static void showInput(Context ctx) {
 		View inputView =  ((Activity) ctx).getCurrentFocus();
 		if(inputView != null) {
-			((InputMethodManager)ctx.getSystemService(ctx.INPUT_METHOD_SERVICE)).showSoftInputFromInputMethod(inputView.getWindowToken(), InputMethodManager.SHOW_IMPLICIT);
+			//打开软键盘
+			InputMethodManager imm = (InputMethodManager) ctx
+			  .getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
 		}
 	}
 	

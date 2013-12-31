@@ -4,6 +4,7 @@
 package com.xundian360.huaqiaotong.activity.b04;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -12,10 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.util.StringUtils;
+import com.xundian360.huaqiaotong.util.UserUtils;
 
 /**
  * 个人中心
@@ -25,8 +30,8 @@ import com.xundian360.huaqiaotong.util.CommonUtil;
  */
 public class B04V03Activity extends ComNoTittleActivity {
 	
-	// 头部图像
-	ImageView tittleImg;
+	// 返回按钮
+	ImageButton retBtn1;
 	// 用户图像
 	ImageView logoImg;
 	// 发表新帖
@@ -34,13 +39,9 @@ public class B04V03Activity extends ComNoTittleActivity {
 	// 朋友列表
 	LinearLayout friendListBtn;
 	// 用户描述
-	LinearLayout userDisc;
+	TextView userDisc;
 	// 显示更多
 	LinearLayout showMoreBtn;
-	// 关注数量
-	TextView guanzhuNum;
-	// 粉丝数量
-	TextView fanNum;
 	// 评论
 	TextView commentNum;
 	// 评论列表
@@ -51,11 +52,17 @@ public class B04V03Activity extends ComNoTittleActivity {
 	ImageButton msgBtn;
 	// 附近按钮
 	ImageButton locationBtn;
-	// 设置按钮
-	ImageButton settingBtn;
 	
 	// 用户存储类
 	UserModle userModle;
+	
+	// 图片缓存
+	DisplayImageOptions options = new DisplayImageOptions.Builder()
+			.showStubImage(R.drawable.b04v03_user_default_logo)
+			.showImageForEmptyUri(R.drawable.b04v03_user_default_logo)
+			.showImageOnFail(R.drawable.b04v03_user_default_logo)
+			.cacheOnDisc(true)
+			.build();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,19 +70,35 @@ public class B04V03Activity extends ComNoTittleActivity {
 		
 		setContentView(R.layout.b04v03);
 		
-		// 初始化数据
-		initData();
-		
 		// 初始化组件
 		initModule();
+		
+		// 初始化数据
+		initData();
 	}
 	
 	/**
 	 *  初始化数据
 	 */
 	private void initData(){
-		
 		userModle = new UserModle(this);
+		userModle.read();
+		
+		// 设置描述
+		if(StringUtils.isNotBlank(userModle.user.getDisc())) {
+			userDisc.setText(userModle.user.getDisc());
+		} else {
+			userDisc.setText(R.string.b04v03_text_user_disc_default);
+		}
+		
+		Log.e("debug", "userModle.user.getLogoPath() > " + userModle.user.getLogoPath());
+		
+		// 设置图片
+		ImageLoader.getInstance().displayImage(
+				userModle.user.getLogoPath().replace(UserUtils.USER_ICON_200, UserUtils.USER_ICON_170), 
+				logoImg, options);
+		
+		// TODO 设置消息
 		
 	}
 	
@@ -84,26 +107,34 @@ public class B04V03Activity extends ComNoTittleActivity {
 	 */
 	private void initModule(){
 		
-		tittleImg = (ImageView) findViewById(R.id.b04v03TittleImg);
+		retBtn1 = (ImageButton) findViewById(R.id.b04v03RetBtn);
+		retBtn1.setOnClickListener(retBtnClick);
+		
 		logoImg = (ImageView) findViewById(R.id.b04v03UserLogoImg);
-		editePostsBtn = (LinearLayout) findViewById(R.id.b03v02EditePostsBtn);
-		friendListBtn = (LinearLayout) findViewById(R.id.b03v02FriendListBtn);
-		userDisc = (LinearLayout) findViewById(R.id.b03v02UserDiscLayout);
+		userDisc = (TextView) findViewById(R.id.b03v02UserDisc);
 		showMoreBtn = (LinearLayout) findViewById(R.id.b04v03ShowMoreBtn);
 		showMoreBtn.setOnClickListener(showMoreBtnClick);
 		
-		guanzhuNum = (TextView) findViewById(R.id.b04v03GuanzhuNum);
-		fanNum = (TextView) findViewById(R.id.b04v03FanNum);
 		commentNum = (TextView) findViewById(R.id.b04v03CommentNum);
-//		commentNum.setText(R.string.b04v03_text_commont_num, "20");
 		commentNum.setText(getString(R.string.b04v03_text_commont_num, "20"));
 		
 		commentList = (ListView) findViewById(R.id.b04v03CommentList);
 		retBtn = (ImageButton) findViewById(R.id.b04v03ReturnBtn);
+		retBtn.setOnClickListener(retBtnClick);
+		
 		msgBtn = (ImageButton) findViewById(R.id.b04v03MsgBtn);
 		locationBtn = (ImageButton) findViewById(R.id.b04v03LocationBtn);
-		settingBtn = (ImageButton) findViewById(R.id.b04v03SettingBtn);
 	}
+	
+	/**
+	 * 返回按钮
+	 */
+	OnClickListener retBtnClick = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			onBackPressed();
+		}
+	};
 	
 	/**
 	 * 详细信息

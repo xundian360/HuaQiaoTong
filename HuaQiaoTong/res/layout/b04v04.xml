@@ -8,26 +8,24 @@
         android:id="@+id/b04v04TittleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/commonforum_bg"
-        android:gravity="center_vertical"
-        android:padding="15dp" >
+        android:background="@drawable/b01v00_tittle_bg_img"
+        android:padding="5dp" >
 
-        <TextView
+        <ImageButton
             android:id="@+id/b04v04CancelBtn"
-            style="@style/CommonTittleSubTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/b04v04_tittle_return_text"
-            android:textColor="@color/b01_v01_light_brown" />
+            android:layout_centerVertical="true"
+            android:background="@color/com_transparent"
+            android:src="@drawable/b00v00_return_0" />
 
         <TextView
             android:id="@+id/b04v04Tittle"
-            style="@style/B01v03ImpTextTheme"
+            style="@style/CommonTittleTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/b04v04_tittle_text"
-            android:textColor="@android:color/black" />
+            android:text="@string/b04v04_tittle_text" />
 
         <TextView
             android:id="@+id/b04v04EditeBtn"
@@ -35,8 +33,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:text="@string/b04v04_tittle_editet_text"
-            android:textColor="@color/b04_v02_light_blue" />
+            android:textColor="@android:color/white" />
     </RelativeLayout>
 
     <ScrollView
@@ -56,61 +55,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/b04v04_layout_bottom_bg"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="gone" >
+                android:orientation="horizontal" >
 
                 <ImageView
                     android:id="@+id/b03v00UserLogo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:src="@drawable/b03v00_left_user_logo" />
 
                 <TextView
+                    android:id="@+id/b03v00UserLogoText"
                     style="@style/B04v01UserTextTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingLeft="5dp"
-                    android:text="@string/b04v04_text_change_user_logo" />
+                    android:paddingLeft="5dp" />
 
                 <ImageView
+                    android:id="@+id/b03v00UserLogoArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/b04v04_to_right_arrow" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/b04v04BaseInfoLable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:padding="5dp"
-                android:text="@string/b04v04_text_base_info_tittle"
-                android:textColor="@color/text_color_2"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                style="@style/B04v04LayoutTheme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/b04v04_layout_top_bg"
-                android:orientation="horizontal" >
-
-                <TextView
-                    style="@style/B04v01UserTextTheme2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/b04v04_text_base_info_login_name" />
-
-                <EditText
-                    android:id="@+id/b04v04LoginName"
-                    style="@style/B04v01UserTextTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:enabled="false" />
+                    android:src="@drawable/b04v04_to_right_arrow"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -155,6 +123,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
+
+                <RadioGroup
+                    android:id="@+id/b04v04UserSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <RadioButton
+                        android:id="@+id/b04v04UserNan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/b04v01_sex_0_button_selector"
+                        android:checked="true"
+                        android:text="@string/b04v00_user_sex_0_text"
+                        android:textColor="@color/b03_v01_item_color_5" />
+
+                    <RadioButton
+                        android:id="@+id/b04v04UserNv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:button="@drawable/b04v01_sex_1_button_selector"
+                        android:text="@string/b04v00_user_sex_1_text"
+                        android:textColor="@color/b03_v01_item_color_2" />
+                </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
@@ -183,7 +179,7 @@
                 style="@style/B04v04LayoutTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/b04v04_layout_bottom_bg"
+                android:background="@drawable/b04v04_layout_center_bg"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -205,8 +201,6 @@
                 style="@style/B04v04LayoutTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/b04v04_layout_bottom_bg"
                 android:orientation="horizontal" >
 
@@ -219,38 +213,6 @@
 
                 <EditText
                     android:id="@+id/b04v04Qq"
-                    style="@style/B04v01UserTextTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/b04v04CompanyLable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:paddingBottom="5dp"
-                android:text="@string/b04v04_text_base_info_work"
-                android:textColor="@color/text_color_2"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                style="@style/B04v04LayoutTheme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/b04v04_layout_bottom_bg"
-                android:orientation="horizontal" >
-
-                <TextView
-                    style="@style/B04v01UserTextTheme2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/b04v04_text_base_info_company" />
-
-                <EditText
-                    android:id="@+id/b04v04Company"
                     style="@style/B04v01UserTextTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

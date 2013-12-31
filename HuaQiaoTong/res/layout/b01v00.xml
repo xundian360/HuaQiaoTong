@@ -117,6 +117,7 @@
         style="@style/CommonPanddingTheme2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_below="@+id/b01v00TittleLayout"
         android:background="@drawable/b01v00_item_tittle_bg" />
     
@@ -125,6 +126,7 @@
         style="@style/CommonPanddingTheme2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+		android:orientation="horizontal"
         android:layout_below="@+id/b01v00TittleLayout"
         android:background="@color/com_transparent"
         android:paddingLeft="10dp"
