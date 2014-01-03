@@ -104,6 +104,9 @@ public class B01V01Activity extends ComNoTittleActivity {
 	
 	Handler _handler = new Handler();
 	
+	B01v01ImgAdapter dialogPicAdapter;
+	B00v00ImgDialog imgDialog;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -212,9 +215,16 @@ public class B01V01Activity extends ComNoTittleActivity {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			
-			// 显示Dialog
-			B00v00ImgDialog imgDialog = new B00v00ImgDialog(B01V01Activity.this, tittlePics.get(arg2));
-			imgDialog.show();
+			if(imgDialog == null) {
+				
+				dialogPicAdapter = new B01v01ImgAdapter(B01V01Activity.this, tittleImgData, 
+						R.layout.b01v01_tittle_item, B01v01ImgAdapter.from, B01v01ImgAdapter.to);
+				
+				// 显示Dialog
+				imgDialog = new B00v00ImgDialog(B01V01Activity.this, tittlePics);
+			}
+			
+			imgDialog.show(arg2);
 		}
 	};
 	

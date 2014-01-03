@@ -56,7 +56,7 @@
     </string-array>
     <string-array name="b01v01_1_nav_2_text">
         <item>全部</item>
-        <item>10&#8211;20</item>
+        <item>20元以下</item>
         <item>20&#8211;50</item>
         <item>50&#8211;100</item>
         <item>100&#8211;200</item>
@@ -88,7 +88,7 @@
     </string-array>
     <string-array name="b01v01_2_nav_1_text">
         <item>全部</item>
-        <item>10&#8211;20</item>
+        <item>20元以下</item>
         <item>20&#8211;50</item>
         <item>50&#8211;100</item>
         <item>100&#8211;200</item>
@@ -152,7 +152,7 @@
     </string-array>
     
     <string name="b01v01_com_num">（共%s条）</string>
-
+	<string name="b01v01_msg_no_data">取的数据失败</string>
     <string name="b01v01_button_comment">评论</string>
     <string name="b01v01_button_shear">分享</string>
     <string name="b01v01_button_currection">纠错</string>

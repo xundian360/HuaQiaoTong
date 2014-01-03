@@ -59,24 +59,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right|center_vertical"
-            android:orientation="horizontal"
-            android:paddingTop="5dp" >
+            android:gravity="right|center_vertical" >
 
-            <TextView
+            <RatingBar
+                android:id="@+id/v01v00ItemRating"
+                style="@style/B01v00RatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/b01v00_item_r_bg_0"
-                android:padding="1dp"
-                android:text="@string/b01v00_price_text"
-                android:textColor="@android:color/white" />
-
-            <TextView
-                android:id="@+id/v01v00ItemPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="￥50"
-                android:textColor="@color/b01_v00_item_price_color" />
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4" />
         </LinearLayout>
 
         <ImageView
@@ -93,19 +85,25 @@
             android:paddingRight="5dp" >
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center" >
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" >
 
-                <RatingBar
-                    android:id="@+id/v01v00ItemRating"
-                    style="@style/B01v00RatingBar"
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:rating="4" />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b01v00_item_r_bg_0"
+                    android:padding="1dp"
+                    android:text="@string/b01v00_price_text"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/v01v00ItemPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="￥50"
+                    android:textColor="@color/b01_v00_item_price_color" />
             </LinearLayout>
 
             <ImageView

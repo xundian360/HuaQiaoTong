@@ -46,7 +46,7 @@ public class BottonPicSelectDialog extends BottomDialog {
 	private int cut_path = 200;
 	
 	// 创建一个以当前时间为名称的文件
-	String basePath =Environment.getExternalStorageState()+ "/temple/";  
+	String basePath =Environment.getExternalStorageDirectory().toString() + "/Pictures/";
 	public String cutImgPath = basePath + "cut" + getPhotoFileName() ;
     File tempFile = new File(basePath,getPhotoFileName());
     
@@ -106,6 +106,12 @@ public class BottonPicSelectDialog extends BottomDialog {
 		
 		@Override
 		public void onClick(View v) {
+			
+			File out = new File(basePath);
+			if (!out.exists()) {
+				out.mkdirs();
+			}
+			
 			// 调用系统的拍照功能
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             // 指定调用相机拍照后照片的储存路径

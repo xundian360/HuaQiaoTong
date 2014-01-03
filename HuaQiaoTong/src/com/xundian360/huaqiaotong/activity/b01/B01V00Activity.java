@@ -270,15 +270,17 @@ public class B01V00Activity extends ComNoTittleActivity {
 				// 页面++
 				pageNum++;
 				
-				// 搜索的时候
-				if(isSearch) {
-					
-					// 取得所有数据
-					setSearchDate();
+				if(isNavLoadData()) {
 					
 				} else {
-					// 取得所有数据
-					setData();
+					// 搜索的时候
+					if(isSearch) {
+						// 取得所有数据
+						setSearchDate();
+					} else {
+						// 取得所有数据
+						setData();
+					}
 				}
 				
 				// 加载完成
@@ -293,6 +295,30 @@ public class B01V00Activity extends ComNoTittleActivity {
 			// 加载完成
 			onLoad();
 		}
+	}
+	
+	/**
+	 * 判断导航是否有选择项目
+	 * @return
+	 */
+	private boolean isNavLoadData() {
+		
+		boolean isNavSelect = false;
+		
+		// 设置其它View显示
+		for (int i = 0; i < navItems.size(); i++) {
+			B01v00NavItemView navView = navItems.get(i);
+			
+			// 设置其它导航不显示
+			if(navView.getItem_select_index() != 0) {
+				isNavSelect = true;
+				
+				// 加载数据
+				navView.loadData(pageNum, false);
+				break;
+			}
+		}
+		return isNavSelect;
 	}
 	
 	/**
@@ -400,11 +426,25 @@ public class B01V00Activity extends ComNoTittleActivity {
 			
 			// 设置其它导航不显示
 			if(selectIndex != i) {
-				
 				// 当前View显示
 				if(navView.isExpansion) {
 					navView.isExpansionAction();
-				}
+				} 
+			}
+		}
+	}
+	
+	/**
+	 * 设置非选中的导航
+	 */
+	public void setUnSelectNav(int selectIndex) {
+		// 设置其它View显示
+		for (int i = 0; i < navItems.size(); i++) {
+			
+			B01v00NavItemView navView = navItems.get(i);
+			
+			if(selectIndex != i) {
+				navView.setItem_select_index(0);
 			}
 		}
 	}
@@ -421,6 +461,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			setAdapterData();
 			
 			// 更新ListView
+			adapter.setItems(itemsData);
 			adapter.notifyDataSetChanged();
 			
 			processDialog.dismiss();
@@ -437,9 +478,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		@Override
 		public void run() {
-			
 			ShowMessageUtils.show(B01V00Activity.this, "取得数据失败");
-			
 			processDialog.dismiss();
 		}
 	};
@@ -458,24 +497,36 @@ public class B01V00Activity extends ComNoTittleActivity {
 					pageNum);
 			
 			// 设置数据
-			setShopItems(shopItems);
+			setShopItems(shopItems, false);
 		}
 	};
 	
 	/**
 	 * 设置数据
 	 * @param shopItems
+	 * @param isClear 是否清空数据
 	 */
 	@SuppressWarnings("unchecked")
-	public void setShopItems(Map<String, Object> shopItems) {
-		if(shopItems == null || shopItems.size() <= 0) {
+	public void setShopItems(Map<String, Object> shopItems, boolean isClear) {
+		if(shopItems == null || shopItems.isEmpty() || shopItems.size() <= 0) {
 			// 更新UI
 			_handler.post(getMsgError);
 			return;
 		}
 		
 		totalNum = StringUtils.paseInt((String) shopItems.get(B01v00ShopUtils.TOTAL_KEY), 0);
-		itemsData.addAll((List<Baidu>) shopItems.get(B01v00ShopUtils.RESULTS_KEY));
+		
+		if(isClear) {
+			
+			itemsData.clear();
+			
+			itemsData = (List<Baidu>)shopItems.get(B01v00ShopUtils.RESULTS_KEY);
+			
+			// 设置页面为第一页
+			pageNum = 0;
+		} else {
+			itemsData.addAll((List<Baidu>) shopItems.get(B01v00ShopUtils.RESULTS_KEY));
+		}
 		
 		// 更新UI
 		_handler.post(updateList);
@@ -486,6 +537,14 @@ public class B01V00Activity extends ComNoTittleActivity {
 				@Override
 				public void run() {
 					canLoad = false;
+					itemListView.setPullLoadEnable(canLoad);
+				}
+			});
+		} else {
+			_handler.post(new Runnable() {
+				@Override
+				public void run() {
+					canLoad = true;
 					itemListView.setPullLoadEnable(canLoad);
 				}
 			});
@@ -542,7 +601,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			}
 						
 			// 设置数据
-			setShopItems(shopItems);
+			setShopItems(shopItems, false);
 		}
 	};
 

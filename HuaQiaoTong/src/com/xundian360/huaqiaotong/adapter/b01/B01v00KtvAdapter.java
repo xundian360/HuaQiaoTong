@@ -104,4 +104,8 @@ public class B01v00KtvAdapter extends SimpleAdapter {
 			
 		return view;
 	}
+	
+	public void setItems(List<Baidu> items) {
+		this.items = items;
+	}
 }

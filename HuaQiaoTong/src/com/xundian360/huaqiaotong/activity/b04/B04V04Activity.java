@@ -278,15 +278,19 @@ public class B04V04Activity extends ComNoTittleActivity {
 			
 			// 设置数据
 			User user = UserUtils.setUser(arg0.result);
-
-			// 保存修改内容
-			userModle.user = user;
-			userModle.save();
 			
-			ShowMessageUtils.show(B04V04Activity.this, R.string.b04v04_update_success_text);
-			
-			// 取消Dialog显示
-			processDialog.dismiss();
+			if(user != null) {
+				// 保存修改内容
+				userModle.user = user;
+				userModle.save();
+				
+				ShowMessageUtils.show(B04V04Activity.this, R.string.b04v04_update_success_text);
+				
+				// 取消Dialog显示
+				processDialog.dismiss();
+			} else {
+				
+			}
 		}
 		
 		@Override

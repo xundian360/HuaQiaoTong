@@ -4,7 +4,6 @@
 package com.xundian360.huaqiaotong.activity.b04;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -77,11 +76,10 @@ public class B04V03Activity extends ComNoTittleActivity {
 		initData();
 	}
 	
-	/**
-	 *  初始化数据
-	 */
-	private void initData(){
-		userModle = new UserModle(this);
+	@Override
+	protected void onResume() {
+		
+		// 更新数据
 		userModle.read();
 		
 		// 设置描述
@@ -91,8 +89,6 @@ public class B04V03Activity extends ComNoTittleActivity {
 			userDisc.setText(R.string.b04v03_text_user_disc_default);
 		}
 		
-		Log.e("debug", "userModle.user.getLogoPath() > " + userModle.user.getLogoPath());
-		
 		// 设置图片
 		ImageLoader.getInstance().displayImage(
 				userModle.user.getLogoPath().replace(UserUtils.USER_ICON_200, UserUtils.USER_ICON_170), 
@@ -100,6 +96,17 @@ public class B04V03Activity extends ComNoTittleActivity {
 		
 		// TODO 设置消息
 		
+		super.onResume();
+	}
+	
+	
+	
+	/**
+	 *  初始化数据
+	 */
+	private void initData(){
+		userModle = new UserModle(this);
+		userModle.read();
 	}
 	
 	/**

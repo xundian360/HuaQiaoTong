@@ -11,6 +11,7 @@
         android:id="@+id/b01v00NavItemView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/b01v01_nav_item_bg_selector"
         android:gravity="center" >
         <TextView
             android:id="@+id/b01v00NavItemName"

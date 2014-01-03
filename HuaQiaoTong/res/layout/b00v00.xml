@@ -10,8 +10,8 @@
         android:id="@+id/b00v00Tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:background="@color/b00_v00_tittle_color" >
+        android:background="@color/b00_v00_panal_bg"
+        android:padding="5dp">
 
         <ImageButton
             android:id="@+id/b00v00RetBtn"
@@ -28,7 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/b00v00_station_search" />
-
     </RelativeLayout>
 
     <!-- 主题 -->

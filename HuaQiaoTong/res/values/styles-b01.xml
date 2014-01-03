@@ -45,8 +45,16 @@
     
     <style name="B01v00RatingBar" parent="@android:style/Widget.RatingBar">
 		<item name="android:progressDrawable">@drawable/b01v00_rating_bar</item>
-		<item name="android:minHeight">16dp</item>
-		<item name="android:maxHeight">16dp</item>
+		<item name="android:minHeight">22dp</item>
+		<item name="android:maxHeight">22dp</item>
 	</style>
+	
+    <!-- 
+        <style name="B01v00RatingBar" parent="@android:style/Widget.RatingBar">
+			<item name="android:progressDrawable">@drawable/b01v00_rating_bar</item>
+			<item name="android:minHeight">16dp</item>
+			<item name="android:maxHeight">16dp</item>
+		</style>
+     -->
     
 </resources>

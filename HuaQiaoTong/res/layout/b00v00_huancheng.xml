@@ -52,7 +52,7 @@
                         android:completionThreshold="1"
                         android:dropDownWidth="match_parent"
                         android:gravity="center_vertical"
-                        android:hint="@string/b00v00_input_line_hint"
+                        android:hint="@string/b00v00_input_start_hint"
                         android:singleLine="true" />
 
                     <ImageView
@@ -86,7 +86,7 @@
                         android:completionThreshold="1"
                         android:dropDownWidth="match_parent"
                         android:gravity="center_vertical"
-                        android:hint="@string/b00v00_input_line_hint"
+                        android:hint="@string/b00v00_input_end_hint"
                         android:singleLine="true" />
 
                     <ImageView

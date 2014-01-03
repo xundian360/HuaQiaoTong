@@ -54,6 +54,7 @@ public class BaseHttpClient {
         	urlString += buf.toString();      	
 		}
 		Log.d("BaseAuthenicationHttpClient", "GET > " + urlString);        
+		Log.d("BaseAuthenicationHttpClient", "GET params > " + params.toString());
 		
 		try {  
 			HttpGet request = new HttpGet(urlString);
@@ -81,6 +82,7 @@ public class BaseHttpClient {
 		HttpPost request = new HttpPost(urlString);
 		
 		Log.d("BaseAuthenicationHttpClient", "POST > " + urlString);      
+		Log.d("BaseAuthenicationHttpClient", "POST params > " + params.toString());      
 		
 		try {
 			if( null != params && !params.isEmpty() ) {

@@ -18,11 +18,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b01.B01V00Activity;
+import com.xundian360.huaqiaotong.adapter.b01.B01v00NavItemAdapter;
 import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
 import com.xundian360.huaqiaotong.util.StringUtils;
@@ -36,9 +36,6 @@ import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
  * @version 1.0
  */
 public class B01v00NavItemView {
-	
-	public static String[] from = {"b01v00NavItemName"};
-	public static int[] to = {R.id.b01v00NavItemName};
 	
 	Context context;
 	
@@ -61,10 +58,10 @@ public class B01v00NavItemView {
 	int index;
 	
 	// 选中的条件
-	int intem_select_intex = 0;
+	int item_select_index = 0;
 	
 	// 项目数据源
-	SimpleAdapter itemAdapter;
+	B01v00NavItemAdapter itemAdapter;
 	List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 	
 	// 设置数据源
@@ -95,7 +92,11 @@ public class B01v00NavItemView {
 		setAdapterData();
 		
 		// 设置Adapter
-		itemAdapter = new SimpleAdapter(context, data, R.layout.b01v00_nav_item_item, from, to);
+		itemAdapter = new B01v00NavItemAdapter(context, data, 
+				R.layout.b01v00_nav_item_item, 
+				B01v00NavItemAdapter.from, 
+				B01v00NavItemAdapter.to,
+				item_select_index);
 	}
 	
 	
@@ -108,18 +109,21 @@ public class B01v00NavItemView {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			
-			if(intem_select_intex == arg2) {
+			if(item_select_index == arg2) {
 				return;
 			}
 			
 			// 设值选中条件
-			intem_select_intex = arg2;
+			item_select_index = arg2;
 			
 			// 加载数据
-			loadData(0);
+			loadData(0, true);
 			
 			// TODO 设置子项目隐藏
 			navItems.setVisibility(View.GONE);
+			
+			// 设置其他项目
+			((B01V00Activity)context).setUnSelectNav(index);
 		}
 	};
 	
@@ -127,7 +131,7 @@ public class B01v00NavItemView {
 	 * 加载数据
 	 * @param index
 	 */
-	public void loadData(final int pageNum) {
+	public void loadData(final int pageNum, final boolean isClear) {
 		
 		// 取得排序方法
 		final int searchKey = itemObject.getNavItemSearchKey()[index];
@@ -142,10 +146,10 @@ public class B01v00NavItemView {
 				Map<String, Object> items = new HashMap<String, Object>();
 				
 				// 项目值
-				String itemText = navItem[intem_select_intex];
+				String itemText = navItem[item_select_index];
 				
 				// 全部选择的时候
-				if(intem_select_intex == 0) {
+				if(item_select_index == 0) {
 					// 取得所有商店信息
 					items = B01v00ShopUtils.getShopList(context, 
 							context.getString(itemObject.getKeyId()), 
@@ -156,10 +160,19 @@ public class B01v00NavItemView {
 				// 按价格搜索
 				else if(searchKey == ItemConstants.ITEM_SERACH_BY_PRICE) {
 					
-					String minPrice = StringUtils.getNumInString(itemText, 0);
-					String maxPrice = StringUtils.getNumInString(itemText, 1);
-					if(StringUtils.isBlank(maxPrice)) {
-						maxPrice = Integer.MAX_VALUE + "";
+					String minPrice = "";
+					String maxPrice = "";
+					
+					// XXX以下
+					if(item_select_index == 1) {
+						minPrice = "0";
+						maxPrice = StringUtils.getNumInString(itemText, 0);
+					} else {
+						minPrice = StringUtils.getNumInString(itemText, 0);
+						maxPrice = StringUtils.getNumInString(itemText, 1);
+						if(StringUtils.isBlank(maxPrice)) {
+							maxPrice = Integer.MAX_VALUE + "";
+						}
 					}
 					
 					items = B01v00ShopUtils.getShopListByPrice(context, 
@@ -174,10 +187,20 @@ public class B01v00NavItemView {
 				// 按关注搜索
 				else if(searchKey == ItemConstants.ITEM_SERACH_BY_ATTENTION) {
 					
-					String minL = StringUtils.getNumInString(itemText, 0);
-					String maxL = StringUtils.getNumInString(itemText, 1);
-					if(StringUtils.isBlank(maxL)) {
-						maxL = Integer.MAX_VALUE + "";
+					String minL = "";
+					String maxL = "";
+					
+					// XXX以下
+					if(item_select_index == 1) {
+						minL = "0";
+						maxL = StringUtils.getNumInString(itemText, 0);
+					}else {
+						minL = StringUtils.getNumInString(itemText, 0);
+						maxL = StringUtils.getNumInString(itemText, 1);
+						
+						if(StringUtils.isBlank(maxL)) {
+							maxL = Integer.MAX_VALUE + "";
+						}
 					}
 					
 					items = B01v00ShopUtils.getShopListByAttention(context, 
@@ -201,9 +224,7 @@ public class B01v00NavItemView {
 				}
 				
 				// 取得了数据,更新UI
-				if(items != null && !items.isEmpty()) {
-					((B01V00Activity)context).setShopItems(items);
-				}
+				((B01V00Activity)context).setShopItems(items, isClear);
 			}
 		}).start();
 	}
@@ -248,7 +269,7 @@ public class B01v00NavItemView {
 		
 		for (int i = 0; i < navItem.length; i++) {
 			Map<String, String> item = new HashMap<String, String>();
-			item.put(from[0], navItem[i]);
+			item.put(B01v00NavItemAdapter.from[0], navItem[i]);
 			data.add(item);
 		}
 	}
@@ -263,7 +284,6 @@ public class B01v00NavItemView {
 			
 			// 判断显示，隐藏子项目
 			if(isExpansion) {   // 隐藏子项目
-				
 				// 选中当前导航
 				isExpansionAction();
 			} else {    // 显示子项目
@@ -278,6 +298,7 @@ public class B01v00NavItemView {
 	 * 选中当前导航
 	 */
 	public void isExpansionAction() {
+		
 		// 设置背景白色
 		navView.setBackgroundColor(Color.WHITE);
 		// 设置文字颜色
@@ -308,6 +329,16 @@ public class B01v00NavItemView {
 		
 		// TODO 设置子项目显示
 		navItems.setVisibility(View.VISIBLE);
+		itemAdapter.setSelectIndex(item_select_index);
+		itemAdapter.notifyDataSetChanged();
+	}
+	
+	public void setItem_select_index(int item_select_index) {
+		this.item_select_index = item_select_index;
+	}
+	
+	public int getItem_select_index() {
+		return item_select_index;
 	}
 	
 	/** 返回View */

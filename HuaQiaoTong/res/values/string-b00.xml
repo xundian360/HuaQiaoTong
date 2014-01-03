@@ -31,6 +31,8 @@
     
     <string name="b00v00_input_station_hint">输入站点</string>
     <string name="b00v00_input_line_hint">输入线路</string>
+    <string name="b00v00_input_start_hint">输入起点</string>
+    <string name="b00v00_input_end_hint">输入终点</string>
     
     <string name="b00v00_tittle_text">公交</string>
     <string name="b00v01_tittle_text">收藏夹</string>
