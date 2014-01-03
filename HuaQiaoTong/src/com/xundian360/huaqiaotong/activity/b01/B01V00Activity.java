@@ -484,6 +484,18 @@ public class B01V00Activity extends ComNoTittleActivity {
 	};
 	
 	/**
+	 * 取得信息为空
+	 */
+	Runnable getMsgBlank = new Runnable() {
+		
+		@Override
+		public void run() {
+			ShowMessageUtils.show(B01V00Activity.this, "未取到数据");
+			processDialog.dismiss();
+		}
+	};
+	
+	/**
 	 * 取得商店数据
 	 */
 	Runnable getShopData = new Runnable() {
@@ -516,16 +528,24 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		totalNum = StringUtils.paseInt((String) shopItems.get(B01v00ShopUtils.TOTAL_KEY), 0);
 		
+		List<Baidu> shopItemsNet = (List<Baidu>)shopItems.get(B01v00ShopUtils.RESULTS_KEY);
+		
+		// 取得数据为空
+		if(totalNum <= 0 || shopItemsNet  == null || shopItemsNet.isEmpty() || shopItemsNet.size() <= 0) {
+			_handler.post(getMsgBlank);
+			return;
+		}
+		
 		if(isClear) {
 			
 			itemsData.clear();
 			
-			itemsData = (List<Baidu>)shopItems.get(B01v00ShopUtils.RESULTS_KEY);
+			itemsData = shopItemsNet;
 			
 			// 设置页面为第一页
 			pageNum = 0;
 		} else {
-			itemsData.addAll((List<Baidu>) shopItems.get(B01v00ShopUtils.RESULTS_KEY));
+			itemsData.addAll(shopItemsNet);
 		}
 		
 		// 更新UI
