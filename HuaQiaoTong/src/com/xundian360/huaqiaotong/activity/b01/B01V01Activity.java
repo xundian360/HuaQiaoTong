@@ -28,11 +28,11 @@ import com.xundian360.huaqiaotong.adapter.b01.B01v01KtvCommAdapter;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.BaiduComment;
 import com.xundian360.huaqiaotong.util.CommonUtil;
-import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.util.b01.B01v00ShopUtils;
 import com.xundian360.huaqiaotong.view.b01.B00v00ImgDialog;
 import com.xundian360.huaqiaotong.view.com.AllShowListView;
+import com.xundian360.huaqiaotong.view.com.BottonShearSelectDialog;
 import com.xundian360.huaqiaotong.view.com.GalleryFlow;
 
 /**
@@ -52,7 +52,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 	ImageButton retBtn;
 	// 标题
 	TextView tittleText;
-
+	
 	// 头部图片
 	GalleryFlow tittlePicView;
 	
@@ -106,6 +106,9 @@ public class B01V01Activity extends ComNoTittleActivity {
 	
 	B01v01ImgAdapter dialogPicAdapter;
 	B00v00ImgDialog imgDialog;
+	
+	// 分享Dialog
+	BottonShearSelectDialog shearDialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -188,6 +191,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 		
 		commentList = (AllShowListView) findViewById(R.id.b01v00CommentList);
 		commentList.setAdapter(commAdapter);
+		commentList.setFocusable(false);
 		
 		commentLayout = (LinearLayout) findViewById(R.id.b01v00CommentLayout);
 		
@@ -428,8 +432,21 @@ public class B01V01Activity extends ComNoTittleActivity {
 		@Override
 		public void onClick(View arg0) {
 			
-			// 公交页面迁移
-			ShowMessageUtils.show(B01V01Activity.this, "分享");
+			if(shearDialog == null) {
+				
+				// 分享标题
+				String shearTittle = getString(R.string.common_shop_shear_tittle, baiduItem.getName());
+				// 分享内容
+				String shearText = baiduItem.getDisc();
+				// 分享图片路径
+				String shearImgPath =tittlePics.get(0);
+				
+				// 分享Dialog
+				shearDialog = new BottonShearSelectDialog(B01V01Activity.this, shearTittle, shearText, shearImgPath);
+			}
+			
+			// 分享选择
+			shearDialog.show();
 		}
 	};
 	

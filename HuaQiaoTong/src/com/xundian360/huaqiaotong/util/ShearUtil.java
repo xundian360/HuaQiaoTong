@@ -39,6 +39,25 @@ public class ShearUtil {
 	}
 	
 	/**
+	 * 分享到新浪微博（URL）
+	 * @param context
+	 * @param text
+	 * @param imagePath
+	 * @param paListener
+	 */
+	public static void shearToSinaWeiboWithURL(Context context, String text, String url, 
+			PlatformActionListener paListener) {
+		SinaWeibo.ShareParams sp = new SinaWeibo.ShareParams();
+		sp.text = text;
+		sp.imageUrl = url;
+		
+		Platform weibo = ShareSDK.getPlatform(context, SinaWeibo.NAME);
+		weibo.setPlatformActionListener(paListener); // 设置分享事件回调
+		// 执行图文分享
+		weibo.share(sp);
+	}
+	
+	/**
 	 * 分享到微信
 	 * @param context
 	 * @param title
@@ -61,6 +80,28 @@ public class ShearUtil {
 	}
 	
 	/**
+	 * 分享到微信（URL）
+	 * @param context
+	 * @param title
+	 * @param msg
+	 * @param imagePath
+	 */
+	public static void shearPicToWxWithURL(Context context, String title, 
+			String msg, String url, PlatformActionListener paListener) {
+		
+		Platform plat = ShareSDK.getPlatform(context, Wechat.NAME);
+		plat.setPlatformActionListener(paListener);
+		
+		Wechat.ShareParams sp = new Wechat.ShareParams();
+		sp.title = title;
+		sp.text = msg;
+		sp.shareType = Platform.SHARE_IMAGE;
+		sp.imageUrl = url;
+		
+		plat.share(sp);
+	}
+	
+	/**
 	 * 分享到微信朋友圈
 	 * @param context
 	 * @param title
@@ -78,6 +119,28 @@ public class ShearUtil {
 		sp.text = msg;
 		sp.shareType = Platform.SHARE_IMAGE;
 		sp.imagePath = imagePath;
+		
+		plat.share(sp);
+	}
+	
+	/**
+	 * 分享到微信朋友圈
+	 * @param context
+	 * @param title
+	 * @param msg
+	 * @param imagePath
+	 */
+	public static void shearPicToWxFWithURL(Context context, String title, 
+			String msg, String url, PlatformActionListener paListener) {
+		
+		Platform plat = ShareSDK.getPlatform(context, WechatMoments.NAME);
+		plat.setPlatformActionListener(paListener);
+		
+		Wechat.ShareParams sp = new Wechat.ShareParams();
+		sp.title = title;
+		sp.text = msg;
+		sp.shareType = Platform.SHARE_IMAGE;
+		sp.imageUrl = url;
 		
 		plat.share(sp);
 	}

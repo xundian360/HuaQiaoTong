@@ -560,6 +560,9 @@ public class B01V00Activity extends ComNoTittleActivity {
 		
 		// 输入不为空
 		if(StringUtils.isNotBlank(searchTextV)) {
+			
+			isSearch = false;
+			
 			// 取得商店数据
 			new Thread(getShopSearchData).start();
 		}

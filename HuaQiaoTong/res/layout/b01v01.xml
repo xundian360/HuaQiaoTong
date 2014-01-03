@@ -5,7 +5,6 @@
     android:background="@color/b01_v00_main_bg" >
 
     <!-- Tittle -->
-
     <RelativeLayout
         android:id="@+id/b01v01TittleLayout"
         android:layout_width="match_parent"
@@ -241,7 +240,7 @@
                 <com.xundian360.huaqiaotong.view.com.AllShowListView
                     android:id="@+id/b01v00CommentList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

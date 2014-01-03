@@ -7,9 +7,11 @@
 	
 	<string name="common_text_location">我的位置</string>
 	
-	<string name="common_shear_weixin">微信好友</string>
-	<string name="common_shear_pengyou">微信朋友圈</string>
-    <string name="common_shear_weibo">新浪微博</string>
+	<string name="common_shear_weixin">分享到微信</string>
+	<string name="common_shear_pengyou">分享到朋友圈</string>
+    <string name="common_shear_weibo">分享到微博</string>
+    
+    <string name="common_shop_shear_tittle">我在%s</string>
     
     <string name="common_city">昆山市</string>
     <string name="common_p_city">苏州</string>

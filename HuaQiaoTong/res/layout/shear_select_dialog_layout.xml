@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/com_transparent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/shearWeixin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="@string/common_shear_weixin"
+            android:textColor="@color/b04v04_pic_select_color" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/b04v04_pic_select_line_color" />
+
+        <Button
+            android:id="@+id/shearPengyou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="@string/common_shear_pengyou"
+            android:textColor="@color/b04v04_pic_select_color" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/b04v04_pic_select_line_color" />
+
+        <Button
+            android:id="@+id/shearWeibo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="@string/common_shear_weibo"
+            android:textColor="@color/b04v04_pic_select_color" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/shearSelectCancle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:text="@string/b04v01_tittle_cancle"
+        android:textColor="@color/b04v04_pic_select_color" />
+
+</LinearLayout>
