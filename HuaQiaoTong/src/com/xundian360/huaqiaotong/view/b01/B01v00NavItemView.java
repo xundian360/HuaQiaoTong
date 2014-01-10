@@ -10,6 +10,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -70,6 +71,8 @@ public class B01v00NavItemView {
 	// 导航展开标志
 	public boolean isExpansion = false;
 	
+	Handler _handler = new Handler();
+	
 	public B01v00NavItemView(Context context, 
 			ItemObject itemObject, int index) {
 		this.context = context;
@@ -108,16 +111,14 @@ public class B01v00NavItemView {
 		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
-			
-			if(item_select_index == arg2) {
-				return;
+
+			if(item_select_index != arg2) {
+				// 设值选中条件
+				item_select_index = arg2;
+				
+				// 加载数据
+				loadData(0, true);
 			}
-			
-			// 设值选中条件
-			item_select_index = arg2;
-			
-			// 加载数据
-			loadData(0, true);
 			
 			// TODO 设置子项目隐藏
 			navItems.setVisibility(View.GONE);
@@ -225,18 +226,37 @@ public class B01v00NavItemView {
 				
 				// 取得了数据,更新UI
 				((B01V00Activity)context).setShopItems(items, isClear);
+				
+				// 判断数据是否取得成功
+				if(items != null && !items.isEmpty() && items.size() > 0 
+						&& items.get(B01v00ShopUtils.RESULTS_KEY) != null) {
+					
+					// 设置菜系
+					if (searchKey == ItemConstants.ITEM_SERACH_BY_KEY) {
+
+						final String navTextTemp;
+						
+						// 选择全部的时候，显示菜系
+						if (item_select_index == 0) {
+							navTextTemp = context.getString(R.string.b01v01_1_nav_caixi);
+						} else {
+							navTextTemp = navItem[item_select_index];
+						}
+						
+						// 设置消息显示
+						_handler.post(new Runnable() {
+							@Override
+							public void run() {
+								navName.setText(navTextTemp);								
+							}
+						});
+					}
+					return;
+				}
+				
 			}
 		}).start();
 	}
-	
-	Runnable loadDataRun = new Runnable() {
-		
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			
-		}
-	};
 	
 	/**
 	 * 初始化视图

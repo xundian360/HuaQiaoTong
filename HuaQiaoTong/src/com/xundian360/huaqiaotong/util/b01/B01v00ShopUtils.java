@@ -306,6 +306,7 @@ public class B01v00ShopUtils extends BaiduUtil{
 					BaiduComment commentItem = new BaiduComment();
 					commentItem.setId(JsonUtil.getString(commentJ, "id"));
 					commentItem.setShopId(JsonUtil.getString(commentJ, "shop_id"));
+					commentItem.setUserId(JsonUtil.getString(commentJ, "user_id"));
 					commentItem.setUserName(JsonUtil.getString(commentJ, "user_name"));
 					commentItem.setUserLogoPath(JsonUtil.getString(commentJ, "user_logo_path"));
 					commentItem.setScore(JsonUtil.getString(commentJ, "shop_score"));

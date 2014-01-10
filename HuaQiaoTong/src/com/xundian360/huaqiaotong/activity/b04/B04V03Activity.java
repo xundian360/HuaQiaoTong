@@ -16,6 +16,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
+import com.xundian360.huaqiaotong.modle.com.BaiduComment;
 import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.StringUtils;
@@ -29,8 +30,12 @@ import com.xundian360.huaqiaotong.util.UserUtils;
  */
 public class B04V03Activity extends ComNoTittleActivity {
 	
+	public static final String USER_COMMENT_KEY ="USER_COMMENT_KEY";
+	
 	// 返回按钮
 	ImageButton retBtn1;
+	// 标题
+	TextView tittleText;
 	// 用户图像
 	ImageView logoImg;
 	// 发表新帖
@@ -45,6 +50,8 @@ public class B04V03Activity extends ComNoTittleActivity {
 	TextView commentNum;
 	// 评论列表
 	ListView commentList;
+	// 底部按钮容器
+	LinearLayout bottomLayout;
 	// 返回按钮
 	ImageButton retBtn;
 	// 消息
@@ -54,6 +61,9 @@ public class B04V03Activity extends ComNoTittleActivity {
 	
 	// 用户存储类
 	UserModle userModle;
+	
+	// 其他用户ID
+	BaiduComment userComment;
 	
 	// 图片缓存
 	DisplayImageOptions options = new DisplayImageOptions.Builder()
@@ -79,27 +89,45 @@ public class B04V03Activity extends ComNoTittleActivity {
 	@Override
 	protected void onResume() {
 		
-		// 更新数据
-		userModle.read();
+		String logoPath;
 		
-		// 设置描述
-		if(StringUtils.isNotBlank(userModle.user.getDisc())) {
-			userDisc.setText(userModle.user.getDisc());
+		// 进个人中心
+		if(userComment == null) {
+			// 更新数据
+			userModle.read();
+			
+			// 设置描述
+			if(StringUtils.isNotBlank(userModle.user.getDisc())) {
+				userDisc.setText(userModle.user.getDisc());
+			} else {
+				userDisc.setText(R.string.b04v03_text_user_disc_default);
+			}
+			
+			// 用户图片路径
+			logoPath = userModle.user.getLogoPath().replace(UserUtils.USER_ICON_200, UserUtils.USER_ICON_170);
+			
 		} else {
-			userDisc.setText(R.string.b04v03_text_user_disc_default);
+			
+			// 标题
+			tittleText.setText(userComment.getUserName());
+			// 已发表帖子数量
+			commentNum.setText(getString(R.string.b04v03_text_commont_num2, "20"));
+			
+			// 设置编辑按钮隐藏
+			showMoreBtn.setVisibility(View.GONE);
+			bottomLayout.setVisibility(View.GONE);
+			
+			// 用户图片路径
+			logoPath = userComment.getUserLogoPath().replace(UserUtils.USER_ICON_200, UserUtils.USER_ICON_64);
 		}
 		
-		// 设置图片
+		// 设置人物图片
 		ImageLoader.getInstance().displayImage(
-				userModle.user.getLogoPath().replace(UserUtils.USER_ICON_200, UserUtils.USER_ICON_170), 
+				logoPath, 
 				logoImg, options);
-		
-		// TODO 设置消息
 		
 		super.onResume();
 	}
-	
-	
 	
 	/**
 	 *  初始化数据
@@ -107,6 +135,9 @@ public class B04V03Activity extends ComNoTittleActivity {
 	private void initData(){
 		userModle = new UserModle(this);
 		userModle.read();
+		
+		// 查看其它用户信息
+		userComment = (BaiduComment) getIntent().getSerializableExtra(USER_COMMENT_KEY);
 	}
 	
 	/**
@@ -116,6 +147,8 @@ public class B04V03Activity extends ComNoTittleActivity {
 		
 		retBtn1 = (ImageButton) findViewById(R.id.b04v03RetBtn);
 		retBtn1.setOnClickListener(retBtnClick);
+		
+		tittleText =  (TextView) findViewById(R.id.b04v03Tittle);
 		
 		logoImg = (ImageView) findViewById(R.id.b04v03UserLogoImg);
 		userDisc = (TextView) findViewById(R.id.b03v02UserDisc);
@@ -131,6 +164,8 @@ public class B04V03Activity extends ComNoTittleActivity {
 		
 		msgBtn = (ImageButton) findViewById(R.id.b04v03MsgBtn);
 		locationBtn = (ImageButton) findViewById(R.id.b04v03LocationBtn);
+		
+		bottomLayout =  (LinearLayout) findViewById(R.id.b04v03BottomLayout);
 	}
 	
 	/**

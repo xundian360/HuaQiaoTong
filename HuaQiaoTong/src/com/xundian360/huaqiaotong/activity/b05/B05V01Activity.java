@@ -16,7 +16,6 @@ import com.xundian360.huaqiaotong.activity.b02.B02V00Activity;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
-import com.xundian360.huaqiaotong.util.b01.B01v00BauduUtil;
 
 /**
  * 周边信息

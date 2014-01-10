@@ -5,6 +5,7 @@
     android:background="@color/b01_v00_main_bg" >
 
     <!-- Tittle -->
+
     <RelativeLayout
         android:id="@+id/b01v01TittleLayout"
         android:layout_width="match_parent"
@@ -67,19 +68,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="10dp" >
 
                     <TextView
-                        android:id="@+id/v01v01ItemTittle"
+                        android:id="@+id/v01v00Address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
                         android:singleLine="true"
-                        android:text="大铁罐土菜馆"
-                        android:textColor="@android:color/black"
-                        android:textSize="22sp"
-                        android:visibility="gone" />
+                        android:text="营业时间:6:00-24:00"
+                        android:textColor="@color/b01_v00_nav_blue" />
 
                     <TextView
                         android:id="@+id/v01v00Time"
@@ -269,18 +270,18 @@
                 android:src="@drawable/b01v01_go_btn" />
 
             <ImageView
-                android:id="@+id/b01v01EditeBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/b01v01_edite_btn" />
-
-            <ImageView
                 android:id="@+id/b01v01ShearBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:src="@drawable/b01v01_shear_btn" />
+
+            <ImageView
+                android:id="@+id/b01v01EditeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/b01v01_edite_btn" />
         </LinearLayout>
 
         <ImageView

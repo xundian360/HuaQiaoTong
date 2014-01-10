@@ -11,6 +11,12 @@
 	<string name="common_shear_pengyou">分享到朋友圈</string>
     <string name="common_shear_weibo">分享到微博</string>
     
+    <string name="common_shear_btn">分享</string>
+    <string name="common_shear_clear">清空</string>
+    
+    <string name="common_shear_msg_not_empty">分享内容不能为空</string>
+    <string name="common_shear_msg_to_long">分享内容太长</string>
+    
     <string name="common_shop_shear_tittle">我在%s</string>
     
     <string name="common_city">昆山市</string>
@@ -23,6 +29,9 @@
     
     <string name="common_btn_cancel">取消</string>
 	<string name="common_btn_enter">确认</string>
+	
+	<string name="common_dialog_call_tittle">提示</string>
+	<string name="common_dialog_call_msg">确认拨打电话%s？</string>
 	
     <!-- 百度Key -->
 	<string name="baidu_map_key">2179ee304cf706ec019e21b87a7af889</string>
@@ -37,7 +46,7 @@
 	<string name="shear_sdk_secret">61f74864485ecadf66e17121436e6a12</string>
 	-->
 	<!-- 微信 id -->
-	<string name="weixin_id">wxb238b3f75512d804</string>
+	<string name="weixin_id">279cad247d2e8b1ff2bc91b6954fe538</string>
 	<!-- 新浪 Secret -->
 	<string name="weixin_key">38aace2a8a1e2d7614c53e043ef8e93e</string>
 	

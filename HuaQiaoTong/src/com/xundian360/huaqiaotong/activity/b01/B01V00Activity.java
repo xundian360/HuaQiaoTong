@@ -103,6 +103,9 @@ public class B01V00Activity extends ComNoTittleActivity {
 	
 	boolean canLoad = true;
 	
+	// 检索
+	boolean isSearch = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -187,8 +190,13 @@ public class B01V00Activity extends ComNoTittleActivity {
 			// 点击键盘的Search按钮
 			if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 				
+				pageNum = 0;
+				isSearch = false;
+				
 				// 取得搜索的店铺信息
 				setSearchDate();
+				
+				switchTittle();
 			}
 			return false;
 		}
@@ -468,9 +476,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 		}
 	};
 	
-	// 检索
-	boolean isSearch = false;
-	
 	/**
 	 * 取得信息失败
 	 */
@@ -581,8 +586,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 		// 输入不为空
 		if(StringUtils.isNotBlank(searchTextV)) {
 			
-			isSearch = false;
-			
 			// 取得商店数据
 			new Thread(getShopSearchData).start();
 		}
@@ -665,4 +668,41 @@ public class B01V00Activity extends ComNoTittleActivity {
 			data.add(dataItem);
 		}
 	}
+	
+	@Override
+	public void onBackPressed() {
+		// 显示全部数据
+		if(isSearch || isNavSelect()) {
+			isSearch = false;
+			itemsData.clear();
+			// 设置页面为第一页
+			pageNum = 0;
+			// 设置数据
+			setData();
+		} else {
+			super.onBackPressed();
+		}
+	}
+	
+	/**
+	 * @return
+	 */
+	private boolean isNavSelect() {
+		boolean isNavSelect = false;
+		// 设置其它View显示
+		for (int i = 0; i < navItems.size(); i++) {
+			B01v00NavItemView navView = navItems.get(i);
+
+			// 设置其它导航不显示
+			if (navView.getItem_select_index() != 0) {
+				isNavSelect = true;
+				
+				navView.setItem_select_index(0);
+				
+				break;
+			}
+		}
+		return isNavSelect;
+	}
+	
 }

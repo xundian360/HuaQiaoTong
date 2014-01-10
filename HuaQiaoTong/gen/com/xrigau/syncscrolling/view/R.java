@@ -8,21 +8,21 @@ package com.xrigau.syncscrolling.view;
 
 public final class R {
 	public static final class attr {
-		public static final int placeholderView = 0x7f010001;
-		public static final int syncView_gravity = 0x7f010002;
-		public static final int synchronizedView = 0x7f010000;
+		public static final int placeholderView = 0x7f010016;
+		public static final int syncView_gravity = 0x7f010017;
+		public static final int synchronizedView = 0x7f010015;
 	}
 	public static final class id {
-		public static final int center_horizontal = 0x7f050001;
-		public static final int left = 0x7f050000;
-		public static final int right = 0x7f050002;
+		public static final int center_horizontal = 0x7f050003;
+		public static final int left = 0x7f050002;
+		public static final int right = 0x7f050004;
 	}
 	public static final class styleable {
-		public static final int[] SynchronizedLinearLayout = { 0x7f010000, 0x7f010001, 0x7f010002 };
+		public static final int[] SynchronizedLinearLayout = { 0x7f010015, 0x7f010016, 0x7f010017 };
 		public static final int SynchronizedLinearLayout_placeholderView = 1;
 		public static final int SynchronizedLinearLayout_syncView_gravity = 2;
 		public static final int SynchronizedLinearLayout_synchronizedView = 0;
-		public static final int[] SynchronizedRelativeLayout = { 0x7f010000, 0x7f010001, 0x7f010002 };
+		public static final int[] SynchronizedRelativeLayout = { 0x7f010015, 0x7f010016, 0x7f010017 };
 		public static final int SynchronizedRelativeLayout_placeholderView = 1;
 		public static final int SynchronizedRelativeLayout_syncView_gravity = 2;
 		public static final int SynchronizedRelativeLayout_synchronizedView = 0;

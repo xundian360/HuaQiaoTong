@@ -14,7 +14,6 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 
 import com.xundian360.huaqiaotong.R;
-import com.xundian360.huaqiaotong.util.ShearUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 
 /**
@@ -89,7 +88,11 @@ public class BottonShearSelectDialog extends BottomDialog {
 		@Override
 		public void onClick(View v) {
 			// 分享到微信
-			ShearUtil.shearPicToWxWithURL(context, shearTittle, shearText, shearImgPath, paListener);
+			CommonShearInputDialog shearMsgDialog = new CommonShearInputDialog(
+					context, CommonShearInputDialog.SHEAR_WEIXIN_KEY,
+					shearTittle, shearText, shearImgPath, paListener);
+			
+			shearMsgDialog.show();
 			
 			// 取消Dialog显示
 			dismiss();
@@ -104,7 +107,11 @@ public class BottonShearSelectDialog extends BottomDialog {
 		@Override
 		public void onClick(View v) {
 			// 分享到朋友圈
-			ShearUtil.shearPicToWxFWithURL(context, shearTittle, shearText, shearImgPath, paListener);
+			CommonShearInputDialog shearMsgDialog = new CommonShearInputDialog(
+					context, CommonShearInputDialog.SHEAR_PENGYOU_KEY,
+					shearTittle, shearText, shearImgPath, paListener);
+			
+			shearMsgDialog.show();
 			
 			// 取消Dialog显示
 			dismiss();
@@ -119,7 +126,11 @@ public class BottonShearSelectDialog extends BottomDialog {
 		@Override
 		public void onClick(View v) {
 			// 分享到新浪微博
-			ShearUtil.shearToSinaWeiboWithURL(context, shearText, shearImgPath, paListener);
+			CommonShearInputDialog shearMsgDialog = new CommonShearInputDialog(
+					context, CommonShearInputDialog.SHEAR_WEIBO_KEY,
+					shearTittle, shearText, shearImgPath, paListener);
+			
+			shearMsgDialog.show();
 			
 			// 取消Dialog显示
 			dismiss();

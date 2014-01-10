@@ -19,6 +19,8 @@ public class BaiduComment implements Serializable {
 	private String id;
 	// 评论商店ID
 	private String shopId;
+	// 评论用户ID
+	private String userId;
 	// 评论用户
 	private String userName;
 	// 评论用户图片路径
@@ -41,6 +43,12 @@ public class BaiduComment implements Serializable {
 	}
 	public void setShopId(String shopId) {
 		this.shopId = shopId;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getUserName() {
 		return userName;

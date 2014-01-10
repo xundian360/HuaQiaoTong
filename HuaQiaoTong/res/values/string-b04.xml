@@ -47,6 +47,7 @@
 	<string name="b04v03_text_user_fan">粉丝</string>
 	
 	<string name="b04v03_text_commont_num">我发表的贴（%s）</string>
+	<string name="b04v03_text_commont_num2">已发表的贴（%s）</string>
 	
 	<string name="b04v04_tittle_return_text">返回</string>
 	<string name="b04v04_tittle_text">详细信息</string>

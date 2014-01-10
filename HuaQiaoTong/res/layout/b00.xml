@@ -13,7 +13,7 @@
         android:padding="10dp" >
 
         <ImageButton
-            android:id="@+id/mainTittleMoreBtn"
+            android:id="@+id/mainTittleLBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -27,10 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/mail_tittle_text"
-            android:textColor="@color/b04_v02_button_color" />
+            android:textColor="@android:color/white" />
 
         <ImageButton
-            android:id="@+id/mainTittleSetBtn"
+            android:id="@+id/mainTittleRBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -143,111 +143,43 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/CommonPanddingTheme3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/mainNavLayout"
-        android:orientation="vertical"
-        android:weightSum="2" >
+        android:orientation="vertical" >
+
+        <org.taptwo.android.widget.ViewFlow
+            android:id="@+id/b00NavPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:duplicateParentState="true" 
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="2" >
+            android:gravity="center" >
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/b00LeftPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
+                android:src="@drawable/b00_piont_0" />
 
-                <ImageView
-                    android:id="@+id/mainMyLifeBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/main_life_bg"
-                    android:scaleType="center"
-                    android:src="@drawable/main_life_img" />
-
-                <TextView
-                    style="@style/MainItemTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mail_my_life_text" />
-            </LinearLayout>
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/b00CenterPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/b00_piont_1" />
 
-                <ImageView
-                    android:id="@+id/mainHqBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/main_hq_bg" />
-
-                <TextView
-                    style="@style/MainItemTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mail_hq_text" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="2" >
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/b00RightPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <ImageView
-                    android:id="@+id/mainChiBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/main_chi_bg" />
-
-                <TextView
-                    style="@style/MainItemTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mail_chi_text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical" >
-
-                <ImageView
-                    android:id="@+id/mainCarBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/main_car_bg"
-                    android:scaleType="center"
-                    android:src="@anim/main_car_turn" />
-
-                <TextView
-                    style="@style/MainItemTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mail_use_car_text" />
-            </LinearLayout>
+                android:src="@drawable/b00_piont_0" />
         </LinearLayout>
     </LinearLayout>
 

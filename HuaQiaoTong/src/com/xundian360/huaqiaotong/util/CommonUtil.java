@@ -13,11 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.xundian360.huaqiaotong.activity.b01.B01V01Activity;
-import com.xundian360.huaqiaotong.activity.b01.B01V03Activity;
-import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
-import com.xundian360.huaqiaotong.modle.com.UserModle;
-
 import android.R;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -27,7 +22,6 @@ import android.graphics.Bitmap;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.telephony.TelephonyManager;
@@ -36,6 +30,10 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+
+import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
+import com.xundian360.huaqiaotong.modle.com.UserModle;
+import com.xundian360.huaqiaotong.view.com.CommonCallDialog;
 
 /**
  * 一些常用的工具类
@@ -289,10 +287,8 @@ public class CommonUtil {
 			return;
 		}
 		
-		// 打电话
-		Intent myIntentDial = new Intent ( "android.intent.action.CALL", Uri.parse("tel:"+phoneNum));
-		
-		context.startActivity(myIntentDial); 
+		CommonCallDialog dialog = new CommonCallDialog(context, phoneNum);
+		dialog.show();
 	}
 	
 	

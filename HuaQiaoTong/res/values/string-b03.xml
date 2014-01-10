@@ -20,13 +20,25 @@
     <string name="b03v00_btn_item_3">房屋装修</string>
     <string name="b03v00_btn_item_4">招聘求职</string>
     <string name="b03v00_btn_item_5">兼职信息</string>
-    
     <string name="b03v00_btn_item_6">家电数码</string>
     <string name="b03v00_btn_item_7">出行工具</string>
     <string name="b03v00_btn_item_8">家具居家</string>
     <string name="b03v00_btn_item_9">物品交换</string>
     <string name="b03v00_btn_item_10">虚拟物品</string>
     <string name="b03v00_btn_item_11">其他类别</string>
+    
+    <string name="b03v00_btn_item_key_0">100000</string>
+	<string name="b03v00_btn_item_key_1">100001</string>
+	<string name="b03v00_btn_item_key_2">100002</string>
+	<string name="b03v00_btn_item_key_3">100003</string>
+	<string name="b03v00_btn_item_key_4">100004</string>
+	<string name="b03v00_btn_item_key_5">100005</string>
+	<string name="b03v00_btn_item_key_6">100006</string>
+	<string name="b03v00_btn_item_key_7">100007</string>
+	<string name="b03v00_btn_item_key_8">100008</string>
+	<string name="b03v00_btn_item_key_9">100009</string>
+	<string name="b03v00_btn_item_key_10">100010</string>
+	<string name="b03v00_btn_item_key_11">100011</string>
     
     <string name="b03v01_comment_text_hide">添加一条评论吧...</string>
     <string name="b03v01_comment_submit_text">发送</string>

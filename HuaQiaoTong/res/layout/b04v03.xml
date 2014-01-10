@@ -131,6 +131,7 @@
         android:background="@drawable/b04v03_shadow" />
 
     <LinearLayout
+        android:id="@+id/b04v03BottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

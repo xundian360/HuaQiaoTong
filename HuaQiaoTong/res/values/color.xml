@@ -9,8 +9,8 @@
     <color name="main_nav_3">#FF75C8EB</color>
     <color name="main_nav_4">#FFFF9400</color>
     
-    <color name="main_nav_bg_m">#10000000</color>
-    <color name="main_nav_bg_s">#20000000</color>
+    <color name="main_nav_bg_m">#20FFFFFF</color>
+    <color name="main_nav_bg_s">#40FFFFFF</color>
     <!--
     <color name="text_color_2">#FF979797</color>
     -->

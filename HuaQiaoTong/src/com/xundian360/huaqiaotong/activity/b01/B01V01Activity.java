@@ -56,10 +56,12 @@ public class B01V01Activity extends ComNoTittleActivity {
 	// 头部图片
 	GalleryFlow tittlePicView;
 	
-	// 店名
-	TextView itemTittle;
+//	// 店名
+//	TextView itemTittle;
 	// 营业时间
 	TextView itemTime;
+	// 地址
+	TextView itemAddress;
 	// 描述
 	TextView itemRecommend;
 	// 评分
@@ -164,12 +166,15 @@ public class B01V01Activity extends ComNoTittleActivity {
 		tittlePicView = (GalleryFlow) findViewById(R.id.b01v01Imgs);
 		tittlePicView.setAdapter(tittlePicAdapter);
 		tittlePicView.setOnItemClickListener(tittlePicViewItemClick);
-		
-		itemTittle = (TextView) findViewById(R.id.v01v01ItemTittle);
-		itemTittle.setText(baiduItem.getName());
+//		
+//		itemTittle = (TextView) findViewById(R.id.v01v01ItemTittle);
+//		itemTittle.setText(baiduItem.getName());
 		
 		itemTime = (TextView) findViewById(R.id.v01v00Time);
-		itemTime.setText("营业时间:" + baiduItem.getTime());
+		itemTime.setText("营业时间：" + baiduItem.getTime());
+		
+		itemAddress = (TextView) findViewById(R.id.v01v00Address);
+		itemAddress.setText("地址：" + baiduItem.getAddress());
 		
 		itemRecommend = (TextView) findViewById(R.id.b01v00Recommend);
 		itemRecommend.setText(baiduItem.getDisc());

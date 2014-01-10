@@ -8,6 +8,7 @@ import java.util.Map;
 
 import android.content.Context;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -17,7 +18,9 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.activity.b04.B04V03Activity;
 import com.xundian360.huaqiaotong.modle.com.BaiduComment;
+import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.StringUtils;
 
 /**
@@ -48,15 +51,28 @@ public class B01v01KtvCommAdapter extends SimpleAdapter {
 			List<? extends Map<String, ?>> data, int resource, String[] from,
 			int[] to) {
 		super(context, data, resource, from, to);
+		this.context = context;
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		View view = super.getView(position, convertView, parent);
 		
-		BaiduComment shopComment = shopComments.get(position);
+		 BaiduComment shopComment = shopComments.get(position);
 		
 		 ImageView userLogo = (ImageView) view.findViewById(R.id.b01v00KtvCommPic);
+		 userLogo.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				// 个人页面迁移
+				CommonUtil.startActivityForResult(context, 
+						B04V03Activity.class, 
+						B04V03Activity.USER_COMMENT_KEY, 
+						shopComments.get(position), 
+						100);
+			}
+		});
+		 
 		 // 加载图片
 		 ImageLoader.getInstance().displayImage(shopComment.getUserLogoPath(), userLogo, options);
 		

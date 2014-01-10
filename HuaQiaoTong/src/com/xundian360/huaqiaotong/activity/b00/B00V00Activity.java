@@ -114,6 +114,7 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 			
 			goHereObj = (Baidu) in.getSerializableExtra(B01V01Activity.GO_HERE_KEY);
 			
+			// 换乘
 			if (goHereObj != null) {
 				
 				// 设置底部按钮选中状态
@@ -123,8 +124,12 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 				mainLayout.addView(huanchengView.get(), 0);
 				((RelativeLayout.LayoutParams)mainLayout.getLayoutParams()).setMargins(0, 0, 0, 0);
 				
+				// 设置标题
+				tittle.setText(R.string.b00v00_switch_search);
+				
 				// 设置数据
 				huanchengView.setEndPlace(goHereObj);
+				
 			} else {
 				mainLayout.addView(xianluView.get(), 0);
 				((RelativeLayout.LayoutParams)mainLayout.getLayoutParams()).setMargins(0, 0, 0, 0);

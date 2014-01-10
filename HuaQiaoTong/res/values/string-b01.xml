@@ -15,6 +15,8 @@
     <string name="b01v01_4_tittle_key">10005</string>
     <string name="b01v01_5_tittle_text">电影院</string>
     <string name="b01v01_5_tittle_key">10004</string>
+    
+    <string name="b01v01_1_nav_caixi">菜系</string>
 
     <string-array name="b01v01_1_nav">
         <item>菜系</item>

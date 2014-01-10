@@ -1,338 +1,141 @@
 package com.xundian360.huaqiaotong;
 
+import org.taptwo.android.widget.FlowIndicator;
+import org.taptwo.android.widget.ViewFlow;
+
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import cn.sharesdk.framework.ShareSDK;
 
-import com.xundian360.huaqiaotong.activity.b00.B00Activity;
-import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
-import com.xundian360.huaqiaotong.activity.b01.B01V00Activity;
-import com.xundian360.huaqiaotong.activity.b02.B02V00Activity;
-import com.xundian360.huaqiaotong.activity.b02.B02V02Activity;
-import com.xundian360.huaqiaotong.activity.b03.B03V00Activity;
 import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
 import com.xundian360.huaqiaotong.activity.b04.B04V03Activity;
-import com.xundian360.huaqiaotong.activity.b05.B05V00Activity;
 import com.xundian360.huaqiaotong.activity.com.HQTApplication;
-import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
-import com.xundian360.huaqiaotong.modle.b01.ItemObject;
-import com.xundian360.huaqiaotong.modle.com.User;
-import com.xundian360.huaqiaotong.modle.com.UserModle;
+import com.xundian360.huaqiaotong.adapter.b00.B00ViewAdapter;
 import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.UserUtils;
-import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
 
 /**
- * 主Activity
- * @author TengTeng
- *
+ * 主页
+ * @author  Administrator
+ * @date      2013年11月10日
+ * @version 1.0
  */
 public class MainActivity extends Activity {
-	
-	// 公交
-	Button toBusBtn;
-	// KTV
-	Button toKtvBtn;
-	// 餐馆
-	Button resBtn;
-	// 宾馆
-	Button jianBtn;
-	// 健身
-	Button moveBtn;
-	// 电影院
-	Button hotBtn;
-	// 叫车
-	Button taxiBtn;
-	// 自行车
-	Button bickBtn;
-	// 论坛
-	Button forumBtn;
-	// 登陆
-	Button loginBtn;
-	// 周边信息
-	Button locationBtn;
-	// 首页
-	Button mainBtn;
-	// 登出
-	Button logotBtn;
-	
-	CommonProgressDialog lodingDialog;
-	
-	Handler _handler = new Handler();
 
+	// 个人中心按钮
+	ImageButton meBtn;
+	// 设置
+	ImageButton setBtn;
+	
+	// 导航页
+	ViewFlow navPages;
+	
+	// 导航页标识(左)
+	ImageView leftPoint;
+	// 导航页标识(中间)
+	ImageView centerPoint;
+	// 导航页标识(右)
+	ImageView rightPoint;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.b00);
+		
+		// 初始化数据
+		initData();
 		
 		// 初始化组件
 		initModule();
 	}
 	
 	/**
-	 * 初始化组件
+	 *  初始化数据
 	 */
-	private void initModule() {
-		
-		lodingDialog = CommonProgressDialog.createDialog(this);
-		lodingDialog.setCancelable(false);
-		
-		toBusBtn = (Button) findViewById(R.id.mainToBusBtn);
-		toBusBtn.setOnClickListener(toBusBtnClick);
-		
-		toKtvBtn = (Button) findViewById(R.id.mainToKtvBtn);
-		toKtvBtn.setOnClickListener(toKtvBtnClick);
-		
-		resBtn = (Button) findViewById(R.id.mainToResBtn);
-		resBtn.setOnClickListener(resBtnClick);
-		
-		hotBtn = (Button) findViewById(R.id.mainToHotBtn);
-		hotBtn.setOnClickListener(hotBtnClick);
-		
-		jianBtn = (Button) findViewById(R.id.mainToJianshenBtn);
-		jianBtn.setOnClickListener(jianBtnClick);
-		
-		moveBtn = (Button) findViewById(R.id.mainToMoveBtn);
-		moveBtn.setOnClickListener(moveBtnClick);
-		
-		taxiBtn = (Button) findViewById(R.id.mainTaxiBtn);
-		taxiBtn.setOnClickListener(taxiBtnClick);
-		
-		bickBtn = (Button) findViewById(R.id.mainBickBtn);
-		bickBtn.setOnClickListener(bickBtnClick);
-		
-		forumBtn = (Button) findViewById(R.id.mainForumBtn);
-		forumBtn.setOnClickListener(forumBtnClick);
-		
-		loginBtn = (Button) findViewById(R.id.mainLoginBtn);
-		loginBtn.setOnClickListener(loginBtnClick);
-		
-		locationBtn = (Button) findViewById(R.id.mainLocationBtn);
-		locationBtn.setOnClickListener(locationBtnClick);
-		
-		mainBtn = (Button) findViewById(R.id.mainBtn);
-		mainBtn.setOnClickListener(mainBtnClick);
-		
-		logotBtn= (Button) findViewById(R.id.logotBtn);
-		logotBtn.setOnClickListener(logotBtnClick);
+	private void initData(){
+
 	}
 	
 	/**
-	 * 登出
+	 *  初始化组件
 	 */
-	OnClickListener logotBtnClick = new OnClickListener() {
+	private void initModule(){
+		
+		meBtn = (ImageButton) findViewById(R.id.mainTittleLBtn);
+		meBtn.setOnClickListener(meBtnClick);
+		
+		setBtn = (ImageButton) findViewById(R.id.mainTittleRBtn);
+		setBtn.setOnClickListener(setBtnClick);
+		
+		leftPoint = (ImageView) findViewById(R.id.b00LeftPoint);
+		centerPoint = (ImageView) findViewById(R.id.b00CenterPoint);
+		rightPoint = (ImageView) findViewById(R.id.b00RightPoint);
+		
+		navPages = (ViewFlow) findViewById(R.id.b00NavPage);
+		B00ViewAdapter adapter = new B00ViewAdapter(this);
+		navPages.setAdapter(adapter);
+		navPages.setFlowIndicator(itermSelect);
+		navPages.setSelection(B00ViewAdapter.VIEW2);
+	}
+	
+	FlowIndicator itermSelect = new  FlowIndicator() {
 		
 		@Override
-		public void onClick(View arg0) {
-			
-			UserModle userModle = new UserModle(MainActivity.this);
-			
-			User user = new User();
-			userModle.user = user;
-			
-			userModle.save();
+		public void onSwitched(View view, int position) {
+			onItemSelected(position);
+		}
+		
+		@Override
+		public void setViewFlow(ViewFlow view) {
+		}
+		
+		@Override
+		public void onScrolled(int h, int v, int oldh, int oldv) {
 		}
 	};
 	
-	/**
-	 * 公交点击事件
-	 */
-	OnClickListener toBusBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			
-			// 公交首页迁移
-			CommonUtil.startSubActivity(MainActivity.this, B00V00Activity.class);
-		}
-	};
 	
 	/**
-	 * Dialog隐藏
+	 * 选择
 	 */
-	Runnable dismissDialog = new Runnable() {
-		
-		@Override
-		public void run() {
-			// 隐藏Dialog
-			lodingDialog.dismiss();
-		}
-	};
-	
-	/**
-	 * KTV点击事件
-	 */
-	OnClickListener toKtvBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-//			//KTV首页迁移
-//			CommonUtil.startSubActivity(MainActivity.this, B01V00Activity.class);
+	public void onItemSelected(int index) {
 			
-			// 设置饭店项目
-			ItemObject ktvItem = new ItemObject(
-					ItemConstants.KTV_TEXT_ID, 
-					ItemConstants.KTV_KEY_ID, 
-					ItemConstants.KTV_NAV_ID, 
-					ItemConstants.KTV_NAV_ITEM_TEXT_IDS, 
-					ItemConstants.KTV_NAV_ITEM_KEY_IDS,
-					ItemConstants.KTV_NAV_ITEM_SEARCH_TYPE);
-			
-			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, ktvItem);
-			
-			CommonUtil.startSubActivity(MainActivity.this, intent);
-		}
-	};
-	
-	/**
-	 * 餐馆点击事件
-	 */
-	OnClickListener resBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-//			// 餐馆首页迁移
-//			CommonUtil.startSubActivity(MainActivity.this, B01V00Activity.class);
-// 			
-			// 设置饭店项目
-			ItemObject restaurantItem = new ItemObject(
-					ItemConstants.RESTAURANT_TEXT_ID, 
-					ItemConstants.RESTAURANT_KEY_ID, 
-					ItemConstants.RESTAURANT_NAV_ID, 
-					ItemConstants.RESTAURANT_NAV_ITEM_TEXT_IDS, 
-					ItemConstants.RESTAURANT_NAV_ITEM_KEY_IDS,
-					ItemConstants.RESTAURANT_NAV_ITEM_SEARCH_TYPE);
-			
-			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, restaurantItem);
-			
-			CommonUtil.startSubActivity(MainActivity.this, intent);
-		}
-	};
-	
-	/**
-	 * 宾馆点击事件
-	 */
-	OnClickListener hotBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			
-			// 设置宾馆项目
-			ItemObject hotelItem = new ItemObject(
-					ItemConstants.HOTEL_TEXT_ID, 
-					ItemConstants.HOTEL_KEY_ID, 
-					ItemConstants.HOTEL_NAV_ID, 
-					ItemConstants.HOTEL_NAV_TEXT_IDS, 
-					ItemConstants.HOTEL_NAV_KEY_IDS,
-					ItemConstants.HOTEL_NAV_ITEM_SEARCH_TYPE);
-			
-			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
-			
-			CommonUtil.startSubActivity(MainActivity.this, intent);
-		}
-	};
+			switch (index) {
+			case B00ViewAdapter.VIEW1:
+				
+				leftPoint.setImageResource(R.drawable.b00_piont_1);
+				centerPoint.setImageResource(R.drawable.b00_piont_0);
+				rightPoint.setImageResource(R.drawable.b00_piont_0);
+				break;
+			case B00ViewAdapter.VIEW2:
+				leftPoint.setImageResource(R.drawable.b00_piont_0);
+				centerPoint.setImageResource(R.drawable.b00_piont_1);
+				rightPoint.setImageResource(R.drawable.b00_piont_0);
+				break;
+			case B00ViewAdapter.VIEW3:
+				leftPoint.setImageResource(R.drawable.b00_piont_0);
+				centerPoint.setImageResource(R.drawable.b00_piont_0);
+				rightPoint.setImageResource(R.drawable.b00_piont_1);
+				break;
 
-	/**
-	 * 健身点击事件
-	 */
-	OnClickListener jianBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			
-			// 设置宾馆项目
-			ItemObject hotelItem = new ItemObject(
-					ItemConstants.JIAN_TEXT_ID, 
-					ItemConstants.JIAN_KEY_ID, 
-					ItemConstants.ITEM_NAV_NULL, 
-					null, 
-					null,
-					null);
-			
-			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
-			
-			CommonUtil.startSubActivity(MainActivity.this, intent);
+			default:
+				break;
 		}
-	};
+	}
 	
 	/**
-	 * 电影点击事件
+	 * 个人中心
 	 */
-	OnClickListener moveBtnClick = new OnClickListener() {
+	OnClickListener meBtnClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View arg0) {
-			
-			// 设置宾馆项目
-			ItemObject hotelItem = new ItemObject(
-					ItemConstants.MOVE_TEXT_ID, 
-					ItemConstants.MOVE_KEY_ID, 
-					ItemConstants.ITEM_NAV_NULL, 
-					null, 
-					null,
-					null);
-			
-			Intent intent = new Intent(MainActivity.this, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
-			
-			CommonUtil.startSubActivity(MainActivity.this, intent);
-		}
-	};
-	
-	/**
-	 * 叫车点击事件
-	 */
-	OnClickListener taxiBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			// 公交首页迁移
-			CommonUtil.startSubActivity(MainActivity.this, B02V00Activity.class);
-		}
-	};
-	
-	/**
-	 * 自行车点击事件
-	 */
-	OnClickListener bickBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			// 自行车
-			CommonUtil.startSubActivity(MainActivity.this, B02V02Activity.class);
-		}
-	};
-	
-	/**
-	 * 论坛点击事件
-	 */
-	OnClickListener forumBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			// 论坛
-			CommonUtil.startSubActivity(MainActivity.this, B03V00Activity.class);
-		}
-	};
-	
-	/**
-	 * 登陆点击事件
-	 */
-	OnClickListener loginBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			
 			// 判断用户是否登录
 			if(UserUtils.isLogin(MainActivity.this)) {
 				// 登陆
@@ -345,32 +148,19 @@ public class MainActivity extends Activity {
 	};
 	
 	/**
-	 * 周边信息点击事件
+	 * 设置按钮
 	 */
-	OnClickListener locationBtnClick = new OnClickListener() {
+	OnClickListener setBtnClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View arg0) {
-			// 周边信息
-			CommonUtil.startSubActivity(MainActivity.this, B05V00Activity.class);
+			ShowMessageUtils.show(MainActivity.this, "设置页面");
 		}
 	};
 	
-	/**
-	 * 首页
-	 */
-	OnClickListener mainBtnClick  = new OnClickListener() {
-		
-		@Override
-		public void onClick(View arg0) {
-			// 周边信息
-			CommonUtil.startSubActivity(MainActivity.this, B00Activity.class);
-		}
-	};
-	
-	@Override
 	// 建议在APP整体退出之前调用MapApi的destroy()函数，不要在每个activity的OnDestroy中调用，
     // 避免MapApi重复创建初始化，提高效率
+	@Override
 	protected void onDestroy() {
 		HQTApplication app = (HQTApplication)this.getApplication();
 		
