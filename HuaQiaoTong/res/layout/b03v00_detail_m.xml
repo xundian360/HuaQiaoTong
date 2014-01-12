@@ -3,7 +3,7 @@
     android:id="@+id/b03v01DetailContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
+    android:background="@drawable/b03_v00_main_bg"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -75,12 +75,13 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/b03v00G0Item1Btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:background="@color/b03_v01_item_color_1" >
+            android:background="@color/com_transparent" >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -88,17 +89,16 @@
                 android:src="@drawable/b03v00_more_btn" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="bottom"
-                android:paddingTop="15dp" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/b03v00BtnItem0"
                     style="@style/B03v00ItemBtnTextTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/main_nav_3"
                     android:text="@string/b03v00_btn_item_0" />
 
                 <ImageView
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/b03v00_item_arrow_0" />
             </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
     
     <RelativeLayout
@@ -210,12 +210,13 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/b03v00G0Item2Btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_weight="1"
-            android:background="@color/b03_v01_item_color_2" >
+            android:background="@color/com_transparent" >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -223,17 +224,16 @@
                 android:src="@drawable/b03v00_more_btn" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="bottom"
-                android:paddingTop="15dp" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/b03v00BtnItem2"
                     style="@style/B03v00ItemBtnTextTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/main_nav_3"
                     android:text="@string/b03v00_btn_item_1" />
 
                 <ImageView
@@ -242,7 +242,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/b03v00_item_arrow_0" />
             </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

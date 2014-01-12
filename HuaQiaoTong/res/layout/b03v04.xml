@@ -12,20 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:padding="5dp"  >
 
         <ImageView
             android:id="@+id/b03v04RetBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:src="@drawable/b03v01_arrow" />
+            android:src="@drawable/b00v00_return_0"/>
 
         <TextView
-            style="@style/CommonTittleTheme"
+             android:id="@+id/b03v04Tittle"
+           style="@style/CommonTittleTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/b04v05_item_meishi_color"
             android:text="@string/b03v04_tittle_text" />
+        
+		<TextView
+            android:id="@+id/b03v04AddBtn"
+            style="@style/B01v03ImpTextTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="@string/b03v04_text_fatie"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+        
     </RelativeLayout>
 
     <com.huewu.pla.lib.MultiColumnListView

@@ -4,44 +4,82 @@
     android:layout_height="match_parent"
     android:background="@android:color/white" >
 
-    <RelativeLayout
-        android:id="@+id/b04v01TittleLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/commonforum_bg_1"
-        android:gravity="center_vertical"
-        android:padding="15dp" >
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/b03v02OperationLayout" >
 
-        <TextView
-            android:id="@+id/b04v01CancelBtn"
-            style="@style/B01v03ImpTextTheme"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="@string/b04v01_tittle_cancle"
-            android:textColor="@color/b01_v01_light_brown"
-            android:textSize="18sp" />
+            android:orientation="vertical"
+            android:background="@android:color/white" >
 
-        <TextView
-            android:id="@+id/b04v01Tittle"
-            style="@style/B01v03ImpTextTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/b03v02_tittle_text"
-            android:textColor="@android:color/black" />
+            <RelativeLayout
+                android:id="@+id/b04v01TittleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/commonforum_bg_1"
+                android:gravity="center_vertical"
+                android:padding="15dp" >
 
-        <TextView
-            android:id="@+id/b04v01SubmitBtn"
-            style="@style/B01v03ImpTextTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:padding="5dp"
-            android:text="@string/b03v02_submit_text"
-            android:textColor="@color/b04_v02_light_blue"
-            android:textSize="18sp" />
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/b04v01CancelBtn"
+                    style="@style/B01v03ImpTextTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/b04v01_tittle_cancle"
+                    android:textColor="@color/b01_v01_light_brown"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/b04v01Tittle"
+                    style="@style/B01v03ImpTextTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/b03v02_tittle_text"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/b04v01SubmitBtn"
+                    style="@style/B01v03ImpTextTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="5dp"
+                    android:text="@string/b03v02_submit_text"
+                    android:textColor="@color/b04_v02_light_blue"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/b03v02PostsTittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/b03v02_tittle_bg"
+                android:hint="@string/b03v02_posts_tittle_hint"
+                android:padding="5dp"
+                android:singleLine="true" />
+
+            <LinearLayout
+                android:id="@+id/b03v02PostsMsgs"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/b03v02PostsMsgDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/white"
+                    android:gravity="top|left"
+                    android:hint="@string/b03v02_posts_msg_hint"
+                    android:padding="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/b03v02OperationLayout"
@@ -50,20 +88,6 @@
         android:layout_alignParentBottom="true"
         android:background="#A0E1E1E1"
         android:orientation="horizontal" >
-
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
-
-            <LinearLayout
-                android:id="@+id/b03v02Thumbnails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp" >
-            </LinearLayout>
-        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -123,14 +147,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/b03v02_group_bg"
-                android:orientation="horizontal"
-                android:gravity="center" >
+                android:gravity="center"
+                android:orientation="horizontal" >
 
                 <TextView
                     android:id="@+id/b03v02GroupTittle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="花桥新闻" />
+                    android:layout_height="wrap_content"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -139,26 +162,5 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/b03v02PostsTittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/b04v01TittleLayout"
-        android:background="@drawable/b03v02_tittle_bg"
-        android:hint="@string/b03v02_posts_tittle_hint"
-        android:singleLine="true"
-        android:padding="5dp" />
-
-    <EditText
-        android:id="@+id/b03v02PostsMsg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/b03v02OperationLayout"
-        android:layout_below="@+id/b03v02PostsTittle"
-        android:background="@android:color/white"
-        android:gravity="top|left"
-        android:hint="@string/b03v02_posts_msg_hint"
-        android:padding="5dp" />
 
 </RelativeLayout>

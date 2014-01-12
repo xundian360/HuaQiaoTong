@@ -7,12 +7,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b03.B03V01Activity;
 import com.xundian360.huaqiaotong.activity.b03.B03V04Activity;
+import com.xundian360.huaqiaotong.modle.b03.PostGroup;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 
 /**
@@ -65,9 +67,9 @@ public class B03V00ModleView implements OnClickListener{
 	TextView fifthImgTime;
 	
 	// 更多新闻
-	RelativeLayout moreBtn;
+	LinearLayout moreBtn;
 	// 更多朋友推荐
-	RelativeLayout jiaoyouBtn;
+	LinearLayout jiaoyouBtn;
 	
 	public B03V00ModleView(Context context) {
 		
@@ -118,10 +120,10 @@ public class B03V00ModleView implements OnClickListener{
 		fifthImgTittle = (TextView) mainView.findViewById(R.id.b03v00G0Img5Tittle);
 		fifthImgTime = (TextView) mainView.findViewById(R.id.b03v00G0Img5Time);
 		
-		moreBtn = (RelativeLayout) mainView.findViewById(R.id.b03v00G0Item1Btn);
+		moreBtn = (LinearLayout) mainView.findViewById(R.id.b03v00G0Item1Btn);
 		moreBtn.setOnClickListener(this);
 		
-		jiaoyouBtn = (RelativeLayout) mainView.findViewById(R.id.b03v00G0Item2Btn);
+		jiaoyouBtn = (LinearLayout) mainView.findViewById(R.id.b03v00G0Item2Btn);
 		jiaoyouBtn.setOnClickListener(this);
 	}
 	
@@ -155,10 +157,18 @@ public class B03V00ModleView implements OnClickListener{
 			CommonUtil.startActivityForResult(context, B03V01Activity.class, REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item1Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_0), context.getString(R.string.b03v00_btn_item_0)), 
+					REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item2Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_1), context.getString(R.string.b03v00_btn_item_1)), 
+					REQUEST_CODE);
 			break;
 
 		default:

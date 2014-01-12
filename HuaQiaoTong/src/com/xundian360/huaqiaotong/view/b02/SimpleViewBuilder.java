@@ -48,35 +48,35 @@ public class SimpleViewBuilder extends ViewBuilder<Posts> {
 
 	@Override
 	public void updateView(View view, int position, Posts data) {
-		
-		// 背景
-		LinearLayout mainLayout = (LinearLayout) view.findViewById(R.id.b03v04MainLayout);
-		
-		// 生产随机数(1-4)，动态设置背景
-		int random =  (int)(Math.random()*4)+1;
-		
-		int bg_color = 0;
-		
-		switch (random) {
-		case 1:
-			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_3);
-			break;
-		case 2:
-			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_1);
-			break;
-		case 3:
-			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_5);
-			break;
-		case 4:
-			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_6);
-			break;
-
-		default:
-			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_6);
-			break;
-		}
-		
-		mainLayout.setBackgroundColor(bg_color);
+//		
+//		// 背景
+//		LinearLayout mainLayout = (LinearLayout) view.findViewById(R.id.b03v04MainLayout);
+//		
+//		// 生产随机数(1-4)，动态设置背景
+//		int random =  (int)(Math.random()*4)+1;
+//		
+//		int bg_color = 0;
+//		
+//		switch (random) {
+//		case 1:
+//			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_3);
+//			break;
+//		case 2:
+//			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_1);
+//			break;
+//		case 3:
+//			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_5);
+//			break;
+//		case 4:
+//			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_6);
+//			break;
+//
+//		default:
+//			bg_color = context.getResources().getColor(R.color.b03_v01_item_color_6);
+//			break;
+//		}
+//		
+//		mainLayout.setBackgroundColor(bg_color);
 		
 		
 	}

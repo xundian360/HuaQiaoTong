@@ -73,5 +73,17 @@ public class UserUtils extends BaiduUtil {
 			return false;
 		}
 	}
+	
+	/**
+	 * 是否登录
+	 * @param context
+	 * @return
+	 */
+	public static String getUserId(Context context) {
+		
+		UserModle userModle = new UserModle(context);
+		
+		return userModle.user.getUserId();
+	}
 
 }

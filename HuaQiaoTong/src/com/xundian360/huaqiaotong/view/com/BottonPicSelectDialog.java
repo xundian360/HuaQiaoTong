@@ -1,15 +1,11 @@
 package com.xundian360.huaqiaotong.view.com;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -20,6 +16,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.util.PhotoSelectUtil;
 
 /**
  * 图片选择Dialog
@@ -47,8 +44,8 @@ public class BottonPicSelectDialog extends BottomDialog {
 	
 	// 创建一个以当前时间为名称的文件
 	String basePath =Environment.getExternalStorageDirectory().toString() + "/Pictures/";
-	public String cutImgPath = basePath + "cut" + getPhotoFileName() ;
-    File tempFile = new File(basePath,getPhotoFileName());
+	public String cutImgPath = basePath + "cut" + PhotoSelectUtil.getPhotoFileName() ;
+    File tempFile = new File(basePath,PhotoSelectUtil.getPhotoFileName());
     
 	Context context;
 	View view;
@@ -167,30 +164,6 @@ public class BottonPicSelectDialog extends BottomDialog {
         intent.putExtra("return-data", true);
 
         ((Activity)context).startActivityForResult(intent, REQUEST_CUT_CODE);
-    }
-	
-    /**
-     * 将进行剪裁后的图片显示到UI界面上
-     * @param picdata
-     * @return
-     */
-	public Bitmap getPic(Intent picdata) {
-    	Bitmap photo = null;
-        Bundle bundle = picdata.getExtras();
-        if (bundle != null) {
-            photo = bundle.getParcelable("data");
-        }
-        return photo;
-    }
-	
-	/**
-	 *  使用系统当前日期加以调整作为照片的名称
-	 * @return
-	 */
-    private String getPhotoFileName() {
-        Date date = new Date(System.currentTimeMillis());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
-        return dateFormat.format(date) + ".jpg";
     }
 
 }

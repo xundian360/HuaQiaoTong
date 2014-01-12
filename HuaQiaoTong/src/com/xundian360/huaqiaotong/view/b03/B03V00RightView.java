@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b03.B03V01Activity;
 import com.xundian360.huaqiaotong.activity.b03.B03V04Activity;
+import com.xundian360.huaqiaotong.modle.b03.PostGroup;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 
 /**
@@ -119,22 +120,46 @@ public class B03V00RightView implements OnClickListener {
 			CommonUtil.startActivityForResult(context, B03V01Activity.class, REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item7Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_6), context.getString(R.string.b03v00_btn_item_6)), 
+					REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item8Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_7), context.getString(R.string.b03v00_btn_item_7)), 
+					REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item9Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_8), context.getString(R.string.b03v00_btn_item_8)), 
+					REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item10Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_9), context.getString(R.string.b03v00_btn_item_9)), 
+					REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item11Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_10), context.getString(R.string.b03v00_btn_item_10)), 
+					REQUEST_CODE);
 			break;
 		case R.id.b03v00G0Item12Btn:
-			CommonUtil.startActivityForResult(context, B03V04Activity.class, REQUEST_CODE);
+			CommonUtil.startActivityForResult(context, 
+					B03V04Activity.class, 
+					B03V04Activity.POST_GROUP_KEY, 
+					new PostGroup(context.getString(R.string.b03v00_btn_item_key_11), context.getString(R.string.b03v00_btn_item_11)), 
+					REQUEST_CODE);
 			break;
 
 		default:

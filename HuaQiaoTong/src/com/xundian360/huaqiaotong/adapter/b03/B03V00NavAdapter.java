@@ -41,11 +41,11 @@ public class B03V00NavAdapter extends SimpleExpandableListAdapter {
 	};
 	
 	public static int[] level2Ids = {
-			R.array.v03v00_nav_level_1_0,
-			R.array.v03v00_nav_level_1_1,
-			R.array.v03v00_nav_level_1_2,
-			R.array.v03v00_nav_level_1_3,
-			R.array.v03v00_nav_level_1_4
+//			R.array.v03v00_nav_level_1_0,
+//			R.array.v03v00_nav_level_1_1,
+//			R.array.v03v00_nav_level_1_2,
+//			R.array.v03v00_nav_level_1_3,
+//			R.array.v03v00_nav_level_1_4
 	};
 
 	public B03V00NavAdapter(Context context,

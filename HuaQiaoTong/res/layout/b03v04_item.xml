@@ -10,7 +10,7 @@
         android:id="@+id/b03v04MainLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/b03_v01_item_color_6"
+        android:background="@color/b03_v00_item_bg"
         android:gravity="center_horizontal"
         style="@style/B03v01CommonEditeTheme"
         android:orientation="vertical" >

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/b03_v00_main_bg"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/B03v00ItemBtnTheme"
-                    android:background="@color/b03_v01_item_color_3" >
+                    android:background="@color/com_transparent" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -67,6 +67,7 @@
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/main_nav_3"
                         android:text="@string/b03v00_btn_item_6" />
                 </LinearLayout>
 
@@ -75,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/B03v00ItemBtnTheme"
-                    android:background="@color/b03_v01_item_color_1" >
+                    android:background="@color/com_transparent" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -86,6 +87,7 @@
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/b04v05_item_supper_color"
                         android:text="@string/b03v00_btn_item_7" />
                 </LinearLayout>
                 
@@ -101,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/B03v00ItemBtnTheme"
-                    android:background="@color/b03_v01_item_color_5" >
+                    android:background="@color/com_transparent" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -112,6 +114,7 @@
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/b03_v01_group_color_1"
                         android:text="@string/b03v00_btn_item_8" />
                 </LinearLayout>
 
@@ -120,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/B03v00ItemBtnTheme"
-                    android:background="@color/b03_v01_item_color_6" >
+                    android:background="@color/com_transparent" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -131,6 +134,7 @@
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/b04v05_item_meishi_color"
                         android:text="@string/b03v00_btn_item_9" />
                 </LinearLayout>
                 
@@ -147,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/B03v00ItemBtnTheme"
-                    android:background="@color/b03_v01_item_color_1" >
+                    android:background="@color/com_transparent" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -158,6 +162,7 @@
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/main_nav_5"
                         android:text="@string/b03v00_btn_item_10" />
                 </LinearLayout>
 
@@ -166,7 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     style="@style/B03v00ItemBtnTheme"
-                    android:background="@color/b03_v01_item_color_3" >
+                    android:background="@color/com_transparent" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -177,6 +182,7 @@
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/main_nav_6"
                         android:text="@string/b03v00_btn_item_11" />
                 </LinearLayout>
                 

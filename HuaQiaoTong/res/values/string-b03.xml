@@ -45,11 +45,15 @@
     
     <string name="b03v02_submit_text">提交</string>
     <string name="b03v02_tittle_text">发表新帖</string>
+    <string name="b03v02_send_success_text">发表失败</string>
+    <string name="b03v02_send_error_text">发表成功</string>
+    
+    <string name="b03v04_text_fatie">发帖</string>
     
     <string name="b03v02_anonymous_text">匿名发表</string>
     
-    <string name="b03v02_posts_msg_hint">我是...</string>
-    <string name="b03v02_posts_tittle_hint">给帖子起个名字吧</string>
+    <string name="b03v02_posts_msg_hint">帖子内容...</string>
+    <string name="b03v02_posts_tittle_hint">帖子标题</string>
     <string name="b03v02_group_select_tittle">请选择栏目</string>
     
     <string name="b03v04_tittle_text">头条新闻</string>

@@ -20,6 +20,10 @@ public class Posts implements Serializable {
 	private String uid;
 	// 标题
 	private String tittle;
+	// 组ID
+	private String groupId;
+	// 作者Id
+	private String authorId;
 	// 作者
 	private String author;
 	// 内容缩略表示
@@ -28,24 +32,29 @@ public class Posts implements Serializable {
 	private String commentN;
 	// ListView显示的图片路径
 	private String img;
-	// 帖子明细
-	private List<PostsItem> dtailL;
 	// 状态
 	private String status;
 	// 发帖时间
 	private String time;
+	// 置顶标记
+	private String topFlg;
+	// 推荐标记
+	private String recommendFlag;
 	// 置顶图片
 	private List<PostsItem> topItems;
+	// 帖子明细
+	private List<PostsItem> dtailL;
 	
 	public Posts() {
 		super();
 	}
 
-	public Posts(String uid, String tittle, String author, String tDtail,
+	public Posts(String uid, String tittle, String authorId, String author, String tDtail,
 			String commentN, String img) {
 		super();
 		this.uid = uid;
 		this.tittle = tittle;
+		this.authorId = authorId;
 		this.author = author;
 		this.tDtail = tDtail;
 		this.commentN = commentN;
@@ -129,6 +138,38 @@ public class Posts implements Serializable {
 
 	public void setTopItems(List<PostsItem> topItems) {
 		this.topItems = topItems;
+	}
+
+	public String getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(String authorId) {
+		this.authorId = authorId;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	public String getTopFlg() {
+		return topFlg;
+	}
+
+	public void setTopFlg(String topFlg) {
+		this.topFlg = topFlg;
+	}
+
+	public String getRecommendFlag() {
+		return recommendFlag;
+	}
+
+	public void setRecommendFlag(String recommendFlag) {
+		this.recommendFlag = recommendFlag;
 	}
 	
 }

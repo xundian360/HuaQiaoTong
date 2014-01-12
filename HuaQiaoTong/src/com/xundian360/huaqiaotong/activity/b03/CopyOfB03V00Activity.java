@@ -417,22 +417,22 @@ public class CopyOfB03V00Activity extends CustomAnimation {
 				+ "铁开通了花桥地铁开通了花桥地铁开通了\",\"commentN\":\"152\",\"author\":\"鬼太郎\",\"img\":\"ht"
 				+ "tp://thecustomizewindows.com/wp-content/uploads/2011/11/Nicest-Android-Live-Wallpapers.pn"
 				+ "g\",\"uid\":\"befdb292767279f887154123\"}]}";
-		
-		try {
-			
-			// 从Json数据设置论坛数据
-			postsesAll = B03v00Util.getPostsDataFromJson(jsonData);
-			
-			// 设置总数量
-			totalAll = (Integer) postsesAll.get(B03v00Util.POSTS_TOTAL_KEY);
-			
-			// 设置论坛
-			postses = (List<Posts>) postsesAll.get(B03v00Util.POSTS_DATA_KEY);
-
-		} catch (JSONException e) {
-			e.printStackTrace();
-			ShowMessageUtils.show(this, R.string.b03v00_error_msg);
-		}
+//		
+//		try {
+//			
+//			// 从Json数据设置论坛数据
+//			postsesAll = B03v00Util.getPostsDataFromJson(jsonData);
+//			
+//			// 设置总数量
+//			totalAll = (Integer) postsesAll.get(B03v00Util.POSTS_TOTAL_KEY);
+//			
+//			// 设置论坛
+//			postses = (List<Posts>) postsesAll.get(B03v00Util.POSTS_DATA_KEY);
+//
+//		} catch (JSONException e) {
+//			e.printStackTrace();
+//			ShowMessageUtils.show(this, R.string.b03v00_error_msg);
+//		}
 	}
 	
 	/**
@@ -464,18 +464,18 @@ public class CopyOfB03V00Activity extends CustomAnimation {
 		navListData.clear();
 		
 		// 所有类型的名称
-		String[] navNames = getResources().getStringArray(R.array.v03v00_nav_level_0);
-		
-		for (int i = 0; i < navNames.length; i++) {
-			String navName = navNames[i];
-			
-			Map<String, Object> navItem = new HashMap<String, Object>();
-			
-			navItem.put(B03V00NavAdapter.p_from[0], B03V00NavAdapter.nav_logo_ids[i]);
-			navItem.put(B03V00NavAdapter.p_from[1], navName);
-			
-			navListData.add(navItem);
-		}
+//		String[] navNames = getResources().getStringArray(R.array.v03v00_nav_level_0);
+//		
+//		for (int i = 0; i < navNames.length; i++) {
+//			String navName = navNames[i];
+//			
+//			Map<String, Object> navItem = new HashMap<String, Object>();
+//			
+//			navItem.put(B03V00NavAdapter.p_from[0], B03V00NavAdapter.nav_logo_ids[i]);
+//			navItem.put(B03V00NavAdapter.p_from[1], navName);
+//			
+//			navListData.add(navItem);
+//		}
 	}
 	
 	/**

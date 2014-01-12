@@ -54,7 +54,6 @@ public class BaseHttpClient {
         	urlString += buf.toString();      	
 		}
 		Log.d("BaseAuthenicationHttpClient", "GET > " + urlString);        
-		Log.d("BaseAuthenicationHttpClient", "GET params > " + params.toString());
 		
 		try {  
 			HttpGet request = new HttpGet(urlString);
@@ -113,8 +112,13 @@ public class BaseHttpClient {
 	 * @return
 	 */
 	public static void doPostRequestWithFile(String urlString, 
-			Map<String, String> params, String[] fileKeys, 
-			String[] filePaths, RequestCallBack<String> callBack) {
+			Map<String, String> params, List<String> fileKeys, 
+			List<String> filePaths, RequestCallBack<String> callBack) {
+		
+		Log.d("doPostRequestWithFile", "POST > " + urlString);      
+		Log.d("doPostRequestWithFile", "POST params > " + params.toString());      
+		Log.d("doPostRequestWithFile", "POST fileKeys > " + fileKeys.toString());      
+		Log.d("doPostRequestWithFile", "POST filePaths > " + filePaths.toString());      
 		
 		// 设置请求参数
 		RequestParams rParams = new RequestParams();
@@ -122,8 +126,8 @@ public class BaseHttpClient {
 		
 		if(fileKeys != null && filePaths != null) {
 			// 添加上传文件
-			for (int i = 0; i < fileKeys.length; i++) {
-				rParams.addBodyParameter(fileKeys[i], new File(filePaths[i]));
+			for (int i = 0; i < fileKeys.size(); i++) {
+				rParams.addBodyParameter(fileKeys.get(i), new File(filePaths.get(i)));
 			}
 		}
 		

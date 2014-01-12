@@ -4,7 +4,9 @@
 package com.xundian360.huaqiaotong.activity.b04;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import android.content.Intent;
@@ -31,6 +33,7 @@ import com.xundian360.huaqiaotong.modle.com.User;
 import com.xundian360.huaqiaotong.modle.com.UserModle;
 import com.xundian360.huaqiaotong.util.BaseHttpClient;
 import com.xundian360.huaqiaotong.util.CommonUtil;
+import com.xundian360.huaqiaotong.util.PhotoSelectUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.StringUtils;
 import com.xundian360.huaqiaotong.util.UserUtils;
@@ -255,12 +258,12 @@ public class B04V04Activity extends ComNoTittleActivity {
 		params.put("user_sex", sexV + "");
 		
 		// 设置图片参数
-		String[] fileKeys = null;
-		String[] filePaths = null;
+		List<String> fileKeys = new ArrayList<String>();
+		List<String> filePaths = new ArrayList<String>();
 		
 		if(picSelectDialog != null && new File(picSelectDialog.cutImgPath).exists()) {
-			fileKeys = new String[] {"img"};
-			filePaths = new String[] {picSelectDialog.cutImgPath};
+			fileKeys.add("img");
+			filePaths.add(picSelectDialog.cutImgPath);
 		}
 		
 		BaseHttpClient.doPostRequestWithFile(url, params, fileKeys, filePaths, callBack);
@@ -390,7 +393,7 @@ public class B04V04Activity extends ComNoTittleActivity {
 			
 			// 切割图片
 			if(requestCode == BottonPicSelectDialog.REQUEST_CUT_CODE){
-				Bitmap pic = picSelectDialog.getPic(data);
+				Bitmap pic = PhotoSelectUtil.getPic(data);
 				// 设置图片
 				userLogo.setImageBitmap(pic);
 				// 存储到SD卡

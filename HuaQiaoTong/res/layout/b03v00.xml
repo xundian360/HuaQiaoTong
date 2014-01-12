@@ -44,41 +44,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="right|center_vertical" >
+                        android:gravity="right|center_vertical"
+                        android:padding="5dp" >
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/b03v00UserName"
+                            style="@style/B03v00UserInfoTextTheme"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="right|center_vertical"
-                            android:orientation="vertical"
-                            android:padding="5dp" >
+                            android:text="@string/b03v00_msg_user_name"
+                            android:textSize="20sp" />
 
-                            <TextView
-                                android:id="@+id/b03v00UserName"
-                                style="@style/B03v00UserInfoTextTheme"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/b03v00_msg_user_name"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:id="@+id/b03v00UserDis"
-                                style="@style/B03v00UserInfoTextTheme"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/b03v00_msg_user_disc"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                        <ImageView
-                            android:id="@+id/b03v00UserLogo"
+                        <TextView
+                            android:id="@+id/b03v00UserDis"
+                            style="@style/B03v00UserInfoTextTheme"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/b03v00_user_logo_bg"
-                            android:padding="1dp"
-                            android:src="@drawable/b03v00_left_user_logo" />
+                            android:layout_marginTop="10dp"
+                            android:text="@string/b03v00_msg_user_disc"
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
 

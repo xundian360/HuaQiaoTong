@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/b03_v00_main_bg"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -38,23 +38,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="2"
-        android:orientation="vertical" >
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="2" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_weight="1"
+            android:orientation="horizontal"
             android:weightSum="2" >
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/b03v00G0Item3Btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/b03_v01_item_color_3" >
+                android:background="@color/com_transparent"
+                android:orientation="vertical" >
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -62,17 +63,16 @@
                     android:src="@drawable/b03v00_more_btn" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="bottom"
-                    android:paddingTop="15dp" >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" >
 
                     <TextView
                         android:id="@+id/b03v00BtnItem3"
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/main_nav_3"
                         android:text="@string/b03v00_btn_item_2" />
 
                     <ImageView
@@ -81,117 +81,117 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/b03v00_item_arrow_0" />
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/b03v00G0Item4Btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/b03_v01_item_color_1" >
+                android:background="@color/com_transparent"
+                android:orientation="vertical" >
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/b03v00_more_btn" />
+                    android:src="@drawable/b03v00_more_btn_2" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="bottom"
-                    android:paddingTop="15dp" >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" >
 
                     <TextView
                         android:id="@+id/b03v00BtnItem4"
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/b03_v01_group_color_1"
                         android:text="@string/b03v00_btn_item_3" />
 
                     <ImageView
                         android:id="@+id/b03v00BtnItemImg4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/b03v00_item_arrow_0" />
+                        android:src="@drawable/b03v00_item_arrow_2" />
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_weight="1"
+            android:orientation="horizontal"
             android:weightSum="2" >
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/b03v00G0Item5Btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/b03_v01_item_color_5" >
+                android:background="@color/com_transparent"
+                android:orientation="vertical" >
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/b03v00_more_btn" />
+                    android:src="@drawable/b03v00_more_btn_1" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="bottom"
-                    android:paddingTop="15dp" >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" >
 
                     <TextView
                         android:id="@+id/b03v00BtnItem5"
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/b04v05_item_meishi_color"
                         android:text="@string/b03v00_btn_item_4" />
 
                     <ImageView
                         android:id="@+id/b03v00BtnItemImg5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/b03v00_item_arrow_0" />
+                        android:src="@drawable/b03v00_item_arrow_1" />
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/b03v00G0Item6Btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/b03_v01_item_color_6" >
+                android:background="@color/com_transparent"
+                android:orientation="vertical" >
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/b03v00_more_btn" />
+                    android:src="@drawable/b03v00_more_btn_3" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:gravity="bottom"
-                    android:paddingTop="15dp" >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" >
 
                     <TextView
                         android:id="@+id/b03v00BtnItem6"
                         style="@style/B03v00ItemBtnTextTheme"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/b04v05_item_supper_color"
                         android:text="@string/b03v00_btn_item_5" />
 
                     <ImageView
                         android:id="@+id/b03v00BtnItemImg6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/b03v00_item_arrow_0" />
+                        android:src="@drawable/b03v00_item_arrow_3" />
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
