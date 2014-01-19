@@ -26,6 +26,8 @@ public class Posts implements Serializable {
 	private String authorId;
 	// 作者
 	private String author;
+	// 作者
+	private String authorPic;
 	// 内容缩略表示
 	private String tDtail;
 	// 评论数
@@ -171,5 +173,15 @@ public class Posts implements Serializable {
 	public void setRecommendFlag(String recommendFlag) {
 		this.recommendFlag = recommendFlag;
 	}
+
+	public String getAuthorPic() {
+		return authorPic;
+	}
+
+	public void setAuthorPic(String authorPic) {
+		this.authorPic = authorPic;
+	}
+	
+	
 	
 }

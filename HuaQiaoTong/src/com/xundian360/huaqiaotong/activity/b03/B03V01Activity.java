@@ -3,12 +3,14 @@
  */
 package com.xundian360.huaqiaotong.activity.b03;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONException;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -20,7 +22,9 @@ import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.modle.b03.Posts;
 import com.xundian360.huaqiaotong.modle.b03.PostsItem;
+import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.b03.B03v00Util;
+import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
 
 /**
  * 帖子明细
@@ -30,12 +34,21 @@ import com.xundian360.huaqiaotong.util.b03.B03v00Util;
  */
 public class B03V01Activity extends ComNoTittleActivity {
 	
+	public static final String POST_KEY = "post_key";
+	
 	ImageView retBtn;
 	
 	LinearLayout detailContainer;
 	
 	// 帖子对象
 	Posts posts;
+	
+	// 帖子子对对象
+	List<PostsItem> postsItems = new ArrayList<PostsItem>();
+	
+	Handler _handler = new Handler();
+	
+	CommonProgressDialog processDialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +61,6 @@ public class B03V01Activity extends ComNoTittleActivity {
 		
 		// 初始化组件
 		initModule();
-		
-		// 设置帖子明细
-		setDetailContainer();
 	}
 	
 	/**
@@ -58,8 +68,13 @@ public class B03V01Activity extends ComNoTittleActivity {
 	 */
 	private void initData(){
 		
+		posts = (Posts) getIntent().getSerializableExtra(POST_KEY);
+		
+		processDialog = new CommonProgressDialog(this);
+		processDialog.show();
+		
 		// 设置数据
-		setData();
+		new Thread(setData).start();
 	}
 	
 	/**
@@ -87,53 +102,71 @@ public class B03V01Activity extends ComNoTittleActivity {
 	/**
 	 * 设置数据
 	 */
-	private void setData() {
+	Runnable setData = new Runnable() {
 		
-		String postsJson = "{\"status\":0,\"tittle\":\"花桥地铁开通了\",\"commentN\":\"152\",\"author\":\"鬼太郎\",\"time\":\"2013-10-23 24:52:59\",\"uid\":\"befdb29"
-				+ "2767279f887154123\",\"dtailL\":[{\"type\":\"txt\",\"msg\":\"花桥地铁开通了花桥地铁开通了花桥地铁开通了花桥地铁开通了花"
-				+ "桥地铁开通了\"},{\"type\":\"img\",\"msg\":\"http://img1.gtimg.com/7/791/79120/7912029_1200x1000_0.png\"},{\"type\":\"txt\",\"msg\":\"花桥地铁开通了"
-				+ "花桥地铁开通了花桥地铁开通了"
-				+ "花桥地铁开通了花桥地铁开通了\"},{\"type\":\"img\",\"msg\":\"http://img1.gtimg.com/7/791/79120/7912031_1200x1000_0.png\"}]}";
-		
-		try {
-			posts = B03v00Util.getPostsDetailData(postsJson);
-		} catch (JSONException e) {
-			e.printStackTrace();
-			// TODO
+		@Override
+		public void run() {
+
+			try {
+				postsItems = B03v00Util.getPostsDetailData(B03V01Activity.this, posts.getUid());
+			} catch (JSONException e) {
+				e.printStackTrace();
+				_handler.post(getMsgError);
+			}
+			
+			// 设置帖子明细
+			_handler.post(setDetailContainer);
 		}
-	}
+	};
 	
 	/**
 	 * 设置帖子明细
 	 */
-	private void setDetailContainer() {
+	Runnable setDetailContainer = new Runnable() {
 		
-		List<PostsItem> postsItems = posts.getDtailL();
-		
-		if (postsItems != null && postsItems.size() > 0) {
+		@Override
+		public void run() {
 			
-			// 设置明细
-			for (PostsItem postsItem : postsItems) {
+			// 隐藏Dialog
+			processDialog.dismiss();
+			
+			if (postsItems != null && postsItems.size() > 0) {
 				
-				// 文本
-				if (PostsItem.TXT_KEY.equals(postsItem.getType())) {
-					TextView textView = new TextView(this);
-					textView.setText(postsItem.getMsg());
-					textView.setTextColor(Color.WHITE);
+				// 设置明细
+				for (PostsItem postsItem : postsItems) {
 					
-					// 添加文本到页面显示
-					detailContainer.addView(textView);
-				}
-				
-				// 图片
-				else if(PostsItem.IMG_KEY.equals(postsItem.getType())) {
-					ImageView img1 = new ImageView(this);
-					ImageLoader.getInstance().displayImage(postsItem.getMsg(), img1);
+					// 文本
+					if (PostsItem.TXT_KEY.equals(postsItem.getType())) {
+						TextView textView = new TextView(B03V01Activity.this);
+						textView.setText(postsItem.getMsg());
+						textView.setTextColor(Color.WHITE);
+						
+						// 添加文本到页面显示
+						detailContainer.addView(textView);
+					}
 					
-					// 添加图片到页面显示
-					detailContainer.addView(img1);
+					// 图片
+					else if(PostsItem.IMG_KEY.equals(postsItem.getType())) {
+						ImageView img1 = new ImageView(B03V01Activity.this);
+						ImageLoader.getInstance().displayImage(postsItem.getMsg(), img1);
+						
+						// 添加图片到页面显示
+						detailContainer.addView(img1);
+					}
 				}
 			}
 		}
-	}
+	};
+	
+	/**
+	 * 取得信息失败
+	 */
+	Runnable getMsgError = new Runnable() {
+		
+		@Override
+		public void run() {
+			ShowMessageUtils.show(B03V01Activity.this, "取得数据失败");
+			processDialog.dismiss();
+		}
+	};
 }

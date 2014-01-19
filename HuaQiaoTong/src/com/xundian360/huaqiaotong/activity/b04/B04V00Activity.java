@@ -49,7 +49,10 @@ import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
  */
 public class B04V00Activity extends ComNoTittleActivity implements Callback {
 	
+	// 默认密码
 	private static final String DEFALT_PASS = "123456";
+	// 个人中心KEY
+	public static final String IS_CENTER_TO = "IS_CENTER_TO";
 
 	// 用户名
 	EditText userName;
@@ -74,6 +77,8 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 
 	// 第三方登陆平台
 	String pingtai;
+	
+	boolean isCenterTo =false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -98,8 +103,10 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 	 * 初始化数据
 	 */
 	private void initData() {
+		
+		isCenterTo = StringUtils.isNotBlank(getIntent().getStringExtra(IS_CENTER_TO));
+		
 		userModle = new UserModle(this);
-
 		processDialog = new CommonProgressDialog(this);
 	}
 
@@ -258,12 +265,14 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 						if(user != null) {
 							userModle.user = user;
 							userModle.save();
-							// 取消页面显示
-							// finish();
 							
-							// 个人中心页面迁移
-							CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);
-							
+							if(isCenterTo) {
+								// 个人中心页面迁移
+								CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);
+							} else {
+								// 取消页面显示
+								 finish();
+							}
 						} else {
 							errorMsg = getString(R.string.b04v01_msg_login_error);
 						}

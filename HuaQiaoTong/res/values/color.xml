@@ -105,6 +105,7 @@
 	
 	<!-- 黑色半透明 -->
 	<color name="b03_v00_item_bg">#33000000</color>
+	<color name="b03_v00_item_bg_inner">#FFBCBBB7</color>
 	<color name="b03_v00_left_item_bg">#FFE9E9E9</color>
 	<color name="b03_v00_left_item_self_center_bg">#FFFF5B40</color>
 	<color name="b03_v01_bottom_bg">#B0E1E1E1</color>

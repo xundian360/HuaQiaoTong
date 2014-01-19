@@ -58,8 +58,6 @@ public class B03V02Activity extends ComNoTittleActivity {
 	TextView cancelBtn;
 	// 提交
 	TextView submitBtn;
-	// 匿名发表
-	CheckBox cnonymousCheck;
 	// 调用相机
 	ImageView callCamara;
 	// 调用相册
@@ -161,8 +159,6 @@ public class B03V02Activity extends ComNoTittleActivity {
 		
 		submitBtn = (TextView) findViewById(R.id.b04v01SubmitBtn);
 		submitBtn.setOnClickListener(submitBtnClick);
-		
-		cnonymousCheck = (CheckBox) findViewById(R.id.b03v02AnonymousCheck);
 		
 		callCamara = (ImageView) findViewById(R.id.b03v02CallCamara);
 		callCamara.setOnClickListener(callCamaraClick);

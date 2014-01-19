@@ -86,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:gravity="right"
         android:background="#A0E1E1E1"
         android:orientation="horizontal" >
 
@@ -95,14 +96,6 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="10dp" >
-
-            <CheckBox
-                android:id="@+id/b03v02AnonymousCheck"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/b03v02_checkbox_selector"
-                android:text="@string/b03v02_anonymous_text"
-                android:textColor="@color/text_color_2" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"

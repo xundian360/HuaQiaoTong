@@ -4,6 +4,7 @@ import org.taptwo.android.widget.FlowIndicator;
 import org.taptwo.android.widget.ViewFlow;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -143,11 +144,14 @@ public class MainActivity extends Activity {
 		public void onClick(View arg0) {
 			// 判断用户是否登录
 			if(UserUtils.isLogin(MainActivity.this)) {
-				// 登陆
+				// 个人中心
 				CommonUtil.startSubActivity(MainActivity.this, B04V03Activity.class);
 			} else {
 				// 登陆
-				CommonUtil.startSubActivity(MainActivity.this, B04V00Activity.class);
+				Intent in = new Intent(MainActivity.this, B04V00Activity.class);
+				in.putExtra(B04V00Activity.IS_CENTER_TO, B04V00Activity.IS_CENTER_TO);
+				
+				CommonUtil.startSubActivity(MainActivity.this, in);
 			} 
 		}
 	};

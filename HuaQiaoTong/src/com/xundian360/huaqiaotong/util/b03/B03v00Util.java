@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.lidroid.xutils.http.RequestCallBack;
 import com.xundian360.huaqiaotong.R;
@@ -74,63 +75,69 @@ import com.xundian360.huaqiaotong.util.StringUtils;
  */
 public class B03v00Util extends BaiduUtil{
 	
-	// 论坛消息状态（OK）
-	private static final String STATUS_OK = "0";
-	public static final String POSTS_TOTAL_KEY = "posts_total_key";
-	public static final String POSTS_DATA_KEY = "posts_data_key";
-	
 	/**
-	 * 根据JSON，设置帖子对象明细
+	 * 根据ID，设置帖子对象明细
 	 * @param jsonString
 	 * @return
 	 * @throws JSONException 
 	 */
-	public static Posts getPostsDetailData(String jsonString) throws JSONException {
+	public static List<PostsItem> getPostsDetailData(Context context, String themeId) throws JSONException {
 		
-		Posts posts = new Posts();
+		String url = context.getString(R.string.get_theme_list);
 		
-		JSONObject postsJson = new JSONObject(jsonString);
+		// 设置参数
+		HashMap<String, String> parameter = new HashMap<String, String>();
+		parameter.put("themeId", themeId );
 		
-		// 判断数据状态为OK
-		if(STATUS_OK.equals(postsJson.getString("status"))) {
-			
-			posts.setUid(postsJson.getString("uid"));
-			posts.setTittle(postsJson.getString("tittle"));
-			posts.setCommentN(postsJson.getString("commentN"));
-			posts.setAuthor(postsJson.getString("author"));
-			posts.setTime(postsJson.getString("time"));
-			posts.setStatus(STATUS_OK);
-			
-			// 设置显示的数据明细
-			posts.setDtailL(getPostsItemListFromJson(postsJson.getJSONArray("dtailL")));
+		// 帖子描述数据
+		String jsonString = BaseHttpClient.doPostRequest(url, parameter);
+		
+		Log.d("debug", "jsonString > " + jsonString);
+		
+		if(jsonString != null) {
+			return getPostsItemListFromJson(jsonString);
+		} else {
+			return null;
 		}
-		
-		return posts;
 	}
 	
-	private static List<PostsItem> getPostsItemListFromJson(JSONArray jsonArray) throws JSONException {
-		
+	@SuppressWarnings("finally")
+	private static List<PostsItem> getPostsItemListFromJson(String jsonString) throws JSONException {
+
 		List<PostsItem> postsItems = new ArrayList<PostsItem>();
 		
-		if(jsonArray != null && jsonArray.length() > 0) {
+		try {
+			JSONObject postsItemsJson = new JSONObject(jsonString);
 			
-			for (int i = 0; i < jsonArray.length(); i++) {
+			// 判断数据状态为OK
+			if(STATUS_OK_KEY.equals(postsItemsJson.getString("status"))) {
 				
-				// 帖子Json对象
-				JSONObject postsItemJson = jsonArray.getJSONObject(i);
+				JSONArray jsonArray = postsItemsJson.getJSONArray("results");
 				
-				// 设置帖子对象
-				PostsItem postsItem = new PostsItem();
-				
-				postsItem.setType(postsItemJson.getString("type"));
-				postsItem.setMsg(postsItemJson.getString("msg"));
-				
-				// 对象添加到List
-				postsItems.add(postsItem);
+				if(jsonArray != null && jsonArray.length() > 0) {
+					
+					for (int i = 0; i < jsonArray.length(); i++) {
+						
+						// 帖子Json对象
+						JSONObject postsItemJson = jsonArray.getJSONObject(i);
+						
+						// 设置帖子对象
+						PostsItem postsItem = new PostsItem();
+						
+						postsItem.setType(postsItemJson.getString("itemType"));
+						postsItem.setMsg(postsItemJson.getString("itemMsg"));
+						
+						// 对象添加到List
+						postsItems.add(postsItem);
+					}
+				}
 			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			return postsItems;
 		}
-		
-		return postsItems;
 	}
 	
 	/**
@@ -155,6 +162,8 @@ public class B03v00Util extends BaiduUtil{
 		// 帖子描述数据
 		String jsonString = BaseHttpClient.doPostRequest(url, parameter);
 		
+		Log.d("debug", "jsonString > " + jsonString);
+		
 		if(jsonString != null) {
 			return getPostsDataFromJson(jsonString);
 		} else {
@@ -178,15 +187,13 @@ public class B03v00Util extends BaiduUtil{
 			JSONObject postsListJson = new JSONObject(jsonString);
 			
 			// 判断数据状态为OK
-			if(STATUS_OK.equals(postsListJson.getString("status"))) {
-				
-				int total = StringUtils.paseInt(postsListJson.getString("total"), 0);
+			if(STATUS_OK_KEY.equals(postsListJson.getString("status"))) {
 				
 				// 设置总数量
-				postses.put(POSTS_TOTAL_KEY, total);
+				postses.put(TOTAL_KEY, postsListJson.getString("total"));
 				
 				// 设置帖子
-				postses.put(POSTS_DATA_KEY, getPostsListFromJson(postsListJson.getJSONArray("results")));
+				postses.put(RESULTS_KEY, getPostsListFromJson(postsListJson.getJSONArray("results")));
 			}
 			
 		} catch (JSONException e) {
@@ -221,16 +228,15 @@ public class B03v00Util extends BaiduUtil{
 				posts.setUid(postsJson.getString("themeId"));
 				posts.setTittle(postsJson.getString("themeTitle"));
 				posts.settDtail(postsJson.getString("themeMessage"));
-				posts.setCommentN(postsJson.getString("99"));
+				posts.setCommentN(postsJson.getString("commentCount"));
 				posts.setAuthorId(postsJson.getString("userId"));
-				posts.setAuthor("待开发"); 
+				posts.setAuthor(postsJson.getString("userName")); 
+				posts.setAuthorPic(postsJson.getString("userIconPath"));
 				posts.setImg(postsJson.getString("themePic"));
 				posts.setTime(postsJson.getString("creatTime"));
 				posts.setGroupId(postsJson.getString("groupId"));
 				posts.setTopFlg(postsJson.getString("topFlg"));
 				posts.setRecommendFlag(postsJson.getString("recommendFlag"));
-				
-				posts.setStatus(STATUS_OK);
 				
 				// 对象添加到List
 				postsList.add(posts);
