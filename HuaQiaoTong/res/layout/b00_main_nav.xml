@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainNavLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="4" >
+
+    <LinearLayout
+        style="@style/MainNavBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="4dp" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/main_nav_1" />
+
+        <LinearLayout
+            style="@style/MainNavBgSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/main_nav_bg_s" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MainNavBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/main_nav_2" />
+
+        <LinearLayout
+            style="@style/MainNavBgSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/main_nav_bg_s" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MainNavBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/main_nav_3" />
+
+        <LinearLayout
+            style="@style/MainNavBgSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/main_nav_bg_s" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MainNavBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/main_nav_4" />
+
+        <LinearLayout
+            style="@style/MainNavBgSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/main_nav_bg_s" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -8,16 +8,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
 import com.xundian360.huaqiaotong.activity.b01.B01V00Activity;
+import com.xundian360.huaqiaotong.activity.b02.B02V00Activity;
+import com.xundian360.huaqiaotong.activity.b02.B02V02Activity;
 import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 
 /**
- * 首页--中间视图
+ * 首页--左视图
  * 
  * @author  Administrator
  * @date      2013年10月12日
@@ -28,14 +32,14 @@ public class B00CenterView {
 	Context context;
 	View mainView;
 	
-	// KTV
-	ImageView ktvBtn;
-	// 饭店
-	ImageView resBtn;
-	// 宾馆
-	ImageView hotalBtn;
-	// 电影
-	ImageView moveBtn;
+	// 公交
+	Button busBtn;
+	// 自行车
+	Button bickBtn;
+	// 叫车
+	Button taxiBtn;
+	// 健身房
+	Button fitnessBtn;
 	
 	public B00CenterView(Context context) {
 		this.context = context;
@@ -48,102 +52,69 @@ public class B00CenterView {
 	 * 初始化视图
 	 */
 	private void initView() {
-		mainView = ((Activity)context).getLayoutInflater().inflate(R.layout.b00_item_center, null);
+		mainView = ((Activity)context).getLayoutInflater().inflate(R.layout.b00_item_left, null);
 		
-		ktvBtn = (ImageView) mainView.findViewById(R.id.b00KtvBtn);
-		ktvBtn.setOnClickListener(ktvBtnClick);
+		busBtn = (Button) mainView.findViewById(R.id.b00GjBtn);
+		busBtn.setOnClickListener(busBtnClick);
 		
-		resBtn = (ImageView) mainView.findViewById(R.id.b00FdBtn);
-		resBtn.setOnClickListener(resBtnClick);
+		bickBtn = (Button) mainView.findViewById(R.id.b00ZxcBtn);
+		bickBtn.setOnClickListener(bickBtnClick);
 		
-		hotalBtn = (ImageView) mainView.findViewById(R.id.b00BgBtn);
-		hotalBtn.setOnClickListener(hotalBtnClick);
+		taxiBtn = (Button) mainView.findViewById(R.id.b00JcBtn);
+		taxiBtn.setOnClickListener(taxiBtnClick);
 		
-		moveBtn = (ImageView) mainView.findViewById(R.id.b00DyBtn);
-		moveBtn.setOnClickListener(moveBtnClick);
+		fitnessBtn = (Button) mainView.findViewById(R.id.b00JsBtn);
+		fitnessBtn.setOnClickListener(fitnessBtnClick);
 	}
 	
 	/**
-	 * KTV
+	 * 公交
 	 */
-	OnClickListener ktvBtnClick = new OnClickListener() {
+	OnClickListener busBtnClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
-			// 设置饭店项目
-			ItemObject ktvItem = new ItemObject(
-					ItemConstants.KTV_TEXT_ID, 
-					ItemConstants.KTV_KEY_ID, 
-					ItemConstants.KTV_NAV_ID, 
-					ItemConstants.KTV_NAV_ITEM_TEXT_IDS, 
-					ItemConstants.KTV_NAV_ITEM_KEY_IDS,
-					ItemConstants.KTV_NAV_ITEM_SEARCH_TYPE);
-			
-			Intent intent = new Intent(context, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, ktvItem);
-			
-			CommonUtil.startSubActivity(context, intent);
+			// 公交首页迁移
+			CommonUtil.startSubActivity(context, B00V00Activity.class);
 		}
 	};
 	
 	/**
-	 * 饭店
+	 * 自行车
 	 */
-	OnClickListener resBtnClick = new OnClickListener() {
+	OnClickListener bickBtnClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
-			// 设置饭店项目
-			ItemObject restaurantItem = new ItemObject(
-					ItemConstants.RESTAURANT_TEXT_ID, 
-					ItemConstants.RESTAURANT_KEY_ID, 
-					ItemConstants.RESTAURANT_NAV_ID, 
-					ItemConstants.RESTAURANT_NAV_ITEM_TEXT_IDS, 
-					ItemConstants.RESTAURANT_NAV_ITEM_KEY_IDS,
-					ItemConstants.RESTAURANT_NAV_ITEM_SEARCH_TYPE);
-			
-			Intent intent = new Intent(context, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, restaurantItem);
-			
-			CommonUtil.startSubActivity(context, intent);
+			// 自行车
+			CommonUtil.startSubActivity(context, B02V02Activity.class);
 		}
 	};
 	
 	/**
-	 * 宾馆
+	 * 叫车
 	 */
-	OnClickListener hotalBtnClick = new OnClickListener() {
+	OnClickListener taxiBtnClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
-			// 设置宾馆项目
+			// 叫车
+			CommonUtil.startSubActivity(context, B02V00Activity.class);
+		}
+	};
+	
+	
+	/**
+	 * 健身房
+	 */
+	OnClickListener fitnessBtnClick = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// 健身房
 			ItemObject hotelItem = new ItemObject(
-					ItemConstants.HOTEL_TEXT_ID, 
-					ItemConstants.HOTEL_KEY_ID, 
-					ItemConstants.HOTEL_NAV_ID, 
-					ItemConstants.HOTEL_NAV_TEXT_IDS, 
-					ItemConstants.HOTEL_NAV_KEY_IDS,
-					ItemConstants.HOTEL_NAV_ITEM_SEARCH_TYPE);
-			
-			Intent intent = new Intent(context, B01V00Activity.class);
-			intent.putExtra(B01V00Activity.ITEM_OBJECT_KEY, hotelItem);
-			
-			CommonUtil.startSubActivity(context, intent);
-		}
-	};
-	
-	
-	/**
-	 * 电影馆
-	 */
-	OnClickListener moveBtnClick = new OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			// 设置电影馆项目
-			ItemObject hotelItem = new ItemObject(
-					ItemConstants.MOVE_TEXT_ID, 
-					ItemConstants.MOVE_KEY_ID, 
+					ItemConstants.JIAN_TEXT_ID, 
+					ItemConstants.JIAN_KEY_ID, 
 					ItemConstants.ITEM_NAV_NULL, 
 					null, 
 					null,

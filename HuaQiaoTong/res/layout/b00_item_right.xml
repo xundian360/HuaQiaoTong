@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/com_transparent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_right_bg"
+        android:orientation="vertical" >
+
+        <Gallery
+            android:id="@+id/b00RightImgs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            style="@style/CommonPanddingTheme2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/b00RightImgTittle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="[新鲜事]北京遭遇雾霾"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:id="@+id/b00RightImgStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" >
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/com_transparent"
+                    android:src="@drawable/b00_right_img_s_selector" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        style="@style/CommonPanddingTheme3"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3" >
+
+                <Button
+                    android:id="@+id/b00RightXxBtn"
+                    style="@style/b00RightBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b00_right_xx_0"
+                    android:text="@string/b03v00_right_xx" />
+
+                <Button
+                    android:id="@+id/b00RightJyBtn"
+                    style="@style/b00RightBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/b00_right_jy_0"
+                    android:text="@string/b03v00_right_jy" />
+
+                <Button
+                    android:id="@+id/b00RightFwBtn"
+                    style="@style/b00RightBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b00_right_fw_0"
+                    android:text="@string/b03v00_right_fw" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:weightSum="3" >
+
+                <Button
+                    android:id="@+id/b00RightYhBtn"
+                    style="@style/b00RightBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b00_right_yh_0"
+                    android:text="@string/b03v00_right_yh" />
+
+                <Button
+                    android:id="@+id/b00RightQzBtn"
+                    style="@style/b00RightBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/b00_right_qz_0"
+                    android:text="@string/b03v00_right_qz" />
+
+                <Button
+                    android:id="@+id/b00RightEsBtn"
+                    style="@style/b00RightBtnStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b00_right_es_0"
+                    android:text="@string/b03v00_right_es" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -5,8 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.xundian360.huaqiaotong.view.b00.B00CenterView;
 import com.xundian360.huaqiaotong.view.b00.B00LeftView;
+import com.xundian360.huaqiaotong.view.b00.B00CenterView;
+import com.xundian360.huaqiaotong.view.b00.B00RightView;
 
 public class B00ViewAdapter extends BaseAdapter {
 
@@ -16,11 +17,11 @@ public class B00ViewAdapter extends BaseAdapter {
         private static final int VIEW_MAX_COUNT = VIEW3 + 1;
 
     	// 左边视图
-    	B00LeftView leftView;
+        B00LeftView leftView;
     	// 中间视图
-    	B00CenterView centerView;
-    	// 左边视图
-    	B00LeftView leftView2;
+        B00CenterView centerView;
+    	// 右边视图
+    	B00RightView rightView;
     	
     	Context context;
 
@@ -30,7 +31,7 @@ public class B00ViewAdapter extends BaseAdapter {
     	
 		leftView = new B00LeftView(context);
 		centerView = new B00CenterView(context);
-		leftView2 = new B00LeftView(context);
+		rightView = new B00RightView(context);
     }
 
     @Override
@@ -63,15 +64,24 @@ public class B00ViewAdapter extends BaseAdapter {
         int view = getItemViewType(position);
         if (convertView == null) {
             switch (view) {
-                case VIEW1:
-                    convertView = leftView.get();
-                    break;
-                case VIEW2:
-                    convertView = centerView.get();
-                    break;
-                case VIEW3:
-                    convertView = leftView2.get();
-                    break;
+//                case VIEW1:
+//                    convertView = leftView.get();
+//                    break;
+//                case VIEW2:
+//                    convertView = centerView.get();
+//                    break;
+//                case VIEW3:
+//                    convertView = rightView.get();
+//                    break;
+		      case VIEW1:
+		          convertView = leftView.get();
+		          break;
+		      case VIEW2:
+		          convertView = centerView.get();
+		          break;
+		      case VIEW3:
+		          convertView = rightView.get();
+		          break;
             }
         }
         

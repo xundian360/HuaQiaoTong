@@ -12,7 +12,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import cn.sharesdk.framework.ShareSDK;
 
-import com.xundian360.huaqiaotong.activity.b03.B03V00Activity;
 import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
 import com.xundian360.huaqiaotong.activity.b04.B04V03Activity;
 import com.xundian360.huaqiaotong.activity.com.HQTApplication;
@@ -124,10 +123,6 @@ public class MainActivity extends Activity {
 				leftPoint.setImageResource(R.drawable.b00_piont_0);
 				centerPoint.setImageResource(R.drawable.b00_piont_0);
 				rightPoint.setImageResource(R.drawable.b00_piont_1);
-				
-				// 论坛页面迁移
-				CommonUtil.startSubActivity(MainActivity.this, B03V00Activity.class);
-				
 				break;
 
 			default:
