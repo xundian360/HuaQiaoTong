@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -54,11 +55,19 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 	TextView tittle;
 	
 	// 公交站点
-	Button zhanDianBtn;
+	LinearLayout zhanDianBtn;
+	ImageView zhanDianImg;
+	TextView zhanDianText;
+	
 	// 公交线路
-	Button xianluBtn;
+	LinearLayout xianluBtn;
+	ImageView xianluImg;
+	TextView xianluText;
+	
 	// 公交换乘
-	Button huanChengBtn;
+	LinearLayout huanChengBtn;
+	ImageView huanChengImg;
+	TextView huanChengText;
 	
 	// 页面Layout
 	RelativeLayout mainLayout;
@@ -100,7 +109,6 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		xianluView = new B00v00XianluView(this);
 		zhandianView = new B00v00ZhandianView(this);
 		huanchengView = new B00v00HuanchengView(this);
-		
 	}
 	
 	/**
@@ -149,14 +157,20 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		
 		tittle = (TextView) findViewById(R.id.b00v00TittleText);
 		
-		zhanDianBtn = (Button) findViewById(R.id.b00v00ZhanDianBtn);
+		zhanDianBtn = (LinearLayout) findViewById(R.id.b00v00ZhanDianBtn);
 		zhanDianBtn.setOnClickListener(zhanDianBtnClick);
+		zhanDianImg = (ImageView) findViewById(R.id.b00v00ZhanDianImg);
+		zhanDianText = (TextView) findViewById(R.id.b00v00ZhanDianText);
 		
-		xianluBtn = (Button) findViewById(R.id.b00v00XianluBtn);
+		xianluBtn = (LinearLayout) findViewById(R.id.b00v00XianluBtn);
 		xianluBtn.setOnClickListener(xianluBtnClick);
+		xianluImg = (ImageView) findViewById(R.id.b00v00XianluImg);
+		xianluText = (TextView) findViewById(R.id.b00v00XianluText);
 		
-		huanChengBtn = (Button) findViewById(R.id.b00v00HuanChengBtn);
+		huanChengBtn = (LinearLayout) findViewById(R.id.b00v00HuanChengBtn);
 		huanChengBtn.setOnClickListener(huanChengBtnClick);
+		huanChengImg = (ImageView) findViewById(R.id.b00v00HuanChengImg);
+		huanChengText = (TextView) findViewById(R.id.b00v00HuanChengText);
 		
 		mainLayout = (RelativeLayout) findViewById(R.id.b00v00MainLayout);
 		
@@ -266,6 +280,18 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		}
 	};
 	
+//	// 公交站点
+//	ImageView zhanDianImg;
+//	TextView zhanDianText;
+//	
+//	// 公交线路
+//	ImageView xianluImg;
+//	TextView xianluText;
+//	
+//	// 公交换乘
+//	ImageView huanChengImg;
+//	TextView huanChengText;
+	
 	/**
 	 * 切换显示的项目
 	 */
@@ -275,26 +301,29 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 			case ZHANDIAN_SELECT:
 				
 				// 设置底部按钮选中状态
-				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
-				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
-				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+//				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
+//				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+//				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+				
 				break;
 				
 			case XIANLU_SELECT:
 				
 				// 设置底部按钮选中状态
-				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
-				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
-				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+//				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+//				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
+//				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
 				
 				break;
 				
 			case HUANCHENG_SELECT:
 				
 				// 设置底部按钮选中状态
-				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
-				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
-				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
+//				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+//				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+//				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
+				
+				
 				
 				break;
 	

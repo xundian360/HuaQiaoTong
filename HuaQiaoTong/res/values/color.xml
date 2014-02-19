@@ -22,6 +22,12 @@
     -->
     <color name="text_color_2">#FF565656</color>
     <!-- B00 -->
+    <color name="b00_v00_bg_color">#FFF5F5F4</color>
+    
+    <color name="b00_v00_b_text_color_0">#FF5A5954</color>
+    <color name="b00_v00_b_text_color_1">#FF007EFB</color>
+    
+    
     <color name="b00_v00_tittle_color">#BFFF5B42</color>
     <color name="b00_v00_dialog_tittle_color">#FF90C52D</color>
     <color name="text_color_history_item_num">#FFBDBDBD</color>

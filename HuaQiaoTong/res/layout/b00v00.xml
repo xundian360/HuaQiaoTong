@@ -3,15 +3,16 @@
     android:id="@+id/b00v00RootLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/b00_v00_main_bg" >
+    android:background="@color/b00_v00_bg_color" >
 
     <!-- Tittle -->
+
     <RelativeLayout
         android:id="@+id/b00v00Tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/b00_v00_panal_bg"
-        android:padding="5dp">
+        android:background="@android:color/white"
+        android:padding="5dp" >
 
         <ImageButton
             android:id="@+id/b00v00RetBtn"
@@ -20,7 +21,7 @@
             android:layout_centerVertical="true"
             android:background="@color/com_transparent"
             android:padding="5dp"
-            android:src="@drawable/b00v00_return_0" />
+            android:src="@drawable/b00v00_return_0_0" />
 
         <TextView
             android:id="@+id/b00v00TittleText"
@@ -31,46 +32,85 @@
     </RelativeLayout>
 
     <!-- 主题 -->
+
     <RelativeLayout
         android:id="@+id/b00v00MainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/b00v00Bottom"
         android:layout_below="@+id/b00v00Tittle" />
-    
+
     <!-- 底部按钮 -->
+
     <LinearLayout
         android:id="@+id/b00v00Bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
         android:orientation="horizontal"
         android:weightSum="3" >
 
-        <Button
+        <LinearLayout
             android:id="@+id/b00v00ZhanDianBtn"
-            style="@style/CommonButtonItemBlueTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/b00v00_station_search" />
+            style="@style/B00v00ButtonPanalStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <Button
+            <ImageView
+                android:id="@+id/b00v00ZhanDianImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b00v00_zd_icon_0" />
+
+            <TextView
+                android:id="@+id/b00v00ZhanDianText"
+                style="@style/B00v00ButtonTextStyle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b00v00_station_search" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/b00v00XianluBtn"
-            style="@style/CommonButtonItemBlueTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/comm_buttom_blue_1"
-            android:text="@string/b00v00_line_search" />
+            style="@style/B00v00ButtonPanalStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <Button
+            <ImageView
+                android:id="@+id/b00v00XianluImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b00v00_xl_icon_1" />
+
+            <TextView
+                android:id="@+id/b00v00XianluText"
+                style="@style/B00v00ButtonTextStyle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/b00_v00_b_text_color_1"
+                android:text="@string/b00v00_line_search" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/b00v00HuanChengBtn"
-            style="@style/CommonButtonItemBlueTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/b00v00_switch_search" />
+            style="@style/B00v00ButtonPanalStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/b00v00HuanChengImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b00v00_hc_icon_0" />
+
+            <TextView
+                android:id="@+id/b00v00HuanChengText"
+                style="@style/B00v00ButtonTextStyle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/b00v00_switch_search" />
+        </LinearLayout>
     </LinearLayout>
 
 </com.xundian360.huaqiaotong.view.com.ResizeLayout>

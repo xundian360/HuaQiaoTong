@@ -24,7 +24,7 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
-
+    
     <style name="B00v00ButtonPanalStyle">
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:background">@color/b00_v00_panal_bg</item>
@@ -35,7 +35,19 @@
         <item name="android:paddingRight">5dp</item>
         <item name="android:paddingBottom">25dp</item>
     </style>
+    
+    <style name="B00v00ButtonPanalStyle2">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">5dp</item>
+    </style>
 
+    <style name="B00v00ButtonTextStyle2">
+        <item name="android:textColor">@color/b00_v00_b_text_color_0</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    
     <style name="b00v00HistoryDialogStyle" parent="@android:Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
