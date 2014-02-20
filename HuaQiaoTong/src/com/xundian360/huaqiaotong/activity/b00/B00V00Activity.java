@@ -305,6 +305,15 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 //				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
 //				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
 				
+				// 设置图片
+				zhanDianImg.setImageResource(R.drawable.b00v00_zd_icon_1);
+				xianluImg.setImageResource(R.drawable.b00v00_xl_icon_0);
+				huanChengImg.setImageResource(R.drawable.b00v00_hc_icon_0);
+				// 设置文字颜色
+				zhanDianText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_1));
+				xianluText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+				huanChengText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+				
 				break;
 				
 			case XIANLU_SELECT:
@@ -313,6 +322,15 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 //				zhanDianBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
 //				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
 //				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
+				
+				// 设置图片
+				zhanDianImg.setImageResource(R.drawable.b00v00_zd_icon_0);
+				xianluImg.setImageResource(R.drawable.b00v00_xl_icon_1);
+				huanChengImg.setImageResource(R.drawable.b00v00_hc_icon_0);
+				// 设置文字颜色
+				zhanDianText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+				xianluText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_1));
+				huanChengText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
 				
 				break;
 				
@@ -323,7 +341,14 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 //				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
 //				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
 				
-				
+				// 设置图片
+				zhanDianImg.setImageResource(R.drawable.b00v00_zd_icon_0);
+				xianluImg.setImageResource(R.drawable.b00v00_xl_icon_0);
+				huanChengImg.setImageResource(R.drawable.b00v00_hc_icon_1);
+				// 设置文字颜色
+				zhanDianText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+				xianluText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+				huanChengText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_1));
 				
 				break;
 	

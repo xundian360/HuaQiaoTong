@@ -44,7 +44,7 @@
     <string name="b00v00_station_input_4">4.点击您需要的站点，进入详情页面</string>
     
     <string name="b00v00_switch_input_1">1.请输入起点和终点名称</string>
-    <string name="b00v00_switch_input_2">2.点击切换按钮，可对调起点和终点</string>
+    <string name="b00v00_switch_input_2">2.点击按钮%s可对调起点和终点</string>
     <string name="b00v00_switch_input_3">3.搜索后系统会自动显示最佳换乘方案</string>
     <string name="b00v00_switch_input_4">4.结果中还有其它方案可供选择</string>
     

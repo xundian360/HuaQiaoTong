@@ -8,8 +8,12 @@ import java.util.Map;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.ImageSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -19,6 +23,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.baidu.mapapi.search.MKPoiInfo;
 import com.baidu.mapapi.search.MKSearch;
@@ -73,6 +78,8 @@ public class B00v00HuanchengView {
 	ImageView toInputDelete;
 	// 查询换乘路线
 	Button huanchengSearch;
+	// 带图片的描述信息
+	TextView infoView;
 	
 	int focusKey;
 	
@@ -159,6 +166,28 @@ public class B00v00HuanchengView {
 		huanchengSearch = (Button) mainView.findViewById(R.id.b00v00HuanchengSearch);
 		huanchengSearch.setOnClickListener(huanchengSearchClick);
 		
+		infoView = (TextView) mainView.findViewById(R.id.b00v00InfoText);
+		// 设置带图片的描述信息
+		setInfoImg();
+	}
+	
+	/**
+	 * 设置带图片的描述信息
+	 */
+	private void setInfoImg() {
+		
+//		String textString = context.getre
+//		
+//		Drawable drawable = context.getResources().getDrawable(R.drawable.b00v00_hc_ms_icon);
+//		
+//		SpannableString spannable = new SpannableString(getText()
+//				.toString() + "[smile]");
+//		ImageSpan span = new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE);
+//		spannable.setSpan(span, getText().length(),
+//				getText().length() + "[smile]".length(),
+//				Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+//		
+//		infoView.setText(spannable);
 	}
 	
 	/**

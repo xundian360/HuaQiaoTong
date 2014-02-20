@@ -26,7 +26,14 @@
     
     <color name="b00_v00_b_text_color_0">#FF5A5954</color>
     <color name="b00_v00_b_text_color_1">#FF007EFB</color>
+    <color name="b00_v00_line_color">#FFC7C4BE</color>
     
+    <color name="b00_v00_line_color2">#FFF6F5F4</color>
+    
+    <color name="b00_v00_hc_bg_color">#FFE3E1DE</color>
+    
+    <color name="b00_v00_hc_s_l_color">#FFAFABA5</color>
+    <color name="b00_v00_hc_s_bg_color">#FFF5F4F3</color>
     
     <color name="b00_v00_tittle_color">#BFFF5B42</color>
     <color name="b00_v00_dialog_tittle_color">#FF90C52D</color>

@@ -109,8 +109,8 @@ public final class R {
 		public static final int visibility = 0x7f010013;
 	}
 	public static final class drawable {
-		public static final int default_ptr_flip_bottom = 0x7f0201b2;
-		public static final int ic_launcher = 0x7f0201b4;
+		public static final int default_ptr_flip_bottom = 0x7f0201b7;
+		public static final int ic_launcher = 0x7f0201b9;
 	}
 	public static final class id {
 		public static final int afterDescendants = 0x7f050028;
@@ -122,7 +122,7 @@ public final class R {
 		public static final int auto = 0x7f05000b;
 		public static final int beforeDescendants = 0x7f050027;
 		public static final int blocksDescendants = 0x7f050029;
-		public static final int card_list = 0x7f05027e;
+		public static final int card_list = 0x7f05027f;
 		public static final int center = 0x7f05001f;
 		public static final int defaultPosition = 0x7f050011;
 		public static final int disabled = 0x7f05002a;
@@ -150,22 +150,22 @@ public final class R {
 		public static final int normal = 0x7f05002b;
 		public static final int outsideInset = 0x7f05000a;
 		public static final int outsideOverlay = 0x7f050009;
-		public static final int ptr_id_header = 0x7f050287;
-		public static final int ptr_id_image = 0x7f050288;
-		public static final int ptr_id_last_updated = 0x7f05028c;
-		public static final int ptr_id_spinner = 0x7f050289;
-		public static final int ptr_id_text = 0x7f05028b;
-		public static final int ptr_id_textwrapper = 0x7f05028a;
+		public static final int ptr_id_header = 0x7f050288;
+		public static final int ptr_id_image = 0x7f050289;
+		public static final int ptr_id_last_updated = 0x7f05028d;
+		public static final int ptr_id_spinner = 0x7f05028a;
+		public static final int ptr_id_text = 0x7f05028c;
+		public static final int ptr_id_textwrapper = 0x7f05028b;
 		public static final int right = 0x7f050013;
 		public static final int rtl = 0x7f050017;
 		public static final int scrapped_view = 0x7f050000;
 		public static final int scrolling = 0x7f050025;
 		public static final int singleChoice = 0x7f05002d;
 		public static final int software = 0x7f050014;
-		public static final int text = 0x7f050280;
+		public static final int text = 0x7f050281;
 		public static final int textEnd = 0x7f05001e;
 		public static final int textStart = 0x7f05001d;
-		public static final int thumbnail = 0x7f05027f;
+		public static final int thumbnail = 0x7f050280;
 		public static final int vertical = 0x7f050006;
 		public static final int viewEnd = 0x7f050021;
 		public static final int viewStart = 0x7f050020;

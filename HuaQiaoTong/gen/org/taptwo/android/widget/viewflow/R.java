@@ -31,7 +31,7 @@ public final class R {
 		public static final int titlePadding = 0x7f010070;
 	}
 	public static final class drawable {
-		public static final int icon = 0x7f0201b5;
+		public static final int icon = 0x7f0201ba;
 	}
 	public static final class id {
 		public static final int fill = 0x7f050032;

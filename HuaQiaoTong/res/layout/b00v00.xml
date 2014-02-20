@@ -32,7 +32,6 @@
     </RelativeLayout>
 
     <!-- 主题 -->
-
     <RelativeLayout
         android:id="@+id/b00v00MainLayout"
         android:layout_width="match_parent"
@@ -47,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
+        android:background="@drawable/b04v04_layout_bottom_bg"
         android:orientation="horizontal"
         android:weightSum="3" >
 
