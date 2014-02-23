@@ -9,14 +9,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V02Activity;
@@ -170,6 +177,7 @@ public class B00v00XianluView {
 		
 		xianluText = (AutoCompleteTextView) mainView.findViewById(R.id.b00v00XianluText);
 		xianluText.setOnItemClickListener(xianluItemClick);
+		xianluText.setOnEditorActionListener(xianluSearch);
 		
 		inputDelete = (ImageView) mainView.findViewById(R.id.b00v00XianluDelete);
 		
@@ -181,37 +189,58 @@ public class B00v00XianluView {
 	}
 	
 	/**
+	 * 开始搜索
+	 */
+	OnEditorActionListener xianluSearch = new OnEditorActionListener() {
+		@Override
+		public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
+			if(EditorInfo.IME_ACTION_SEARCH == arg1) {
+				// 搜索
+				xianluSearchAction();
+			}
+			return true;
+		}
+	};
+	
+	/**
 	 * 线路检索按钮
 	 */
 	OnClickListener xianluSearchClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
-			
-			 // 检查网络
-			if(!CommonUtil.isNetworkAvailable(context)) {
-				
-				ShowMessageUtils.show(context, R.string.message_error_network);
-				return;
-			}
-//			// 设置检索数据
-//			String searchValue = xianluText.getText().toString();
-//			
-//			// TODO
-//			// 设置输入的线路信息NetListListL
-				
-			if(searchBus != null) {
-				
-				Intent in = new Intent(context, B00V02Activity.class);
-				in.putExtra(B00V02Activity.BUS_KEY, searchBus);
-				
-				CommonUtil.startActivityForResult(context, in, 100);
-				
-			} else {
-				ShowMessageUtils.show(context, "请输入检索线路");
-			}
+			// 搜索
+			xianluSearchAction();
 		}
 	};
+	
+	/**
+	 * 搜索
+	 */
+	private void xianluSearchAction() {
+		 // 检查网络
+		if(!CommonUtil.isNetworkAvailable(context)) {
+			
+			ShowMessageUtils.show(context, R.string.message_error_network);
+			return;
+		}
+//		// 设置检索数据
+//		String searchValue = xianluText.getText().toString();
+//		
+//		// TODO
+//		// 设置输入的线路信息NetListListL
+			
+		if(searchBus != null) {
+			
+			Intent in = new Intent(context, B00V02Activity.class);
+			in.putExtra(B00V02Activity.BUS_KEY, searchBus);
+			
+			CommonUtil.startActivityForResult(context, in, 100);
+			
+		} else {
+			ShowMessageUtils.show(context, "请输入检索线路");
+		}
+	}
 	
 	/**
 	 * 线路项目点击事件

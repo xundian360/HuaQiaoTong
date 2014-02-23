@@ -8,10 +8,16 @@ import java.util.Map;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.ImageSpan;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
@@ -20,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.baidu.mapapi.search.MKPoiInfo;
 import com.baidu.mapapi.search.MKSearch;
@@ -152,6 +159,7 @@ public class B00v00HuanchengView {
 		toText.addTextChangedListener(toTextWatcher);
 		// toText.setAdapter(poiListAdapter);
 		toText.setOnItemClickListener(poisListItemClick);
+		toText.setOnEditorActionListener(huanchengSearchAction);
 		
 		fromInputDelete = (ImageView) mainView.findViewById(R.id.b00v00FromDelete);
 		fromInputDelete.setOnClickListener(fromInputDeleteClick);
@@ -171,19 +179,26 @@ public class B00v00HuanchengView {
 	 * 设置带图片的描述信息
 	 */
 	private void setInfoImg() {
+		String impFlag = "[smile]";
+		String textString = context.getString(R.string.b00v00_switch_input_2, impFlag);
 		
-//		String textString = context.getre
-//		
-//		Drawable drawable = context.getResources().getDrawable(R.drawable.b00v00_hc_ms_icon);
-//		
-//		SpannableString spannable = new SpannableString(getText()
-//				.toString() + "[smile]");
-//		ImageSpan span = new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE);
-//		spannable.setSpan(span, getText().length(),
-//				getText().length() + "[smile]".length(),
-//				Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-//		
-//		infoView.setText(spannable);
+//		String textString = "11111";
+		
+		Drawable drawable = context.getResources().getDrawable(R.drawable.b00v00_hc_ms_icon);
+		
+		drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()); 
+		
+		SpannableString spannable = new SpannableString(textString.toString()); 
+        //要让图片替代指定的文字就要用ImageSpan 
+        ImageSpan span = new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE); 
+        //开始替换，注意第2和第3个参数表示从哪里开始替换到哪里替换结束（start和end） 
+       //最后一个参数类似数学中的集合,[5,12)表示从5到12，包括5但不包括12 
+        spannable.setSpan(span, 
+        		textString.indexOf("["),
+        		textString.indexOf("]") + 1,
+        		Spannable.SPAN_INCLUSIVE_EXCLUSIVE);   
+		
+		infoView.setText(spannable);
 	}
 	
 	/**
@@ -323,49 +338,70 @@ public class B00v00HuanchengView {
 	};
 
 	/**
+	 * 开始搜索
+	 */
+	OnEditorActionListener huanchengSearchAction = new OnEditorActionListener() {
+		@Override
+		public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
+			if(EditorInfo.IME_ACTION_SEARCH == arg1) {
+				// 搜索
+				huanchengSearch();
+			}
+			return true;
+		}
+	};
+	
+	/**
 	 *  检索位置
 	 */
 	OnClickListener huanchengSearchClick = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
-			
-			// 非空判断
-			if(StringUtils.isBlank(startStation.getName())) {
-				
-				String startName = fromText.getText().toString().trim();
-				
-				if(StringUtils.isNotBlank(startName)) {
-					startStation.setName(startName);
-				} else {
-					ShowMessageUtils.show(context, "请选择开始位置");
-					return;	
-				}
-			}
-			if(StringUtils.isBlank(toText.getText().toString()) 
-					|| StringUtils.isBlank(endStation.getName())) {
-				
-				String endName = toText.getText().toString().trim();
-				
-				if (StringUtils.isNotBlank(endName)) {
-					endStation.setName(endName);
-				} else {
-					ShowMessageUtils.show(context, "请选择结束位置");
-					return;
-				}
-			}
-			
-			// 组装数据
-			Intent intent = new Intent(context, B00V05Activity.class);
-			
-			intent.putExtra(B00V05Activity.START_STATION_KEY, startStation);
-			intent.putExtra(B00V05Activity.END_STATION_KEY, endStation);
-			intent.putExtra(B00V05Activity.SEARCH_WAY_KEY, searchWay);
-			
-			// 跳转
-			CommonUtil.startSubActivity(context, intent);
+			// 搜索
+			huanchengSearch();
 		}
 	};
+	
+	/**
+	 * 搜索
+	 */
+	private void huanchengSearch(){
+		// 非空判断
+		if(StringUtils.isBlank(startStation.getName())) {
+			
+			String startName = fromText.getText().toString().trim();
+			
+			if(StringUtils.isNotBlank(startName)) {
+				startStation.setName(startName);
+			} else {
+				ShowMessageUtils.show(context, "请选择开始位置");
+				return;	
+			}
+		}
+		if(StringUtils.isBlank(toText.getText().toString()) 
+				|| StringUtils.isBlank(endStation.getName())) {
+			
+			String endName = toText.getText().toString().trim();
+			
+			if (StringUtils.isNotBlank(endName)) {
+				endStation.setName(endName);
+			} else {
+				ShowMessageUtils.show(context, "请选择结束位置");
+				return;
+			}
+		}
+		
+		// 组装数据
+		Intent intent = new Intent(context, B00V05Activity.class);
+		
+		intent.putExtra(B00V05Activity.START_STATION_KEY, startStation);
+		intent.putExtra(B00V05Activity.END_STATION_KEY, endStation);
+		intent.putExtra(B00V05Activity.SEARCH_WAY_KEY, searchWay);
+		
+		// 跳转
+		CommonUtil.startSubActivity(context, intent);
+	}
 	
 	/**
 	 * 在城市内搜索

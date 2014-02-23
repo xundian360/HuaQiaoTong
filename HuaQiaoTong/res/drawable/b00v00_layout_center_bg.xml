@@ -2,6 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:drawable="@color/b00_v00_line_color"/>
 <item android:drawable="@color/b00_v00_hc_bg_color"
-    android:top="1dp" android:right="0dp" android:bottom="1dp"
+    android:top="0dp" android:right="0dp" android:bottom="1dp"
     android:left="0dp" />
 </layer-list>

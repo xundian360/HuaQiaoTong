@@ -111,9 +111,6 @@ public class B00v02StationsAdapter extends SimpleAdapter {
 					// 设置前边Logo
 					itemLogo.setImageResource(R.drawable.b00_v00_bus_at_0);
 					
-					// 当前站点非即将到站
-					textView.setTextColor(Color.WHITE);
-					
 					// 设置预计时间
 					forecastTime.setVisibility(View.GONE);
 				}
@@ -123,17 +120,11 @@ public class B00v02StationsAdapter extends SimpleAdapter {
 			
 			// 设置前边Logo
 			itemLogo.setImageResource(R.drawable.b00_v00_bus_at_0);
-			
-			// 当前站点非即将到站
-			textView.setTextColor(Color.WHITE);
-			
 			// 设置预计时间
 			forecastTime.setVisibility(View.GONE);
 		}
         
 		return view;
 	}
-	
-	
 
 }

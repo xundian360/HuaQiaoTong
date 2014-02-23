@@ -31,6 +31,7 @@ import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleBMapManActivity;
+import com.xundian360.huaqiaotong.adapter.b00.B00V05PlanAdapter;
 import com.xundian360.huaqiaotong.common.map.MySearchListener;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
@@ -63,7 +64,7 @@ public class B00V05Activity extends ComNoTittleBMapManActivity {
 	TextView otherFangan;
 	
 	// 数据源
-	SimpleAdapter adapter;
+	B00V05PlanAdapter adapter;
 	List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
 	
 	// 出发站点
@@ -140,7 +141,7 @@ public class B00V05Activity extends ComNoTittleBMapManActivity {
 		searchWay = getIntent().getIntExtra(SEARCH_WAY_KEY, B00v00HuanchengView.TRANSITSEARCH_KEY);
 		
 		// 设置adapter
-		adapter = new SimpleAdapter(this, 
+		adapter = new B00V05PlanAdapter(this, 
 				data, 
 				R.layout.b00v06_item, 
 				from, 

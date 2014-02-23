@@ -2,25 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/com_transparent"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:background="@color/com_transparent" >
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:orientation="horizontal" >
 
-        <ImageView
-            android:id="@+id/b00v06ItemImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/b00v01_qidian_logo" />
+    <ImageView
+        android:id="@+id/b00v06ItemImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/b00v01_qidian_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp" >
 
         <TextView
             android:id="@+id/b00v06ItemText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
             android:singleLine="true"
-            android:padding="5dp"
-            android:textSize="16sp"
-            android:text="@string/b00v06_tittle_text" />
- 
+            android:layout_weight="1"
+            android:text="@string/b00v06_tittle_text"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/b00v06ItemLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b00v00_line_0" />
+    </LinearLayout>
+
 </LinearLayout>

@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/com_transparent"
-    android:padding="10dp" >
+    android:background="@color/b00_v00_bg_color" >
 
     <!-- 底部操作按钮 -->
 
@@ -11,7 +10,7 @@
         android:id="@+id/b00v00ZhandianSearchLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/b00_v00_panal_bg"
+        android:background="@drawable/b00v00_layout_center_bg"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="10dp" >
@@ -26,26 +25,29 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_btn_search" />
+                android:src="@drawable/b00_btn_search" />
 
             <AutoCompleteTextView
                 android:id="@+id/b00v00ZhanDianText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/com_transparent"
-                android:completionThreshold="1"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:background="@color/com_transparent"
+                android:imeOptions="actionSearch"
+                android:completionThreshold="1"
                 android:dropDownWidth="match_parent"
                 android:gravity="center_vertical"
                 android:hint="@string/b00v00_input_station_hint"
                 android:singleLine="true" />
-            
+
             <ImageView
                 android:id="@+id/b00v00ZhandianDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:src="@drawable/b00v00_input_delete_img" />
+                android:src="@drawable/b00v00_input_delete_img"
+                android:visibility="gone" />
         </LinearLayout>
 
         <Button
@@ -53,14 +55,17 @@
             style="@style/B04v01LoginBtnTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/b00v00_search_text" />
+            android:text="@string/b00v00_search_text"
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
         style="@style/B00v00ButtonPanalStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/b00v00ZhandianSearchLayout" >
+        android:visibility="gone"
+        android:layout_below="@+id/b00v00ZhandianSearchLayout"
+        android:background="@drawable/b00v00_layout_hc_center_bg" >
 
         <TextView
             style="@style/B00v00ItemInfoStyle"
