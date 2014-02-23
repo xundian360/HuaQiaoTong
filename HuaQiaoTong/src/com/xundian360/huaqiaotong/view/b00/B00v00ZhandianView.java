@@ -15,12 +15,13 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TextView.OnEditorActionListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
+import com.fortysevendeg.android.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V03Activity;
 import com.xundian360.huaqiaotong.adapter.b00.B00v00ZhandianAdapter;
@@ -49,6 +50,8 @@ public class B00v00ZhandianView {
 	ImageView inputDelete;
 	// 搜索站点按钮
 	Button zhanDianSearchBtn;
+	// 历史站点
+	SwipeListView historyList;
 	
 	// 站点Adapter
 	SearchAdapter<String> zhandianAdapter;
@@ -190,6 +193,8 @@ public class B00v00ZhandianView {
 		zhanDianSearchBtn = (Button) mainView.findViewById(R.id.b00v00ZhanDianSearchBtn);
 		zhanDianSearchBtn.setOnClickListener(zhanDianSearchClick);
 		
+		// 历史站点
+		historyList = (SwipeListView) mainView.findViewById(R.id.b00v00ZhanDianList);
 	}
 	
 	/**

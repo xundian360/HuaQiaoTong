@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
+import com.xundian360.huaqiaotong.adapter.b00.B00V03StationAdapter;
 import com.xundian360.huaqiaotong.modle.b00.NetStation;
 import com.xundian360.huaqiaotong.modle.b00.NetStationItem;
 import com.xundian360.huaqiaotong.modle.b00.Station;
@@ -60,7 +61,7 @@ public class B00V03Activity extends ComNoTittleActivity {
 	// 线路
 	ListView busesList;
 	// 数据源
-	SimpleAdapter adapter;
+	B00V03StationAdapter adapter;
 	
 	// 站点
 	Station station;
@@ -102,7 +103,7 @@ public class B00V03Activity extends ComNoTittleActivity {
 //		stationDbHelper = new StationOperatingHelper(this);
 		
 		// 设置adapter
-		adapter = new SimpleAdapter(this, 
+		adapter = new B00V03StationAdapter(this, 
 				data, 
 				R.layout.b00v03_zhandian_item, 
 				from, 

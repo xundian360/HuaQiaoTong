@@ -34,7 +34,7 @@ public class B00V05PlanAdapter extends SimpleAdapter {
 		// 设置终点底线不显示
 		ImageView itemLine = (ImageView) view.findViewById(R.id.b00v06ItemLine);
 		
-		if(position != 0 &&  position == (getCount() - 1)) {
+		if(position == (getCount() - 1)) {
 			itemLine.setVisibility(View.INVISIBLE);
 		} else {
 			itemLine.setVisibility(View.VISIBLE);

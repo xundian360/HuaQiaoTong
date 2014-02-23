@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/com_transparent"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="5dp" >
+    android:orientation="horizontal" >
 
     <ImageView
         android:id="@+id/b00v03ZhandianItemLogo"
@@ -15,20 +14,21 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -37,9 +37,9 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:singleLine="true"
+                    android:textSize="18sp"
                     android:text="222"
-                    android:textColor="@color/b00_v03_bus_nun_color"
-                    android:textSize="15sp" />
+                    android:textColor="@color/b00_v03_bus_nun_color" />
 
                 <TextView
                     android:id="@+id/b00v03ZhandianBus1"
@@ -57,7 +57,7 @@
                     android:singleLine="true"
                     android:text="15分钟"
                     android:textColor="@color/b00_v03_bus_time_color"
-                    android:textSize="15sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/b00v03ZhandianBus2"
@@ -70,9 +70,10 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/b00v03ZhandianItemLine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/b00v02_item_line_img" />
+                android:src="@drawable/b00v00_line_0" />
         </LinearLayout>
 
         <ImageView

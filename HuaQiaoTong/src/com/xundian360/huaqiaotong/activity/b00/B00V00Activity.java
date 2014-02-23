@@ -279,18 +279,6 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 		}
 	};
 	
-//	// 公交站点
-//	ImageView zhanDianImg;
-//	TextView zhanDianText;
-//	
-//	// 公交线路
-//	ImageView xianluImg;
-//	TextView xianluText;
-//	
-//	// 公交换乘
-//	ImageView huanChengImg;
-//	TextView huanChengText;
-	
 	/**
 	 * 切换显示的项目
 	 */

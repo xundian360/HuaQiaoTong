@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/b00_v00_bg_color" >
@@ -35,11 +36,11 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:background="@color/com_transparent"
-                android:imeOptions="actionSearch"
                 android:completionThreshold="1"
                 android:dropDownWidth="match_parent"
                 android:gravity="center_vertical"
                 android:hint="@string/b00v00_input_station_hint"
+                android:imeOptions="actionSearch"
                 android:singleLine="true" />
 
             <ImageView
@@ -59,13 +60,25 @@
             android:visibility="gone" />
     </LinearLayout>
 
+    <com.fortysevendeg.swipelistview.SwipeListView
+        android:id="@+id/b00v00ZhanDianList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="#00000000"
+        swipe:swipeBackView="@+id/back"
+        swipe:swipeCloseAllItemsWhenMoveList="true"
+        swipe:swipeDrawableChecked="@drawable/b00_choice_selected"
+        swipe:swipeDrawableUnchecked="@drawable/b00_choice_unselected"
+        swipe:swipeFrontView="@+id/front"
+        swipe:swipeMode="right" />
+
     <LinearLayout
         style="@style/B00v00ButtonPanalStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_below="@+id/b00v00ZhandianSearchLayout"
-        android:background="@drawable/b00v00_layout_hc_center_bg" >
+        android:background="@drawable/b00v00_layout_hc_center_bg"
+        android:visibility="gone" >
 
         <TextView
             style="@style/B00v00ItemInfoStyle"

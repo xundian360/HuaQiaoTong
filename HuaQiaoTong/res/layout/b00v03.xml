@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b00_v00_main_bg" >
+    android:background="@color/b00_v00_bg_color" >
 
     <!-- Tittle -->
 
@@ -10,7 +10,7 @@
         android:id="@+id/b00v03TittleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/b00_v00_tittle_color"
+        android:background="@drawable/b00v00_layout_top_bg"
         android:padding="5dp" >
 
         <ImageButton
@@ -20,7 +20,7 @@
             android:layout_centerVertical="true"
             android:background="@color/com_transparent"
             android:padding="5dp"
-            android:src="@drawable/b00v00_return_0" />
+            android:src="@drawable/b00v00_return_0_0" />
 
         <TextView
             android:id="@+id/b00v03Tittle"
@@ -46,15 +46,13 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/b00v03TittleLayout"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:paddingTop="10dp" >
 
         <LinearLayout
             android:id="@+id/b00v03BusTittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/b00_v00_panal_bg"
+            android:background="@drawable/b00v00_layout_hc_center_bg"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="10dp" >
@@ -75,7 +73,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="国际华城"
-                        android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                     
@@ -100,7 +97,7 @@
                         android:layout_marginLeft="5dp"
                         android:text="东站台"
                         android:textSize="16sp"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@color/b00_v00_b_text_color_0" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -118,10 +115,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:background="@color/b00_v00_panal_bg"
+            android:background="@drawable/b00v00_layout_buttom_bg"
             android:orientation="vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="10dp"
             android:paddingTop="5dp" >
 
             <TextView
@@ -131,14 +127,14 @@
                 android:layout_marginLeft="5dp"
                 android:padding="5dp"
                 android:text="@string/b00v03_detail_text"
-                android:textColor="@android:color/white"
+                android:textColor="@color/b00_v02_item_tittle_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/b00v00_line_1" />
+                android:background="@drawable/b00v00_line_0" />
 
             <ListView
                 android:id="@+id/b00v03Stations"

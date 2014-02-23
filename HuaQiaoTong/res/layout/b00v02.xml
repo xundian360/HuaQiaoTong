@@ -79,18 +79,18 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="终点方向"
-                        android:textColor="@color/b00_v00_b_text_color_0"
-                        android:textSize="18sp" />
-
-                    <TextView
                         android:id="@+id/b00v02BusRouteDrection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="车辆方向"
+                        android:textColor="@color/b00_v00_b_text_color_0"
+                        android:textSize="18sp" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 方向"
                         android:textColor="@color/b00_v00_b_text_color_0"
                         android:textSize="18sp" />
 
