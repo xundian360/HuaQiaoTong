@@ -8,14 +8,15 @@ import java.util.List;
 
 /**
  * 帖子对象
- * @author  TengTeng
- * @date      2013年10月28日
+ * 
+ * @author TengTeng
+ * @date 2013年10月28日
  * @version 1.0
  */
 public class Posts implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	// UUID,帖子唯一标识
 	private String uid;
 	// 标题
@@ -46,13 +47,13 @@ public class Posts implements Serializable {
 	private List<PostsItem> topItems;
 	// 帖子明细
 	private List<PostsItem> dtailL;
-	
+
 	public Posts() {
 		super();
 	}
 
-	public Posts(String uid, String tittle, String authorId, String author, String tDtail,
-			String commentN, String img) {
+	public Posts(String uid, String tittle, String authorId, String author,
+			String tDtail, String commentN, String img) {
 		super();
 		this.uid = uid;
 		this.tittle = tittle;
@@ -130,6 +131,7 @@ public class Posts implements Serializable {
 	public String getTime() {
 		return time;
 	}
+
 	public void setTime(String time) {
 		this.time = time;
 	}
@@ -181,7 +183,5 @@ public class Posts implements Serializable {
 	public void setAuthorPic(String authorPic) {
 		this.authorPic = authorPic;
 	}
-	
-	
-	
+
 }

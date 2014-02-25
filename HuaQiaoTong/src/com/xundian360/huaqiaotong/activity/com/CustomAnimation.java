@@ -5,9 +5,9 @@ import android.os.Bundle;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.CanvasTransformer;
 
 public abstract class CustomAnimation extends BaseActivity {
-	
+
 	private CanvasTransformer mTransformer;
-	
+
 	public CustomAnimation(int titleRes, CanvasTransformer transformer) {
 		super(titleRes);
 		mTransformer = transformer;

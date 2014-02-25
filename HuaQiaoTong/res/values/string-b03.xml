@@ -50,6 +50,8 @@
     
     <string name="b03v04_text_fatie">发帖</string>
     
+    <string name="b03v04_comm_num">%s次评论</string>
+    
     <string name="b03v02_anonymous_text">匿名发表</string>
     
     <string name="b03v02_posts_msg_hint">帖子内容...</string>

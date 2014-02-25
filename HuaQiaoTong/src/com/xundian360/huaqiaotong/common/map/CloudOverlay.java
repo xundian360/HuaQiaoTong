@@ -19,6 +19,7 @@ import com.xundian360.huaqiaotong.view.com.CommonOverlayView;
 
 /**
  * 云数据气泡
+ * 
  * @author Administrator
  * @date 2013年11月7日
  * @version 1.0
@@ -58,13 +59,14 @@ public class CloudOverlay extends ItemizedOverlay {
 	@Override
 	protected boolean onTap(int arg0) {
 		CloudPoiInfo cloudItem = mLbsPoints.get(arg0);
-		
+
 		// 覆层View
-		CommonOverlayView overlayView = new CommonOverlayView(context, cloudItem);
+		CommonOverlayView overlayView = new CommonOverlayView(context,
+				cloudItem);
 		// 底部弹出的Dialog
 		BottomDialog bottomDialog = new BottomDialog(context, overlayView.get());
 		bottomDialog.show();
-		
+
 		return super.onTap(arg0);
 	}
 }

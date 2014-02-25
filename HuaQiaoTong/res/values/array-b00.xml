@@ -120,6 +120,46 @@
 		<item>轨道交通光明路站</item>
 	</string-array>
 	
+	<!--线路起始方向-->
+	<string-array name="b00_line_start">
+		<item>轨道交通兆丰路站</item>
+		<item>菉溪新村</item>
+		<item>轨道交通兆丰路站</item>
+		<item>轨道交通光明路站</item>
+		<item>轨道交通兆丰路站</item>
+		<item>法国凯捷</item>
+		<item>利胜路星光路</item>
+		<item>轨道交通兆丰路站</item>
+		<item>昆山南站</item>
+		<item>轨道交通兆丰路站</item>
+		<item>雍景湾</item>
+		<item>轨道交通兆丰路站</item>
+		<item>雍景湾</item>
+		<item>轨道交通光明路站</item>
+		<item>汽车客运南站</item>
+		<item>轨道交通兆丰路站</item>
+		<item>千灯</item>
+		<item>轨道交通花桥</item>
+		<item>樾河路公交首末站</item>
+		<item>台商学校</item>
+		<item>顺杨公寓</item>
+		<item>服务外包基地</item>
+		<item>台湾商品交易中心</item>
+		<item>蓬曦园</item>
+		<item>南港汽车站</item>
+		<item>轨道交通花桥</item>
+		<item>蓬朗客运站</item>
+		<item>轨道交通光明路站</item>
+		<item>合丰客运站</item>
+		<item>蓬朗客运站</item>
+		<item>周庄汽车站</item>
+		<item>轨道交通花桥</item>
+		<item>城铁花桥站</item>
+		<item>国基城邦</item>
+		<item>轨道交通光明路站</item>
+		<item>轨道交通花桥</item>
+	</string-array>
+	
 	<!--站点Id-->
 	<string-array name="b00_station_id">
 		<item>2</item>

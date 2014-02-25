@@ -30,68 +30,78 @@ import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.http.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.lidroid.xutils.http.client.RequestParams;
+
 /**
  * Http访问工具类
+ * 
  * @author miaoxing
  */
 public class BaseHttpClient {
-	
+
 	/**
 	 * 普通Get请求
+	 * 
 	 * @param urlString
 	 * @param params
 	 * @return
 	 */
-	static public String doGetRequest(String urlString, HashMap<String, String> params) {
+	static public String doGetRequest(String urlString,
+			HashMap<String, String> params) {
 		HttpClient httpClient = getHttpClient();
-		
+
 		if (params != null && !params.isEmpty()) {
-        	StringBuffer buf = new StringBuffer("?");
-        	for(String key : params.keySet()){
-        		 buf.append("&").append(key).append("=").append(params.get(key));
-        	}
-        	buf.deleteCharAt(1);       	
-        	urlString += buf.toString();      	
+			StringBuffer buf = new StringBuffer("?");
+			for (String key : params.keySet()) {
+				buf.append("&").append(key).append("=").append(params.get(key));
+			}
+			buf.deleteCharAt(1);
+			urlString += buf.toString();
 		}
-		Log.d("BaseAuthenicationHttpClient", "GET > " + urlString);        
-		
-		try {  
+		Log.d("BaseAuthenicationHttpClient", "GET > " + urlString);
+
+		try {
 			HttpGet request = new HttpGet(urlString);
-            HttpResponse response = httpClient.execute(request);  
-            if(response.getStatusLine().getStatusCode()==HttpStatus.SC_OK){  
-                String str = EntityUtils.toString(response.getEntity(), HTTP.UTF_8);  
-                return str;
-            }   
-        } catch (ClientProtocolException e) {  
-            e.printStackTrace();      
-        } catch (IOException e) {
-            e.printStackTrace();  
-        }
+			HttpResponse response = httpClient.execute(request);
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				String str = EntityUtils.toString(response.getEntity(),
+						HTTP.UTF_8);
+				return str;
+			}
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
-	
+
 	/**
 	 * 普通Post请求
+	 * 
 	 * @param urlString
 	 * @param params
 	 * @return
 	 */
-	static public String doPostRequest(String urlString, Map<String, String> params) {
+	static public String doPostRequest(String urlString,
+			Map<String, String> params) {
 		HttpClient httpClient = getHttpClient();
 		HttpPost request = new HttpPost(urlString);
-		
-		Log.d("BaseAuthenicationHttpClient", "POST > " + urlString);      
-		Log.d("BaseAuthenicationHttpClient", "POST params > " + params.toString());      
-		
+
+		Log.d("BaseAuthenicationHttpClient", "POST > " + urlString);
+		Log.d("BaseAuthenicationHttpClient",
+				"POST params > " + params.toString());
+
 		try {
-			if( null != params && !params.isEmpty() ) {
-				request.setEntity(new UrlEncodedFormEntity(convertMapToNameValuePair(params), HTTP.UTF_8));
+			if (null != params && !params.isEmpty()) {
+				request.setEntity(new UrlEncodedFormEntity(
+						convertMapToNameValuePair(params), HTTP.UTF_8));
 			}
-			HttpResponse response = httpClient.execute(request);  
-            if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){  
-                String str = EntityUtils.toString(response.getEntity(), HTTP.UTF_8);  
-                return str;
-            } 
+			HttpResponse response = httpClient.execute(request);
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				String str = EntityUtils.toString(response.getEntity(),
+						HTTP.UTF_8);
+				return str;
+			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {
@@ -101,61 +111,71 @@ public class BaseHttpClient {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 带文件上传的Post请求
-	 * @param urlString   请求URL
-	 * @param params      参数
-	 * @param fileKeys   上传文件Key
-	 * @param filePaths   上传文件路径 
-	 * @param callBack    上传回调
+	 * 
+	 * @param urlString
+	 *            请求URL
+	 * @param params
+	 *            参数
+	 * @param fileKeys
+	 *            上传文件Key
+	 * @param filePaths
+	 *            上传文件路径
+	 * @param callBack
+	 *            上传回调
 	 * @return
 	 */
-	public static void doPostRequestWithFile(String urlString, 
-			Map<String, String> params, List<String> fileKeys, 
+	public static void doPostRequestWithFile(String urlString,
+			Map<String, String> params, List<String> fileKeys,
 			List<String> filePaths, RequestCallBack<String> callBack) {
-		
-		Log.d("doPostRequestWithFile", "POST > " + urlString);      
-		Log.d("doPostRequestWithFile", "POST params > " + params.toString());      
-		Log.d("doPostRequestWithFile", "POST fileKeys > " + fileKeys.toString());      
-		Log.d("doPostRequestWithFile", "POST filePaths > " + filePaths.toString());      
-		
+
+		Log.d("doPostRequestWithFile", "POST > " + urlString);
+		Log.d("doPostRequestWithFile", "POST params > " + params.toString());
+		Log.d("doPostRequestWithFile", "POST fileKeys > " + fileKeys.toString());
+		Log.d("doPostRequestWithFile",
+				"POST filePaths > " + filePaths.toString());
+
 		// 设置请求参数
 		RequestParams rParams = new RequestParams();
 		rParams.addBodyParameter(convertMapToNameValuePair(params));
-		
-		if(fileKeys != null && filePaths != null) {
+
+		if (fileKeys != null && filePaths != null) {
 			// 添加上传文件
 			for (int i = 0; i < fileKeys.size(); i++) {
-				rParams.addBodyParameter(fileKeys.get(i), new File(filePaths.get(i)));
+				rParams.addBodyParameter(fileKeys.get(i),
+						new File(filePaths.get(i)));
 			}
 		}
-		
+
 		// 发送HTTP请求
 		HttpUtils http = new HttpUtils();
 		// 带上传回调
 		http.send(HttpRequest.HttpMethod.POST, urlString, rParams, callBack);
 	}
-	
-	static public List<NameValuePair> convertMapToNameValuePair(Map<String, String> params) {
+
+	static public List<NameValuePair> convertMapToNameValuePair(
+			Map<String, String> params) {
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-		for( String key : params.keySet() ) {
+		for (String key : params.keySet()) {
 			pairs.add(new BasicNameValuePair(key, params.get(key)));
 		}
 		return pairs;
 	}
-	
+
 	static public HttpClient getHttpClient() {
 		HttpParams httpParameters = new BasicHttpParams();
 		// Set the timeout in milliseconds until a connection is established.
-		// The default value is zero, that means the timeout is not used. 
+		// The default value is zero, that means the timeout is not used.
 		int timeoutConnection = 80000;
-		HttpConnectionParams.setConnectionTimeout(httpParameters, timeoutConnection);
-		// Set the default socket timeout (SO_TIMEOUT) 
+		HttpConnectionParams.setConnectionTimeout(httpParameters,
+				timeoutConnection);
+		// Set the default socket timeout (SO_TIMEOUT)
 		// in milliseconds which is the timeout for waiting for data.
 		int timeoutSocket = 80000;
 		HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
-		
+
 		HttpClient httpClient = new DefaultHttpClient(httpParameters);
 
 		return httpClient;

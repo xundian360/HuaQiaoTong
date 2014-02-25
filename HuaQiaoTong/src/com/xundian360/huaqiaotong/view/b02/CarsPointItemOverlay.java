@@ -14,40 +14,41 @@ import com.xundian360.huaqiaotong.modle.com.SerializableList;
 
 /**
  * 车集散点气泡
- * @author  TengTeng
- * @date      2013-10-3
+ * 
+ * @author TengTeng
+ * @date 2013-10-3
  * @version 1.0
  */
 @SuppressWarnings("rawtypes")
 public class CarsPointItemOverlay extends ItemizedOverlay {
-	
+
 	private Context context;
-	
+
 	// 黑车集散点
 	SerializableList carPiontList;
-	
+
 	Drawable overlayDrawable;
 	MapView mapView;
 
-	public CarsPointItemOverlay(Context context, 
-			Drawable arg0, MapView arg1, SerializableList carPiontList) {
+	public CarsPointItemOverlay(Context context, Drawable arg0, MapView arg1,
+			SerializableList carPiontList) {
 		super(arg0, arg1);
-		
+
 		this.context = context;
 		this.overlayDrawable = arg0;
 		this.mapView = arg1;
 		this.carPiontList = carPiontList;
 	}
-	
+
 	@Override
-	public boolean onTap(int index){
-		
+	public boolean onTap(int index) {
+
 		Baidu carPointItem = (Baidu) carPiontList.get(index);
-		
+
 		// 取得出租车信息
-		((B02V00Activity)context).getCarListView(index);
-		
+		((B02V00Activity) context).getCarListView(index);
+
 		return true;
 	}
-	
+
 }

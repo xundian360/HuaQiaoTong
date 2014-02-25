@@ -9,14 +9,15 @@ import android.content.SharedPreferences.Editor;
 
 /**
  * 用户对象（存储）
- * @author  TengTeng
- * @date      2013年11月4日
+ * 
+ * @author TengTeng
+ * @date 2013年11月4日
  * @version 1.0
  */
 public class UserModle {
-	
+
 	private static final String PREFS_NAME = "com.xundian360.huaqiaotong.user";
-	
+
 	private static final String ITEM_USER_ID = "com.xundian360.huaqiaotong.user.id";
 	private static final String ITEM_USER_LOGINNAME = "com.xundian360.huaqiaotong.user.loginName";
 	private static final String ITEM_USER_NAME = "com.xundian360.huaqiaotong.user.name";
@@ -26,24 +27,24 @@ public class UserModle {
 	private static final String ITEM_USER_QQ = "com.xundian360.huaqiaotong.user.qq";
 	private static final String ITEM_USER_COMPANY = "com.xundian360.huaqiaotong.user.company";
 	private static final String ITEM_USER_LOGO = "com.xundian360.huaqiaotong.user.logo";
-	
+
 	// 存储分享信息
 	SharedPreferences settings = null;
 	Context context = null;
-	
+
 	// 用户
 	public User user;
-	
+
 	public UserModle(Context context) {
 		this.context = context;
 		this.settings = context.getSharedPreferences(PREFS_NAME, 0);
-		
+
 		read();
 	}
-	
+
 	public void read() {
 		user = new User();
-		
+
 		user.setUserId(settings.getString(ITEM_USER_ID, ""));
 		user.setLoginName(settings.getString(ITEM_USER_LOGINNAME, ""));
 		user.setName(settings.getString(ITEM_USER_NAME, ""));
@@ -54,15 +55,15 @@ public class UserModle {
 		user.setCompany(settings.getString(ITEM_USER_COMPANY, ""));
 		user.setLogoPath(settings.getString(ITEM_USER_LOGO, ""));
 	}
-	
+
 	public User get() {
 		return user;
 	}
-	
+
 	public void save() {
-		
+
 		Editor editor = this.settings.edit();
-		
+
 		editor.putString(ITEM_USER_ID, user.getUserId());
 		editor.putString(ITEM_USER_LOGINNAME, user.getLoginName());
 		editor.putString(ITEM_USER_NAME, user.getName());
@@ -72,7 +73,7 @@ public class UserModle {
 		editor.putString(ITEM_USER_QQ, user.getQq());
 		editor.putString(ITEM_USER_COMPANY, user.getCompany());
 		editor.putString(ITEM_USER_LOGO, user.getLogoPath());
-		
+
 		editor.commit();
 	}
 

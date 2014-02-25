@@ -3,7 +3,7 @@
     xmlns:pla="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/b03_v00_main_bg" >
+    android:background="@color/b00_v00_bg_color" >
     
    <!-- Tittle -->
     <RelativeLayout
@@ -11,6 +11,7 @@
         style="@style/CommonPanddingTheme1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/b00v00_layout_top_bg"
         android:gravity="center_vertical"
         android:padding="5dp"  >
 
@@ -19,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:src="@drawable/b00v00_return_0"/>
+            android:src="@drawable/b00v00_return_0_0"/>
 
         <TextView
              android:id="@+id/b03v04Tittle"
@@ -38,18 +39,19 @@
             android:layout_centerVertical="true"
             android:padding="5dp"
             android:text="@string/b03v04_text_fatie"
-            android:textColor="@android:color/white"
+            android:textColor="@color/b00_v00_b_text_color_1"
             android:textSize="18sp" />
-        
     </RelativeLayout>
-
-    <com.huewu.pla.lib.MultiColumnListView
+    
+        <com.xundian360.huaqiaotong.view.com.XListView
         android:id="@+id/b03v04TieList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        pla:plaColumnNumber="2"
         android:layout_below="@+id/b03v04TittleLayout"
-        pla:plaLandscapeColumnNumber="3" />
+        android:divider="@null"
+        android:scrollbars="@null"
+        android:background="@color/b00_v00_bg_color" 
+        android:dividerHeight="10dp"
+        android:padding="10dp" />
 
 </RelativeLayout>

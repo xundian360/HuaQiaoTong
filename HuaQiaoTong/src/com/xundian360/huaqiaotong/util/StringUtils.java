@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 /**
  * String工具类
+ * 
  * @author miaoxing
  */
 public class StringUtils {
@@ -68,25 +69,25 @@ public class StringUtils {
 	public static boolean equals(String str1, String str2) {
 		return str1 == null ? str2 == null : str1.equals(str2);
 	}
-	
+
 	@SuppressWarnings("finally")
 	public static boolean isFloat(String str) {
-		
+
 		boolean isFloat = true;
-		
-		try{
-		
+
+		try {
+
 			Float.parseFloat(str);
-			
-		} catch(Exception e) {
-			
+
+		} catch (Exception e) {
+
 			isFloat = false;
-			
+
 		} finally {
-			
+
 			return isFloat;
 		}
-		
+
 	}
 
 	public static String findGeoPoint(String text) {
@@ -125,7 +126,7 @@ public class StringUtils {
 		return dateString;
 
 	}
-	
+
 	/*
 	 * 时间转换为‘yyyy-MM-dd hh:mm’格式的字符串
 	 */
@@ -175,7 +176,7 @@ public class StringUtils {
 		DecimalFormat dcmFmt = new DecimalFormat("0.00");
 		return dcmFmt.format(number);
 	}
-	
+
 	/*
 	 * double类型的数字转化为 XXX.00 格式的钱币金额表示
 	 */
@@ -184,7 +185,7 @@ public class StringUtils {
 		DecimalFormat dcmFmt = new DecimalFormat("0.00");
 		return dcmFmt.format(number);
 	}
-	
+
 	/*
 	 * double类型的数字转化为 XXX.0 格式的钱币金额表示
 	 */
@@ -277,125 +278,138 @@ public class StringUtils {
 
 		return result;
 	}
-	
+
 	/**
 	 * 重写Integer.parseInt方法
-	 * @param value         转换值
-	 * @param defaultValue  转换失败，默认值
+	 * 
+	 * @param value
+	 *            转换值
+	 * @param defaultValue
+	 *            转换失败，默认值
 	 */
 	public static int paseInt(String value, int defaultValue) {
-		
+
 		int valueInt = defaultValue;
-		
+
 		if (StringUtils.isNotBlank(value)) {
 			valueInt = Integer.parseInt(value);
 		}
-		
+
 		return valueInt;
 	}
-	
+
 	/**
 	 * 重写Double.parseDouble方法
-	 * @param value         转换值
-	 * @param defaultValue  转换失败，默认值
+	 * 
+	 * @param value
+	 *            转换值
+	 * @param defaultValue
+	 *            转换失败，默认值
 	 */
 	public static double paseDouble(String value, int defaultValue) {
-		
+
 		double valueDouble = defaultValue;
-		
+
 		if (StringUtils.isNotBlank(value)) {
 			valueDouble = Double.parseDouble(value);
 		}
-		
+
 		return valueDouble;
 	}
-	
+
 	/**
 	 * 重写Double.parseFloat方法
-	 * @param value         转换值
-	 * @param defaultValue  转换失败，默认值
+	 * 
+	 * @param value
+	 *            转换值
+	 * @param defaultValue
+	 *            转换失败，默认值
 	 */
 	public static float paseFloat(String value, int defaultValue) {
-		
+
 		float valueDouble = defaultValue;
-		
+
 		if (StringUtils.isNotBlank(value)) {
 			valueDouble = Float.parseFloat(value);
 		}
-		
+
 		return valueDouble;
 	}
-	
-	/** 
-     * 生成唯一字符串  
-     * @param length 需要长度 
-     * @param symbol 是否允许出现特殊字符 -- !@#$%^&*() 
-     * @return 
-     */  
-    public static String getUniqueString(int length, boolean symbol) {  
-        Random ran = new Random();  
-        int num = ran.nextInt(61);  
-        String returnString = "";  
-        String str = "";  
-        for (int i = 0; i < length;) {  
-            if (symbol)  
-                num = ran.nextInt(70);  
-            else  
-                num = ran.nextInt(61);  
-            str = strArray[num];  
-            if (!(returnString.indexOf(str) >= 0)) {  
-                returnString += str;  
-                i++;  
-            }  
-        }  
-        return returnString;  
-    } 
-    
-    /** 
-     * 给生成唯一字符串使用 
-     */  
-    private static String[] strArray = new String[] { "a", "b", "c", "d", "e",  
-            "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",  
-            "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E",  
-            "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",  
-            "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4",  
-            "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "(",  
-            ")" }; 
-    
-    /**
-     * 取得字符组中
-     * @param allString
-     * @param index
-     * @return
-     */
-    public static String getNumInString(String allString, int index) {
-		
+
+	/**
+	 * 生成唯一字符串
+	 * 
+	 * @param length
+	 *            需要长度
+	 * @param symbol
+	 *            是否允许出现特殊字符 -- !@#$%^&*()
+	 * @return
+	 */
+	public static String getUniqueString(int length, boolean symbol) {
+		Random ran = new Random();
+		int num = ran.nextInt(61);
+		String returnString = "";
+		String str = "";
+		for (int i = 0; i < length;) {
+			if (symbol)
+				num = ran.nextInt(70);
+			else
+				num = ran.nextInt(61);
+			str = strArray[num];
+			if (!(returnString.indexOf(str) >= 0)) {
+				returnString += str;
+				i++;
+			}
+		}
+		return returnString;
+	}
+
+	/**
+	 * 给生成唯一字符串使用
+	 */
+	private static String[] strArray = new String[] { "a", "b", "c", "d", "e",
+			"f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r",
+			"s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E",
+			"F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+			"S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4",
+			"5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "(",
+			")" };
+
+	/**
+	 * 取得字符组中
+	 * 
+	 * @param allString
+	 * @param index
+	 * @return
+	 */
+	public static String getNumInString(String allString, int index) {
+
 		String regexS = ",";
 		StringBuffer reB = new StringBuffer();
 		String re = "";
-		
-		String regEx="[^0-9]";   
-		Pattern p = Pattern.compile(regEx);   
+
+		String regEx = "[^0-9]";
+		Pattern p = Pattern.compile(regEx);
 		Matcher m = p.matcher(allString);
-		
+
 		reB.append(m.replaceAll(regexS).trim());
-		
+
 		List<String> nums = Arrays.asList(reB.toString().split(regexS));
-		
+
 		List<String> numsT = new ArrayList<String>();
-		
+
 		for (int i = 0; i < nums.size(); i++) {
 			String itemV = nums.get(i);
-			
-			if(itemV != null && itemV.length() > 0) {
+
+			if (itemV != null && itemV.length() > 0) {
 				numsT.add(itemV);
-			} 
+			}
 		}
-		
-		if(numsT.size() > index) {
+
+		if (numsT.size() > index) {
 			re = numsT.get(index);
 		}
 		return re.toString();
 	}
-    
+
 }

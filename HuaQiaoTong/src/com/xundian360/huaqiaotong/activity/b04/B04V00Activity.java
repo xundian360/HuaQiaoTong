@@ -48,7 +48,7 @@ import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
  * @version 1.0
  */
 public class B04V00Activity extends ComNoTittleActivity implements Callback {
-	
+
 	// 默认密码
 	private static final String DEFALT_PASS = "123456";
 	// 个人中心KEY
@@ -77,8 +77,8 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 
 	// 第三方登陆平台
 	String pingtai;
-	
-	boolean isCenterTo =false;
+
+	boolean isCenterTo = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -103,9 +103,10 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 	 * 初始化数据
 	 */
 	private void initData() {
-		
-		isCenterTo = StringUtils.isNotBlank(getIntent().getStringExtra(IS_CENTER_TO));
-		
+
+		isCenterTo = StringUtils.isNotBlank(getIntent().getStringExtra(
+				IS_CENTER_TO));
+
 		userModle = new UserModle(this);
 		processDialog = new CommonProgressDialog(this);
 	}
@@ -231,21 +232,22 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 		// 登陆
 		new Thread(loginRun).start();
 	}
-	
+
 	String errorMsg;
-	
+
 	/**
 	 * 登陆
+	 * 
 	 * @param loginUrl
 	 * @param params
 	 */
 	private void login(String loginUrl, Map<String, String> params) {
-		
-		try {	
+
+		try {
 			// 设置蚕食
 			final String userJson = BaseHttpClient.doPostRequest(loginUrl,
 					params);
-			
+
 			if (StringUtils.isBlank(userJson)
 					|| BaiduUtil.STATUS_ERROR_KEY.equals(userJson)) {
 				// 登陆失败
@@ -258,20 +260,22 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 					public void run() {
 						// 设置参数
 						userModle.read();
-						
+
 						// 设置数据
 						User user = UserUtils.setUser(userJson);
-						
-						if(user != null) {
+
+						if (user != null) {
 							userModle.user = user;
 							userModle.save();
-							
-							if(isCenterTo) {
+
+							if (isCenterTo) {
 								// 个人中心页面迁移
-								CommonUtil.startActivityForResult(B04V00Activity.this, B04V03Activity.class, 100);
+								CommonUtil.startActivityForResult(
+										B04V00Activity.this,
+										B04V03Activity.class, 100);
 							} else {
 								// 取消页面显示
-								 finish();
+								finish();
 							}
 						} else {
 							errorMsg = getString(R.string.b04v01_msg_login_error);
@@ -292,15 +296,14 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 					processDialog.dismiss();
 					// 登陆失败
 					if (StringUtils.isNotBlank(errorMsg)) {
-						ShowMessageUtils
-								.show(B04V00Activity.this, errorMsg);
+						ShowMessageUtils.show(B04V00Activity.this, errorMsg);
 					}
 				}
 			});
 		}
-		
+
 	}
-	
+
 	/**
 	 * 登陆线程
 	 */
@@ -316,34 +319,37 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 			Map<String, String> params = new HashMap<String, String>();
 			params.put("user_login", userNameText);
 			params.put("user_m", userPass.getText().toString());
-			
+
 			// 登陆
 			login(loginUrl, params);
 		}
 	};
-	
+
 	/**
 	 * 第三方登陆
+	 * 
 	 * @param userId
 	 * @param userName
 	 * @param iconPath
 	 */
-	private void threeLogin(final String userId, final String userName, final String iconPath, final String userSex) {
-		
+	private void threeLogin(final String userId, final String userName,
+			final String iconPath, final String userSex) {
+
 		// 显示Dialog
 		processDialog.show();
-		
+
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				// 登陆URL
 				String loginUrl = getString(R.string.three_login_url);
-				
+
 				// 推送ID
-				SettingModle settingModle = new SettingModle(B04V00Activity.this);
+				SettingModle settingModle = new SettingModle(
+						B04V00Activity.this);
 				settingModle.read();
-				
+
 				String push_id = settingModle.getPushAlias();
 
 				// 登陆参数
@@ -355,13 +361,13 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 				params.put("user_pic", iconPath);
 				params.put("user_sex", userSex);
 				params.put("push_id", push_id);
-				
+
 				// 登陆
 				login(loginUrl, params);
 			}
 		}).start();
 	}
-	
+
 	/**
 	 * 第三方平台登陆
 	 */
@@ -407,11 +413,11 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 			 * 如新浪的：http://open.weibo.com/wiki/2/users/show
 			 * 腾讯微博：http://wiki.open
 			 * .t.qq.com/index.php/API%E6%96%87%E6%A1%A3/%E5%B8%90%E6%88%B7%E6%
-			 * 8E%A5%E5%8F%A3/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%96%9
-			 * 9
+			 * 8E%A5%E5%8F%A3/%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%B5%84%E6%96%
+			 * 9 9
 			 */
 			Log.e("onComplete res > ", res.toString());
-			
+
 			Message msg = new Message();
 			msg.what = MSG_ACTION_CCALLBACK;
 			msg.arg1 = 1;
@@ -447,26 +453,24 @@ public class B04V00Activity extends ComNoTittleActivity implements Callback {
 
 				// 授权成功后,获取用户信息，要自己解析，看看oncomplete里面的注释
 				// ShareSDK只保存以下这几个通用值
-				
+
 				Platform pf = null;
-				
-				if(SinaWeibo.NAME.equals(pingtai)) {
+
+				if (SinaWeibo.NAME.equals(pingtai)) {
 					pf = ShareSDK.getPlatform(B04V00Activity.this,
 							SinaWeibo.NAME);
 				} else {
-					pf = ShareSDK.getPlatform(B04V00Activity.this,
-							QZone.NAME);
+					pf = ShareSDK.getPlatform(B04V00Activity.this, QZone.NAME);
 				}
-				
-				if(pf != null) {
+
+				if (pf != null) {
 					Log.e("sharesdk use_id", pf.getDb().getUserId()); // 获取用户id
 					Log.e("sharesdk use_name", pf.getDb().getUserName());// 获取用户名称
 					Log.e("sharesdk use_icon", pf.getDb().getUserIcon());// 获取用户头像
-					
+
 					// 第三方登陆
-					threeLogin(pf.getDb().getUserId(), 
-							pf.getDb().getUserName(), 
-							pf.getDb().getUserIcon(),
+					threeLogin(pf.getDb().getUserId(),
+							pf.getDb().getUserName(), pf.getDb().getUserIcon(),
 							pf.getDb().get("gender"));
 				}
 			}

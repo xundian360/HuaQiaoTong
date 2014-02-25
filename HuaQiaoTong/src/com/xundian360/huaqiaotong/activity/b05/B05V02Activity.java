@@ -92,7 +92,7 @@ public class B05V02Activity extends ComNoTittleActivity {
 
 		@Override
 		public void onClick(View v) {
-			CommonUtil.startActivityForResult(B05V02Activity.this, 
+			CommonUtil.startActivityForResult(B05V02Activity.this,
 					B05V04Activity.class, 100);
 		}
 	};
@@ -104,7 +104,7 @@ public class B05V02Activity extends ComNoTittleActivity {
 
 		@Override
 		public void onClick(View v) {
-			CommonUtil.startActivityForResult(B05V02Activity.this, 
+			CommonUtil.startActivityForResult(B05V02Activity.this,
 					B05V03Activity.class, 100);
 		}
 	};
@@ -116,7 +116,7 @@ public class B05V02Activity extends ComNoTittleActivity {
 
 		@Override
 		public void onClick(View v) {
-			CommonUtil.startActivityForResult(B05V02Activity.this, 
+			CommonUtil.startActivityForResult(B05V02Activity.this,
 					B05V03Activity.class, 100);
 		}
 	};
@@ -128,7 +128,7 @@ public class B05V02Activity extends ComNoTittleActivity {
 
 		@Override
 		public void onClick(View v) {
-			CommonUtil.startActivityForResult(B05V02Activity.this, 
+			CommonUtil.startActivityForResult(B05V02Activity.this,
 					B05V03Activity.class, 100);
 		}
 	};

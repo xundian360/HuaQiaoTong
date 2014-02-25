@@ -52,10 +52,10 @@
 	<string name="update_user_url">http://115.29.43.200:8080/HqtService/updateUser</string>
 	
 	<!-- 添加帖子接口 -->
-	<string name="insert_theme">http://192.168.1.100:8080/HqtService/insertTheme</string>
+	<string name="insert_theme">http://115.29.43.200:8080/HqtService/insertTheme</string>
 	<!-- 取得帖子列表接口 -->
-	<string name="get_theme_list">http://192.168.1.100:8080/HqtService/getThemeList</string>
+	<string name="get_theme_list">http://115.29.43.200:8080/HqtService/getThemeList</string>
 	<!-- 取得帖子明细接口 -->
-	<string name="get_theme_details">http://192.168.1.100:8080/HqtService/getThemeDetails</string>
+	<string name="get_theme_details">http://115.29.43.200:8080/HqtService/getThemeDetails</string>
 
 </resources>

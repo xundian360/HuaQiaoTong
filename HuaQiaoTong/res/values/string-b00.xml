@@ -7,6 +7,11 @@
     <string name="mail_chi_text">吃喝玩乐</string>
     <string name="mail_use_car_text">我要用车</string>
     
+    <string name="b00v00_his_first">置顶</string>
+    <string name="b00v00_his_delete">删除</string>
+    
+    <string name="b00v00_his_status">状态：</string>
+    
      <string name="b03v00_right_xx">新鲜事</string>
     <string name="b03v00_right_jy">交友</string>
     <string name="b03v00_right_fw">房屋租售</string>

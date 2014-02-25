@@ -15,8 +15,8 @@ import android.widget.SimpleAdapter;
 import com.xundian360.huaqiaotong.R;
 
 /**
- * @author  TeneTeng
- * @date      2014-2-23
+ * @author TeneTeng
+ * @date 2014-2-23
  * @version 1.0
  */
 public class B00V03StationAdapter extends SimpleAdapter {
@@ -26,20 +26,21 @@ public class B00V03StationAdapter extends SimpleAdapter {
 			int[] to) {
 		super(context, data, resource, from, to);
 	}
-	
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view = super.getView(position, convertView, parent);
-		
+
 		// 设置终点底线不显示
-		ImageView itemLine = (ImageView) view.findViewById(R.id.b00v03ZhandianItemLine);
-		
-		if(position == (getCount() - 1)) {
+		ImageView itemLine = (ImageView) view
+				.findViewById(R.id.b00v03ZhandianItemLine);
+
+		if (position == (getCount() - 1)) {
 			itemLine.setVisibility(View.INVISIBLE);
 		} else {
 			itemLine.setVisibility(View.VISIBLE);
 		}
-		
+
 		return view;
 	}
 

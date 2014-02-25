@@ -15,34 +15,37 @@ import com.xundian360.huaqiaotong.view.b01.B01v04ItemPoiDialog;
 
 /**
  * 站点气泡
- * @author  TengTeng
- * @date      2013-10-3
+ * 
+ * @author TengTeng
+ * @date 2013-10-3
  * @version 1.0
  */
 @SuppressWarnings("rawtypes")
 public class BaiduItemOverlay extends ItemizedOverlay {
-	
+
 	private Context context;
-	
+
 	List<Baidu> objects;
 
-	public BaiduItemOverlay(Context context, Drawable arg0, MapView arg1, List<Baidu> objects) {
+	public BaiduItemOverlay(Context context, Drawable arg0, MapView arg1,
+			List<Baidu> objects) {
 		super(arg0, arg1);
-		
+
 		this.context = context;
 		this.objects = objects;
 	}
-	
+
 	@Override
-	public boolean onTap(int index){
-		
+	public boolean onTap(int index) {
+
 		Baidu baiduItem = objects.get(index);
-		
+
 		// 覆层View
-		B01v04ItemPoiDialog poiDialog = new B01v04ItemPoiDialog(context,baiduItem);
+		B01v04ItemPoiDialog poiDialog = new B01v04ItemPoiDialog(context,
+				baiduItem);
 		poiDialog.show();
-		
+
 		return true;
 	}
-	
+
 }

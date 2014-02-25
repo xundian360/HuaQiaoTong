@@ -30,7 +30,7 @@ public class ImageAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return imgRes.length; 
+		return imgRes.length;
 	}
 
 	@Override
@@ -47,8 +47,8 @@ public class ImageAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
-		ImageView img = new ImageView(mContext);  
-        img.setImageResource(imgRes[arg0]);  
-        return img;  
+		ImageView img = new ImageView(mContext);
+		img.setImageResource(imgRes[arg0]);
+		return img;
 	}
 }

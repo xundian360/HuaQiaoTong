@@ -37,32 +37,36 @@ public class CommonCallDialog {
 
 		AlertDialog.Builder builder = new Builder(context);
 
-		builder.setMessage(context.getString(R.string.common_dialog_call_msg, callNum));
+		builder.setMessage(context.getString(R.string.common_dialog_call_msg,
+				callNum));
 		builder.setTitle(R.string.common_dialog_call_tittle);
 
 		// 拨打电话
-		builder.setPositiveButton(R.string.common_btn_enter, new OnClickListener() {
+		builder.setPositiveButton(R.string.common_btn_enter,
+				new OnClickListener() {
 
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				
-				// 拨打电话
-				Intent myIntentDial = new Intent ( "android.intent.action.CALL", Uri.parse("tel:"+callNum));
-				context.startActivity(myIntentDial); 
-			}
-		});
-		
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+
+						// 拨打电话
+						Intent myIntentDial = new Intent(
+								"android.intent.action.CALL", Uri.parse("tel:"
+										+ callNum));
+						context.startActivity(myIntentDial);
+					}
+				});
+
 		// 取消按钮
-		builder.setNegativeButton(R.string.common_btn_cancel, new OnClickListener() {
+		builder.setNegativeButton(R.string.common_btn_cancel,
+				new OnClickListener() {
 
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				
-				
-			}
-		});
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+
+					}
+				});
 
 		dialog = builder.create();
 	}

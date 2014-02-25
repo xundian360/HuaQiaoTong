@@ -6,32 +6,32 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/b03v02OperationLayout" >
+        android:layout_height="match_parent"
+        android:layout_above="@+id/b03v02OperationLayout"
+        android:fillViewport="true" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@android:color/white" >
+            android:background="@android:color/white"
+            android:orientation="vertical" >
 
             <RelativeLayout
                 android:id="@+id/b04v01TittleLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/commonforum_bg_1"
+                android:background="@drawable/b00v00_layout_top_bg"
                 android:gravity="center_vertical"
-                android:padding="15dp" >
+                android:padding="5dp" >
 
-                <TextView
+                <ImageButton
                     android:id="@+id/b04v01CancelBtn"
-                    style="@style/B01v03ImpTextTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@color/com_transparent"
                     android:padding="5dp"
-                    android:text="@string/b04v01_tittle_cancle"
-                    android:textColor="@color/b01_v01_light_brown"
-                    android:textSize="18sp" />
+                    android:src="@drawable/b00v00_return_0_0" />
 
                 <TextView
                     android:id="@+id/b04v01Tittle"
@@ -48,6 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:padding="5dp"
                     android:text="@string/b03v02_submit_text"
                     android:textColor="@color/b04_v02_light_blue"
@@ -86,8 +87,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="right"
         android:background="#A0E1E1E1"
+        android:gravity="right"
         android:orientation="horizontal" >
 
         <LinearLayout
@@ -146,7 +147,7 @@
                 <TextView
                     android:id="@+id/b03v02GroupTittle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <ImageView
                     android:layout_width="wrap_content"

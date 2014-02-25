@@ -14,18 +14,19 @@ import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 
 /**
  * 添加好友（输入检索）
- * @author  Administrator
- * @date      2013年11月11日
+ * 
+ * @author Administrator
+ * @date 2013年11月11日
  * @version 1.0
  */
 public class B05V04Activity extends ComNoTittleActivity {
-	
+
 	// 返回
 	TextView retBtn;
 
 	// 检索框
 	EditText searchText;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,18 +45,18 @@ public class B05V04Activity extends ComNoTittleActivity {
 	 */
 	private void initData() {
 	}
-	
+
 	/**
 	 * 初始化组件
 	 */
 	private void initModule() {
 		retBtn = (TextView) findViewById(R.id.b05v04CancelBtn);
 		retBtn.setOnClickListener(retBtnClick);
-		
+
 		searchText = (EditText) findViewById(R.id.b05v00SearchText);
-		
+
 	}
-	
+
 	/**
 	 * 返回按钮
 	 */
