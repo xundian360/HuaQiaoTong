@@ -33,16 +33,16 @@
                 android:id="@+id/b00v00XianluText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:background="@color/com_transparent"
-                android:imeOptions="actionSearch"
                 android:completionThreshold="1"
-                android:inputType="numberSigned"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
                 android:dropDownWidth="match_parent"
                 android:gravity="center_vertical"
                 android:hint="@string/b00v00_input_line_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="numberSigned"
                 android:singleLine="true" />
 
             <ImageView
@@ -61,28 +61,28 @@
             android:text="@string/b00v00_search_text"
             android:visibility="gone" />
     </LinearLayout>
-    
-        <com.xundian360.huaqiaotong.view.swipelist.SwipeListView
+
+    <com.fortysevendeg.swipelistview.SwipeListView
         android:id="@+id/b00v00XianluList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:listSelector="#00000000"
+        android:layout_below="@+id/b00v00XianluSearchLayout"
         android:layout_marginTop="5dp"
+        android:listSelector="#00000000"
         swipe:swipeBackView="@+id/back"
         swipe:swipeCloseAllItemsWhenMoveList="true"
-        android:layout_below="@+id/b00v00XianluSearchLayout"
         swipe:swipeDrawableChecked="@drawable/b00_choice_selected"
         swipe:swipeDrawableUnchecked="@drawable/b00_choice_unselected"
         swipe:swipeFrontView="@+id/front"
         swipe:swipeMode="right" />
-    
+
     <LinearLayout
         style="@style/B00v00ButtonPanalStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_below="@+id/b00v00XianluSearchLayout"
-        android:background="@drawable/b00v00_layout_hc_center_bg" >
+        android:background="@drawable/b00v00_layout_hc_center_bg"
+        android:visibility="gone" >
 
         <TextView
             style="@style/B00v00ItemInfoStyle"

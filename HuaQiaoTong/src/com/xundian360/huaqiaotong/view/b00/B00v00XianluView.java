@@ -22,9 +22,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+import com.fortysevendeg.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V02Activity;
-import com.xundian360.huaqiaotong.adapter.b00.B00V00HisXianAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.B00v00XianluAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.SearchAdapter;
 import com.xundian360.huaqiaotong.modle.b00.Bus;
@@ -33,7 +33,6 @@ import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.ViewUtils;
 import com.xundian360.huaqiaotong.util.b00.HuanchengUtil;
-import com.xundian360.huaqiaotong.view.swipelist.SwipeListView;
 
 /**
  * 线路视图
@@ -72,7 +71,7 @@ public class B00v00XianluView {
 	// 历史线路信息
 	List<Bus> hisBuses = new ArrayList<Bus>();
 	List<Map<String, String>> hisData = new ArrayList<Map<String, String>>();
-	B00V00HisXianAdapter hisAdapter;
+//	B00V00HisXianAdapter hisAdapter;
 
 	// 所有显示的线路信息
 	List<Bus> showBuses = new ArrayList<Bus>();
@@ -122,7 +121,7 @@ public class B00v00XianluView {
 			// dbHelper = new BusOperatingHelper(context);
 			// 查询所有线路信息
 			buses = HuanchengUtil.getAllBuses(context);
-//
+
 //			hisAdapter = new B00V00HisXianAdapter(context, hisData,
 //					R.layout.b00v00_xianli_item, from, to);
 
@@ -206,7 +205,7 @@ public class B00v00XianluView {
 
 		historyList = (SwipeListView) mainView
 				.findViewById(R.id.b00v00XianluList);
-		historyList.setAdapter(hisAdapter);
+//		historyList.setAdapter(hisAdapter);
 
 		// 启动时调用
 		onStart();
@@ -295,8 +294,8 @@ public class B00v00XianluView {
 				hisBuses.add(hisBus);
 			}
 		}
-
-		// 更新ListView
-		hisAdapter.notifyDataSetChanged();
+//
+//		// 更新ListView
+//		hisAdapter.notifyDataSetChanged();
 	}
 }

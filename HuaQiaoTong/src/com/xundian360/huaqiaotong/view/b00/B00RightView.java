@@ -3,6 +3,7 @@
  */
 package com.xundian360.huaqiaotong.view.b00;
 
+import org.taptwo.android.widget.CircleFlowIndicator;
 import org.taptwo.android.widget.ViewFlow;
 
 import android.app.Activity;

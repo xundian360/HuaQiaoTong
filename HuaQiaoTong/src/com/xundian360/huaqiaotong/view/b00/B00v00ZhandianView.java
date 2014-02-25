@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+import com.fortysevendeg.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V03Activity;
 import com.xundian360.huaqiaotong.adapter.b00.B00v00ZhandianAdapter;
@@ -29,7 +30,6 @@ import com.xundian360.huaqiaotong.modle.b00.Station;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.ViewUtils;
-import com.xundian360.huaqiaotong.view.swipelist.SwipeListView;
 
 /**
  * 站点视图

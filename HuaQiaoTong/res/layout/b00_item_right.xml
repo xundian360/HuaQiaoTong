@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" >
 
-                <com.xundian360.huaqiaotong.view.b00.CircleFlowIndicator
+                <org.taptwo.android.widget.CircleFlowIndicator
                     android:id="@+id/b00ViewFlowinDic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
