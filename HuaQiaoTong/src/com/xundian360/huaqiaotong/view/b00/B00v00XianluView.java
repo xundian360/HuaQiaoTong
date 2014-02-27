@@ -122,7 +122,7 @@ public class B00v00XianluView {
 			// 查询所有线路信息
 			buses = HuanchengUtil.getAllBuses(context);
 
-//			hisAdapter = new B00V00HisXianAdapter(context, hisData,
+//			                                                                                                                                                                 = new B00V00HisXianAdapter(context, hisData,
 //					R.layout.b00v00_xianli_item, from, to);
 
 			// 设置数据源
