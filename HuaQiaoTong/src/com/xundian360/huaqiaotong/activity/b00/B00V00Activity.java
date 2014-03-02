@@ -83,6 +83,16 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 
 	// 公交到这里
 	Baidu goHereObj;
+	
+
+	/**
+	 * 启动时调用
+	 */
+	public void onStart() {
+		super.onStart();
+		xianluView.onStart();
+		zhandianView.onStart();
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

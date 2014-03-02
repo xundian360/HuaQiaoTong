@@ -5,6 +5,7 @@ package com.xundian360.huaqiaotong.modle.b00;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 /**
  * 存储历史记录
@@ -42,6 +43,16 @@ public class BusSavingModle {
 		xianluIds = settings.getString(BUS_SAVING_XIANLU_KEY, "");
 		zhandianIds = settings.getString(BUS_SAVING_ZHANDIAN_KEY, "");
 	}
+	
+	public void save() {
+
+		Editor editor = this.settings.edit();
+
+		editor.putString(BUS_SAVING_XIANLU_KEY, xianluIds);
+		editor.putString(BUS_SAVING_ZHANDIAN_KEY, zhandianIds);
+		editor.commit();
+	}
+
 
 	public String getXianluIds() {
 		return xianluIds;

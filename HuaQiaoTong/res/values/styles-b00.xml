@@ -6,6 +6,24 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+        <style name="ListBackContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/com_transparent</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ListFrontContent">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/com_transparent</item>
+    </style>
+
+    <style name="ListButtonAction">
+        <item name="android:layout_margin">10dp</item>
+    </style>
+    
+    
     <style name="MainNavBgSub">
         <item name="android:orientation">vertical</item>
         <item name="android:paddingBottom">20dp</item>

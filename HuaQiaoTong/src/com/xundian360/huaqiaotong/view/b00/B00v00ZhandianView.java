@@ -18,14 +18,18 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 import com.fortysevendeg.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V03Activity;
+import com.xundian360.huaqiaotong.adapter.b00.B00V00HisXianAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.B00v00ZhandianAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.SearchAdapter;
+import com.xundian360.huaqiaotong.modle.b00.Bus;
+import com.xundian360.huaqiaotong.modle.b00.BusSavingModle;
 import com.xundian360.huaqiaotong.modle.b00.Station;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
@@ -52,6 +56,8 @@ public class B00v00ZhandianView {
 	Button zhanDianSearchBtn;
 	// 搜索历史记录
 	SwipeListView historyList;
+	// 线路明细
+	LinearLayout zhandianDtailLayout;
 
 	// 站点Adapter
 	SearchAdapter<String> zhandianAdapter;
@@ -61,6 +67,11 @@ public class B00v00ZhandianView {
 	// 所有站点信息
 	List<Station> stations = new ArrayList<Station>();
 	String[] stationNames;
+	
+	// 历史线路信息
+	List<Station> hisStations = new ArrayList<Station>();
+	List<Map<String, String>> hisData = new ArrayList<Map<String, String>>();
+	B00V00HisXianAdapter hisAdapter;
 
 	// 所有站点信息
 	List<Station> shoucangStations;
@@ -72,6 +83,9 @@ public class B00v00ZhandianView {
 	Station searchStation = null;
 
 	Handler _handler = new Handler();
+	
+	// 存储历史记录
+	BusSavingModle busSaving;
 
 	public B00v00ZhandianView(Context context) {
 
@@ -197,6 +211,8 @@ public class B00v00ZhandianView {
 
 		inputDelete = (ImageView) mainView
 				.findViewById(R.id.b00v00ZhandianDelete);
+		
+		zhandianDtailLayout = (LinearLayout) mainView.findViewById(R.id.b00v00ZhandianDtailLayout);
 
 		// 设置删除按钮的显隐性
 		ViewUtils.inputMonitor(zhanDianText, inputDelete);
@@ -275,9 +291,16 @@ public class B00v00ZhandianView {
 		@Override
 		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
-
+			
 			// 设置检索站点对象
-			searchStation = showStations.get(arg2);
+			String searchText = zhandianAdapter.getItem(arg2);
+			
+			for (int i = 0; i < stationNames.length; i++) {
+				if(stationNames[i].equals(searchText)) {
+					searchStation = stations.get(arg2);
+					break;
+				}
+			}
 		}
 	};
 
@@ -291,7 +314,33 @@ public class B00v00ZhandianView {
 	/**
 	 * 启动时调用
 	 */
-	private void onStart() {
-
+	public void onStart() {
+		
+		// 设置历史线路
+		setHisadapter();
+		
+		// 判断是否显示说明
+		if(hisData.size() > 0) {
+			zhandianDtailLayout.setVisibility(View.GONE);
+		} else {
+			zhandianDtailLayout.setVisibility(View.VISIBLE);
+		}
+	}
+	
+	/**
+	 * 设置历史线路
+	 */
+	private void setHisadapter() {
+		busSaving.read();
+		hisStations.clear();
+		hisData.clear();
+		
+		// 加载存储的历史记录
+		String[] stationIds = busSaving.getZhandianIds().split(
+				BusSavingModle.SEPARATOR);
+		
+		
+		
+		
 	}
 }

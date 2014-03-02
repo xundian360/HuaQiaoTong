@@ -3,9 +3,9 @@ package com.xundian360.huaqiaotong;
 import org.taptwo.android.widget.FlowIndicator;
 import org.taptwo.android.widget.ViewFlow;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -27,7 +27,7 @@ import com.xundian360.huaqiaotong.util.UserUtils;
  * @date 2013年11月10日
  * @version 1.0
  */
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity  {
 
 	// 个人中心按钮
 	ImageButton meBtn;
