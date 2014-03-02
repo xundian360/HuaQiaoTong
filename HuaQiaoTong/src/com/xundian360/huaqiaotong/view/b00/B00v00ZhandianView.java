@@ -24,16 +24,17 @@ import android.widget.TextView.OnEditorActionListener;
 
 import com.fortysevendeg.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
 import com.xundian360.huaqiaotong.activity.b00.B00V03Activity;
-import com.xundian360.huaqiaotong.adapter.b00.B00V00HisXianAdapter;
+import com.xundian360.huaqiaotong.adapter.b00.B00V00HisZdAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.B00v00ZhandianAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.SearchAdapter;
-import com.xundian360.huaqiaotong.modle.b00.Bus;
 import com.xundian360.huaqiaotong.modle.b00.BusSavingModle;
 import com.xundian360.huaqiaotong.modle.b00.Station;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.ViewUtils;
+import com.xundian360.huaqiaotong.util.b00.HuanchengUtil;
 
 /**
  * 站点视图
@@ -71,7 +72,7 @@ public class B00v00ZhandianView {
 	// 历史线路信息
 	List<Station> hisStations = new ArrayList<Station>();
 	List<Map<String, String>> hisData = new ArrayList<Map<String, String>>();
-	B00V00HisXianAdapter hisAdapter;
+	B00V00HisZdAdapter hisAdapter;
 
 	// 所有站点信息
 	List<Station> shoucangStations;
@@ -102,6 +103,12 @@ public class B00v00ZhandianView {
 	 * 初始化数据
 	 */
 	private void initData() {
+		
+		hisAdapter = new B00V00HisZdAdapter(context, hisStations, hisData, 
+				R.layout.b00v00_zhandian_his_item, B00V00HisZdAdapter.from, B00V00HisZdAdapter.to);
+		
+		busSaving = new BusSavingModle(context);
+		
 		// 加载数据
 		new Thread(laodData).start();
 	}
@@ -130,6 +137,9 @@ public class B00v00ZhandianView {
 							stationNames, SearchAdapter.ALL);// 速度优先
 
 					zhanDianText.setAdapter(zhandianAdapter);
+					
+					// 设置历史站点信息
+					onStart();
 				}
 			}, 1000);
 		}
@@ -144,12 +154,9 @@ public class B00v00ZhandianView {
 
 		List<Station> stationsR = new ArrayList<Station>();
 
-		String[] stationId = context.getResources().getStringArray(
-				R.array.b00_station_id);
-		String[] stationName = context.getResources().getStringArray(
-				R.array.b00_station_name);
-		String[] stationDir = context.getResources().getStringArray(
-				R.array.b00_station_dir);
+		String[] stationId = context.getResources().getStringArray(R.array.b00_station_id);
+		String[] stationName = context.getResources().getStringArray(R.array.b00_station_name);
+		String[] stationDir = context.getResources().getStringArray(R.array.b00_station_dir);
 
 		for (int i = 0; i < stationId.length; i++) {
 
@@ -221,9 +228,12 @@ public class B00v00ZhandianView {
 				.findViewById(R.id.b00v00ZhanDianSearchBtn);
 		zhanDianSearchBtn.setOnClickListener(zhanDianSearchClick);
 
-		historyList = (SwipeListView) mainView
-				.findViewById(R.id.b00v00ZhanDianList);
-
+		historyList = (SwipeListView) mainView.findViewById(R.id.b00v00ZhanDianList);
+		historyList.setAdapter(hisAdapter);
+		
+		historyList.setAnimationTime(B00V00Activity.HIS_ANIMATION_TIME); 
+		historyList.setOffsetLeft(CommonUtil.convertDpToPixel(context, B00V00Activity.HIS_OFFSET_LEFT));
+		
 		// 启动时调用
 		onStart();
 	}
@@ -277,6 +287,12 @@ public class B00v00ZhandianView {
 			in.putExtra(B00V03Activity.STATION_KEY, searchStation);
 
 			CommonUtil.startActivityForResult(context, in, 100);
+			
+//			// 设置历史线路信息
+//			if(!busSaving.getZhandianIds().contains(searchStation.getStationId())) {
+//				busSaving.setZhandianIds(busSaving.getZhandianIds() + BusSavingModle.SEPARATOR +searchStation.getStationId());
+//				busSaving.save();
+//			}
 
 		} else {
 			ShowMessageUtils.show(context, "请输入检索站点");
@@ -297,7 +313,7 @@ public class B00v00ZhandianView {
 			
 			for (int i = 0; i < stationNames.length; i++) {
 				if(stationNames[i].equals(searchText)) {
-					searchStation = stations.get(arg2);
+					searchStation = stations.get(i);
 					break;
 				}
 			}
@@ -336,11 +352,35 @@ public class B00v00ZhandianView {
 		hisData.clear();
 		
 		// 加载存储的历史记录
-		String[] stationIds = busSaving.getZhandianIds().split(
-				BusSavingModle.SEPARATOR);
+		String[] stationIds = busSaving.getZhandianIds().split(BusSavingModle.SEPARATOR);
+		String[] stationNames = busSaving.getZhandianNames().split(BusSavingModle.SEPARATOR);
 		
+		if (stationIds != null && stationIds.length > 0) {
+			for (int i = 0; i < stationIds.length; i++) {
+				
+				String stationId = stationIds[i];
+				
+				// 设置历史站点信息
+				Station hisStation = HuanchengUtil.getStationById(stations, stationId);
+				
+				if(hisStation == null) {
+					continue;
+				}
+				
+				hisStations.add(hisStation);
+				
+				// 设置历史线路Adapter 数据
+				Map<String, String> hisDataItem = new HashMap<String, String>();
+				
+				hisDataItem.put(B00V00HisZdAdapter.from[0], hisStation.getName());
+				hisDataItem.put(B00V00HisZdAdapter.from[1], hisStation.getDirection() + "站台");
+				hisDataItem.put(B00V00HisZdAdapter.from[2], stationNames[i]);
+				
+				hisData.add(hisDataItem);
+			}
+		}
 		
-		
-		
+		// 更新ListView
+		hisAdapter.notifyDataSetChanged();
 	}
 }

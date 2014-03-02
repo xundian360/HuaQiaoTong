@@ -78,6 +78,22 @@ public class B00V00HisXianAdapter extends SimpleAdapter {
 				data.add(0, dateItem);
 				hisBuses.add(0, bus);
 				
+				busSaving.read();
+				
+				// 加载存储的历史记录
+				StringBuffer xianluIdsB = new StringBuffer();
+				
+				for (int i = 0; i < hisBuses.size(); i++) {
+					xianluIdsB.append(hisBuses.get(i).getRouteId() + BusSavingModle.SEPARATOR);
+				}
+				
+				// 移除最后一个分隔符
+				if(xianluIdsB.length() > 0) {
+					busSaving.setXianluIds(xianluIdsB.substring(0, xianluIdsB.length() - 1));
+				}
+				
+				busSaving.save();
+				
 				notifyDataSetChanged();
 			}
 		});
@@ -89,13 +105,25 @@ public class B00V00HisXianAdapter extends SimpleAdapter {
 			@Override
 			public void onClick(View v) {
 				
-				Bus bus = hisBuses.get(position);
-				
 				data.remove(position);
 				hisBuses.remove(position);
 				
 				busSaving.read();
-				busSaving.setXianluIds(busSaving.getXianluIds().replace(BusSavingModle.SEPARATOR + bus.getRouteId(), ""));
+				
+				// 加载存储的历史记录
+				StringBuffer xianluIdsB = new StringBuffer();
+				
+				for (int i = 0; i < hisBuses.size(); i++) {
+					xianluIdsB.append(hisBuses.get(i).getRouteId() + BusSavingModle.SEPARATOR);
+				}
+				
+				// 移除最后一个分隔符
+				if(xianluIdsB.length() > 0) {
+					busSaving.setXianluIds(xianluIdsB.substring(0, xianluIdsB.length() - 1));
+				} else {
+					busSaving.setXianluIds("");
+				}
+				
 				busSaving.save();
 				
 				notifyDataSetChanged();

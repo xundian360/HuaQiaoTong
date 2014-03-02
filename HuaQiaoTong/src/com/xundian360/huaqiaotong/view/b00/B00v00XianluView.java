@@ -27,6 +27,7 @@ import android.widget.TextView.OnEditorActionListener;
 import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
 import com.fortysevendeg.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
 import com.xundian360.huaqiaotong.activity.b00.B00V02Activity;
 import com.xundian360.huaqiaotong.adapter.b00.B00V00HisXianAdapter;
 import com.xundian360.huaqiaotong.adapter.b00.B00v00XianluAdapter;
@@ -111,6 +112,8 @@ public class B00v00XianluView {
 	private void initData() {
 
 		busSaving = new BusSavingModle(context);
+		hisAdapter = new B00V00HisXianAdapter(context, 
+				hisBuses, hisData,R.layout.b00v00_xianlu_his_item, B00V00HisXianAdapter.from, B00V00HisXianAdapter.to);
 
 		// 加载数据
 		new Thread(laodData).start();
@@ -128,9 +131,6 @@ public class B00v00XianluView {
 			// 查询所有线路信息
 			buses = HuanchengUtil.getAllBuses(context);
 
-			hisAdapter = new B00V00HisXianAdapter(context, 
-					hisBuses, hisData,R.layout.b00v00_xianli_item, B00V00HisXianAdapter.from, B00V00HisXianAdapter.to);
-
 			// 设置数据源
 			setAdapterData(null);
 
@@ -147,6 +147,9 @@ public class B00v00XianluView {
 					
 					xianluText.setAdapter(xianluAdapter);
 					// xianluAdapter.notifyDataSetChanged();
+					
+					// 设置历史线路信息
+					onStart();
 				}
 			}, 1000);
 		}
@@ -247,17 +250,11 @@ public class B00v00XianluView {
 		
 		historyList.setAdapter(hisAdapter);
 		
-		historyList.setAnimationTime(200); 
-		historyList.setOffsetLeft(convertDpToPixel(150));
+		historyList.setAnimationTime(B00V00Activity.HIS_ANIMATION_TIME); 
+		historyList.setOffsetLeft(CommonUtil.convertDpToPixel(context, B00V00Activity.HIS_OFFSET_LEFT));
 		
 	}
 	
-    public int convertDpToPixel(float dp) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        float px = dp * (metrics.densityDpi / 160f);
-        return (int) px;
-    }
-
 	/**
 	 * 开始搜索
 	 */
@@ -304,7 +301,13 @@ public class B00v00XianluView {
 			
 			// 设置历史线路信息
 			if(!busSaving.getXianluIds().contains(searchBus.getRouteId())) {
-				busSaving.setXianluIds(busSaving.getXianluIds() + BusSavingModle.SEPARATOR +searchBus.getRouteId());
+				
+				if(busSaving.getXianluIds().length() > 0) {
+					busSaving.setXianluIds(busSaving.getXianluIds() + BusSavingModle.SEPARATOR +searchBus.getRouteId());
+				} else {
+					busSaving.setXianluIds(searchBus.getRouteId());
+				}
+				
 				busSaving.save();
 			}
 			
@@ -366,8 +369,7 @@ public class B00v00XianluView {
 		hisData.clear();
 		
 		// 加载存储的历史记录
-		String[] busIds = busSaving.getXianluIds().split(
-				BusSavingModle.SEPARATOR);
+		String[] busIds = busSaving.getXianluIds().split(BusSavingModle.SEPARATOR);
 
 		if (busIds != null && busIds.length > 0) {
 			for (String busId : busIds) {

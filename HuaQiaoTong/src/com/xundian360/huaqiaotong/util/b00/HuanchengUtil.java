@@ -22,6 +22,12 @@ import com.xundian360.huaqiaotong.util.BaiduUtil;
  * @version 1.0
  */
 public class HuanchengUtil extends BaiduUtil {
+	
+	// 所有公交信息，放入内存
+	public static List<Bus> busesAll;
+	
+	// 所有站点信息，放入内存
+	public static List<Station> stationsAll;
 
 	/**
 	 * 根据公交线路，取得站点信息
@@ -31,58 +37,63 @@ public class HuanchengUtil extends BaiduUtil {
 	 * @return
 	 */
 	public static List<Station> getBusStation(Context context, Bus bus) {
+		
+		if(stationsAll == null || stationsAll.size() <= 0) {
+			stationsAll = new ArrayList<Station>();
 
-		List<Station> stations = new ArrayList<Station>();
+			// 该车辆在数组中的位置
+			int busIndex = bus.getIndex();
 
-		// 该车辆在数组中的位置
-		int busIndex = bus.getIndex();
+			String[] stationIds = context.getResources().getStringArray(
+					BusLineConstant.line_station_id_corr[busIndex]);
 
-		String[] stationIds = context.getResources().getStringArray(
-				BusLineConstant.line_station_id_corr[busIndex]);
+			String[] stationNames = context.getResources().getStringArray(
+					BusLineConstant.line_station_corr[busIndex]);
 
-		String[] stationNames = context.getResources().getStringArray(
-				BusLineConstant.line_station_corr[busIndex]);
+			for (int i = 0; i < stationNames.length; i++) {
 
-		for (int i = 0; i < stationNames.length; i++) {
+				Station station = new Station();
 
-			Station station = new Station();
+				station.set_id(stationIds[i]);
+				station.setName(stationNames[i]);
+				station.setStationId(stationIds[i]);
 
-			station.set_id(stationIds[i]);
-			station.setName(stationNames[i]);
-			station.setStationId(stationIds[i]);
-
-			stations.add(station);
+				stationsAll.add(station);
+			}	
 		}
-
-		return stations;
+		
+		return stationsAll;
 	}
-
+	
 	/**
 	 * 
 	 * @param context
 	 * @return
 	 */
 	public static List<Bus> getAllBuses(Context context) {
-		List<Bus> busesR = new ArrayList<Bus>();
+		
+		if(busesAll == null || busesAll.size() <= 0) {
+			busesAll = new ArrayList<Bus>();
 
-		String[] buseids = context.getResources().getStringArray(
-				R.array.b00_line_id);
-		String[] buseNames = context.getResources().getStringArray(
-				R.array.b00_line_key);
-		String[] buseDir = context.getResources().getStringArray(
-				R.array.b00_line_dir);
-		String[] buseStart = context.getResources().getStringArray(
-				R.array.b00_line_start);
+			String[] buseids = context.getResources().getStringArray(
+					R.array.b00_line_id);
+			String[] buseNames = context.getResources().getStringArray(
+					R.array.b00_line_key);
+			String[] buseDir = context.getResources().getStringArray(
+					R.array.b00_line_dir);
+			String[] buseStart = context.getResources().getStringArray(
+					R.array.b00_line_start);
 
-		for (int i = 0; i < buseids.length; i++) {
+			for (int i = 0; i < buseids.length; i++) {
 
-			Bus bus = new Bus(buseids[i], buseNames[i], buseNames[i],
-					buseStart[i], buseDir[i], buseDir[i], i);
+				Bus bus = new Bus(buseids[i], buseNames[i], buseNames[i],
+						buseStart[i], buseDir[i], buseDir[i], i);
 
-			busesR.add(bus);
+				busesAll.add(bus);
+			}
 		}
-
-		return busesR;
+		
+		return busesAll;
 	}
 
 	/**
@@ -96,6 +107,22 @@ public class HuanchengUtil extends BaiduUtil {
 		for (Bus bus : allBuses) {
 			if (bus.getRouteId().equals(busId)) {
 				return bus;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * 根据ID取得站点信息
+	 * 
+	 * @param allBuses
+	 * @param busId
+	 */
+	public static Station getStationById(List<Station> stations,
+			String stationId) {
+		for (Station station : stations) {
+			if(station.getStationId().equals(stationId)) {
+				return station;
 			}
 		}
 		return null;

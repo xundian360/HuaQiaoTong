@@ -16,6 +16,7 @@ import android.content.SharedPreferences.Editor;
 public class BusSavingModle {
 	
 	public static final String SEPARATOR = ",";
+	public static final String ZHANDIN_SEPARATOR = "，";
 	
 	private static final String BUS_SAVING_KEY = "com.xundian360.huaqiaotong.bus.key";
 	
@@ -23,10 +24,14 @@ public class BusSavingModle {
 	
 	private static final String BUS_SAVING_ZHANDIAN_KEY = "com.xundian360.huaqiaotong.bus.zhandian.key";
 	
+	private static final String BUS_SAVING_ZHANDIAN_NAME_KEY = "com.xundian360.huaqiaotong.bus.zhandian.name.key";
+	
 	// 线路ID
 	private String xianluIds;
 	// 站点ID
 	private String zhandianIds;
+	// 站点Name
+	private String zhandianNames;
 	
 	// 存储分享信息
 	SharedPreferences settings = null;
@@ -42,6 +47,7 @@ public class BusSavingModle {
 	public void read() {
 		xianluIds = settings.getString(BUS_SAVING_XIANLU_KEY, "");
 		zhandianIds = settings.getString(BUS_SAVING_ZHANDIAN_KEY, "");
+		zhandianNames = settings.getString(BUS_SAVING_ZHANDIAN_NAME_KEY, "");
 	}
 	
 	public void save() {
@@ -50,9 +56,9 @@ public class BusSavingModle {
 
 		editor.putString(BUS_SAVING_XIANLU_KEY, xianluIds);
 		editor.putString(BUS_SAVING_ZHANDIAN_KEY, zhandianIds);
+		editor.putString(BUS_SAVING_ZHANDIAN_NAME_KEY, zhandianNames);
 		editor.commit();
 	}
-
 
 	public String getXianluIds() {
 		return xianluIds;
@@ -68,6 +74,14 @@ public class BusSavingModle {
 
 	public void setZhandianIds(String zhandianIds) {
 		this.zhandianIds = zhandianIds;
+	}
+
+	public String getZhandianNames() {
+		return zhandianNames;
+	}
+
+	public void setZhandianNames(String zhandianNames) {
+		this.zhandianNames = zhandianNames;
 	}
 	
 }

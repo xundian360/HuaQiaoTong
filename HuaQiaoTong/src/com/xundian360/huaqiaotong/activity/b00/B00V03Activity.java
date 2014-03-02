@@ -17,12 +17,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.adapter.b00.B00V03StationAdapter;
+import com.xundian360.huaqiaotong.modle.b00.BusSavingModle;
 import com.xundian360.huaqiaotong.modle.b00.NetStation;
 import com.xundian360.huaqiaotong.modle.b00.NetStationItem;
 import com.xundian360.huaqiaotong.modle.b00.Station;
@@ -79,6 +79,9 @@ public class B00V03Activity extends ComNoTittleActivity {
 	// BusOperatingHelper busDbHelper;
 	//
 	// StationOperatingHelper stationDbHelper;
+	
+	// 存储历史记录
+	BusSavingModle busSaving;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +113,8 @@ public class B00V03Activity extends ComNoTittleActivity {
 
 		// 从网上加载公交信息
 		getDataFromNet();
-
+		
+		busSaving = new BusSavingModle(this);
 	}
 
 	/**
@@ -155,22 +159,17 @@ public class B00V03Activity extends ComNoTittleActivity {
 				public void run() {
 
 					try {
-						buses = B00v00BusUtil.getInfoOfStation(
-								B00V03Activity.this, station.getStationId());
+						buses = B00v00BusUtil.getInfoOfStation(B00V03Activity.this, station.getStationId());
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} finally {
-
 						// 设置UI或消息提示(异步)
 						_handler.post(new Runnable() {
-
 							@Override
 							public void run() {
-
 								// 设置数据源
 								setDateSource();
-
 								// 更新车辆信息UI(ListView)
 								adapter.notifyDataSetChanged();
 							}
@@ -188,7 +187,10 @@ public class B00V03Activity extends ComNoTittleActivity {
 
 		// 设置数据源
 		if (buses != null) {
-
+			
+			// 经过的站点名称
+			StringBuffer stationNames = new StringBuffer();
+			
 			// 排序
 			Collections.sort(buses);
 
@@ -199,10 +201,13 @@ public class B00V03Activity extends ComNoTittleActivity {
 				Map<String, String> dataItem = new HashMap<String, String>();
 
 				List<NetStationItem> stationItems = bus.getStationItems();
+				
+				String stationName = bus.getRouteName();
+				stationNames.append(stationName + BusSavingModle.ZHANDIN_SEPARATOR);
 
 				// 设置车辆信息
 				for (NetStationItem netStationItem : stationItems) {
-
+					
 					// 设置车辆名称
 					dataItem.put(from[0], bus.getRouteName());
 
@@ -211,40 +216,52 @@ public class B00V03Activity extends ComNoTittleActivity {
 
 					// 未发车
 					if (NetStationItem.STOPCOUNT_0.equals(stopCount)) {
-						dataItem.put(from[1],
-								getString(R.string.b00v03_stopcount_0_text));
+						dataItem.put(from[1], getString(R.string.b00v03_stopcount_0_text));
 						dataItem.put(from[2], "");
 						dataItem.put(from[3], "");
 					}
 
 					// 今日运营结束
 					else if (NetStationItem.STOPCOUNT_1.equals(stopCount)) {
-						dataItem.put(from[1],
-								getString(R.string.b00v03_stopcount_1_text));
+						dataItem.put(from[1], getString(R.string.b00v03_stopcount_1_text));
 						dataItem.put(from[2], "");
 						dataItem.put(from[3], "");
 					}
 
 					// 查询中
 					else if (NetStationItem.STOPCOUNT_2.equals(stopCount)) {
-						dataItem.put(from[1],
-								getString(R.string.b00v03_stopcount_2_text));
+						dataItem.put(from[1], getString(R.string.b00v03_stopcount_2_text));
 						dataItem.put(from[2], "");
 						dataItem.put(from[3], "");
 					}
 
 					// 设置时间
 					else {
-						dataItem.put(from[1], netStationItem.getTime()
-								+ getString(R.string.unit_fenzhong));
-						dataItem.put(from[2],
-								getString(R.string.b00v03_item_bus_1_text));
-						dataItem.put(from[3],
-								getString(R.string.b00v03_item_bus_2_text));
+						dataItem.put(from[1], netStationItem.getTime() + getString(R.string.unit_fenzhong));
+						dataItem.put(from[2], getString(R.string.b00v03_item_bus_1_text));
+						dataItem.put(from[3], getString(R.string.b00v03_item_bus_2_text));
 					}
 				}
 
 				data.add(dataItem);
+			}
+			
+			// 添加到存储对象
+			if(!busSaving.getZhandianIds().contains(station.getStationId())) {
+				
+				if(stationNames.length() > 0) {
+					String stationNamesValue = stationNames.substring(0, stationNames.length() - 1);
+					
+					if(busSaving.getZhandianNames().length() > 0) {
+						busSaving.setZhandianNames(busSaving.getZhandianNames() + BusSavingModle.SEPARATOR +stationNamesValue);
+						busSaving.setZhandianIds(busSaving.getZhandianIds() + BusSavingModle.SEPARATOR +station.getStationId());
+					} else {
+						busSaving.setZhandianNames(stationNamesValue);
+						busSaving.setZhandianIds(station.getStationId());
+					}
+
+					busSaving.save();
+				}
 			}
 		}
 	}
@@ -256,7 +273,6 @@ public class B00V03Activity extends ComNoTittleActivity {
 
 		@Override
 		public void onClick(View arg0) {
-
 			onBackPressed();
 		}
 	};

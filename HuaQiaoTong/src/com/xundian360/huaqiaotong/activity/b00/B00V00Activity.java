@@ -43,6 +43,11 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 	private static final int XIANLU_SELECT = 1;
 	// 站点查询
 	private static final int HUANCHENG_SELECT = 2;
+	
+	// 历史滑动动画时间
+	public static final int HIS_ANIMATION_TIME = 200;
+	// 历史滑动偏移
+	public static final int HIS_OFFSET_LEFT = 150;
 
 	// 当前选择的项目
 	private int currentSelect = XIANLU_SELECT;

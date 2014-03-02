@@ -33,6 +33,8 @@
     
     <color name="b00_v00_his_d_color">#FF999999</color>
     
+    <color name="b00_v00_his_zd_tittle_color">#FFD4151B</color>
+    
     <color name="b00_v00_b_text_color_0">#FF5A5954</color>
     <color name="b00_v00_b_text_color_1">#FF007EFB</color>
     <color name="b00_v00_line_color">#FFC7C4BE</color>
