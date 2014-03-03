@@ -7,19 +7,22 @@ import java.util.List;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.xundian360.huaqiaotong.R;
 
 /**
@@ -42,7 +45,7 @@ public class B00v00ImgDialog implements OnTouchListener {
 
 	ImageView preBtn;
 	ImageView nextBtn;
-
+	
 	// 图片缓存
 	DisplayImageOptions options = new DisplayImageOptions.Builder()
 			.showStubImage(R.drawable.b01v00_item_dafilt_img)
@@ -62,16 +65,12 @@ public class B00v00ImgDialog implements OnTouchListener {
 		initDaliogView(context);
 	}
 
-	GestureDetector imgFilter;
-
 	/**
 	 * 初始化视图
 	 */
 	private void initView() {
 
-		dialogView = LayoutInflater.from(context).inflate(
-				R.layout.b01v01_img_dialog_layout, null);
-		dialogView.setOnTouchListener(this);
+		dialogView = LayoutInflater.from(context).inflate(R.layout.b01v01_img_dialog_layout, null);
 
 		preBtn = (ImageView) dialogView.findViewById(R.id.b01v01DialogPre);
 		preBtn.setOnClickListener(preBtnClick);
@@ -79,20 +78,39 @@ public class B00v00ImgDialog implements OnTouchListener {
 		nextBtn = (ImageView) dialogView.findViewById(R.id.b01v01DialogNext);
 		nextBtn.setOnClickListener(nextBtnClick);
 
-		imgFilter = new GestureDetector(context, imgFilterListener);
-
 		imgs = (ViewFlipper) dialogView.findViewById(R.id.b01v01TittleImg);
+		imgs.setOnTouchListener(this);
+		
 
 		// 设置View
 		for (int i = 0; i < imgPath.size(); i++) {
 
 			ImageView img = new ImageView(context);
-			ImageLoader.getInstance()
-					.displayImage(imgPath.get(i), img, options);
-
-			imgs.addView(img, i);
+			ImageLoader.getInstance().displayImage(imgPath.get(i), img, options, imageLoadingListener);
+			
+			imgs.addView(img, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		}
 	}
+	
+	/**
+	 * Image完成加载事件
+	 */
+	ImageLoadingListener imageLoadingListener = new ImageLoadingListener() {
+		
+		@Override
+		public void onLoadingStarted(String arg0, View arg1) {}
+		
+		@Override
+		public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {}
+		
+		@Override
+		public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
+			arg1.setBackgroundDrawable(new BitmapDrawable(arg2));
+		}
+		
+		@Override
+		public void onLoadingCancelled(String arg0, View arg1) {}
+	};
 
 	/**
 	 * 上一张
@@ -101,10 +119,8 @@ public class B00v00ImgDialog implements OnTouchListener {
 
 		@Override
 		public void onClick(View v) {
-			imgs.setInAnimation(AnimationUtils.loadAnimation(context,
-					R.anim.push_left_in));
-			imgs.setOutAnimation(AnimationUtils.loadAnimation(context,
-					R.anim.push_right_out));
+			imgs.setInAnimation(AnimationUtils.loadAnimation(context, R.anim.push_left_in));
+			imgs.setOutAnimation(AnimationUtils.loadAnimation(context, R.anim.push_right_out));
 			imgs.showPrevious();
 		}
 	};
@@ -115,10 +131,8 @@ public class B00v00ImgDialog implements OnTouchListener {
 	OnClickListener nextBtnClick = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			imgs.setInAnimation(AnimationUtils.loadAnimation(context,
-					R.anim.push_right_in));
-			imgs.setOutAnimation(AnimationUtils.loadAnimation(context,
-					R.anim.push_left_out));
+			imgs.setInAnimation(AnimationUtils.loadAnimation(context, R.anim.push_right_in));
+			imgs.setOutAnimation(AnimationUtils.loadAnimation(context, R.anim.push_left_out));
 			imgs.showNext();
 		}
 	};
@@ -144,53 +158,6 @@ public class B00v00ImgDialog implements OnTouchListener {
 		imgs.setDisplayedChild(selectImg);
 	}
 
-	OnGestureListener imgFilterListener = new OnGestureListener() {
-		@Override
-		public boolean onSingleTapUp(MotionEvent e) {
-			return false;
-		}
-
-		@Override
-		public void onShowPress(MotionEvent e) {
-		}
-
-		@Override
-		public boolean onScroll(MotionEvent e1, MotionEvent e2,
-				float distanceX, float distanceY) {
-			return false;
-		}
-
-		@Override
-		public void onLongPress(MotionEvent e) {
-		}
-
-		@Override
-		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-				float velocityY) {
-			if (e1.getX() - e2.getX() > 120) {
-				imgs.setInAnimation(AnimationUtils.loadAnimation(context,
-						R.anim.push_left_in));
-				imgs.setOutAnimation(AnimationUtils.loadAnimation(context,
-						R.anim.push_left_out));
-				imgs.showNext();
-				return true;
-			} else if (e1.getX() - e2.getX() < -120) {
-				imgs.setInAnimation(AnimationUtils.loadAnimation(context,
-						R.anim.push_right_in));
-				imgs.setOutAnimation(AnimationUtils.loadAnimation(context,
-						R.anim.push_right_out));
-				imgs.showPrevious();
-				return true;
-			}
-			return false;
-		}
-
-		@Override
-		public boolean onDown(MotionEvent e) {
-			return false;
-		}
-	};
-
 	/**
 	 * 隐藏Dialog
 	 */
@@ -200,8 +167,33 @@ public class B00v00ImgDialog implements OnTouchListener {
 		}
 	}
 
+    private float touchDownX;  // 手指按下的X坐标
+    private float touchUpX;  //手指松开的X坐标
+    
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
-		return imgFilter.onTouchEvent(event);
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            // 取得左右滑动时手指按下的X坐标
+            touchDownX = event.getX();
+            return true;
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            // 取得左右滑动时手指松开的X坐标
+            touchUpX = event.getX();
+            
+            if (touchUpX - touchDownX > 100) {
+            	// 从左往右，看前一个View
+    			imgs.setInAnimation(AnimationUtils.loadAnimation(context, R.anim.push_left_in));
+    			imgs.setOutAnimation(AnimationUtils.loadAnimation(context, R.anim.push_right_out));
+    			imgs.showPrevious();
+            } else if (touchDownX - touchUpX > 100) {
+            	// 从右往左，看后一个View
+    			imgs.setInAnimation(AnimationUtils.loadAnimation(context, R.anim.push_right_in));
+    			imgs.setOutAnimation(AnimationUtils.loadAnimation(context, R.anim.push_left_out));
+    			imgs.showNext();
+            }
+            return true;
+        }
+        return false;
 	}
+
 }

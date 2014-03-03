@@ -22,7 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.fortysevendeg.android.swipelistview.SwipeListView;
+import com.fortysevendeg.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
 import com.xundian360.huaqiaotong.activity.b00.B00V03Activity;

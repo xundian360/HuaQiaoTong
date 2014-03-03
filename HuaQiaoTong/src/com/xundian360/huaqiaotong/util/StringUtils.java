@@ -411,5 +411,26 @@ public class StringUtils {
 		}
 		return re.toString();
 	}
-
+	
+	/**
+	 * 取得数组从Array中
+	 * @param imgPath
+	 * @return
+	 */
+	public static String[] getArrayFromList(List<String> imgPath) {
+		
+		String[] values = null;
+		
+		if(imgPath == null || imgPath.size() <= 0) {
+			return values;
+		} else {
+			values = new String[imgPath.size()];
+			
+			for (int i = 0; i < values.length; i++) {
+				String string = values[i];
+				values[i] = string;
+			}
+		}
+		return values;
+	}
 }

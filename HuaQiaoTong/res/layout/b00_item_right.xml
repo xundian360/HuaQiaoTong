@@ -11,12 +11,11 @@
         android:layout_height="wrap_content"
         android:background="@color/main_right_bg"
         android:orientation="vertical" >
-
-        <org.taptwo.android.widget.ViewFlow
+        
+        <ViewFlipper
             android:id="@+id/b00RightImgs"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:duplicateParentState="true" />
 
         <LinearLayout
@@ -38,14 +37,38 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" >
 
-                <org.taptwo.android.widget.CircleFlowIndicator
+                <LinearLayout
                     android:id="@+id/b00ViewFlowinDic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:padding="10dip"
-                    app:fadeOut="1000"
-                    app:inactiveType="fill" />
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/b00_right_img_s_1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/b00_right_img_s_0" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/b00_right_img_s_0" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/b00_right_img_s_0" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/b00_right_img_s_0" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -3,22 +3,21 @@
  */
 package com.xundian360.huaqiaotong.view.b00;
 
-import org.taptwo.android.widget.CircleFlowIndicator;
-import org.taptwo.android.widget.ViewFlow;
-
 import android.app.Activity;
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b03.B03V04Activity;
-import com.xundian360.huaqiaotong.adapter.b00.B00V00ImageAdapter;
 import com.xundian360.huaqiaotong.modle.b03.PostGroup;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 
@@ -29,20 +28,27 @@ import com.xundian360.huaqiaotong.util.CommonUtil;
  * @date 2013年10月12日
  * @version 1.0
  */
-public class B00RightView implements OnClickListener {
+public class B00RightView implements OnClickListener, OnTouchListener {
 
 	public static final int REQUEST_CODE = 100;
 
 	String[] testPicsDis = { "[新鲜事]北京遭遇雾霾1", "[新鲜事]北京遭遇雾霾2", "[新鲜事]北京遭遇雾霾3",
 			"[新鲜事]北京遭遇雾霾4", };
+	
+	int[] testPicsId = {
+			R.drawable.test_b03_0,
+			R.drawable.test_b03_1,
+			R.drawable.test_b03_2,
+			R.drawable.test_b03_3,
+	};
 
 	Context context;
 	View mainView;
 
 	// 头部图片
-	ViewFlow tittleImgs;
-	// 图片描述
-	CircleFlowIndicator indic;
+	ViewFlipper tittleImgs;
+	// 标点状态
+	LinearLayout viewFlowinDic;
 	// 头部图片描述
 	TextView tittleImgDis;
 	// 头部图片状态
@@ -60,9 +66,6 @@ public class B00RightView implements OnClickListener {
 	// 二手交易
 	Button ershouBtn;
 
-	// 数据源
-	B00V00ImageAdapter tittleImgsAdapter;
-
 	public B00RightView(Context context) {
 		this.context = context;
 
@@ -77,24 +80,25 @@ public class B00RightView implements OnClickListener {
 	 * 初始化数据
 	 */
 	private void initData() {
-
-		tittleImgsAdapter = new B00V00ImageAdapter(context);
 	}
 
 	/**
 	 * 初始化视图
 	 */
 	private void initView() {
-		mainView = ((Activity) context).getLayoutInflater().inflate(
-				R.layout.b00_item_right, null);
+		mainView = ((Activity) context).getLayoutInflater().inflate(R.layout.b00_item_right, null);
 
-		indic = (CircleFlowIndicator) mainView
-				.findViewById(R.id.b00ViewFlowinDic);
+		viewFlowinDic = (LinearLayout) mainView.findViewById(R.id.b00ViewFlowinDic);
 
-		tittleImgs = (ViewFlow) mainView.findViewById(R.id.b00RightImgs);
-		tittleImgs.setAdapter(tittleImgsAdapter, 5);
-		tittleImgs.setOnItemSelectedListener(tittleImgsSelected);
-		tittleImgs.setFlowIndicator(indic);
+		tittleImgs = (ViewFlipper) mainView.findViewById(R.id.b00RightImgs);
+		tittleImgs.setOnTouchListener(this);
+		
+		for (int i = 0; i < testPicsId.length; i++) {
+			ImageView img = new ImageView(context);
+			
+			img.setImageResource(testPicsId[i]);
+			tittleImgs.addView(img);
+		}
 
 		tittleImgDis = (TextView) mainView.findViewById(R.id.b00RightImgTittle);
 		tittleImgStatus = (LinearLayout) mainView
@@ -118,23 +122,23 @@ public class B00RightView implements OnClickListener {
 		ershouBtn = (Button) mainView.findViewById(R.id.b00RightEsBtn);
 		ershouBtn.setOnClickListener(this);
 	}
-
-	/**
-	 * 头部图片选中事件
-	 */
-	OnItemSelectedListener tittleImgsSelected = new OnItemSelectedListener() {
-		@Override
-		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
-				long arg3) {
-
-			// 设置图片标题
-			tittleImgDis.setText(testPicsDis[arg2]);
-		}
-
-		@Override
-		public void onNothingSelected(AdapterView<?> arg0) {
-		}
-	};
+//
+//	/**
+//	 * 头部图片选中事件
+//	 */
+//	OnItemSelectedListener tittleImgsSelected = new OnItemSelectedListener() {
+//		@Override
+//		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+//				long arg3) {
+//
+//			// 设置图片标题
+//			tittleImgDis.setText(testPicsDis[arg2]);
+//		}
+//
+//		@Override
+//		public void onNothingSelected(AdapterView<?> arg0) {
+//		}
+//	};
 
 	/**
 	 * 按钮点击事件
@@ -227,5 +231,34 @@ public class B00RightView implements OnClickListener {
 	 */
 	public View get() {
 		return mainView;
+	}
+	
+    private float touchDownX;  // 手指按下的X坐标
+    private float touchUpX;  //手指松开的X坐标
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            // 取得左右滑动时手指按下的X坐标
+            touchDownX = event.getX();
+            return true;
+        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+            // 取得左右滑动时手指松开的X坐标
+            touchUpX = event.getX();
+            
+            if (touchUpX - touchDownX > 100) {
+            	// 从左往右，看前一个View
+            	tittleImgs.setInAnimation(AnimationUtils.loadAnimation(context, R.anim.push_left_in));
+            	tittleImgs.setOutAnimation(AnimationUtils.loadAnimation(context, R.anim.push_right_out));
+            	tittleImgs.showPrevious();
+            } else if (touchDownX - touchUpX > 100) {
+            	// 从右往左，看后一个View
+            	tittleImgs.setInAnimation(AnimationUtils.loadAnimation(context, R.anim.push_right_in));
+    			tittleImgs.setOutAnimation(AnimationUtils.loadAnimation(context, R.anim.push_left_out));
+    			tittleImgs.showNext();
+            }
+            return true;
+        }
+        return false;
 	}
 }

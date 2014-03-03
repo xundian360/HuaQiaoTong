@@ -60,7 +60,7 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <com.fortysevendeg.android.swipelistview.SwipeListView
+    <com.fortysevendeg.swipelistview.SwipeListView
         android:id="@+id/b00v00ZhanDianList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

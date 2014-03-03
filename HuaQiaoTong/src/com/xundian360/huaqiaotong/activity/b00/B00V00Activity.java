@@ -141,13 +141,12 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 			// 换乘
 			if (goHereObj != null) {
 
-				// 设置底部按钮选中状态
-				xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
-				huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
+				// 设置换乘选中
+				setHuancheng();
+				
 				// 设置视图
 				mainLayout.addView(huanchengView.get(), 0);
-				((RelativeLayout.LayoutParams) mainLayout.getLayoutParams())
-						.setMargins(0, 0, 0, 0);
+				((RelativeLayout.LayoutParams) mainLayout.getLayoutParams()).setMargins(0, 0, 0, 0);
 
 				// 设置标题
 				tittle.setText(R.string.b00v00_switch_search);
@@ -353,26 +352,31 @@ public class B00V00Activity extends ComNoTittleBMapManActivity {
 			// xianluBtn.setBackgroundResource(R.color.comm_buttom_blue_0);
 			// huanChengBtn.setBackgroundResource(R.color.comm_buttom_blue_1);
 
-			// 设置图片
-			zhanDianImg.setImageResource(R.drawable.b00v00_zd_icon_0);
-			xianluImg.setImageResource(R.drawable.b00v00_xl_icon_0);
-			huanChengImg.setImageResource(R.drawable.b00v00_hc_icon_1);
-			// 设置文字颜色
-			zhanDianText.setTextColor(getResources().getColor(
-					R.color.b00_v00_b_text_color_0));
-			xianluText.setTextColor(getResources().getColor(
-					R.color.b00_v00_b_text_color_0));
-			huanChengText.setTextColor(getResources().getColor(
-					R.color.b00_v00_b_text_color_1));
+			// 设置换乘选中
+			setHuancheng();
 
 			break;
 
 		default:
 			break;
 		}
-
 	}
 
+	/**
+	 * 设置换乘选中
+	 */
+	private void setHuancheng() {
+		// 设置图片
+		zhanDianImg.setImageResource(R.drawable.b00v00_zd_icon_0);
+		xianluImg.setImageResource(R.drawable.b00v00_xl_icon_0);
+		huanChengImg.setImageResource(R.drawable.b00v00_hc_icon_1);
+		// 设置文字颜色
+		zhanDianText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+		xianluText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_0));
+		huanChengText.setTextColor(getResources().getColor(R.color.b00_v00_b_text_color_1));
+
+	}
+	
 	/**
 	 * 
 	 * 开启动画切换视图

@@ -73,7 +73,7 @@ public class B02v00CarDialog {
 	 */
 	private void initData() {
 		
-		dialog = new Dialog(context, R.style.ButtomDialogTheme);
+		dialog = new Dialog(context, R.style.B02v00DialogTheme);
 
 		// 设置数据源
 		setAdapterDate();

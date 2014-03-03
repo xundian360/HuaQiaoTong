@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     android:gravity="center"
@@ -9,24 +9,23 @@
     <ViewFlipper
         android:id="@+id/b01v01TittleImg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spacing="10dp" />
+        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/b01v01DialogPre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
+        android:paddingLeft="5dp"
         android:src="@drawable/b01v01_dialog_img_pre" />
 
     <ImageView
         android:id="@+id/b01v01DialogNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/b01v01TittleImg"
         android:layout_centerVertical="true"
-        android:paddingRight="10dp"
+        android:paddingRight="5dp"
         android:src="@drawable/b01v01_dialog_img_next" />
 
 </RelativeLayout>

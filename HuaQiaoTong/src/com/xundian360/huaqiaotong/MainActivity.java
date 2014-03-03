@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Scroller;
 import cn.sharesdk.framework.ShareSDK;
 
 import com.xundian360.huaqiaotong.activity.b04.B04V00Activity;
@@ -61,7 +62,7 @@ public class MainActivity extends FragmentActivity  {
 	 * 初始化数据
 	 */
 	private void initData() {
-
+		
 	}
 
 	/**
