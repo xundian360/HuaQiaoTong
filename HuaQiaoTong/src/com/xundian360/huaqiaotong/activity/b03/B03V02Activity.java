@@ -43,7 +43,6 @@ import com.xundian360.huaqiaotong.view.com.SimpleListDialog;
 
 /**
  * 帖子
- * 
  * @author Administrator
  * @date 2013年10月23日
  * @version 1.0
@@ -87,8 +86,6 @@ public class B03V02Activity extends ComNoTittleActivity {
 	List<String> picPaths = new ArrayList<String>();
 	private Uri photoUri;
 	private String picPath = null;
-
-	int index = 0;
 
 	// 进度条
 	CommonProgressDialog processDialog;
@@ -455,8 +452,7 @@ public class B03V02Activity extends ComNoTittleActivity {
 
 		// Log.d("test", ">>>>>>>>>>>>>>>>>>>>>1");
 
-		index++;
-		B03V02ItemImgView itemView = new B03V02ItemImgView(this, imgPath, index);
+		B03V02ItemImgView itemView = new B03V02ItemImgView(this, imgPath);
 		postsMsgs.addView(itemView.get(), imgItemParams);
 		imgItemViews.add(itemView);
 
@@ -485,7 +481,11 @@ public class B03V02Activity extends ComNoTittleActivity {
 	/**
 	 * 移除View到视图
 	 */
-	public void removeImgFromView(int index) {
-		ShowMessageUtils.show(this, "开发中...");
+	public void removeImgFromView(B03V02ItemImgView itemImgView) {
+		ShowMessageUtils.show(this, "移除View到视图");
+		
+		
+		
+		
 	}
 }

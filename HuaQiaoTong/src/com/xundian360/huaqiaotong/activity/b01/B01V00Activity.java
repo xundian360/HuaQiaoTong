@@ -290,7 +290,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 						setData();
 					}
 				}
-
 				// 加载完成
 				onLoad();
 			} else {

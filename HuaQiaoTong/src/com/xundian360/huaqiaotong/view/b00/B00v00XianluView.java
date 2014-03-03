@@ -9,7 +9,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,8 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.fortysevendeg.swipelistview.BaseSwipeListViewListener;
-import com.fortysevendeg.swipelistview.SwipeListView;
+import com.fortysevendeg.android.swipelistview.BaseSwipeListViewListener;
+import com.fortysevendeg.android.swipelistview.SwipeListView;
 import com.xundian360.huaqiaotong.R;
 import com.xundian360.huaqiaotong.activity.b00.B00V00Activity;
 import com.xundian360.huaqiaotong.activity.b00.B00V02Activity;

@@ -46,18 +46,14 @@ public class B03V02ItemImgView {
 	// 图片路径
 	String imgPath;
 
-	// 当前视图在列表中的位置
-	int index;
-
 	SimpleListDialog operationSelect;
 	String tittleName = "操作选择";
 	String[] listData = new String[] { "在上边插入", "在下边插入", "移除" };
 
-	public B03V02ItemImgView(Context context, String imgPath, int index) {
+	public B03V02ItemImgView(Context context, String imgPath) {
 
 		this.context = context;
 		this.imgPath = imgPath;
-		this.index = index;
 
 		// 初始化数据
 		initData();
@@ -151,7 +147,7 @@ public class B03V02ItemImgView {
 
 		@Override
 		public void onClick(View v) {
-			((B03V02Activity) context).removeImgFromView(index);
+			((B03V02Activity) context).removeImgFromView(B03V02ItemImgView.this);
 		}
 	};
 
@@ -160,14 +156,6 @@ public class B03V02ItemImgView {
 	 */
 	public View get() {
 		return mainView;
-	}
-
-	public int getIndex() {
-		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
 	}
 
 	public String getImgPath() {

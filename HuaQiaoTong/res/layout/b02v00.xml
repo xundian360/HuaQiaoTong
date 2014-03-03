@@ -48,14 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
+        android:layout_alignParentRight="true"
         android:visibility="gone"
         android:layout_below="@+id/b02v00TittleLayout" />
       
-      <LinearLayout 
-          android:id="@+id/b02v00CarListLayout"
-          android:layout_width="wrap_content"
-          android:layout_height="match_parent"
-          android:layout_centerInParent="true"
-          android:layout_below="@+id/b02v00TittleLayout"
-          android:layout_margin="20dp" />
 </RelativeLayout>

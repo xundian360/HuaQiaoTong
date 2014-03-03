@@ -16,12 +16,12 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
+import com.baidu.mapapi.map.MapController;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.OverlayItem;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
@@ -33,7 +33,7 @@ import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.SerializableList;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
 import com.xundian360.huaqiaotong.util.b02.B02BaiduUtil;
-import com.xundian360.huaqiaotong.view.b02.B02v00CarView;
+import com.xundian360.huaqiaotong.view.b02.B02v00CarDialog;
 import com.xundian360.huaqiaotong.view.b02.CarsPointItemOverlay;
 
 /**
@@ -49,10 +49,14 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 
 	public static String[] from = { "b02v00ZoonItemName" };
 	public static int[] to = { R.id.b02v00ZoonItemName };
+	
+	private static final int SELF_SHOW_ZOON_LEVEL = 10;
 
 	// 返回按钮
 	ImageButton retBtn;
-
+	// 车辆列表
+	B02v00CarDialog carViewDialog;
+	
 	// 黑车集散点
 	SerializableList carPiontList;
 
@@ -67,9 +71,6 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 
 	// 区域选择按钮
 	TextView zoonSelectBtn;
-
-	// 车辆列表
-	LinearLayout carListLayout;
 
 	Handler _handler = new Handler();
 
@@ -127,8 +128,17 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 
 		zoonSelectBtn = (TextView) findViewById(R.id.b02v02ShowList);
 		zoonSelectBtn.setOnClickListener(zoonSelectBtnClick);
-
-		carListLayout = (LinearLayout) findViewById(R.id.b02v00CarListLayout);
+	}
+	
+	/**
+	 * 设置地图数据
+	 */
+	public void setMap() {
+		
+		super.setMap();
+		
+		// 设置地图zoom级别
+		mapView.getController().setZoom(SELF_SHOW_ZOON_LEVEL);
 	}
 
 	/**
@@ -170,9 +180,11 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 			// 显示可选择区域
 			if (zoonList.getVisibility() == View.GONE) {
 				zoonList.setVisibility(View.VISIBLE);
-
-				// 取消车辆列表显示
-				canceCarList();
+				
+				// 隐藏车辆列表
+				if(carViewDialog != null) {
+					carViewDialog.dismiss();
+				}
 			} else {
 				// 隐藏可选择区域
 				zoonList.setVisibility(View.GONE);
@@ -217,7 +229,7 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 			}
 		}).start();
 	}
-
+	
 	/**
 	 * 取得选中的区域对应的车辆信息
 	 */
@@ -242,13 +254,10 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 						if (taxis != null && taxis.size() > 0) {
 
 							// 设置车辆列表View
-							B02v00CarView carView = new B02v00CarView(
-									B02V00Activity.this, tittleText, taxis);
-							carListLayout.removeAllViews();
-							carListLayout.addView(carView.get());
-
-							// 车辆列表显示
-							showCarList();
+							carViewDialog = new B02v00CarDialog(B02V00Activity.this, tittleText, taxis);
+							
+							carViewDialog.show();
+							
 						} else {
 							ShowMessageUtils.show(B02V00Activity.this,
 									"取得数据失败...");
@@ -257,28 +266,6 @@ public class B02V00Activity extends ComNoTittleMapActivity {
 				});
 			}
 		}).start();
-	}
-
-	/**
-	 * 车辆列表显示
-	 */
-	public void showCarList() {
-
-		// 显示车辆列表
-		if (carListLayout.getVisibility() == View.GONE) {
-			carListLayout.setVisibility(View.VISIBLE);
-		}
-	}
-
-	/**
-	 * 取消车辆列表显示
-	 */
-	public void canceCarList() {
-
-		// 隐藏车辆列表
-		if (carListLayout.getVisibility() == View.VISIBLE) {
-			carListLayout.setVisibility(View.GONE);
-		}
 	}
 
 	/**
