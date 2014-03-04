@@ -52,7 +52,6 @@
     </LinearLayout>
 
     <!-- 明细 -->
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,75 +63,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical" >
-            <LinearLayout
-                android:id="@+id/b01v01ImpOk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                style="@style/B01v03ImpContainerTheme"
-                android:background="@android:color/darker_gray" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/com_transparent"
-                    android:src="@drawable/b01v03_imp_img_0" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/B01v03ImpTextTheme"
-                    android:text="@string/b01v01_detail_imp_2"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
             
-            <LinearLayout
-                android:id="@+id/b01v01ImpGood"
+            <RatingBar
+                android:id="@+id/b01v01DetailImpRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_toLeftOf="@+id/b01v01ImpOk"
-                android:layout_marginRight="10dp"
-                style="@style/B01v03ImpContainerTheme"
-                android:background="@color/b01_v01_red_pink" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/com_transparent"
-                    android:src="@drawable/b01v03_imp_img_1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/B01v03ImpTextTheme"
-                    android:text="@string/b01v01_detail_imp_1_1"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="3" />
             
-           <LinearLayout
-                android:id="@+id/b01v01ImpNg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_toRightOf="@+id/b01v01ImpOk"
-                android:layout_marginLeft="10dp"
-                style="@style/B01v03ImpContainerTheme"
-                android:background="@android:color/darker_gray" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/com_transparent"
-                    android:src="@drawable/b01v03_imp_img_0" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/B01v03ImpTextTheme"
-                    android:text="@string/b01v01_detail_imp_0_1"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
         </RelativeLayout>
         
         <EditText 

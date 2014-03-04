@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.xundian360.huaqiaotong.R;
@@ -36,13 +37,16 @@ public class B01V03Activity extends ComNoTittleActivity {
 	ImageButton okBtn;
 	// 标题
 	TextView tittleText;
-
-	// 评价：满意
-	LinearLayout impGood;
-	// 评价：一般
-	LinearLayout impOk;
-	// 评价：不满意
-	LinearLayout impNg;
+//
+//	// 评价：满意
+//	LinearLayout impGood;
+//	// 评价：一般
+//	LinearLayout impOk;
+//	// 评价：不满意
+//	LinearLayout impNg;
+	
+	// 评分
+	RatingBar impRating;
 
 	// 评价
 	EditText impMsg;
@@ -50,8 +54,8 @@ public class B01V03Activity extends ComNoTittleActivity {
 	// 百度Item
 	Baidu baiduItem;
 
-	// 评分
-	int score = 3;
+	// 评分(默认3颗星)
+	float score = 3;
 
 	Handler _handler = new Handler();
 
@@ -103,12 +107,15 @@ public class B01V03Activity extends ComNoTittleActivity {
 		tittleText.setText(getString(R.string.b01v03_tittle_text,
 				baiduItem.getName()));
 
-		impGood = (LinearLayout) findViewById(R.id.b01v01ImpGood);
-		impGood.setOnClickListener(impGoodClick);
-		impOk = (LinearLayout) findViewById(R.id.b01v01ImpOk);
-		impOk.setOnClickListener(impOkClick);
-		impNg = (LinearLayout) findViewById(R.id.b01v01ImpNg);
-		impNg.setOnClickListener(impNgClick);
+//		impGood = (LinearLayout) findViewById(R.id.b01v01ImpGood);
+//		impGood.setOnClickListener(impGoodClick);
+//		impOk = (LinearLayout) findViewById(R.id.b01v01ImpOk);
+//		impOk.setOnClickListener(impOkClick);
+//		impNg = (LinearLayout) findViewById(R.id.b01v01ImpNg);
+//		impNg.setOnClickListener(impNgClick);
+		
+		impRating = (RatingBar) findViewById(R.id.b01v01DetailImpRating);
+		impRating.setRating(score);
 
 		impMsg = (EditText) findViewById(R.id.b01v01DetailImpMsg);
 	}
@@ -163,6 +170,8 @@ public class B01V03Activity extends ComNoTittleActivity {
 				@Override
 				public void run() {
 
+					score = impRating.getRating();
+					
 					// 添加商店评论
 					final boolean plRe = B01v00ShopUtils.addShopPingLun(
 							B01V03Activity.this, baiduItem.getUid(), userId,
@@ -194,46 +203,46 @@ public class B01V03Activity extends ComNoTittleActivity {
 		}
 	};
 
-	/**
-	 * 评价：满意
-	 */
-	OnClickListener impGoodClick = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-
-			score = 5;
-
-			// 打开键盘
-			ShowMessageUtils.show(B01V03Activity.this, "评价：满意");
-		}
-	};
-
-	/**
-	 * 评价：一般
-	 */
-	OnClickListener impOkClick = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-
-			score = 3;
-
-			ShowMessageUtils.show(B01V03Activity.this, "评价：一般");
-		}
-	};
-
-	/**
-	 * 评价：不满意
-	 */
-	OnClickListener impNgClick = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-
-			score = 1;
-
-			ShowMessageUtils.show(B01V03Activity.this, "评价：不满意");
-		}
-	};
+//	/**
+//	 * 评价：满意
+//	 */
+//	OnClickListener impGoodClick = new OnClickListener() {
+//
+//		@Override
+//		public void onClick(View v) {
+//
+//			score = 5;
+//
+//			// 打开键盘
+//			ShowMessageUtils.show(B01V03Activity.this, "评价：满意");
+//		}
+//	};
+//
+//	/**
+//	 * 评价：一般
+//	 */
+//	OnClickListener impOkClick = new OnClickListener() {
+//
+//		@Override
+//		public void onClick(View v) {
+//
+//			score = 3;
+//
+//			ShowMessageUtils.show(B01V03Activity.this, "评价：一般");
+//		}
+//	};
+//
+//	/**
+//	 * 评价：不满意
+//	 */
+//	OnClickListener impNgClick = new OnClickListener() {
+//
+//		@Override
+//		public void onClick(View v) {
+//
+//			score = 1;
+//
+//			ShowMessageUtils.show(B01V03Activity.this, "评价：不满意");
+//		}
+//	};
 }
