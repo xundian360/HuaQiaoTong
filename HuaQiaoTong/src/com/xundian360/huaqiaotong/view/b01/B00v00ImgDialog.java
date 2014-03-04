@@ -4,6 +4,7 @@
 package com.xundian360.huaqiaotong.view.b01;
 
 import java.util.List;
+import java.util.UUID;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -33,6 +34,10 @@ import com.xundian360.huaqiaotong.R;
  * @version 1.0
  */
 public class B00v00ImgDialog implements OnTouchListener {
+	
+	// 替换Tittle部分的URL为明细的URL
+	private static final String DETAILS_KEY = "details";
+	private static final String TITTLE_KEY = "tittle";
 
 	public Dialog dialog;
 
@@ -86,10 +91,13 @@ public class B00v00ImgDialog implements OnTouchListener {
 		for (int i = 0; i < imgPath.size(); i++) {
 
 			ImageView img = new ImageView(context);
-			ImageLoader.getInstance().displayImage(imgPath.get(i), img, options, imageLoadingListener);
+			
+			String imgPathValue = imgPath.get(i).replace(TITTLE_KEY, DETAILS_KEY);
+			ImageLoader.getInstance().displayImage(imgPathValue, img, options, imageLoadingListener);
 			
 			imgs.addView(img, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		}
+		
 	}
 	
 	/**
