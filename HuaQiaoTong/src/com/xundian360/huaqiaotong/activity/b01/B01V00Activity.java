@@ -30,6 +30,7 @@ import com.xundian360.huaqiaotong.activity.com.ComNoTittleActivity;
 import com.xundian360.huaqiaotong.adapter.b01.B01v00KtvAdapter;
 import com.xundian360.huaqiaotong.modle.b01.ItemConstants;
 import com.xundian360.huaqiaotong.modle.b01.ItemObject;
+import com.xundian360.huaqiaotong.modle.b01.ItemSearchCondition;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.util.CommonUtil;
 import com.xundian360.huaqiaotong.util.ShowMessageUtils;
@@ -95,15 +96,11 @@ public class B01V00Activity extends ComNoTittleActivity {
 
 	// 商店数量
 	int totalNum = 0;
-	// 第几页
-	int pageNum = 0;
-
-	int pageSize = 10;
-
+	// 查询条件
+	ItemSearchCondition searchCondition;
+	
+	// 当前是否加载
 	boolean canLoad = true;
-
-	// 检索
-	boolean isSearch = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -119,8 +116,9 @@ public class B01V00Activity extends ComNoTittleActivity {
 
 		// 动态设置筛选条件
 		autoSetSelection();
-
-		processDialog.show();
+		
+		// 设置数据
+		setDataNotClear();
 	}
 
 	/**
@@ -130,13 +128,13 @@ public class B01V00Activity extends ComNoTittleActivity {
 
 		itemObject = (ItemObject) getIntent().getSerializableExtra(
 				ITEM_OBJECT_KEY);
+		
+		searchCondition = new ItemSearchCondition(getString(itemObject.getKeyId()), 10, 0, 
+				ItemSearchCondition.ORDER_UP, 
+				ItemSearchCondition.ORDER_DOWN);
 
 		processDialog = new CommonProgressDialog(this);
 
-		// 设置数据
-		setData();
-
-		// 设置Adapter对象
 		adapter = new B01v00KtvAdapter(this, data, R.layout.b01v00_item,
 				B01v00KtvAdapter.from, B01v00KtvAdapter.to, itemsData);
 	}
@@ -190,8 +188,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			// 点击键盘的Search按钮
 			if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 
-				pageNum = 0;
-				isSearch = false;
+				searchCondition.setPageNum(0);
 
 				// 取得搜索的店铺信息
 				setSearchDate();
@@ -276,20 +273,11 @@ public class B01V00Activity extends ComNoTittleActivity {
 				canLoad = false;
 
 				// 页面++
-				pageNum++;
+				searchCondition.setPageNum(searchCondition.getPageNum() + 1);
 
-				if (isNavLoadData()) {
-
-				} else {
-					// 搜索的时候
-					if (isSearch) {
-						// 取得所有数据
-						setSearchDate();
-					} else {
-						// 取得所有数据
-						setData();
-					}
-				}
+				// 取得所有数据
+				setDataNotClear();
+				
 				// 加载完成
 				onLoad();
 			} else {
@@ -302,31 +290,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 			// 加载完成
 			onLoad();
 		}
-	}
-
-	/**
-	 * 判断导航是否有选择项目
-	 * 
-	 * @return
-	 */
-	private boolean isNavLoadData() {
-
-		boolean isNavSelect = false;
-
-		// 设置其它View显示
-		for (int i = 0; i < navItems.size(); i++) {
-			B01v00NavItemView navView = navItems.get(i);
-
-			// 设置其它导航不显示
-			if (navView.getItem_select_index() != 0) {
-				isNavSelect = true;
-
-				// 加载数据
-				navView.loadData(pageNum, false);
-				break;
-			}
-		}
-		return isNavSelect;
 	}
 
 	/**
@@ -415,7 +378,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			for (int i = 0; i < navTexts.length; i++) {
 				// 导航View
 				B01v00NavItemView navView = new B01v00NavItemView(this,
-						itemObject, i);
+						itemObject, i, searchCondition);
 
 				// 添加到容器
 				selectConditionCon.addView(navView.get(), navViewPar);
@@ -427,41 +390,6 @@ public class B01V00Activity extends ComNoTittleActivity {
 			conditionBg.setVisibility(View.GONE);
 			((RelativeLayout.LayoutParams) itemListView.getLayoutParams())
 					.setMargins(0, 10, 0, 0);
-		}
-	}
-
-	/**
-	 * 设置选中的导航
-	 */
-	public void setSelectNav(int selectIndex) {
-
-		// 设置其它View显示
-		for (int i = 0; i < navItems.size(); i++) {
-
-			B01v00NavItemView navView = navItems.get(i);
-
-			// 设置其它导航不显示
-			if (selectIndex != i) {
-				// 当前View显示
-				if (navView.isExpansion) {
-					navView.isExpansionAction();
-				}
-			}
-		}
-	}
-
-	/**
-	 * 设置非选中的导航
-	 */
-	public void setUnSelectNav(int selectIndex) {
-		// 设置其它View显示
-		for (int i = 0; i < navItems.size(); i++) {
-
-			B01v00NavItemView navView = navItems.get(i);
-
-			if (selectIndex != i) {
-				navView.setItem_select_index(0);
-			}
 		}
 	}
 
@@ -509,19 +437,34 @@ public class B01V00Activity extends ComNoTittleActivity {
 	};
 
 	/**
-	 * 取得商店数据
+	 * 取得商店数据(不清空原来数据)
 	 */
-	Runnable getShopData = new Runnable() {
+	Runnable getShopDataNotClear = new Runnable() {
 		@Override
 		public void run() {
 
 			// 取得所有商店信息
 			Map<String, Object> shopItems = B01v00ShopUtils.getShopList(
-					B01V00Activity.this, getString(itemObject.getKeyId()),
-					pageSize, pageNum);
+					B01V00Activity.this, searchCondition);
 
 			// 设置数据
 			setShopItems(shopItems, false);
+		}
+	};
+	
+	/**
+	 * 取得商店数据(清空原来数据)
+	 */
+	Runnable getShopDataWithClear = new Runnable() {
+		@Override
+		public void run() {
+
+			// 取得所有商店信息
+			Map<String, Object> shopItems = B01v00ShopUtils.getShopList(
+					B01V00Activity.this, searchCondition);
+
+			// 设置数据
+			setShopItems(shopItems, true);
 		}
 	};
 
@@ -560,7 +503,7 @@ public class B01V00Activity extends ComNoTittleActivity {
 			itemsData = shopItemsNet;
 
 			// 设置页面为第一页
-			pageNum = 0;
+			searchCondition.setPageNum(0);
 		} else {
 			itemsData.addAll(shopItemsNet);
 		}
@@ -597,57 +540,35 @@ public class B01V00Activity extends ComNoTittleActivity {
 
 		// 输入不为空
 		if (StringUtils.isNotBlank(searchTextV)) {
+			
+			// 设置查询条件
+			searchCondition.setSearchText2(searchTextV);
 
 			// 取得商店数据
-			new Thread(getShopSearchData).start();
+			setDataWithClear();
 		}
 	}
 
 	/**
-	 * 取得搜索的店铺信息
+	 *  设置数据(不清空原来数据)
 	 */
-	Runnable getShopSearchData = new Runnable() {
-
-		@Override
-		public void run() {
-
-			// 搜索关键字
-			String searchTextV = searchText.getText().toString();
-
-			// 取得所有商店信息
-			Map<String, Object> shopItems = B01v00ShopUtils.getShopListByTag(
-					B01V00Activity.this, getString(itemObject.getKeyId()),
-					searchTextV, pageSize, pageNum);
-
-			// 取得了检索信息
-			if (shopItems == null || shopItems.size() > 0) {
-
-				// 第一次搜索的时候
-				if (!isSearch) {
-
-					isSearch = true;
-
-					// 晴空原来的数据源
-					itemsData.clear();
-					data.clear();
-
-					// 重制分页
-					pageNum = 0;
-				}
-			}
-
-			// 设置数据
-			setShopItems(shopItems, false);
-		}
-	};
-
-	/**
-	 *  设置数据
-	 */
-	private void setData() {
+	public void setDataNotClear() {
+		
+		processDialog.show();
 
 		// 取得商店数据
-		new Thread(getShopData).start();
+		new Thread(getShopDataNotClear).start();
+	}
+	
+	/**
+	 *  设置数据(清空原来数据)
+	 */
+	public void setDataWithClear() {
+		
+		processDialog.show();
+
+		// 取得商店数据
+		new Thread(getShopDataWithClear).start();
 	}
 
 	/**
@@ -678,41 +599,13 @@ public class B01V00Activity extends ComNoTittleActivity {
 			data.add(dataItem);
 		}
 	}
-
-	@Override
-	public void onBackPressed() {
-		// 显示全部数据
-		if (isSearch || isNavSelect()) {
-			isSearch = false;
-			itemsData.clear();
-			// 设置页面为第一页
-			pageNum = 0;
-			// 设置数据
-			setData();
-		} else {
-			super.onBackPressed();
-		}
-	}
-
+	
 	/**
+	 * 设置查询条件
 	 * @return
 	 */
-	private boolean isNavSelect() {
-		boolean isNavSelect = false;
-		// 设置其它View显示
-		for (int i = 0; i < navItems.size(); i++) {
-			B01v00NavItemView navView = navItems.get(i);
-
-			// 设置其它导航不显示
-			if (navView.getItem_select_index() != 0) {
-				isNavSelect = true;
-
-				navView.setItem_select_index(0);
-
-				break;
-			}
-		}
-		return isNavSelect;
+	public ItemSearchCondition getSearchCondition() {
+		return searchCondition;
 	}
 
 }

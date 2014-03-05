@@ -16,6 +16,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.xundian360.huaqiaotong.R;
+import com.xundian360.huaqiaotong.modle.b01.ItemSearchCondition;
 import com.xundian360.huaqiaotong.modle.com.Baidu;
 import com.xundian360.huaqiaotong.modle.com.BaiduComment;
 import com.xundian360.huaqiaotong.util.BaiduUtil;
@@ -41,125 +42,121 @@ public class B01v00ShopUtils extends BaiduUtil {
 	 * 取得商店信息列表
 	 * 
 	 * @param context
-	 * @param key
-	 *            检索关键字 饭店：10001 KTV：10002 宾馆：10003 电影院：10004 健身房：10005
-	 * @param pageSize
-	 * @param pageNum
+	 * @param searchCondition 条件
 	 * @return
 	 */
-	public static Map<String, Object> getShopList(Context context, String key,
-			int pageSize, int pageNum) {
+	public static Map<String, Object> getShopList(Context context, ItemSearchCondition searchCondition) {
 		// 访问URL
 		String url = context.getString(R.string.comm_get_shop_list);
 
 		// 设置参数
 		HashMap<String, String> parameter = new HashMap<String, String>();
-		parameter.put("key", key);
-		parameter.put("pageSize", pageSize + "");
-		parameter.put("pageNum", pageNum + "");
+		parameter.put("key", searchCondition.getKey());
+		parameter.put("pageSize", searchCondition.getPageSize() + "");
+		parameter.put("pageNum", searchCondition.getPageNum() + "");
 
 		// 访问百度，设置参数
 		Map<String, Object> ktvs = searchShop(context, url, parameter);
 
 		return ktvs;
 	}
-
-	/**
-	 * 取得商店信息列表
-	 * 
-	 * @param context
-	 * @param key
-	 *            检索关键字
-	 * @param minPrice
-	 * @param maxPrice
-	 * @param pageSize
-	 * @param pageNum
-	 * @return
-	 */
-	public static Map<String, Object> getShopListByPrice(Context context,
-			String key, String minPrice, String maxPrice, int pageSize,
-			int pageNum) {
-
-		// 访问URL
-		String url = context.getString(R.string.comm_get_shop_list_by_price);
-
-		// 设置参数
-		HashMap<String, String> parameter = new HashMap<String, String>();
-		parameter.put("key", key);
-		parameter.put("minPrice", minPrice + "");
-		parameter.put("maxPrice", maxPrice + "");
-		parameter.put("pageSize", pageSize + "");
-		parameter.put("pageNum", pageNum + "");
-
-		// 访问百度，设置参数
-		Map<String, Object> ktvs = searchShop(context, url, parameter);
-
-		return ktvs;
-	}
-
-	/**
-	 * 取得信息列表（关注数量）
-	 * 
-	 * @param context
-	 * @param key
-	 *            检索关键字
-	 * @param minPrice
-	 * @param maxPrice
-	 * @param pageSize
-	 * @param pageNum
-	 * @return
-	 */
-	public static Map<String, Object> getShopListByAttention(Context context,
-			String key, String minL, String maxL, int pageSize, int pageNum) {
-
-		// 访问URL
-		String url = context
-				.getString(R.string.comm_get_shop_list_by_attention);
-
-		// 设置参数
-		HashMap<String, String> parameter = new HashMap<String, String>();
-		parameter.put("key", key);
-		parameter.put("minL", minL + "");
-		parameter.put("maxL", maxL + "");
-		parameter.put("pageSize", pageSize + "");
-		parameter.put("pageNum", pageNum + "");
-
-		// 访问百度，设置参数
-		Map<String, Object> ktvs = searchShop(context, url, parameter);
-
-		return ktvs;
-	}
-
-	/**
-	 * 取得商店信息列表（关键字检索）
-	 * 
-	 * @param context
-	 * @param key
-	 *            检索关键字
-	 * @param minPrice
-	 * @param maxPrice
-	 * @param pageSize
-	 * @param pageNum
-	 * @return
-	 */
-	public static Map<String, Object> getShopListByTag(Context context,
-			String key, String searchText, int pageSize, int pageNum) {
-
-		// 访问URL
-		String url = context.getString(R.string.get_search_shop_list);
-
-		// 设置参数
-		HashMap<String, String> parameter = new HashMap<String, String>();
-		parameter.put("key", key);
-		parameter.put("searchText", searchText + "");
-		parameter.put("pageSize", pageSize + "");
-		parameter.put("pageNum", pageNum + "");
-
-		// 访问百度，设置参数
-		Map<String, Object> ktvs = searchShop(context, url, parameter);
-
-		return ktvs;
-	}
+	
+//	/**
+//	 * 取得商店信息列表
+//	 * 
+//	 * @param context
+//	 * @param key
+//	 *            检索关键字
+//	 * @param minPrice
+//	 * @param maxPrice
+//	 * @param pageSize
+//	 * @param pageNum
+//	 * @return
+//	 */
+//	public static Map<String, Object> getShopListByPrice(Context context,
+//			String key, String minPrice, String maxPrice, int pageSize,
+//			int pageNum) {
+//
+//		// 访问URL
+//		String url = context.getString(R.string.comm_get_shop_list_by_price);
+//
+//		// 设置参数
+//		HashMap<String, String> parameter = new HashMap<String, String>();
+//		parameter.put("key", key);
+//		parameter.put("minPrice", minPrice + "");
+//		parameter.put("maxPrice", maxPrice + "");
+//		parameter.put("pageSize", pageSize + "");
+//		parameter.put("pageNum", pageNum + "");
+//
+//		// 访问百度，设置参数
+//		Map<String, Object> ktvs = searchShop(context, url, parameter);
+//
+//		return ktvs;
+//	}
+//
+//	/**
+//	 * 取得信息列表（关注数量）
+//	 * 
+//	 * @param context
+//	 * @param key
+//	 *            检索关键字
+//	 * @param minPrice
+//	 * @param maxPrice
+//	 * @param pageSize
+//	 * @param pageNum
+//	 * @return
+//	 */
+//	public static Map<String, Object> getShopListByAttention(Context context,
+//			String key, String minL, String maxL, int pageSize, int pageNum) {
+//
+//		// 访问URL
+//		String url = context
+//				.getString(R.string.comm_get_shop_list_by_attention);
+//
+//		// 设置参数
+//		HashMap<String, String> parameter = new HashMap<String, String>();
+//		parameter.put("key", key);
+//		parameter.put("minL", minL + "");
+//		parameter.put("maxL", maxL + "");
+//		parameter.put("pageSize", pageSize + "");
+//		parameter.put("pageNum", pageNum + "");
+//
+//		// 访问百度，设置参数
+//		Map<String, Object> ktvs = searchShop(context, url, parameter);
+//
+//		return ktvs;
+//	}
+//
+//	/**
+//	 * 取得商店信息列表（关键字检索）
+//	 * 
+//	 * @param context
+//	 * @param key
+//	 *            检索关键字
+//	 * @param minPrice
+//	 * @param maxPrice
+//	 * @param pageSize
+//	 * @param pageNum
+//	 * @return
+//	 */
+//	public static Map<String, Object> getShopListByTag(Context context,
+//			String key, String searchText, int pageSize, int pageNum) {
+//
+//		// 访问URL
+//		String url = context.getString(R.string.get_search_shop_list);
+//
+//		// 设置参数
+//		HashMap<String, String> parameter = new HashMap<String, String>();
+//		parameter.put("key", key);
+//		parameter.put("searchText", searchText + "");
+//		parameter.put("pageSize", pageSize + "");
+//		parameter.put("pageNum", pageNum + "");
+//
+//		// 访问百度，设置参数
+//		Map<String, Object> ktvs = searchShop(context, url, parameter);
+//
+//		return ktvs;
+//	}
 
 	/**
 	 * KTV检索

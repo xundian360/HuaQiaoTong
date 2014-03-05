@@ -23,7 +23,7 @@ public class ItemConstants {
 	public static final int ITEM_SERACH_BY_ATTENTION = 2;
 	// 按照关键字搜索区分
 	public static final int ITEM_SERACH_BY_KEY = 3;
-
+	
 	// 默认每页显示个数
 	public static final int DEL_PAGE_SIZT = 10;
 
@@ -84,4 +84,7 @@ public class ItemConstants {
 			R.array.b01v01_3_nav_2_key };
 	public static final int[] HOTEL_NAV_ITEM_SEARCH_TYPE = {
 			ITEM_SERACH_BY_PRICE, ITEM_SERACH_BY_ATTENTION };
+	
+	// 导航可展开
+	public static final int[] ITEM_CAN_EXPANSION_KEY = {R.array.b01v01_1_nav_1_key};
 }
