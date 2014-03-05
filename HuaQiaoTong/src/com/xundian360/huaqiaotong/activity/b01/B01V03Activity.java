@@ -30,6 +30,8 @@ import com.xundian360.huaqiaotong.view.com.CommonProgressDialog;
  * @version 1.0
  */
 public class B01V03Activity extends ComNoTittleActivity {
+	
+	public static final int PL_SECCESS = 1010;
 
 	// 取消按钮
 	ImageButton cancelBtn;
@@ -146,7 +148,7 @@ public class B01V03Activity extends ComNoTittleActivity {
 			}
 
 			// 用户ID
-			final String userId = CommonUtil.isLogin(B01V03Activity.this);
+			final String userId = CommonUtil.getLoginUserId(B01V03Activity.this);
 
 			// 判断是否登录
 			if (StringUtils.isBlank(userId)) {
@@ -185,6 +187,8 @@ public class B01V03Activity extends ComNoTittleActivity {
 							if (plRe) {
 								ShowMessageUtils.show(B01V03Activity.this,
 										R.string.b01v03_msg_c_success);
+								
+								setResult(PL_SECCESS);
 
 								// 跳出当前Activity
 								finish();

@@ -48,6 +48,8 @@ public class B01V01Activity extends ComNoTittleActivity {
 
 	public static final String GO_HERE_KEY = "GO_HERE_KEY";
 	public static final int GO_HERE_CODE = 1009;
+	public static int INTENT_PL = 1000;
+	public static int PL_KEY = 1002;
 
 	// 返回按钮
 	ImageButton retBtn;
@@ -124,12 +126,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 
 		// 初始化组件
 		initModule();
-	}
-
-	@Override
-	protected void onStart() {
-		super.onStart();
-
+		
 		// 取得评论信息
 		setCommData();
 	}
@@ -396,7 +393,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 			commAdapter.notifyDataSetChanged();
 		}
 	};
-
+	
 	/**
 	 * 评论按钮事件
 	 */
@@ -404,7 +401,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 		@Override
 		public void onClick(View arg0) {
 
-			String userId = CommonUtil.isLogin(B01V01Activity.this);
+			String userId = CommonUtil.isLogin(B01V01Activity.this, INTENT_PL);
 
 			// 判断是否登录
 			if (StringUtils.isBlank(userId)) {
@@ -413,7 +410,7 @@ public class B01V01Activity extends ComNoTittleActivity {
 
 			CommonUtil.startActivityForResult(B01V01Activity.this,
 					B01V03Activity.class, B01V01Activity.KTV_KEY, baiduItem,
-					100);
+					PL_KEY);
 		}
 	};
 
@@ -490,5 +487,23 @@ public class B01V01Activity extends ComNoTittleActivity {
 			onBackPressed();
 		}
 	};
+	
+	protected void onActivityResult(int requestCode, int resultCode, android.content.Intent data) {
+		
+		// 评论页面迁移
+		if(INTENT_PL == requestCode) {
+			if(CommonUtil.isLoginJudge(B01V01Activity.this)) {
+				CommonUtil.startActivityForResult(B01V01Activity.this,
+						B01V03Activity.class, B01V01Activity.KTV_KEY, baiduItem,
+						100);
+			}
+		}
+		
+		// 评论成功，重新获取评论信息
+		if(PL_KEY == requestCode && B01V03Activity.PL_SECCESS == resultCode) {
+			// 取得评论信息
+			setCommData();
+		}
+	}
 
 }

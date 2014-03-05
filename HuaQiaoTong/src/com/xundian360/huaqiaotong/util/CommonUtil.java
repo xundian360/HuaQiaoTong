@@ -492,9 +492,10 @@ public class CommonUtil {
 	 * 判断是否登录
 	 * 
 	 * @param ctx
+	 * @param intent 登录之后，页面迁移
 	 * @return
 	 */
-	public static String isLogin(Context ctx) {
+	public static String isLogin(Context ctx, int intent) {
 
 		String userId = null;
 
@@ -511,10 +512,37 @@ public class CommonUtil {
 			ShowMessageUtils.show(ctx,
 					com.xundian360.huaqiaotong.R.string.b04v00_login_msg);
 
-			CommonUtil.startActivityForResult(ctx, B04V00Activity.class, 100);
+			CommonUtil.startActivityForResult(ctx, B04V00Activity.class, intent);
 		}
 
 		return userId;
+	}
+	
+	/**
+	 * 判断是否登录
+	 * @param ctx
+	 * @return
+	 */
+	public static boolean isLoginJudge(Context ctx) {
+		UserModle userModle = new UserModle(ctx);
+		
+		if (userModle.user != null
+				&& StringUtils.isNotBlank(userModle.user.getUserId())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 取得登录用户ID
+	 * @param ctx
+	 * @return
+	 */
+	public static String getLoginUserId(Context ctx) {
+		UserModle userModle = new UserModle(ctx);
+		
+		return userModle.user.getUserId();
 	}
 	
     public static int convertDpToPixel(Context context, float dp) {
